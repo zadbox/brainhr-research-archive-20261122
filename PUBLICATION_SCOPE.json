@@ -21,5 +21,7 @@
   ],
   "existing_source_code_repositories_linked": true,
   "real_cv_uploads": 0,
-  "potential_sensitive_source_files_excluded": 15
+  "potential_sensitive_source_files_excluded": 15,
+  "requested_visibility": "public",
+  "visibility_authorization": "Explicit user selection on 22 November 2026: make the new archive repository public, including code, synthetic data and models."
 }

@@ -1,6 +1,8 @@
-# Archive privée du projet BrainHR
+# Archive publique du projet BrainHR
 
-État au **22 novembre 2026**. Ce dépôt centralise les documents de travail des auteurs, les données explicitement synthétiques, les jugements A/B sans texte de CV, les inventaires et les liens GitHub et Hugging Face. Il reste privé et ne change pas les conditions d’accès public décrites dans le manuscrit.
+**Built with Meta Llama 3**
+
+État au **22 novembre 2026**. Ce dépôt centralise les documents de travail des auteurs, les données explicitement synthétiques, les jugements A/B sans texte de CV, les inventaires et les liens GitHub et Hugging Face. Sa publication publique a été explicitement demandée le 22 novembre 2026. Les réglages des dépôts externes restent inchangés. Les documents d’accès sont actualisés pour tenir compte de cette nouvelle archive publique.
 
 L’extract local contient **549 718 fichiers ordinaires et 433 liens**, soit **97 221 524 284 octets de fichiers**. Tous leurs chemins d’origine et de copie sont indexés ici. Les contenus de CV réels, les 1 074 exemples qui en sont dérivés, les citations des annotations et les secrets ne sont pas transférés. Les dépendances installées et les bases d’objets Git restent dans la copie locale ; leurs chemins figurent dans l’inventaire.
 
@@ -48,7 +50,7 @@ Les fichiers de tâches synthétiques sont compressés avec gzip. Ils contiennen
 
 ## Modèles et checkpoints
 
-Les **131 références locales de poids** correspondent à **47 objets distincts**, soit **35 058 746 271 octets** après déduplication. Le [manifeste des objets](models/MODEL_OBJECTS.json) relie chaque objet à tous ses chemins locaux d’origine. Les fichiers volumineux sont découpés en parties d’au plus un Gio, chacune avec une empreinte SHA256. Leur emplacement est la [release privée associée](https://github.com/zadbox/brainhr-research-archive-20261122/releases/tag/archive-20261122).
+Les **131 références locales de poids** correspondent à **47 objets distincts**, soit **35 058 746 271 octets** après déduplication. Le [manifeste des objets](models/MODEL_OBJECTS.json) relie chaque objet à tous ses chemins locaux d’origine. Les fichiers volumineux sont découpés en parties d’au plus un Gio, chacune avec une empreinte SHA256. Leur emplacement est la [release associée](https://github.com/zadbox/brainhr-research-archive-20261122/releases/tag/archive-20261122).
 
 L’adaptateur QLoRA principal commence par `20cfe4592625`, le checkpoint 700 par `f9bbaad0c956`, et l’adaptateur correctif distinct par `171f4c920535`. Le manifeste conserve également les checkpoints intermédiaires, les essais de qualification, les poids de base en quatre fragments et le modèle de base MLX en un fichier. Ces artefacts ne sont pas tous des modèles validés et ne sont pas interchangeables.
 
