@@ -1,0 +1,61 @@
+name: Publish immutable candidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      candidate_sha:
+        description: Full origin/main commit SHA to publish (defaults to the dispatched SHA)
+        required: false
+        type: string
+      public_api_base_url:
+        description: Production API URL baked into the frontend image
+        required: true
+        default: https://app.brainhr.braingentech.com
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-release-images
+  cancel-in-progress: false
+
+jobs:
+  authorize:
+    name: Authorize manual publication
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require canonical main
+        env:
+          CALLER_REPOSITORY: ${{ github.repository }}
+          CALLER_REPOSITORY_ID: ${{ github.repository_id }}
+          CALLER_REPOSITORY_OWNER_ID: ${{ github.repository_owner_id }}
+          CALLER_REF: ${{ github.ref }}
+        run: |
+          set -euo pipefail
+          if [[ "$CALLER_REPOSITORY" != 'SamAI10/brainrhaws' || "$CALLER_REPOSITORY_ID" != '1225162699' ]]; then
+            echo "This workflow is restricted to the canonical BrainRH repository." >&2
+            exit 1
+          fi
+          if [[ "$CALLER_REPOSITORY_OWNER_ID" != '169595948' ]]; then
+            echo "This workflow is restricted to the canonical BrainRH repository owner." >&2
+            exit 1
+          fi
+          if [[ "$CALLER_REF" != 'refs/heads/main' ]]; then
+            echo "Release publication is restricted to refs/heads/main." >&2
+            exit 1
+          fi
+
+  publish:
+    name: Publish ECR images
+    needs: authorize
+    permissions:
+      contents: read
+      id-token: write
+      actions: read
+      checks: read
+    uses: ./.github/workflows/release-build.yml
+    with:
+      candidate_sha: ${{ inputs.candidate_sha }}
+      public_api_base_url: ${{ inputs.public_api_base_url }}

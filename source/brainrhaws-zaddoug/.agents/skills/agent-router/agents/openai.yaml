@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Router"
+  short_description: "Choisit le bon workflow agent"
+  default_prompt: "Use $agent-router to choose the right Codex agent workflow for this task."

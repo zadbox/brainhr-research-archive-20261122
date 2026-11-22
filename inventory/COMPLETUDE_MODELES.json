@@ -1,0 +1,56 @@
+[
+  {
+    "index_source": "/Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/model.safetensors.index.json",
+    "index_copy": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/model.safetensors.index.json",
+    "shards": [
+      {
+        "shard": "model-00001-of-00004.safetensors",
+        "source_path": "/Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/model-00001-of-00004.safetensors",
+        "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/model-00001-of-00004.safetensors",
+        "source_exists": true,
+        "copy_exists": true,
+        "bytes": 4976698672
+      },
+      {
+        "shard": "model-00002-of-00004.safetensors",
+        "source_path": "/Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/model-00002-of-00004.safetensors",
+        "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/model-00002-of-00004.safetensors",
+        "source_exists": true,
+        "copy_exists": true,
+        "bytes": 4999802720
+      },
+      {
+        "shard": "model-00003-of-00004.safetensors",
+        "source_path": "/Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/model-00003-of-00004.safetensors",
+        "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/model-00003-of-00004.safetensors",
+        "source_exists": true,
+        "copy_exists": true,
+        "bytes": 4915916176
+      },
+      {
+        "shard": "model-00004-of-00004.safetensors",
+        "source_path": "/Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/model-00004-of-00004.safetensors",
+        "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/model-00004-of-00004.safetensors",
+        "source_exists": true,
+        "copy_exists": true,
+        "bytes": 1168138808
+      }
+    ],
+    "all_referenced_shards_copied": true
+  },
+  {
+    "index_source": "/Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit/snapshots/c38b3b1f03cce0ce0ccd235e5c97b0d3d255e651/model.safetensors.index.json",
+    "index_copy": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit/snapshots/c38b3b1f03cce0ce0ccd235e5c97b0d3d255e651/model.safetensors.index.json",
+    "shards": [
+      {
+        "shard": "model.safetensors",
+        "source_path": "/Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit/snapshots/c38b3b1f03cce0ce0ccd235e5c97b0d3d255e651/model.safetensors",
+        "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit/snapshots/c38b3b1f03cce0ce0ccd235e5c97b0d3d255e651/model.safetensors",
+        "source_exists": true,
+        "copy_exists": true,
+        "bytes": 5272660122
+      }
+    ],
+    "all_referenced_shards_copied": true
+  }
+]

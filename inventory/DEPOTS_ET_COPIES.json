@@ -1,0 +1,205 @@
+[
+  {
+    "provider": "git_local",
+    "url": "https://github.com/SamAI10/brainrh-cv-parser-fix",
+    "local_path": "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix",
+    "remote": "remote \"origin\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://github.com/zadbox/BrainRhv0.1",
+    "local_path": "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix",
+    "remote": "remote \"zadbox\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://github.com/SamAI10/brainrhaws",
+    "local_path": "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainrhaws",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainrhaws",
+    "remote": "remote \"origin\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://huggingface.co/datasets/mounimzad/brainhr-plus",
+    "local_path": "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/huggingface_dataset",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/huggingface_dataset",
+    "remote": "remote \"origin\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://github.com/SamAI10/brainrh-cv-parser-fix",
+    "local_path": "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy",
+    "remote": "remote \"origin\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://github.com/zadbox/BrainRhv0.1",
+    "local_path": "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy",
+    "remote": "remote \"zadbox\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://github.com/SamAI10/brainrh-cv-parser-fix",
+    "local_path": "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy 2",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy 2",
+    "remote": "remote \"origin\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://github.com/zadbox/BrainRhv0.1",
+    "local_path": "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy 2",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy 2",
+    "remote": "remote \"zadbox\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://github.com/SamAI10/brainrhaws",
+    "local_path": "/Users/mac/Documents/ClaudeC/brainrhaws-zaddoug",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrhaws-zaddoug",
+    "remote": "remote \"origin\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://github.com/SamAI10/brain-rh",
+    "local_path": "/Users/mac/Documents/ClaudeC/Brain-rh-v2/brain-rh-v2",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-rh-v2/brain-rh-v2",
+    "remote": "remote \"origin\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://github.com/SamAI10/brain-rh",
+    "local_path": "/Users/mac/Documents/ClaudeC/Brain-rh-v3/brain-rh-main",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-rh-v3/brain-rh-main",
+    "remote": "remote \"origin\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://github.com/SamAI10/brain-rh",
+    "local_path": "/Users/mac/Documents/ClaudeC/Brain-Rh/brain-rh",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-Rh/brain-rh",
+    "remote": "remote \"origin\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://github.com/SamAI10/Brain-RH-migration",
+    "local_path": "/Users/mac/Documents/ClaudeC/Brain-rh-m/Brain-RH-migration",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-rh-m/Brain-RH-migration",
+    "remote": "remote \"origin\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://github.com/SamAI10/Brain-RH-migration",
+    "local_path": "/Users/mac/Documents/ClaudeC/Brain-rh-m-v2/Brain-RH-migration",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-rh-m-v2/Brain-RH-migration",
+    "remote": "remote \"origin\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://github.com/SamAI10/braintrhv01",
+    "local_path": "/Users/mac/Documents/ClaudeC/Brainrhv04/braintrhv01",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brainrhv04/braintrhv01",
+    "remote": "remote \"origin\""
+  },
+  {
+    "provider": "git_local",
+    "url": "https://github.com/SamAI10/brainrhz-final",
+    "local_path": "/Users/mac/Documents/ClaudeC/brainrhz-final",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrhz-final",
+    "remote": "remote \"origin\""
+  },
+  {
+    "provider": "github_manifest",
+    "repository": "SamAI10/brainrh-cv-parser-fix",
+    "url": "https://github.com/SamAI10/brainrh-cv-parser-fix",
+    "observed_utc": "2026-11-21T23:16:03.588039+00:00"
+  },
+  {
+    "provider": "github_manifest",
+    "repository": "zadbox/BrainRhv0.1",
+    "url": "https://github.com/zadbox/BrainRhv0.1",
+    "observed_utc": "2026-11-21T23:16:03.588039+00:00"
+  },
+  {
+    "provider": "github_manifest",
+    "repository": "SamAI10/brainrhaws",
+    "url": "https://github.com/SamAI10/brainrhaws",
+    "observed_utc": "2026-11-21T23:16:03.588039+00:00"
+  },
+  {
+    "provider": "huggingface_manifest",
+    "repository": "mounimzad/brainhr-fusion-annotations-20261110",
+    "type": "dataset",
+    "url": "https://huggingface.co/datasets/mounimzad/brainhr-fusion-annotations-20261110",
+    "recorded_revision": "7ce2cda77a4acee4539449d22de88cadac6e239b",
+    "observed_utc": "2026-11-21T23:14:53.529613+00:00",
+    "current_remote_access_rechecked": false,
+    "local_snapshot": "/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-fusion-private",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-fusion-private"
+  },
+  {
+    "provider": "huggingface_manifest",
+    "repository": "mounimzad/brainhr-synthetic-6000-reviewers",
+    "type": "dataset",
+    "url": "https://huggingface.co/datasets/mounimzad/brainhr-synthetic-6000-reviewers",
+    "recorded_revision": "cbe716e1072450c536137054b57dbda80aad1d2d",
+    "observed_utc": "2026-11-21T23:14:53.529613+00:00",
+    "current_remote_access_rechecked": false,
+    "local_snapshot": "/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-dataset",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-dataset"
+  },
+  {
+    "provider": "huggingface_manifest",
+    "repository": "mounimzad/Llama-3-BrainHR-QLoRA-Fusion-20261110",
+    "type": "model",
+    "url": "https://huggingface.co/mounimzad/Llama-3-BrainHR-QLoRA-Fusion-20261110",
+    "recorded_revision": "bbdb4d8ff27b88c534d99cca53e47bb04dbf444b",
+    "observed_utc": "2026-11-21T23:14:53.529613+00:00",
+    "current_remote_access_rechecked": false,
+    "local_snapshot": "/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-model",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-model"
+  },
+  {
+    "provider": "huggingface_manifest",
+    "repository": "mounimzad/Llama-3-BrainHR-FT1200",
+    "type": "model",
+    "url": "https://huggingface.co/mounimzad/Llama-3-BrainHR-FT1200",
+    "recorded_revision": "0e0c07a0b63b1da8c74af98c8fdb469806807134",
+    "observed_utc": "2026-11-21T23:14:53.529613+00:00",
+    "current_remote_access_rechecked": false,
+    "local_snapshot": "/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-mlx-historical",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-mlx-historical"
+  },
+  {
+    "provider": "huggingface_manifest",
+    "repository": "mounimzad/brainhr-plus",
+    "type": "dataset",
+    "url": "https://huggingface.co/datasets/mounimzad/brainhr-plus",
+    "recorded_revision": "019589651551093249709c7d05d5262e67f0b601",
+    "observed_utc": "2026-11-21T23:14:53.529613+00:00",
+    "current_remote_access_rechecked": false,
+    "local_snapshot": "/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-companion",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-companion"
+  },
+  {
+    "provider": "huggingface_manifest",
+    "repository": "mounimzad/BrainHR-Adapter-Research-Access",
+    "type": "model",
+    "url": "https://huggingface.co/mounimzad/BrainHR-Adapter-Research-Access",
+    "recorded_revision": "d3701897aac21e552d6e113d1d258ce02ed04c64",
+    "observed_utc": "2026-11-21T23:14:53.529613+00:00",
+    "current_remote_access_rechecked": false
+  },
+  {
+    "provider": "huggingface_manifest",
+    "repository": "BrainResearchGroup/candidate-matching-synthetic",
+    "type": "dataset",
+    "url": "https://huggingface.co/datasets/BrainResearchGroup/candidate-matching-synthetic",
+    "recorded_revision": "45e73534de4d6e0d86a43855da4404239b4550d0",
+    "observed_utc": "2026-11-21T23:14:53.529613+00:00",
+    "current_remote_access_rechecked": false
+  }
+]

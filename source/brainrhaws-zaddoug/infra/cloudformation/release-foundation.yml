@@ -1,0 +1,412 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: BrainRH immutable ECR repositories and GitHub OIDC release roles.
+
+Parameters:
+  GitHubOwner:
+    Type: String
+    Default: SamAI10
+  GitHubRepository:
+    Type: String
+    Default: brainrhaws
+  GitHubRepositoryId:
+    Type: String
+    Default: "1225162699"
+  GitHubOwnerId:
+    Type: String
+    Default: "169595948"
+  GitHubBranch:
+    Type: String
+    Default: main
+  ExistingEc2RoleName:
+    Type: String
+  FrontendDeployInstanceId:
+    Type: AWS::EC2::Instance::Id
+    Default: i-0d2ac4ca5d6bb5ca5
+
+Resources:
+  GitHubOidcProvider:
+    Type: AWS::IAM::OIDCProvider
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList:
+        - sts.amazonaws.com
+      Tags:
+        - Key: Project
+          Value: BrainRH
+        - Key: ManagedBy
+          Value: CloudFormation
+
+  BackendRepository:
+    Type: AWS::ECR::Repository
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      RepositoryName: brainrh/backend
+      ImageTagMutability: IMMUTABLE
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      EncryptionConfiguration:
+        EncryptionType: AES256
+      LifecyclePolicy:
+        LifecyclePolicyText: >-
+          {"rules":[{"rulePriority":1,"description":"Expire untagged images after 14 days","selection":{"tagStatus":"untagged","countType":"sinceImagePushed","countUnit":"days","countNumber":14},"action":{"type":"expire"}},{"rulePriority":2,"description":"Keep the newest 30 immutable SHA releases","selection":{"tagStatus":"tagged","tagPrefixList":["sha-"],"countType":"imageCountMoreThan","countNumber":30},"action":{"type":"expire"}}]}
+      Tags:
+        - Key: Project
+          Value: BrainRH
+
+  FrontendRepository:
+    Type: AWS::ECR::Repository
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      RepositoryName: brainrh/frontend
+      ImageTagMutability: IMMUTABLE
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      EncryptionConfiguration:
+        EncryptionType: AES256
+      LifecyclePolicy:
+        LifecyclePolicyText: >-
+          {"rules":[{"rulePriority":1,"description":"Expire untagged images after 14 days","selection":{"tagStatus":"untagged","countType":"sinceImagePushed","countUnit":"days","countNumber":14},"action":{"type":"expire"}},{"rulePriority":2,"description":"Keep the newest 30 immutable SHA releases","selection":{"tagStatus":"tagged","tagPrefixList":["sha-"],"countType":"imageCountMoreThan","countNumber":30},"action":{"type":"expire"}}]}
+      Tags:
+        - Key: Project
+          Value: BrainRH
+
+  WorkerVideoRepository:
+    Type: AWS::ECR::Repository
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      RepositoryName: brainrh/worker-video
+      ImageTagMutability: IMMUTABLE
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      EncryptionConfiguration:
+        EncryptionType: AES256
+      LifecyclePolicy:
+        LifecyclePolicyText: >-
+          {"rules":[{"rulePriority":1,"description":"Expire untagged images after 14 days","selection":{"tagStatus":"untagged","countType":"sinceImagePushed","countUnit":"days","countNumber":14},"action":{"type":"expire"}},{"rulePriority":2,"description":"Keep the newest 30 immutable SHA releases","selection":{"tagStatus":"tagged","tagPrefixList":["sha-"],"countType":"imageCountMoreThan","countNumber":30},"action":{"type":"expire"}}]}
+      Tags:
+        - Key: Project
+          Value: BrainRH
+
+  WorkerVideoAlpineExperimentRepository:
+    Type: AWS::ECR::Repository
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      RepositoryName: brainrh-experiments/worker-video-alpine
+      ImageTagMutability: IMMUTABLE
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      EncryptionConfiguration:
+        EncryptionType: AES256
+      LifecyclePolicy:
+        LifecyclePolicyText: >-
+          {"rules":[{"rulePriority":1,"description":"Expire untagged images after 14 days","selection":{"tagStatus":"untagged","countType":"sinceImagePushed","countUnit":"days","countNumber":14},"action":{"type":"expire"}},{"rulePriority":2,"description":"Expire all Alpine experiments after 14 days","selection":{"tagStatus":"tagged","tagPrefixList":["experiment-worker-alpine-"],"countType":"sinceImagePushed","countUnit":"days","countNumber":14},"action":{"type":"expire"}}]}
+      Tags:
+        - Key: Project
+          Value: BrainRH
+        - Key: Purpose
+          Value: NonPromotableExperiment
+
+  BackendBookwormExperimentRepository:
+    Type: AWS::ECR::Repository
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      RepositoryName: brainrh-experiments/backend-bookworm
+      ImageTagMutability: IMMUTABLE
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      EncryptionConfiguration:
+        EncryptionType: AES256
+      LifecyclePolicy:
+        LifecyclePolicyText: >-
+          {"rules":[{"rulePriority":1,"description":"Expire untagged images after 14 days","selection":{"tagStatus":"untagged","countType":"sinceImagePushed","countUnit":"days","countNumber":14},"action":{"type":"expire"}},{"rulePriority":2,"description":"Expire all backend Bookworm experiments after 14 days","selection":{"tagStatus":"tagged","tagPrefixList":["experiment-backend-bookworm-"],"countType":"sinceImagePushed","countUnit":"days","countNumber":14},"action":{"type":"expire"}}]}
+      Tags:
+        - Key: Project
+          Value: BrainRH
+        - Key: Purpose
+          Value: NonPromotableExperiment
+
+  WorkerVideoBookwormExperimentRepository:
+    Type: AWS::ECR::Repository
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      RepositoryName: brainrh-experiments/worker-video-bookworm
+      ImageTagMutability: IMMUTABLE
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      EncryptionConfiguration:
+        EncryptionType: AES256
+      LifecyclePolicy:
+        LifecyclePolicyText: >-
+          {"rules":[{"rulePriority":1,"description":"Expire untagged images after 14 days","selection":{"tagStatus":"untagged","countType":"sinceImagePushed","countUnit":"days","countNumber":14},"action":{"type":"expire"}},{"rulePriority":2,"description":"Expire all worker Bookworm experiments after 14 days","selection":{"tagStatus":"tagged","tagPrefixList":["experiment-worker-video-bookworm-"],"countType":"sinceImagePushed","countUnit":"days","countNumber":14},"action":{"type":"expire"}}]}
+      Tags:
+        - Key: Project
+          Value: BrainRH
+        - Key: Purpose
+          Value: NonPromotableExperiment
+
+  GitHubBuildRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: brainrh-github-ecr-build
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Ref GitHubOidcProvider
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOwner}/${GitHubRepository}:ref:refs/heads/${GitHubBranch}
+                token.actions.githubusercontent.com:repository_id: !Ref GitHubRepositoryId
+                token.actions.githubusercontent.com:repository_owner_id: !Ref GitHubOwnerId
+                token.actions.githubusercontent.com:ref: !Sub refs/heads/${GitHubBranch}
+                token.actions.githubusercontent.com:job_workflow_ref:
+                  - !Sub ${GitHubOwner}/${GitHubRepository}/.github/workflows/release-build.yml@refs/heads/${GitHubBranch}
+                  - !Sub ${GitHubOwner}/${GitHubRepository}/.github/workflows/fast-frontend-release.yml@refs/heads/${GitHubBranch}
+      Policies:
+        - PolicyName: push-brainrh-images
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: ecr:GetAuthorizationToken
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - ecr:BatchCheckLayerAvailability
+                  - ecr:BatchGetImage
+                  - ecr:CompleteLayerUpload
+                  - ecr:DescribeImages
+                  - ecr:DescribeImageScanFindings
+                  - ecr:GetDownloadUrlForLayer
+                  - ecr:InitiateLayerUpload
+                  - ecr:ListImages
+                  - ecr:PutImage
+                  - ecr:DescribeRepositories
+                  - ecr:UploadLayerPart
+                Resource:
+                  - !GetAtt BackendRepository.Arn
+                  - !GetAtt FrontendRepository.Arn
+                  - !GetAtt WorkerVideoRepository.Arn
+      Tags:
+        - Key: Project
+          Value: BrainRH
+        - Key: ManagedBy
+          Value: CloudFormation
+
+  GitHubFrontendReleaseRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: brainrh-github-frontend-release
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Ref GitHubOidcProvider
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOwner}/${GitHubRepository}:ref:refs/heads/${GitHubBranch}
+                token.actions.githubusercontent.com:repository_id: !Ref GitHubRepositoryId
+                token.actions.githubusercontent.com:repository_owner_id: !Ref GitHubOwnerId
+                token.actions.githubusercontent.com:ref: !Sub refs/heads/${GitHubBranch}
+                token.actions.githubusercontent.com:workflow: Fast frontend build and deploy
+                token.actions.githubusercontent.com:actor_id:
+                  - "169595948"
+                  - "83179409"
+      Policies:
+        - PolicyName: build-and-deploy-brainrh-frontend
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: ecr:GetAuthorizationToken
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - ecr:BatchCheckLayerAvailability
+                  - ecr:BatchGetImage
+                  - ecr:CompleteLayerUpload
+                  - ecr:DescribeImages
+                  - ecr:GetDownloadUrlForLayer
+                  - ecr:InitiateLayerUpload
+                  - ecr:PutImage
+                  - ecr:UploadLayerPart
+                Resource: !GetAtt FrontendRepository.Arn
+              - Effect: Allow
+                Action: ssm:SendCommand
+                Resource:
+                  - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}::document/AWS-RunShellScript
+                  - !Sub arn:${AWS::Partition}:ec2:${AWS::Region}:${AWS::AccountId}:instance/${FrontendDeployInstanceId}
+              - Effect: Allow
+                Action: ssm:GetCommandInvocation
+                Resource: "*"
+      Tags:
+        - Key: Project
+          Value: BrainRH
+        - Key: Purpose
+          Value: FrontendOnlyRelease
+        - Key: ManagedBy
+          Value: CloudFormation
+
+  GitHubWorkerAlpineExperimentRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: brainrh-github-worker-alpine-experiment
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Ref GitHubOidcProvider
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOwner}/${GitHubRepository}:ref:refs/heads/${GitHubBranch}
+                token.actions.githubusercontent.com:repository_id: !Ref GitHubRepositoryId
+                token.actions.githubusercontent.com:repository_owner_id: !Ref GitHubOwnerId
+                token.actions.githubusercontent.com:ref: !Sub refs/heads/${GitHubBranch}
+                token.actions.githubusercontent.com:job_workflow_ref: !Sub ${GitHubOwner}/${GitHubRepository}/.github/workflows/experiment-worker-alpine-scan.yml@refs/heads/${GitHubBranch}
+      Policies:
+        - PolicyName: experiment-worker-alpine-only
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: ecr:GetAuthorizationToken
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - ecr:BatchCheckLayerAvailability
+                  - ecr:CompleteLayerUpload
+                  - ecr:DescribeImages
+                  - ecr:DescribeImageScanFindings
+                  - ecr:DescribeRepositories
+                  - ecr:GetDownloadUrlForLayer
+                  - ecr:InitiateLayerUpload
+                  - ecr:ListImages
+                  - ecr:PutImage
+                  - ecr:StartImageScan
+                  - ecr:UploadLayerPart
+                Resource: !GetAtt WorkerVideoAlpineExperimentRepository.Arn
+      Tags:
+        - Key: Project
+          Value: BrainRH
+        - Key: ManagedBy
+          Value: CloudFormation
+        - Key: Purpose
+          Value: NonPromotableWorkerAlpineExperiment
+
+  GitHubBookwormExperimentRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: brainrh-github-bookworm-experiment
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Ref GitHubOidcProvider
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOwner}/${GitHubRepository}:ref:refs/heads/${GitHubBranch}
+                token.actions.githubusercontent.com:repository_id: !Ref GitHubRepositoryId
+                token.actions.githubusercontent.com:repository_owner_id: !Ref GitHubOwnerId
+                token.actions.githubusercontent.com:ref: !Sub refs/heads/${GitHubBranch}
+                token.actions.githubusercontent.com:job_workflow_ref: !Sub ${GitHubOwner}/${GitHubRepository}/.github/workflows/experiment-bookworm-scan.yml@refs/heads/${GitHubBranch}
+      Policies:
+        - PolicyName: experiment-bookworm-only
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: ecr:GetAuthorizationToken
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - ecr:BatchCheckLayerAvailability
+                  - ecr:CompleteLayerUpload
+                  - ecr:DescribeImages
+                  - ecr:DescribeImageScanFindings
+                  - ecr:DescribeRepositories
+                  - ecr:GetDownloadUrlForLayer
+                  - ecr:InitiateLayerUpload
+                  - ecr:ListImages
+                  - ecr:PutImage
+                  - ecr:StartImageScan
+                  - ecr:UploadLayerPart
+                Resource:
+                  - !GetAtt BackendBookwormExperimentRepository.Arn
+                  - !GetAtt WorkerVideoBookwormExperimentRepository.Arn
+      Tags:
+        - Key: Project
+          Value: BrainRH
+        - Key: ManagedBy
+          Value: CloudFormation
+        - Key: Purpose
+          Value: NonPromotableBookwormExperiment
+
+  Ec2EcrPullPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: brainrh-prod-ecr-pull
+      Roles:
+        - !Ref ExistingEc2RoleName
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action: ecr:GetAuthorizationToken
+            Resource: "*"
+          - Effect: Allow
+            Action:
+              - ecr:BatchCheckLayerAvailability
+              - ecr:BatchGetImage
+              - ecr:GetDownloadUrlForLayer
+            Resource:
+              - !GetAtt BackendRepository.Arn
+              - !GetAtt FrontendRepository.Arn
+              - !GetAtt WorkerVideoRepository.Arn
+
+Outputs:
+  BackendRepositoryUri:
+    Value: !GetAtt BackendRepository.RepositoryUri
+  FrontendRepositoryUri:
+    Value: !GetAtt FrontendRepository.RepositoryUri
+  WorkerVideoRepositoryUri:
+    Value: !GetAtt WorkerVideoRepository.RepositoryUri
+  WorkerVideoAlpineExperimentRepositoryUri:
+    Value: !GetAtt WorkerVideoAlpineExperimentRepository.RepositoryUri
+  BackendBookwormExperimentRepositoryUri:
+    Value: !GetAtt BackendBookwormExperimentRepository.RepositoryUri
+  WorkerVideoBookwormExperimentRepositoryUri:
+    Value: !GetAtt WorkerVideoBookwormExperimentRepository.RepositoryUri
+  GitHubBuildRoleArn:
+    Value: !GetAtt GitHubBuildRole.Arn
+  GitHubFrontendReleaseRoleArn:
+    Value: !GetAtt GitHubFrontendReleaseRole.Arn
+  GitHubWorkerAlpineExperimentRoleArn:
+    Value: !GetAtt GitHubWorkerAlpineExperimentRole.Arn
+  GitHubBookwormExperimentRoleArn:
+    Value: !GetAtt GitHubBookwormExperimentRole.Arn
+  GitHubOidcProviderArn:
+    Value: !Ref GitHubOidcProvider

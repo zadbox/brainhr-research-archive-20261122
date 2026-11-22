@@ -1,0 +1,11 @@
+{
+  "source_export_sha256": "b14c56a8b697d89b88daeb793c01e60c6135bb33bb3220c297e7eab5cc8c341c",
+  "pairs": 292,
+  "criterion_units": 3231,
+  "criterion_votes": 6462,
+  "relevance_votes": 584,
+  "source_texts_included": false,
+  "reasons_included": false,
+  "source_quotations_included": false,
+  "scope": "Archived A/B output labels. No attribution to named human annotators and no certified human IAA."
+}

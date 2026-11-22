@@ -1,0 +1,183 @@
+name: Experiment Bookworm image scans
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  build-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - component: backend
+            dockerfile: Dockerfile.backend.bookworm-experimental
+            repository: brainrh-experiments/backend-bookworm
+          - component: worker-video
+            dockerfile: Dockerfile.worker-video.bookworm-experimental
+            repository: brainrh-experiments/worker-video-bookworm
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION || 'eu-north-1' }}
+      AWS_ROLE_TO_ASSUME: ${{ vars.AWS_EXPERIMENT_BOOKWORM_ROLE_ARN || 'arn:aws:iam::406260455536:role/brainrh-github-bookworm-experiment' }}
+      COMPONENT: ${{ matrix.component }}
+      DOCKERFILE: ${{ matrix.dockerfile }}
+      REPOSITORY: ${{ matrix.repository }}
+    steps:
+      - name: Authorize canonical manual experiment
+        env:
+          WORKFLOW_REF: ${{ github.workflow_ref }}
+          REPOSITORY_NAME: ${{ github.repository }}
+          REPOSITORY_ID: ${{ github.repository_id }}
+          OWNER_ID: ${{ github.repository_owner_id }}
+          DISPATCH_REF: ${{ github.ref }}
+        run: |
+          set -euo pipefail
+          test "$REPOSITORY_NAME" = 'SamAI10/brainrhaws'
+          test "$REPOSITORY_ID" = '1225162699'
+          test "$OWNER_ID" = '169595948'
+          test "$DISPATCH_REF" = 'refs/heads/main'
+          test "$WORKFLOW_REF" = 'SamAI10/brainrhaws/.github/workflows/experiment-bookworm-scan.yml@refs/heads/main'
+
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve exact current main and enforce isolation
+        id: candidate
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main:refs/remotes/origin/main
+          sha="$(git rev-parse origin/main)"
+          test "$sha" = "$(git rev-parse HEAD)"
+          test "$sha" = "$GITHUB_SHA"
+          test -f "$DOCKERFILE"
+          ! grep -Fq "$DOCKERFILE" docker-compose.prod.yml
+          ! grep -Fq -- "--file $DOCKERFILE" .github/workflows/release-build.yml
+          tag="experiment-${COMPONENT}-bookworm-${sha}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+      - uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ env.AWS_REGION }}
+          role-session-name: brainrh-bookworm-${{ matrix.component }}-${{ github.run_id }}
+
+      - name: Authenticate and require immutable absent tag
+        id: ecr
+        env:
+          TAG: ${{ steps.candidate.outputs.tag }}
+        run: |
+          set -euo pipefail
+          account="$(aws sts get-caller-identity --query Account --output text)"
+          registry="$account.dkr.ecr.$AWS_REGION.amazonaws.com"
+          test "$(aws ecr describe-repositories --repository-names "$REPOSITORY" --query 'repositories[0].imageTagMutability' --output text)" = IMMUTABLE
+          if aws ecr describe-images --repository-name "$REPOSITORY" --image-ids imageTag="$TAG" >/dev/null 2>&1; then
+            echo "Experimental tag already exists: $TAG" >&2
+            exit 1
+          fi
+          aws ecr get-login-password | docker login --username AWS --password-stdin "$registry"
+          echo "registry=$registry" >> "$GITHUB_OUTPUT"
+
+      - name: Build and push isolated Bookworm image
+        env:
+          IMAGE: ${{ steps.ecr.outputs.registry }}/${{ env.REPOSITORY }}:${{ steps.candidate.outputs.tag }}
+        run: |
+          set -euo pipefail
+          docker build --pull --file "$DOCKERFILE" --tag "$IMAGE" .
+          docker push "$IMAGE"
+
+      - name: Collect completed ECR scan
+        id: scan
+        env:
+          TAG: ${{ steps.candidate.outputs.tag }}
+        run: |
+          set -uo pipefail
+          mkdir -p experimental-evidence
+          evidence="experimental-evidence/ecr-${COMPONENT}-bookworm.json"
+          passed=false
+          deadline=$((SECONDS + 900))
+          while (( SECONDS < deadline )); do
+            if aws ecr describe-image-scan-findings --repository-name "$REPOSITORY" --image-id imageTag="$TAG" >"$evidence" 2>/tmp/ecr-scan-error; then
+              status="$(jq -r '.imageScanStatus.status // "UNKNOWN"' "$evidence")"
+              [[ "$status" == COMPLETE ]] && break
+              [[ "$status" == FAILED ]] && break
+            elif grep -q 'ScanNotFoundException' /tmp/ecr-scan-error; then
+              aws ecr start-image-scan --repository-name "$REPOSITORY" --image-id imageTag="$TAG" >/dev/null 2>&1 || true
+            else
+              cp /tmp/ecr-scan-error experimental-evidence/ecr-scan-error.txt
+              break
+            fi
+            sleep 15
+          done
+          status="$(jq -r '.imageScanStatus.status // "MISSING"' "$evidence" 2>/dev/null || echo MISSING)"
+          critical="$(jq -r '.imageScanFindings.findingSeverityCounts.CRITICAL // 0' "$evidence" 2>/dev/null || echo 0)"
+          high="$(jq -r '.imageScanFindings.findingSeverityCounts.HIGH // 0' "$evidence" 2>/dev/null || echo 0)"
+          if [[ "$status" == COMPLETE && "$critical" == 0 && "$high" == 0 ]]; then passed=true; fi
+          echo "passed=$passed" >> "$GITHUB_OUTPUT"
+          printf '### Bookworm %s experiment\n\n- Critical: %s\n- High: %s\n' "$COMPONENT" "$critical" "$high" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Run synthetic runtime smoke
+        id: smoke
+        continue-on-error: true
+        env:
+          IMAGE: ${{ steps.ecr.outputs.registry }}/${{ env.REPOSITORY }}:${{ steps.candidate.outputs.tag }}
+        run: |
+          set -uo pipefail
+          mkdir -p experimental-evidence
+          status=0
+          if [[ "$COMPONENT" == backend ]]; then
+            docker run --rm --entrypoint sh "$IMAGE" -ec '
+              python -c "import boto3, fastapi, pydantic, sqlalchemy, sqlmodel, torch"
+              node --version
+            ' 2>&1 | tee experimental-evidence/smoke.log || status="${PIPESTATUS[0]}"
+          else
+            docker run --rm --shm-size=1g --entrypoint sh "$IMAGE" -ec '
+              command -v chromium; command -v ffmpeg; command -v pulseaudio
+              command -v pactl; command -v Xvfb; command -v xdpyinfo
+              python -c "import playwright, psycopg, pydantic, sqlmodel, yaml"
+              export DISPLAY=:99 XDG_RUNTIME_DIR=/tmp/xdg-runtime
+              mkdir -p "$XDG_RUNTIME_DIR" /tmp/.X11-unix
+              chmod 700 "$XDG_RUNTIME_DIR"; chmod 1777 /tmp/.X11-unix
+              Xvfb :99 -screen 0 1280x720x24 -ac -nolisten tcp >/tmp/xvfb.log 2>&1 & xvfb_pid=$!
+              trap "kill $xvfb_pid 2>/dev/null || true" EXIT
+              ready=false
+              for _ in 1 2 3 4 5 6 7 8 9 10; do xdpyinfo >/dev/null 2>&1 && ready=true && break; sleep 1; done
+              test "$ready" = true
+              pulseaudio --start --exit-idle-time=-1
+              pactl info
+              python -c "from playwright.sync_api import sync_playwright; p=sync_playwright().start(); browser=p.chromium.launch(executable_path=\"/usr/bin/chromium\", headless=True, args=[\"--no-sandbox\"]); page=browser.new_page(); page.set_content(\"<title>BrainRH Bookworm smoke</title><h1 id=ok>ok</h1>\"); assert page.title() == \"BrainRH Bookworm smoke\"; assert page.locator(\"#ok\").inner_text() == \"ok\"; browser.close(); p.stop()"
+              ffmpeg -hide_banner -loglevel error -f lavfi -i testsrc=size=320x240:rate=10 -f lavfi -i sine=frequency=1000 -t 1 -c:v mpeg4 -c:a pcm_s16le /tmp/media-smoke.avi
+              test -s /tmp/media-smoke.avi
+            ' 2>&1 | tee experimental-evidence/smoke.log || status="${PIPESTATUS[0]}"
+          fi
+          if [[ "$status" == 0 ]]; then
+            printf '%s\n' "<testsuite name=\"${COMPONENT}-bookworm\" tests=\"1\"><testcase name=\"synthetic-runtime-smoke\"/></testsuite>" > experimental-evidence/smoke-junit.xml
+          else
+            printf '%s\n' "<testsuite name=\"${COMPONENT}-bookworm\" tests=\"1\" failures=\"1\"><testcase name=\"synthetic-runtime-smoke\"><failure message=\"See smoke.log\"/></testcase></testsuite>" > experimental-evidence/smoke-junit.xml
+          fi
+          exit "$status"
+
+      - name: Upload non-promotable experiment evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: experiment-${{ matrix.component }}-bookworm-${{ github.run_id }}
+          path: experimental-evidence/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Enforce experimental scan and smoke gates
+        if: always()
+        env:
+          SCAN_PASSED: ${{ steps.scan.outputs.passed }}
+          SMOKE_OUTCOME: ${{ steps.smoke.outcome }}
+        run: |
+          set -euo pipefail
+          test "$SCAN_PASSED" = true
+          test "$SMOKE_OUTCOME" = success

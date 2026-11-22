@@ -1,0 +1,25 @@
+{
+  "local_archive_bytes": 97221524284,
+  "local_ordinary_files": 549718,
+  "local_file_and_link_entries": 550151,
+  "inventory_covers_all_local_files": true,
+  "uploaded_file_contents": [
+    "Current Word manuscript and responses",
+    "6000 synthetic task rows",
+    "15 public companion pairs",
+    "All A/B labels without text or quotations",
+    "Distinct local model weights in the associated private release",
+    "Model configuration files",
+    "Tracked source-code snapshots from eleven copied repositories, with data and sensitive candidates excluded"
+  ],
+  "not_uploaded_file_contents": [
+    "1074 real-derived task rows",
+    "Real CV texts",
+    "Raw annotation reasons and quotations",
+    "Credentials and .env contents",
+    "Installed dependency trees and complete Git object databases"
+  ],
+  "existing_source_code_repositories_linked": true,
+  "real_cv_uploads": 0,
+  "potential_sensitive_source_files_excluded": 15
+}

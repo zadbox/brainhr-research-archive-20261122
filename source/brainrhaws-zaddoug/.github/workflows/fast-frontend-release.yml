@@ -1,0 +1,155 @@
+name: Fast frontend build and deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      expected_sha:
+        description: Exact reviewed origin/main commit to deploy
+        required: true
+        type: string
+      public_api_base_url:
+        description: API URL baked into the frontend image
+        required: true
+        default: https://app.brainhr.braingentech.com
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fast-frontend-build-and-deploy
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION || 'eu-north-1' }}
+      AWS_ROLE_TO_ASSUME: ${{ vars.AWS_FRONTEND_RELEASE_ROLE_ARN || 'arn:aws:iam::406260455536:role/brainrh-github-frontend-release' }}
+      FRONTEND_REPOSITORY: brainrh/frontend
+    steps:
+      - name: Authorize frontend release operator
+        env:
+          RELEASE_ACTOR: ${{ github.actor }}
+        run: |
+          set -euo pipefail
+          case "$RELEASE_ACTOR" in
+            SamAI10|zadbox) ;;
+            *)
+              echo "Actor $RELEASE_ACTOR is not authorized to deploy the BrainRH frontend." >&2
+              exit 1
+              ;;
+          esac
+
+      - name: Checkout exact current main
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Bind image to origin/main
+        id: candidate
+        env:
+          EXPECTED_SHA: ${{ inputs.expected_sha }}
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REPOSITORY" = SamAI10/brainrhaws
+          test "$GITHUB_REF" = refs/heads/main
+          [[ "$EXPECTED_SHA" =~ ^[0-9a-f]{40}$ ]] || {
+            echo "expected_sha must be a full lowercase Git commit SHA." >&2
+            exit 1
+          }
+          git fetch origin main:refs/remotes/origin/main --no-tags
+          sha="$(git rev-parse origin/main)"
+          test "$sha" = "$EXPECTED_SHA"
+          test "$sha" = "$GITHUB_SHA"
+          git checkout --detach "$sha"
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "tag=sha-$sha" >> "$GITHUB_OUTPUT"
+
+      - name: Configure short-lived AWS credentials
+        uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ env.AWS_REGION }}
+          role-session-name: brainrh-fast-frontend-${{ github.run_id }}
+
+      - name: Authenticate to ECR
+        id: ecr
+        run: |
+          set -euo pipefail
+          account_id="$(aws sts get-caller-identity --query Account --output text)"
+          registry="$account_id.dkr.ecr.$AWS_REGION.amazonaws.com"
+          aws ecr get-login-password | docker login --username AWS --password-stdin "$registry"
+          echo "registry=$registry" >> "$GITHUB_OUTPUT"
+
+      - name: Set up cached Buildx
+        uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3
+
+      - name: Build and push only the frontend
+        env:
+          REGISTRY: ${{ steps.ecr.outputs.registry }}
+          RELEASE_TAG: ${{ steps.candidate.outputs.tag }}
+          PUBLIC_API_BASE_URL: ${{ inputs.public_api_base_url }}
+        run: |
+          set -euo pipefail
+          test "$PUBLIC_API_BASE_URL" = https://app.brainhr.braingentech.com
+          image="$REGISTRY/$FRONTEND_REPOSITORY:$RELEASE_TAG"
+          lookup="$(aws ecr batch-get-image \
+            --repository-name "$FRONTEND_REPOSITORY" \
+            --image-ids "imageTag=$RELEASE_TAG" \
+            --output json)"
+          digest="$(jq -r '.images[0].imageId.imageDigest // empty' <<< "$lookup")"
+          image_action=reused
+          if [[ -z "$digest" ]]; then
+            failure_code="$(jq -r '.failures[0].failureCode // empty' <<< "$lookup")"
+            test "$failure_code" = ImageNotFound
+            docker buildx build --pull --push \
+              --platform linux/amd64 \
+              --provenance=false \
+              --file frontend/Dockerfile.prod \
+              --build-arg "VITE_API_BASE_URL=$PUBLIC_API_BASE_URL" \
+              --cache-from type=gha,scope=brainrh-frontend \
+              --cache-to type=gha,scope=brainrh-frontend,mode=max \
+              --tag "$image" .
+            digest="$(aws ecr describe-images \
+              --repository-name "$FRONTEND_REPOSITORY" \
+              --image-ids "imageTag=$RELEASE_TAG" \
+              --query 'imageDetails[0].imageDigest' \
+              --output text)"
+            image_action=built
+          fi
+          [[ "$digest" =~ ^sha256:[0-9a-f]{64}$ ]]
+          {
+            echo "### Frontend image ready"
+            echo "- SHA: \`${{ steps.candidate.outputs.sha }}\`"
+            echo "- Image: \`$REGISTRY/$FRONTEND_REPOSITORY@$digest\`"
+            echo "- Action: \`$image_action\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Restore the verified main branch
+        env:
+          RELEASE_SHA: ${{ steps.candidate.outputs.sha }}
+        run: |
+          set -euo pipefail
+          git branch --force main "$RELEASE_SHA"
+          git switch main
+
+      - name: Deploy only the frontend
+        env:
+          AWS_CLI_PROFILE: ""
+          RELEASE_SHA: ${{ steps.candidate.outputs.sha }}
+        run: scripts/prod/deploy_frontend_light.sh "$RELEASE_SHA"
+
+      - name: Record deployed frontend
+        run: |
+          {
+            echo "### Frontend deployment successful"
+            echo "- SHA: \`${{ steps.candidate.outputs.sha }}\`"
+            echo "- Operator: \`${{ github.actor }}\`"
+            echo "- Scope: \`frontend-only\`"
+            echo "- URL: https://app.brainhr.braingentech.com/"
+          } >> "$GITHUB_STEP_SUMMARY"

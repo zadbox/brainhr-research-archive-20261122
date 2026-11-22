@@ -1,0 +1,207 @@
+{
+  "pairs": 292,
+  "responses": 584,
+  "criteria": 3231,
+  "checks": {
+    "raw_responses_matching_selected_annotations": 584,
+    "raw_responses_with_model_and_usage_metadata": 584,
+    "criterion_votes_matched": 6462,
+    "relevance_votes_matched": 584
+  },
+  "axes": {
+    "must_have": {
+      "total": 1586,
+      "included": 1585,
+      "excluded": 1,
+      "labels": [
+        "met",
+        "partial",
+        "not_evidenced",
+        "not_met",
+        "below_threshold",
+        "contradicted"
+      ],
+      "matrix_rows_A_columns_B": [
+        [
+          18,
+          47,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          413,
+          305,
+          1,
+          8,
+          0
+        ],
+        [
+          7,
+          51,
+          665,
+          0,
+          18,
+          0
+        ],
+        [
+          0,
+          14,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          3,
+          0,
+          20,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          2,
+          0
+        ]
+      ],
+      "exact_agreements": 1119,
+      "observed_agreement": 0.705993690851735,
+      "expected_agreement": 0.4423262247609191,
+      "nominal_kappa": 0.47279875403461236
+    },
+    "nice_to_have": {
+      "total": 1645,
+      "included": 1644,
+      "excluded": 1,
+      "labels": [
+        "met",
+        "partial",
+        "not_evidenced",
+        "not_met",
+        "below_threshold",
+        "contradicted"
+      ],
+      "matrix_rows_A_columns_B": [
+        [
+          74,
+          78,
+          39,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          234,
+          94,
+          0,
+          0,
+          0
+        ],
+        [
+          18,
+          152,
+          952,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "exact_agreements": 1260,
+      "observed_agreement": 0.7664233576642335,
+      "expected_agreement": 0.514133085880382,
+      "nominal_kappa": 0.5192579787841635
+    },
+    "relevance": {
+      "total": 292,
+      "included": 292,
+      "excluded": 0,
+      "labels": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "matrix_rows_A_columns_B": [
+        [
+          25,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          156,
+          76,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          28,
+          3,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "exact_agreements": 105,
+      "observed_agreement": 0.3595890410958904,
+      "expected_agreement": 0.3372935822856071,
+      "nominal_kappa": 0.033643040438899215,
+      "quadratic_kappa": 0.32199264925002485
+    }
+  },
+  "source_export_sha256": "b14c56a8b697d89b88daeb793c01e60c6135bb33bb3220c297e7eab5cc8c341c",
+  "source_inventory_sha256": "336113e0686e4af4629c500a3e0b0b18f92a91ed8b3b8ed583e78ff4525b8170",
+  "limitations": [
+    "Recorded execution metadata are observed in local files; no independent provider attestation was obtained.",
+    "These coefficients measure archived A/B output agreement and are not a human inter-annotator study."
+  ]
+}

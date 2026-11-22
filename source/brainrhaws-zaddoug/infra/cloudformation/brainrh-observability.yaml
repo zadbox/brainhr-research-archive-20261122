@@ -1,0 +1,244 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  Minimal CloudWatch observability for the BrainRH EC2/Compose runtime and RDS.
+  This stack creates no compute resources and does not change application traffic.
+
+Parameters:
+  Environment:
+    Type: String
+    Default: prod
+    AllowedPattern: "^[a-z0-9-]+$"
+  Ec2InstanceId:
+    Type: AWS::EC2::Instance::Id
+  RdsDbInstanceIdentifier:
+    Type: String
+    Description: Existing RDS DB instance identifier.
+  Ec2InstanceRoleName:
+    Type: String
+    Description: Existing EC2 instance role to receive least-privilege telemetry permissions.
+  NotificationEmail:
+    Type: String
+    Default: ""
+    Description: Optional email endpoint. Leave empty to create alarms without actions.
+  LogRetentionDays:
+    Type: Number
+    Default: 30
+    AllowedValues: [7, 14, 30, 60, 90, 120, 180, 365]
+  CpuHighThresholdPercent:
+    Type: Number
+    Default: 85
+    MinValue: 1
+    MaxValue: 100
+  DiskUsedThresholdPercent:
+    Type: Number
+    Default: 85
+    MinValue: 1
+    MaxValue: 100
+  RootFilesystemType:
+    Type: String
+    Default: ext4
+    AllowedValues: [ext4, xfs]
+    Description: Root filesystem type reported by the CloudWatch agent.
+  RdsFreeStorageThresholdBytes:
+    Type: Number
+    Default: 10737418240
+    MinValue: 1073741824
+    Description: Alarm threshold for RDS free storage; default is 10 GiB.
+
+Conditions:
+  HasNotificationEmail: !Not [!Equals [!Ref NotificationEmail, ""]]
+
+Resources:
+  BackupLogGroup:
+    Type: AWS::Logs::LogGroup
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      LogGroupName: !Sub /brainrh/${Environment}/backup
+      RetentionInDays: !Ref LogRetentionDays
+
+  TelemetryPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-cloudwatch-telemetry
+      Roles:
+        - !Ref Ec2InstanceRoleName
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: DiscoverBrainRhLogGroups
+            Effect: Allow
+            Action: logs:DescribeLogGroups
+            Resource: "*"
+          - Sid: WriteBrainRhLogs
+            Effect: Allow
+            Action:
+              - logs:CreateLogStream
+              - logs:DescribeLogStreams
+              - logs:PutLogEvents
+            Resource:
+              - !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:${BackupLogGroup}:*
+          - Sid: PublishHostMetrics
+            Effect: Allow
+            Action: cloudwatch:PutMetricData
+            Resource: "*"
+            Condition:
+              StringEquals:
+                cloudwatch:namespace: CWAgent
+          - Sid: PublishBackupFreshnessMetric
+            Effect: Allow
+            Action: cloudwatch:PutMetricData
+            Resource: "*"
+            Condition:
+              StringEquals:
+                cloudwatch:namespace: BrainRH/Operations
+
+  AlarmTopic:
+    Type: AWS::SNS::Topic
+    Condition: HasNotificationEmail
+    Properties:
+      DisplayName: !Sub BrainRH ${Environment} alarms
+      TopicName: !Sub brainrh-${Environment}-alarms
+
+  AlarmEmailSubscription:
+    Type: AWS::SNS::Subscription
+    Condition: HasNotificationEmail
+    Properties:
+      Protocol: email
+      Endpoint: !Ref NotificationEmail
+      TopicArn: !Ref AlarmTopic
+
+  Ec2StatusCheckFailedAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub brainrh-${Environment}-ec2-status-check-failed
+      AlarmDescription: EC2 system or instance status check failed.
+      Namespace: AWS/EC2
+      MetricName: StatusCheckFailed
+      Dimensions:
+        - Name: InstanceId
+          Value: !Ref Ec2InstanceId
+      Statistic: Maximum
+      Period: 60
+      EvaluationPeriods: 2
+      DatapointsToAlarm: 2
+      Threshold: 0
+      ComparisonOperator: GreaterThanThreshold
+      TreatMissingData: breaching
+      AlarmActions: !If [HasNotificationEmail, [!Ref AlarmTopic], []]
+      OKActions: !If [HasNotificationEmail, [!Ref AlarmTopic], []]
+
+  Ec2CpuHighAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub brainrh-${Environment}-ec2-cpu-high
+      AlarmDescription: EC2 CPU has remained above the configured threshold.
+      Namespace: AWS/EC2
+      MetricName: CPUUtilization
+      Dimensions:
+        - Name: InstanceId
+          Value: !Ref Ec2InstanceId
+      Statistic: Average
+      Period: 300
+      EvaluationPeriods: 3
+      DatapointsToAlarm: 3
+      Threshold: !Ref CpuHighThresholdPercent
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: missing
+      AlarmActions: !If [HasNotificationEmail, [!Ref AlarmTopic], []]
+      OKActions: !If [HasNotificationEmail, [!Ref AlarmTopic], []]
+
+  Ec2DiskUsedHighAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub brainrh-${Environment}-ec2-root-disk-used-high
+      AlarmDescription: >-
+        Root filesystem usage reported by the CloudWatch agent is too high.
+        The agent and InstanceId append dimension must be configured separately.
+      Namespace: CWAgent
+      MetricName: disk_used_percent
+      Dimensions:
+        - Name: InstanceId
+          Value: !Ref Ec2InstanceId
+        - Name: path
+          Value: /
+        - Name: fstype
+          Value: !Ref RootFilesystemType
+      Statistic: Maximum
+      Period: 300
+      EvaluationPeriods: 2
+      DatapointsToAlarm: 2
+      Threshold: !Ref DiskUsedThresholdPercent
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: breaching
+      AlarmActions: !If [HasNotificationEmail, [!Ref AlarmTopic], []]
+      OKActions: !If [HasNotificationEmail, [!Ref AlarmTopic], []]
+
+  RdsCpuHighAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub brainrh-${Environment}-rds-cpu-high
+      AlarmDescription: RDS CPU has remained above the configured threshold.
+      Namespace: AWS/RDS
+      MetricName: CPUUtilization
+      Dimensions:
+        - Name: DBInstanceIdentifier
+          Value: !Ref RdsDbInstanceIdentifier
+      Statistic: Average
+      Period: 300
+      EvaluationPeriods: 3
+      DatapointsToAlarm: 3
+      Threshold: !Ref CpuHighThresholdPercent
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: breaching
+      AlarmActions: !If [HasNotificationEmail, [!Ref AlarmTopic], []]
+      OKActions: !If [HasNotificationEmail, [!Ref AlarmTopic], []]
+
+  RdsFreeStorageLowAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub brainrh-${Environment}-rds-free-storage-low
+      AlarmDescription: RDS free storage is below the configured absolute threshold.
+      Namespace: AWS/RDS
+      MetricName: FreeStorageSpace
+      Dimensions:
+        - Name: DBInstanceIdentifier
+          Value: !Ref RdsDbInstanceIdentifier
+      Statistic: Minimum
+      Period: 300
+      EvaluationPeriods: 2
+      DatapointsToAlarm: 2
+      Threshold: !Ref RdsFreeStorageThresholdBytes
+      ComparisonOperator: LessThanOrEqualToThreshold
+      TreatMissingData: breaching
+      AlarmActions: !If [HasNotificationEmail, [!Ref AlarmTopic], []]
+      OKActions: !If [HasNotificationEmail, [!Ref AlarmTopic], []]
+
+  BackupStaleAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub brainrh-${Environment}-backup-stale
+      AlarmDescription: >-
+        No verified fresh PostgreSQL backup metric has been published for
+        approximately 30 hours.
+      Namespace: BrainRH/Operations
+      MetricName: BackupFreshness
+      Dimensions:
+        - Name: Environment
+          Value: !Ref Environment
+      Statistic: Sum
+      Period: 21600
+      EvaluationPeriods: 5
+      DatapointsToAlarm: 5
+      Threshold: 1
+      ComparisonOperator: LessThanThreshold
+      TreatMissingData: breaching
+      AlarmActions: !If [HasNotificationEmail, [!Ref AlarmTopic], []]
+      OKActions: !If [HasNotificationEmail, [!Ref AlarmTopic], []]
+
+Outputs:
+  BackupLogGroupName:
+    Value: !Ref BackupLogGroup
+  AlarmTopicArn:
+    Condition: HasNotificationEmail
+    Value: !Ref AlarmTopic

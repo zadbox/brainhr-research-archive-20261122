@@ -1,0 +1,154 @@
+name: brainrh
+
+services:
+  postgres:
+    image: postgres:16.13-alpine3.22@sha256:caf536ebd910e85473a9f5e2fd1aea360c965c4a911c8555ac1f61b2102006cb
+    profiles: ["local-database-break-glass"]
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-brainrh}
+      POSTGRES_USER: ${POSTGRES_USER:-brainrh}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-brainrh} -d ${POSTGRES_DB:-brainrh}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - type: bind
+        source: ${BRAINRH_POSTGRES_DIR:-/srv/brainrh/postgres}
+        target: /var/lib/postgresql/data
+
+  backend:
+    image: ${BRAINRH_BACKEND_IMAGE:?BRAINRH_BACKEND_IMAGE must be an ECR image pinned by digest}
+    restart: unless-stopped
+    env_file:
+      - .env.prod
+    environment:
+      AWS_CONFIG_FILE: /app/deploy/aws/backend-data-profile
+      AWS_SDK_LOAD_CONFIG: "1"
+      BRAINRH_AWS_DATA_PROFILE: brainrh-backend-data
+      BRAINRH_ENV: production
+      BRAINRH_DB_AUTO_CREATE: "false"
+      BRAINRH_ENABLE_API_DOCS: ${BRAINRH_ENABLE_API_DOCS:-false}
+      BRAINRH_LOG_TO_FILE: "true"
+      CAL_VIDEO_WORKER_MODE: service
+      CAL_VIDEO_WORKER_AUTOSTART: "false"
+      CAL_VIDEO_LOCAL_RECORDING_HOST_DIR: /srv/brainrh/recordings
+    volumes:
+      - type: bind
+        source: ${BRAINRH_LOGS_DIR:-/srv/brainrh/logs}
+        target: /app/logs
+      - type: bind
+        source: ${BRAINRH_RECORDINGS_DIR:-/srv/brainrh/recordings}
+        target: /srv/brainrh/recordings
+      - type: bind
+        source: /run/brainrh-credential-broker
+        target: /run/brainrh-credential-broker
+        read_only: true
+      - type: bind
+        source: /usr/local/libexec/brainrh-backend-credential-process
+        target: /broker/credential_process
+        read_only: true
+
+  worker-video:
+    image: ${BRAINRH_WORKER_VIDEO_IMAGE:?BRAINRH_WORKER_VIDEO_IMAGE must be an ECR image pinned by digest}
+    restart: unless-stopped
+    user: "10001:10001"
+    read_only: true
+    init: true
+    shm_size: 1g
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETGID
+      - SETUID
+      - SYS_CHROOT
+    security_opt:
+      - no-new-privileges:true
+      - seccomp=./deploy/docker/chromium-seccomp.json
+      - apparmor=brainrh-worker-video
+    pids_limit: 512
+    mem_limit: 3g
+    cpus: "2.0"
+    tmpfs:
+      - /tmp:rw,nosuid,nodev,size=512m,mode=1777
+    environment:
+      AWS_EC2_METADATA_DISABLED: "true"
+      BRAINRH_ENV: production
+      BRAINRH_DB_AUTO_CREATE: "false"
+      BRAINRH_BACKEND_URL: http://backend:8000
+      DATABASE_URL: ${DATABASE_URL:?DATABASE_URL is required by the worker scheduler}
+      BRAINRH_DB_POOL_SIZE: ${BRAINRH_WORKER_DB_POOL_SIZE:-2}
+      BRAINRH_DB_MAX_OVERFLOW: ${BRAINRH_WORKER_DB_MAX_OVERFLOW:-0}
+      BRAINRH_DB_POOL_TIMEOUT_SECONDS: ${BRAINRH_DB_POOL_TIMEOUT_SECONDS:-30}
+      BRAINRH_DB_POOL_RECYCLE_SECONDS: ${BRAINRH_DB_POOL_RECYCLE_SECONDS:-1800}
+      BRAINRH_DB_CONNECT_TIMEOUT_SECONDS: ${BRAINRH_DB_CONNECT_TIMEOUT_SECONDS:-10}
+      BRAINRH_WORKER_EVENT_SECRET: ${BRAINRH_WORKER_EVENT_SECRET:?BRAINRH_WORKER_EVENT_SECRET is required}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:?OPENAI_API_KEY is required}
+      OPENAI_REALTIME_MODEL: ${OPENAI_REALTIME_MODEL:-gpt-realtime-2.1-mini}
+      CAL_VIDEO_WORKER_MODE: service
+      CAL_VIDEO_WORKER_AUTOSTART: "true"
+      CAL_VIDEO_WORKER_LEAD_SECONDS: ${CAL_VIDEO_WORKER_LEAD_SECONDS:-300}
+      CAL_VIDEO_WORKER_POLL_INTERVAL_SECONDS: ${CAL_VIDEO_WORKER_POLL_INTERVAL_SECONDS:-15}
+      CAL_VIDEO_AI_DISPLAY_NAME: ${CAL_VIDEO_AI_DISPLAY_NAME:-BrainRH AI Interviewer}
+      CAL_VIDEO_WRAP_UP_SECONDS: ${CAL_VIDEO_WRAP_UP_SECONDS:-180}
+      CAL_VIDEO_CANDIDATE_ABSENCE_GRACE_SECONDS: ${CAL_VIDEO_CANDIDATE_ABSENCE_GRACE_SECONDS:-60}
+      CAL_VIDEO_POLL_INTERVAL_SECONDS: ${CAL_VIDEO_POLL_INTERVAL_SECONDS:-2}
+      CAL_VIDEO_CAPTURE_DEVICE: ${CAL_VIDEO_CAPTURE_DEVICE:-brainrh_calvideo.monitor}
+      CAL_VIDEO_MIC_DEVICE: ${CAL_VIDEO_MIC_DEVICE:-brainrh_ai_mic}
+      CAL_VIDEO_PULSE_SINK_NAME: ${CAL_VIDEO_PULSE_SINK_NAME:-brainrh_calvideo}
+      CAL_VIDEO_PULSE_SOURCE_NAME: ${CAL_VIDEO_PULSE_SOURCE_NAME:-brainrh_ai_mic}
+      CAL_VIDEO_AUDIO_SAMPLE_RATE: ${CAL_VIDEO_AUDIO_SAMPLE_RATE:-24000}
+      CAL_VIDEO_AUDIO_CHUNK_MS: ${CAL_VIDEO_AUDIO_CHUNK_MS:-100}
+      CAL_VIDEO_LOCAL_RECORDING_ENABLED: ${CAL_VIDEO_LOCAL_RECORDING_ENABLED:-true}
+      CAL_VIDEO_LOCAL_RECORDING_HOST_DIR: /srv/brainrh/recordings
+      CAL_VIDEO_LOCAL_RECORDING_DIR: /srv/brainrh/recordings
+      CAL_VIDEO_LOCAL_RECORDING_CAPTURE_SIZE: ${CAL_VIDEO_LOCAL_RECORDING_CAPTURE_SIZE:-1280x720}
+      CAL_VIDEO_LOCAL_RECORDING_RESOLUTION: ${CAL_VIDEO_LOCAL_RECORDING_RESOLUTION:-360p}
+      CAL_VIDEO_LOCAL_RECORDING_VIDEO_SIZE: ${CAL_VIDEO_LOCAL_RECORDING_VIDEO_SIZE:-640x360}
+      CAL_VIDEO_LOCAL_RECORDING_FRAMERATE: ${CAL_VIDEO_LOCAL_RECORDING_FRAMERATE:-10}
+      CAL_VIDEO_DEBUG_DIR: /app/logs/cal_video_debug
+      CAL_VIDEO_HEADLESS: "false"
+      DISPLAY: ":99"
+    command: ["/usr/local/bin/brainrh-worker-video-entrypoint"]
+    depends_on:
+      backend:
+        condition: service_started
+    volumes:
+      - type: bind
+        source: /srv/brainrh/logs/worker-video
+        target: /app/logs
+      - type: bind
+        source: ${BRAINRH_RECORDINGS_DIR:-/srv/brainrh/recordings}
+        target: /srv/brainrh/recordings
+
+  frontend:
+    image: ${BRAINRH_FRONTEND_IMAGE:?BRAINRH_FRONTEND_IMAGE must be an ECR image pinned by digest}
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2.10.2-alpine@sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d
+    restart: unless-stopped
+    env_file:
+      - .env.prod
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    depends_on:
+      backend:
+        condition: service_started
+      frontend:
+        condition: service_started
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+    name: brainrh_caddy_data
+  caddy_config:
+    name: brainrh_caddy_config

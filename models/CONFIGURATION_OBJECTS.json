@@ -1,0 +1,1416 @@
+{
+  "objects": [
+    {
+      "sha256": "f05cfe212445c6f4eaaf28df99ec32d1c9cfc583feb159baf2141dbdf738d83b",
+      "bytes": 2255,
+      "path": "models/configuration_objects/f05cfe212445c6f4eaaf28df99ec32d1c9cfc583feb159baf2141dbdf738d83b.json"
+    },
+    {
+      "sha256": "4bbeb27ccc0c3e866454aa454795ae9bd5a579710ec047c5bd3cd2be8e8b4958",
+      "bytes": 52265,
+      "path": "models/configuration_objects/4bbeb27ccc0c3e866454aa454795ae9bd5a579710ec047c5bd3cd2be8e8b4958.json"
+    },
+    {
+      "sha256": "6f38c73729248f6c127296386e3cdde96e254636cc58b4169d3fd32328d9a8ec",
+      "bytes": 296,
+      "path": "models/configuration_objects/6f38c73729248f6c127296386e3cdde96e254636cc58b4169d3fd32328d9a8ec.json"
+    },
+    {
+      "sha256": "0ac333c83e2d107910928928b5912d8ade91594d08c7c73c4606d05c032d7632",
+      "bytes": 9084463,
+      "path": "models/configuration_objects/0ac333c83e2d107910928928b5912d8ade91594d08c7c73c4606d05c032d7632.json"
+    },
+    {
+      "sha256": "b717528fa6d09d7511f2226c59b29076b4b2cecdc7842a0da501ce65d9f95f60",
+      "bytes": 50936,
+      "path": "models/configuration_objects/b717528fa6d09d7511f2226c59b29076b4b2cecdc7842a0da501ce65d9f95f60.json"
+    },
+    {
+      "sha256": "61f3de03a16ca8046b05dc777bce72717022bc8522152eee61a69072272ef54b",
+      "bytes": 654,
+      "path": "models/configuration_objects/61f3de03a16ca8046b05dc777bce72717022bc8522152eee61a69072272ef54b.json"
+    },
+    {
+      "sha256": "d1af74d8ba49428ab2faa65f7948165cc6bf52b740e57e840f8af772587c894c",
+      "bytes": 187,
+      "path": "models/configuration_objects/d1af74d8ba49428ab2faa65f7948165cc6bf52b740e57e840f8af772587c894c.json"
+    },
+    {
+      "sha256": "146776fce3f6db1103aa6f249e65ee5544c5923ce6f971b092eee79aa6e5d37b",
+      "bytes": 23950,
+      "path": "models/configuration_objects/146776fce3f6db1103aa6f249e65ee5544c5923ce6f971b092eee79aa6e5d37b.json"
+    },
+    {
+      "sha256": "462d91939dbc37178aa5a3eae7068d1990ccc92e09f288cc71f42cdf139d69cc",
+      "bytes": 73,
+      "path": "models/configuration_objects/462d91939dbc37178aa5a3eae7068d1990ccc92e09f288cc71f42cdf139d69cc.json"
+    },
+    {
+      "sha256": "e134af98b985517b4f068e3755ae90d4e9cd2d45d328325dc503f1c6b2d06cc7",
+      "bytes": 9085698,
+      "path": "models/configuration_objects/e134af98b985517b4f068e3755ae90d4e9cd2d45d328325dc503f1c6b2d06cc7.json"
+    },
+    {
+      "sha256": "da0e3a7cce6e4d787e85eb1c24d548420e0d7fe2c7a214e192795c46e40d75bb",
+      "bytes": 50977,
+      "path": "models/configuration_objects/da0e3a7cce6e4d787e85eb1c24d548420e0d7fe2c7a214e192795c46e40d75bb.json"
+    },
+    {
+      "sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b",
+      "bytes": 1172,
+      "path": "models/configuration_objects/18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b.json"
+    },
+    {
+      "sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393",
+      "bytes": 17209961,
+      "path": "models/configuration_objects/3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393.json"
+    },
+    {
+      "sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43",
+      "bytes": 348,
+      "path": "models/configuration_objects/69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43.json"
+    },
+    {
+      "sha256": "01013528267a32c29c9ec29b0f674b0d3b5fdbd4f8a40036ebabd57fc2a59675",
+      "bytes": 1172,
+      "path": "models/configuration_objects/01013528267a32c29c9ec29b0f674b0d3b5fdbd4f8a40036ebabd57fc2a59675.json"
+    },
+    {
+      "sha256": "e8624869f90acbff64a7a0be4c83a1f4ffaf6326ca2caba77d91b470a80064fd",
+      "bytes": 1210,
+      "path": "models/configuration_objects/e8624869f90acbff64a7a0be4c83a1f4ffaf6326ca2caba77d91b470a80064fd.json"
+    },
+    {
+      "sha256": "7278bc0157b4e72c42b1b1f386ff4a0a891a7a342c683aed23536865a05d2974",
+      "bytes": 1231,
+      "path": "models/configuration_objects/7278bc0157b4e72c42b1b1f386ff4a0a891a7a342c683aed23536865a05d2974.json"
+    },
+    {
+      "sha256": "c7263e14e1ce4910f43f29ca81ccfca1647f6475224ac3b14c4169500b74c572",
+      "bytes": 1172,
+      "path": "models/configuration_objects/c7263e14e1ce4910f43f29ca81ccfca1647f6475224ac3b14c4169500b74c572.json"
+    },
+    {
+      "sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce",
+      "bytes": 1200,
+      "path": "models/configuration_objects/0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce.json"
+    },
+    {
+      "sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412",
+      "bytes": 1200,
+      "path": "models/configuration_objects/d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412.json"
+    },
+    {
+      "sha256": "0dc691c18899fb0ef32e0a1b154314a22236a121b58ac09f61cad1e10810986d",
+      "bytes": 1172,
+      "path": "models/configuration_objects/0dc691c18899fb0ef32e0a1b154314a22236a121b58ac09f61cad1e10810986d.json"
+    },
+    {
+      "sha256": "6a4f5a6b1833953c425b5ab406541f29f4ac70570a2c67032cc8e86cd36a41ea",
+      "bytes": 1172,
+      "path": "models/configuration_objects/6a4f5a6b1833953c425b5ab406541f29f4ac70570a2c67032cc8e86cd36a41ea.json"
+    },
+    {
+      "sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16",
+      "bytes": 1200,
+      "path": "models/configuration_objects/9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16.json"
+    }
+  ],
+  "aliases": [
+    {
+      "original_relative_path": "Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit/snapshots/c38b3b1f03cce0ce0ccd235e5c97b0d3d255e651/config.json",
+      "filename": "config.json",
+      "object_sha256": "f05cfe212445c6f4eaaf28df99ec32d1c9cfc583feb159baf2141dbdf738d83b"
+    },
+    {
+      "original_relative_path": "Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit/snapshots/c38b3b1f03cce0ce0ccd235e5c97b0d3d255e651/model.safetensors.index.json",
+      "filename": "model.safetensors.index.json",
+      "object_sha256": "4bbeb27ccc0c3e866454aa454795ae9bd5a579710ec047c5bd3cd2be8e8b4958"
+    },
+    {
+      "original_relative_path": "Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit/snapshots/c38b3b1f03cce0ce0ccd235e5c97b0d3d255e651/special_tokens_map.json",
+      "filename": "special_tokens_map.json",
+      "object_sha256": "6f38c73729248f6c127296386e3cdde96e254636cc58b4169d3fd32328d9a8ec"
+    },
+    {
+      "original_relative_path": "Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit/snapshots/c38b3b1f03cce0ce0ccd235e5c97b0d3d255e651/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "0ac333c83e2d107910928928b5912d8ade91594d08c7c73c4606d05c032d7632"
+    },
+    {
+      "original_relative_path": "Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit/snapshots/c38b3b1f03cce0ce0ccd235e5c97b0d3d255e651/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "b717528fa6d09d7511f2226c59b29076b4b2cecdc7842a0da501ce65d9f95f60"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/config.json",
+      "filename": "config.json",
+      "object_sha256": "61f3de03a16ca8046b05dc777bce72717022bc8522152eee61a69072272ef54b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/generation_config.json",
+      "filename": "generation_config.json",
+      "object_sha256": "d1af74d8ba49428ab2faa65f7948165cc6bf52b740e57e840f8af772587c894c"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/model.safetensors.index.json",
+      "filename": "model.safetensors.index.json",
+      "object_sha256": "146776fce3f6db1103aa6f249e65ee5544c5923ce6f971b092eee79aa6e5d37b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/special_tokens_map.json",
+      "filename": "special_tokens_map.json",
+      "object_sha256": "462d91939dbc37178aa5a3eae7068d1990ccc92e09f288cc71f42cdf139d69cc"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "e134af98b985517b4f068e3755ae90d4e9cd2d45d328325dc503f1c6b2d06cc7"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "da0e3a7cce6e4d787e85eb1c24d548420e0d7fe2c7a214e192795c46e40d75bb"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/adaptateur_final/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/adaptateur_final/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/adaptateur_final/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-100/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-100/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-100/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-1000/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-1000/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-1000/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-1100/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-1100/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-1100/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-1125/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-1125/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-1125/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-200/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-200/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-200/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-300/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-300/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-300/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-400/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-400/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-400/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-500/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-500/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-500/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-600/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-600/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-600/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-700/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-700/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-700/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-800/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-800/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-800/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-900/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-900/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-900/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/qualification_gpu_4096/base_8b/adaptateur_final/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "01013528267a32c29c9ec29b0f674b0d3b5fdbd4f8a40036ebabd57fc2a59675"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/qualification_gpu_4096/base_8b/adaptateur_final/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/qualification_gpu_4096/base_8b/adaptateur_final/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/qualification_gpu_4096/base_8b/points/checkpoint-1/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "01013528267a32c29c9ec29b0f674b0d3b5fdbd4f8a40036ebabd57fc2a59675"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/qualification_gpu_4096/base_8b/points/checkpoint-1/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/qualification_gpu_4096/base_8b/points/checkpoint-1/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/correction_extract_20261112/v1/a_envoyer/adaptateur/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/correction_extract_20261112/v1/a_envoyer/adaptateur/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/correction_extract_20261112/v1/a_envoyer/adaptateur/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/correction_rerank_1125_20261117/v1/payload/adapters/checkpoint_1125/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/correction_rerank_1125_20261117/v1/payload/adapters/checkpoint_1125/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/correction_rerank_1125_20261117/v1/payload/adapters/checkpoint_1125/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/correction_rerank_1125_20261117/v2_synthetique130/payload/adapters/checkpoint_1125/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/correction_rerank_1125_20261117/v2_synthetique130/payload/adapters/checkpoint_1125/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/correction_rerank_1125_20261117/v2_synthetique130/payload/adapters/checkpoint_1125/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/hf_reviewers_20261112/v1/preparation_incomplete_avant_license_resolue/qlora/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/hf_reviewers_20261112/v1/repos/mlx/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "e8624869f90acbff64a7a0be4c83a1f4ffaf6326ca2caba77d91b470a80064fd"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/hf_reviewers_20261112/v1/repos/qlora/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "7278bc0157b4e72c42b1b1f386ff4a0a891a7a342c683aed23536865a05d2974"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/plan_comparaison_checkpoints_20261113/essai_court_2usd_20261113/payload/adapters/checkpoint_1125/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/plan_comparaison_checkpoints_20261113/essai_court_2usd_20261113/payload/adapters/checkpoint_1125/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/plan_comparaison_checkpoints_20261113/essai_court_2usd_20261113/payload/adapters/checkpoint_1125/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/plan_comparaison_checkpoints_20261113/essai_court_2usd_20261113/payload/adapters/checkpoint_700/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/plan_comparaison_checkpoints_20261113/essai_court_2usd_20261113/payload/adapters/checkpoint_700/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/plan_comparaison_checkpoints_20261113/essai_court_2usd_20261113/payload/adapters/checkpoint_700/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/plan_comparaison_checkpoints_20261113/execution_20261116/payload/adapters/checkpoint_1125/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/plan_comparaison_checkpoints_20261113/execution_20261116/payload/adapters/checkpoint_1125/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/plan_comparaison_checkpoints_20261113/execution_20261116/payload/adapters/checkpoint_1125/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/plan_comparaison_checkpoints_20261113/execution_20261116/payload/adapters/checkpoint_700/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/plan_comparaison_checkpoints_20261113/execution_20261116/payload/adapters/checkpoint_700/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/plan_comparaison_checkpoints_20261113/execution_20261116/payload/adapters/checkpoint_700/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/table4_correction_20261112/v1/a_envoyer/adaptateur/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/table4_correction_20261112/v1/a_envoyer/adaptateur/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/table4_correction_20261112/v1/a_envoyer/adaptateur/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/table4_pilote_correctif_20261112/v1/runs/pod_nywp4ta2y5jxwn/sorties_entrainement/training/adapter_final/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "c7263e14e1ce4910f43f29ca81ccfca1647f6475224ac3b14c4169500b74c572"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/table4_robustesse_20261112/v1/a_envoyer/adaptateur/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/table4_robustesse_20261112/v1/a_envoyer/adaptateur/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/table4_robustesse_20261112/v1/a_envoyer/adaptateur/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/validation_prompts_20261111/v1/a_envoyer/adaptateur/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/validation_prompts_20261111/v1/a_envoyer/adaptateur/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/validation_prompts_20261111/v1/a_envoyer/adaptateur/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/validation_prompts_20261111/v2/a_envoyer/adaptateur/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "18e0665cefe521c62266163806265558f503db44c86152e84f133c79e1800e7b"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/validation_prompts_20261111/v2/a_envoyer/adaptateur/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/BrainHR_confidentiel/validation_prompts_20261111/v2/a_envoyer/adaptateur/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/artifacts/brainhr-ft-mlx/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "e8624869f90acbff64a7a0be4c83a1f4ffaf6326ca2caba77d91b470a80064fd"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_echeance_apres_la_mise_a_jour/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_echeance_apres_la_mise_a_jour/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_echeance_apres_la_mise_a_jour/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_echeance_apres_la_mise_a_jour/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_echeance_apres_la_mise_a_jour/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_echeance_apres_la_mise_a_jour/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/adaptateur_final/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/adaptateur_final/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/adaptateur_final/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-4/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-4/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-4/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-6/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-6/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-6/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_avant_la_mise_a_jour/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_avant_la_mise_a_jour/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_avant_la_mise_a_jour/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_avant_la_mise_a_jour/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_avant_la_mise_a_jour/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_avant_la_mise_a_jour/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_avant_le_pas/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_avant_le_pas/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_avant_le_pas/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_avant_le_pas/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_avant_le_pas/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_fichier_avant_le_pas/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_sigterm_pendant_l_accumulation/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_sigterm_pendant_l_accumulation/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_sigterm_pendant_l_accumulation/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_sigterm_pendant_l_accumulation/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_sigterm_pendant_l_accumulation/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_sigterm_pendant_l_accumulation/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_sigterm_pendant_l_evaluation/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_sigterm_pendant_l_evaluation/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/arret_sigterm_pendant_l_evaluation/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/normal/adaptateur_final/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/normal/adaptateur_final/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/normal/adaptateur_final/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/normal/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/normal/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/normal/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/normal/points/checkpoint-4/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/normal/points/checkpoint-4/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/normal/points/checkpoint-4/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/normal/points/checkpoint-6/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0279a47bfeaaa9fd994b02d581b6ce4e3ddac9b6a135b23615e4c295639c75ce"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/normal/points/checkpoint-6/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature/normal/points/checkpoint-6/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_echeance_apres_la_mise_a_jour/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_echeance_apres_la_mise_a_jour/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_echeance_apres_la_mise_a_jour/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_echeance_apres_la_mise_a_jour/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_echeance_apres_la_mise_a_jour/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_echeance_apres_la_mise_a_jour/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_au_dernier_pas_ignore/adaptateur_final/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_au_dernier_pas_ignore/adaptateur_final/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_au_dernier_pas_ignore/adaptateur_final/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_au_dernier_pas_ignore/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_au_dernier_pas_ignore/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_au_dernier_pas_ignore/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_au_dernier_pas_ignore/points/checkpoint-4/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_au_dernier_pas_ignore/points/checkpoint-4/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_au_dernier_pas_ignore/points/checkpoint-4/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_au_dernier_pas_ignore/points/checkpoint-6/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_au_dernier_pas_ignore/points/checkpoint-6/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_au_dernier_pas_ignore/points/checkpoint-6/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_avant_la_mise_a_jour/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_avant_la_mise_a_jour/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_avant_la_mise_a_jour/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_avant_la_mise_a_jour/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_avant_la_mise_a_jour/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_avant_la_mise_a_jour/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_avant_le_pas/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_avant_le_pas/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_avant_le_pas/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_avant_le_pas/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_avant_le_pas/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_fichier_avant_le_pas/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_sigterm_pendant_l_accumulation/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_sigterm_pendant_l_accumulation/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_sigterm_pendant_l_accumulation/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_sigterm_pendant_l_accumulation/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_sigterm_pendant_l_accumulation/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_sigterm_pendant_l_accumulation/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_sigterm_pendant_l_evaluation/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_sigterm_pendant_l_evaluation/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/arret_sigterm_pendant_l_evaluation/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/normal/adaptateur_final/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/normal/adaptateur_final/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/normal/adaptateur_final/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/normal/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/normal/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/normal/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/normal/points/checkpoint-4/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/normal/points/checkpoint-4/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/normal/points/checkpoint-4/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/normal/points/checkpoint-6/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "d402d09ca2b07b1408eefe9e9abf2b810eaf60a3ac91da13fe748b80fab4f412"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/normal/points/checkpoint-6/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/campagne_runpod_20261106/pod_sorties/miniature_essai1_controle_optimiseur_par_nom/normal/points/checkpoint-6/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/pilote_extract_A_20261108/rapatriement/sorties_entrainement/entrainement/entrainement/adaptateur_final/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0dc691c18899fb0ef32e0a1b154314a22236a121b58ac09f61cad1e10810986d"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/pilote_extract_A_20261108/rapatriement/sorties_entrainement/entrainement/entrainement/adaptateur_final/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/pilote_extract_A_20261108/rapatriement/sorties_entrainement/entrainement/entrainement/adaptateur_final/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/pilote_extract_A_20261108/rapatriement/sorties_entrainement/entrainement/entrainement/points/checkpoint-100/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0dc691c18899fb0ef32e0a1b154314a22236a121b58ac09f61cad1e10810986d"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/pilote_extract_A_20261108/rapatriement/sorties_entrainement/entrainement/entrainement/points/checkpoint-100/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/pilote_extract_A_20261108/rapatriement/sorties_entrainement/entrainement/entrainement/points/checkpoint-100/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/pilote_extract_A_20261108/rapatriement/sorties_entrainement/entrainement/entrainement/points/checkpoint-162/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "0dc691c18899fb0ef32e0a1b154314a22236a121b58ac09f61cad1e10810986d"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/pilote_extract_A_20261108/rapatriement/sorties_entrainement/entrainement/entrainement/points/checkpoint-162/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/pilote_extract_A_20261108/rapatriement/sorties_entrainement/entrainement/entrainement/points/checkpoint-162/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/garde_g2_sans_issue/base_8b/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "6a4f5a6b1833953c425b5ab406541f29f4ac70570a2c67032cc8e86cd36a41ea"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/garde_g2_sans_issue/base_8b/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/garde_g2_sans_issue/base_8b/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_echeance_apres_la_mise_a_jour/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_echeance_apres_la_mise_a_jour/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_echeance_apres_la_mise_a_jour/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_echeance_apres_la_mise_a_jour/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_echeance_apres_la_mise_a_jour/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_echeance_apres_la_mise_a_jour/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/adaptateur_final/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/adaptateur_final/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/adaptateur_final/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-4/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-4/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-4/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-6/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-6/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_au_dernier_pas_ignore/points/checkpoint-6/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_avant_la_mise_a_jour/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_avant_la_mise_a_jour/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_avant_la_mise_a_jour/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_avant_la_mise_a_jour/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_avant_la_mise_a_jour/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_avant_la_mise_a_jour/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_avant_le_pas/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_avant_le_pas/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_avant_le_pas/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_avant_le_pas/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_avant_le_pas/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_fichier_avant_le_pas/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_sigterm_pendant_l_accumulation/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_sigterm_pendant_l_accumulation/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_sigterm_pendant_l_accumulation/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_sigterm_pendant_l_accumulation/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_sigterm_pendant_l_accumulation/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_sigterm_pendant_l_accumulation/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_sigterm_pendant_l_evaluation/adaptateur_arret/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_sigterm_pendant_l_evaluation/adaptateur_arret/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/arret_sigterm_pendant_l_evaluation/adaptateur_arret/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/normal/adaptateur_final/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/normal/adaptateur_final/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/normal/adaptateur_final/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/normal/points/checkpoint-2/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/normal/points/checkpoint-2/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/normal/points/checkpoint-2/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/normal/points/checkpoint-4/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/normal/points/checkpoint-4/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/normal/points/checkpoint-4/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/normal/points/checkpoint-6/adapter_config.json",
+      "filename": "adapter_config.json",
+      "object_sha256": "9660794dbdf3b66fc67ce38b1767f83306d35c85d9fb5c914ec4d3784c820c16"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/normal/points/checkpoint-6/tokenizer.json",
+      "filename": "tokenizer.json",
+      "object_sha256": "3c5cf44023714fb39b05e71e425f8d7b92805ff73f7988b083b8c87f0bf87393"
+    },
+    {
+      "original_relative_path": "Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/qualification_gpu_20261107/pod_sorties/miniature/normal/points/checkpoint-6/tokenizer_config.json",
+      "filename": "tokenizer_config.json",
+      "object_sha256": "69359bedd77f1a7ad0b5ebfbffd204a58bafc9930b39fbf8da063707393ebe43"
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Couleurs custom pour le design system - Light mode */
+  --color-background: #ffffff;
+  --color-foreground: #2D3748;
+  --color-card: #ffffff;
+  --color-card-foreground: #2D3748;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #2D3748;
+  --color-primary: #4A90E2;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #E2E8F0;
+  --color-secondary-foreground: #1B2B4A;
+  --color-muted: #E2E8F0;
+  --color-muted-foreground: #718096;
+  --color-accent: #EBF8FF;
+  --color-accent-foreground: #1B2B4A;
+  --color-destructive: #F56565;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #E2E8F0;
+  --color-input: #E2E8F0;
+  --color-ring: #4A90E2;
+
+  /* Radius */
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+  --radius-sm: 0.25rem;
+}
+
+/* Dark palette sampled from the approved blue-night reference. */
+.dark {
+  --brain-dark-canvas: #1c1e25;
+  --brain-dark-surface: #23252d;
+  --brain-dark-surface-muted: #2b2e38;
+  --brain-dark-border: #3b3e49;
+  --color-background: var(--brain-dark-canvas);
+  --color-foreground: #ececec;
+  --color-card: var(--brain-dark-surface);
+  --color-card-foreground: #ececec;
+  --color-popover: var(--brain-dark-surface);
+  --color-popover-foreground: #ececec;
+  --color-primary: #414655;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--brain-dark-surface-muted);
+  --color-secondary-foreground: #d1d1d1;
+  --color-muted: var(--brain-dark-surface-muted);
+  --color-muted-foreground: #a0a0a0;
+  --color-accent: var(--brain-dark-surface-muted);
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-border: var(--brain-dark-border);
+  --color-input: var(--brain-dark-border);
+  --color-ring: #7cc5ff;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Shell controls stay touch-safe; fine desktop pointers may use the dense size. */
+.brain-shell-touch-target {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+
+.brain-shell-square-target {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.brain-shell-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke-width: 1.75;
+}
+
+@media (pointer: fine) and (min-width: 64rem) {
+  .brain-shell-touch-target {
+    min-width: 2.25rem;
+    min-height: 2.25rem;
+  }
+
+  .brain-shell-square-target {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+
+/*
+ * BRAIN Operations tokens are deliberately opt-in. Existing screens do not
+ * inherit this palette until their root renders the data-brain-ops attribute.
+ */
+[data-brain-ops] {
+  color-scheme: light;
+  --brain-ops-canvas: #f5f6f8;
+  --brain-ops-surface: #ffffff;
+  --brain-ops-surface-muted: #eef1f4;
+  --brain-ops-calendar-surface: #edf4f0;
+  --brain-ops-calendar-hover: #dfece4;
+  --brain-ops-calendar-accent: #365e49;
+  --brain-ops-text: #111318;
+  --brain-ops-text-muted: #596270;
+  --brain-ops-border: #dce1e7;
+  --brain-ops-accent: #3b82f6;
+  --brain-ops-accent-soft: rgba(59, 130, 246, 0.1);
+  --brain-ops-focus-ring: #2563eb;
+  --brain-ops-success: #087a55;
+  --brain-ops-warning: #9a5b08;
+  --brain-ops-danger: #c53030;
+  --brain-ops-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --brain-ops-font-command: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Courier New', monospace;
+  --brain-ops-radius-structural: 0.25rem;
+  --brain-ops-radius-panel: 0.5rem;
+  --brain-ops-duration-fast: 160ms;
+  --brain-ops-ease-ui: cubic-bezier(0.23, 1, 0.32, 1);
+  --brain-sidebar-surface: rgba(232, 234, 238, 0.88);
+  --brain-sidebar-active: rgba(17, 19, 24, 0.07);
+  --brain-client-choice-radius: 12px;
+  --radius-lg: var(--brain-ops-radius-structural);
+  --radius-md: var(--brain-ops-radius-structural);
+  --radius-sm: var(--brain-ops-radius-structural);
+
+  /* Bridge the existing UI primitives into the opt-in Operations scope. */
+  --color-background: var(--brain-ops-canvas);
+  --color-foreground: var(--brain-ops-text);
+  --color-card: var(--brain-ops-surface);
+  --color-card-foreground: var(--brain-ops-text);
+  --color-popover: var(--brain-ops-surface);
+  --color-popover-foreground: var(--brain-ops-text);
+  --color-primary: var(--brain-ops-text);
+  --color-primary-foreground: var(--brain-ops-surface);
+  --color-secondary: var(--brain-ops-surface-muted);
+  --color-secondary-foreground: var(--brain-ops-text);
+  --color-muted: var(--brain-ops-surface-muted);
+  --color-muted-foreground: var(--brain-ops-text-muted);
+  --color-accent: var(--brain-ops-accent-soft);
+  --color-accent-foreground: var(--brain-ops-text);
+  --color-destructive: var(--brain-ops-danger);
+  --color-destructive-foreground: #ffffff;
+  --color-border: var(--brain-ops-border);
+  --color-input: var(--brain-ops-border);
+  --color-ring: var(--brain-ops-focus-ring);
+}
+
+.dark [data-brain-ops],
+[data-brain-ops].dark {
+  color-scheme: dark;
+  --brain-ops-canvas: var(--brain-dark-canvas);
+  --brain-ops-surface: var(--brain-dark-surface);
+  --brain-ops-surface-muted: var(--brain-dark-surface-muted);
+  --brain-ops-calendar-surface: #25332f;
+  --brain-ops-calendar-hover: #30433b;
+  --brain-ops-calendar-accent: #b3d4c0;
+  --brain-ops-text: #f4f5f6;
+  --brain-ops-text-muted: #a5adb8;
+  --brain-ops-border: var(--brain-dark-border);
+  --brain-ops-accent: #7cc5ff;
+  --brain-ops-accent-soft: rgba(124, 197, 255, 0.12);
+  --brain-ops-focus-ring: #7cc5ff;
+  --brain-ops-success: #34d399;
+  --brain-ops-warning: #fbbf24;
+  --brain-ops-danger: #f87171;
+  --brain-sidebar-surface: rgba(35, 37, 45, 0.94);
+  --brain-sidebar-active: rgba(255, 255, 255, 0.09);
+  --color-destructive-foreground: var(--brain-dark-surface);
+}
+
+[data-brain-sidebar] {
+  background: var(--brain-sidebar-surface);
+  -webkit-backdrop-filter: blur(24px) saturate(115%);
+  backdrop-filter: blur(24px) saturate(115%);
+}
+
+.brain-client-choice { border-radius: var(--brain-client-choice-radius); }
+
+.brain-guide-panel {
+  border-radius: var(--brain-ops-radius-panel);
+  box-shadow: 0 18px 48px rgba(17, 19, 24, 0.16);
+  animation: brain-guide-arrive 220ms var(--brain-ops-ease-ui) both;
+}
+
+.brain-guide-launcher {
+  box-shadow: 0 8px 24px rgba(17, 19, 24, 0.12);
+}
+
+.brain-getting-started {
+  border-radius: var(--brain-ops-radius-panel);
+}
+
+@keyframes brain-guide-arrive {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brain-guide-panel { animation: none; }
+}
+
+[data-page-guide], [data-page-guide-entry], [data-brain-sidebar] {
+  --brain-ops-focus-ring: var(--brain-ops-text);
+  --color-ring: var(--brain-ops-text);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  [data-brain-sidebar] { background: var(--brain-ops-surface-muted); }
+  [data-brain-sidebar] {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Coarse pointers receive real 44 px targets on the interactive element. */
+[data-brain-ops] :where(button, [role='button']),
+[data-brain-ops] .brain-ops-action-group a[href] {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+
+[data-brain-ops] .brain-ops-action-group a[href] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-brain-ops] :where(
+  input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='color']),
+  select,
+  textarea
+) {
+  min-height: 2.75rem;
+  border-width: 1px;
+  transition-duration: var(--brain-ops-duration-fast);
+}
+
+[data-brain-ops] :where(button, [role='button'], a[href]) {
+  transition-duration: var(--brain-ops-duration-fast);
+}
+
+[data-brain-ops] :where(button, [role='button'], a[href], input, select, textarea):focus-visible {
+  outline: 2px solid var(--brain-ops-focus-ring);
+  outline-offset: 2px;
+}
+
+[data-brain-ops] .brain-ops-choice-target {
+  min-height: 2.75rem;
+}
+
+@media (pointer: fine) and (min-width: 48rem) {
+  [data-brain-ops] :where(button, [role='button']),
+  [data-brain-ops] .brain-ops-action-group a[href] {
+    min-width: 2.25rem;
+    min-height: 2.25rem;
+  }
+
+  [data-brain-ops] :where(
+    input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='color']),
+    select,
+    textarea
+  ) {
+    min-height: 2.5rem;
+  }
+
+  [data-brain-ops] .brain-ops-choice-target {
+    min-height: 2.25rem;
+  }
+}

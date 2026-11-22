@@ -1,0 +1,54 @@
+{
+  "started_utc": "2026-11-22T11:44:19.998406+00:00",
+  "source_roots": [
+    "/Users/mac/BrainHR_confidentiel",
+    "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix",
+    "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy",
+    "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy 2",
+    "/Users/mac/Documents/ClaudeC/brainrhaws-zaddoug",
+    "/Users/mac/Documents/ClaudeC/Brain-rh-v2/brain-rh-v2",
+    "/Users/mac/Documents/ClaudeC/Brain-rh-v3/brain-rh-main",
+    "/Users/mac/Documents/ClaudeC/Brain-Rh/brain-rh",
+    "/Users/mac/Documents/ClaudeC/Brain-rh-m/Brain-RH-migration",
+    "/Users/mac/Documents/ClaudeC/Brain-rh-m-v2/Brain-RH-migration",
+    "/Users/mac/Documents/ClaudeC/Brainrhv04/braintrhv01",
+    "/Users/mac/Documents/ClaudeC/brainrhz-final",
+    "/Users/mac/.cache/huggingface/hub/datasets--mounimzad--brainhr-fusion-annotations-20261110",
+    "/Users/mac/.cache/huggingface/hub/datasets--mounimzad--brainhr-plus",
+    "/Users/mac/.cache/huggingface/hub/datasets--mounimzad--brainhr-synthetic-6000-reviewers",
+    "/Users/mac/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct",
+    "/Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit",
+    "/Users/mac/.cache/huggingface/hub/models--mounimzad--Llama-3-BrainHR-FT1200",
+    "/Users/mac/.cache/huggingface/hub/models--mounimzad--Llama-3-BrainHR-QLoRA-Fusion-20261110"
+  ],
+  "copy_roots": [
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy 2",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrhaws-zaddoug",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-rh-v2/brain-rh-v2",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-rh-v3/brain-rh-main",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-Rh/brain-rh",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-rh-m/Brain-RH-migration",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-rh-m-v2/Brain-RH-migration",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brainrhv04/braintrhv01",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrhz-final",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/.cache/huggingface/hub/datasets--mounimzad--brainhr-fusion-annotations-20261110",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/.cache/huggingface/hub/datasets--mounimzad--brainhr-plus",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/.cache/huggingface/hub/datasets--mounimzad--brainhr-synthetic-6000-reviewers",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/.cache/huggingface/hub/models--mounimzad--Llama-3-BrainHR-FT1200",
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/.cache/huggingface/hub/models--mounimzad--Llama-3-BrainHR-QLoRA-Fusion-20261110"
+  ],
+  "external_downloads": 0,
+  "external_uploads": 0,
+  "method": "APFS clone copies through macOS cp -cRpP",
+  "additional_source_files": [
+    "/Users/mac/.cache/huggingface/hub/blobs/45/45c9f87d60f115797a8afff56ceaa2c7617ad4b30a03aca0a87476ffab49bb00"
+  ],
+  "additional_copied_files": [
+    "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/.cache/huggingface/hub/blobs/45/45c9f87d60f115797a8afff56ceaa2c7617ad4b30a03aca0a87476ffab49bb00"
+  ]
+}

@@ -1,0 +1,64 @@
+name: Build historical base source evidence
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_sha:
+        description: Exact 40-character ancestor SHA to attest
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout full main history
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Build canonical historical evidence
+        env:
+          BASE_SHA: ${{ inputs.base_sha }}
+          REPOSITORY_ID: ${{ github.repository_id }}
+          REPOSITORY_OWNER_ID: ${{ github.repository_owner_id }}
+          WORKFLOW_REF: ${{ github.workflow_ref }}
+        run: |
+          set -euo pipefail
+          [[ "$BASE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          git fetch --no-tags origin refs/heads/main:refs/remotes/origin/main
+          test "$(git rev-parse "$BASE_SHA^{commit}")" = "$BASE_SHA"
+          git merge-base --is-ancestor "$BASE_SHA" refs/remotes/origin/main
+          out="base-source-evidence-$BASE_SHA"
+          mkdir "$out"
+          git archive --format=tar --prefix="brainrh-$BASE_SHA/" "$BASE_SHA" \
+            | gzip -n -9 > "$out/brainrh-$BASE_SHA.tar.gz"
+          archive_hash="$(sha256sum "$out/brainrh-$BASE_SHA.tar.gz" | awk '{print $1}')"
+          jq -cjnS \
+            --arg evidence_type brainrh-base-source \
+            --arg repository "$GITHUB_REPOSITORY" \
+            --argjson repository_id "$REPOSITORY_ID" \
+            --argjson repository_owner_id "$REPOSITORY_OWNER_ID" \
+            --arg ref refs/heads/main \
+            --arg commit_sha "$BASE_SHA" \
+            --arg archive "brainrh-$BASE_SHA.tar.gz" \
+            --arg archive_sha256 "$archive_hash" \
+            --argjson run_id "$GITHUB_RUN_ID" \
+            --argjson run_attempt "$GITHUB_RUN_ATTEMPT" \
+            --arg workflow_ref "$WORKFLOW_REF" \
+            '{schema_version:1,evidence_type:$evidence_type,repository:$repository,repository_id:$repository_id,repository_owner_id:$repository_owner_id,ref:$ref,commit_sha:$commit_sha,ancestry_verified:true,archive:$archive,archive_sha256:$archive_sha256,producer:{run_attempt:$run_attempt,run_id:$run_id,workflow_ref:$workflow_ref}}' \
+            > "$out/base-source-evidence.json"
+          jq -e . "$out/base-source-evidence.json" >/dev/null
+          sha256sum "$out/base-source-evidence.json" > "$out/base-source-evidence.json.sha256"
+
+      - name: Upload unsigned historical evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: base-source-evidence-${{ inputs.base_sha }}
+          path: base-source-evidence-${{ inputs.base_sha }}/
+          if-no-files-found: error
+          retention-days: 30

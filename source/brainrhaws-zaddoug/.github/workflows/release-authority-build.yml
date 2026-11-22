@@ -1,0 +1,141 @@
+name: Build release authority verifier
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/release-authority-build.yml
+      - .github/workflows/base-source-evidence.yml
+      - tools/release-authority/**
+      - infra/cloudformation/promotion-authority.yml
+      - docs/operations/promotion-authority.md
+      - docs/operations/runtime-promotion-adapter.md
+      - docs/operations/existing-host-hardening.md
+      - tests/infra/host_preparation_contract_test.py
+      - tests/infra/credential_broker_contract_test.py
+  pull_request:
+    paths:
+      - .github/workflows/release-authority-build.yml
+      - .github/workflows/base-source-evidence.yml
+      - tools/release-authority/**
+      - infra/cloudformation/promotion-authority.yml
+      - docs/operations/promotion-authority.md
+      - docs/operations/runtime-promotion-adapter.md
+      - docs/operations/existing-host-hardening.md
+      - tests/infra/host_preparation_contract_test.py
+      - tests/infra/credential_broker_contract_test.py
+
+permissions:
+  contents: read
+
+jobs:
+  verifier:
+    name: Test verifier and anti-replay promoter contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout exact revision
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Install locked Go toolchain
+        uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+        with:
+          go-version-file: tools/release-authority/go.mod
+          cache-dependency-path: tools/release-authority/go.sum
+
+      - name: Verify module lock and source formatting
+        working-directory: tools/release-authority
+        run: |
+          set -euo pipefail
+          go mod verify
+          test -z "$(gofmt -l .)"
+          go mod tidy
+          git diff --exit-code -- go.mod go.sum
+          grep -Fq 'jq -cjnS' ../../.github/workflows/base-source-evidence.yml
+          verification_policy="$(sed -n '/^  ProductionVerificationPolicy:/,/^  RuntimeMutationPolicy:/p' ../../infra/cloudformation/promotion-authority.yml)"
+          runtime_policy="$(sed -n '/^  RuntimeMutationPolicy:/,/^  BootstrapVerificationLogsPolicy:/p' ../../infra/cloudformation/promotion-authority.yml)"
+          for grant in 'dynamodb:GetItem' 'dynamodb:UpdateItem'; do
+            ! grep -Fq "$grant" <<<"$verification_policy"
+            grep -Fq "$grant" <<<"$runtime_policy"
+          done
+          ! grep -Fq 'Sid: AppendPromotionReceipts' <<<"$verification_policy"
+          grep -Fq 'Sid: AppendPromotionReceipts' <<<"$runtime_policy"
+          grep -Fq 'Condition: RuntimePromotionEnabled' <<<"$runtime_policy"
+          python3 ../../tests/infra/host_preparation_contract_test.py
+          python3 ../../tests/infra/credential_broker_contract_test.py
+
+      - name: Vet and run adversarial unit tests
+        working-directory: tools/release-authority
+        run: |
+          set -euo pipefail
+          go vet ./...
+          go test -count=1 ./...
+          go test -race -count=1 ./...
+          go test -race -count=20 ./internal/promoter -run 'TestClaimIsAtomicAndAuthorizationCannotReplayConcurrently|TestCompletionFaultPreservesRuntimeDoneForRecovery|TestAmbiguousTransactionWithUnavailableClassificationPreservesJournal|TestTransactionClassificationRejectsTamperedInvariantFields|TestExecuteRejectsMissingExpiredAndOverlongExpirationBeforeClaim|TestClaimBindsLexicalExpirationAndCurrentTime'
+
+      - name: Require clean Go vulnerability analysis
+        working-directory: tools/release-authority
+        run: |
+          set -euo pipefail
+          mkdir -p evidence "$RUNNER_TEMP/release-authority-tools"
+          GOBIN="$RUNNER_TEMP/release-authority-tools" go install golang.org/x/vuln/cmd/govulncheck@v1.6.0
+          "$RUNNER_TEMP/release-authority-tools/govulncheck" -show verbose ./... | tee evidence/govulncheck.txt
+
+      - name: Build twice and require byte reproducibility
+        working-directory: tools/release-authority
+        env:
+          CGO_ENABLED: "0"
+          GOOS: linux
+          GOARCH: amd64
+        run: |
+          set -euo pipefail
+          mkdir -p dist/one dist/two
+          flags="-s -w -buildid= -X main.version=${GITHUB_SHA}"
+          go build -trimpath -buildvcs=false -ldflags "$flags" -o dist/one/brainrh-release-authority ./cmd/brainrh-release-authority
+          go build -trimpath -buildvcs=false -ldflags "$flags" -o dist/two/brainrh-release-authority ./cmd/brainrh-release-authority
+          for command in brainrh-release-authorize brainrh-release-keygen brainrh-release-seed; do
+            go build -trimpath -buildvcs=false -ldflags '-s -w -buildid=' -o "dist/one/$command" "./cmd/$command"
+            go build -trimpath -buildvcs=false -ldflags '-s -w -buildid=' -o "dist/two/$command" "./cmd/$command"
+          done
+          for binary in dist/one/brainrh-*; do
+            cmp "$binary" "dist/two/$(basename "$binary")"
+          done
+          file dist/one/brainrh-release-authority | tee dist/one/file.txt
+          for binary in dist/one/brainrh-*; do
+            if [ -x "$binary" ] && ldd "$binary" >>dist/one/ldd.txt 2>&1; then
+              echo "$binary unexpectedly has dynamic dependencies." >&2
+              exit 1
+            fi
+          done
+          sha256sum dist/one/brainrh-release-authority | tee dist/one/brainrh-release-authority.sha256
+          sha256sum \
+            dist/one/brainrh-release-authority \
+            dist/one/brainrh-release-authorize \
+            dist/one/brainrh-release-keygen \
+            dist/one/brainrh-release-seed \
+            | tee dist/one/brainrh-release-tools.sha256
+          go version -m dist/one/brainrh-release-authority > dist/one/go-version-m.txt
+          go list -m -json all > dist/one/go-modules.jsonl
+          go env GOVERSION > dist/one/go-toolchain.txt
+          cp evidence/govulncheck.txt dist/one/govulncheck.txt
+          printf '%s\n' \
+            'UNSIGNED-UNPROMOTABLE: this artifact is build evidence only.' \
+            'It must be verified and signed by the external release authority before bootstrap.' \
+            > dist/one/UNSIGNED-UNPROMOTABLE.txt
+
+      - name: Generate SPDX JSON SBOM
+        uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610 # v0
+        with:
+          path: tools/release-authority/dist/one
+          format: spdx-json
+          output-file: tools/release-authority/dist/one/brainrh-release-authority.spdx.json
+          upload-artifact: false
+
+      - name: Upload unsigned verifier evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: unsigned-unpromotable-release-authority-${{ github.sha }}
+          path: tools/release-authority/dist/one/
+          if-no-files-found: error
+          retention-days: 30

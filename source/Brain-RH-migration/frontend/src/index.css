@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  /* Charte graphique BRAIN RH+ */
+  --primary-navy: 207 44% 20%;        /* #1B2B4A - Bleu marine profond */
+  --primary-blue: 211 68% 59%;        /* #4A90E2 - Bleu tech */
+  --accent-cyan: 197 68% 60%;         /* #5BC0DE - Cyan moderne */
+  --neutral-dark: 218 19% 24%;        /* #2D3748 - Gris foncé */
+  --neutral-medium: 214 15% 49%;      /* #718096 - Gris moyen */
+  --neutral-light: 214 32% 91%;       /* #E2E8F0 - Gris clair */
+  --success: 152 56% 51%;             /* #48BB78 - Vert succès */
+  --warning: 25 85% 57%;              /* #ED8936 - Orange warning */
+  --error: 0 91% 68%;                 /* #F56565 - Rouge erreur */
+
+  /* Mapping vers le système de design */
+  --background: 0 0% 100%;            /* #FFFFFF */
+  --foreground: var(--neutral-dark);
+  --card: 0 0% 100%;
+  --card-foreground: var(--neutral-dark);
+  --popover: 0 0% 100%;
+  --popover-foreground: var(--neutral-dark);
+  --primary: var(--primary-blue);
+  --primary-foreground: 0 0% 100%;
+  --secondary: 214 32% 91%;
+  --secondary-foreground: var(--primary-navy);
+  --muted: 214 32% 91%;
+  --muted-foreground: var(--neutral-medium);
+  --accent: 197 100% 96%;             /* #EBF8FF - Fond bleu clair */
+  --accent-foreground: var(--primary-navy);
+  --destructive: var(--error);
+  --destructive-foreground: 0 0% 100%;
+  --border: var(--neutral-light);
+  --input: var(--neutral-light);
+  --ring: var(--primary-blue);
+  --radius: 0.75rem;
+}
+
+.dark {
+  /* Dark mode - palette inversée */
+  --background: 218 19% 12%;          /* Plus sombre que neutral-dark */
+  --foreground: 0 0% 98%;
+  --card: 218 19% 16%;
+  --card-foreground: 0 0% 98%;
+  --popover: 218 19% 16%;
+  --popover-foreground: 0 0% 98%;
+  --primary: var(--primary-blue);
+  --primary-foreground: 0 0% 100%;
+  --secondary: 218 19% 24%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 218 19% 24%;
+  --muted-foreground: 214 15% 64%;
+  --accent: 218 19% 20%;
+  --accent-foreground: var(--accent-cyan);
+  --destructive: var(--error);
+  --destructive-foreground: 0 0% 98%;
+  --border: 218 19% 24%;
+  --input: 218 19% 24%;
+  --ring: var(--primary-blue);
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}

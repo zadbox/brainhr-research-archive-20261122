@@ -1,0 +1,486 @@
+name: Build immutable candidate images
+
+on:
+  workflow_call:
+    inputs:
+      candidate_sha:
+        description: Full origin/main commit SHA to publish (defaults to the dispatched SHA)
+        required: false
+        type: string
+      public_api_base_url:
+        description: Production API URL baked into the frontend image
+        required: true
+        type: string
+    outputs:
+      release_sha:
+        description: Built candidate origin/main commit SHA
+        value: ${{ jobs.publish.outputs.release_sha }}
+      backend_image:
+        description: Backend ECR reference pinned by digest
+        value: ${{ jobs.publish.outputs.backend_image }}
+      worker_video_image:
+        description: Worker ECR reference pinned by digest
+        value: ${{ jobs.publish.outputs.worker_video_image }}
+      frontend_image:
+        description: Frontend ECR reference pinned by digest
+        value: ${{ jobs.publish.outputs.frontend_image }}
+
+jobs:
+  publish:
+    name: Build and publish ECR images
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      id-token: write
+      actions: read
+      checks: read
+    outputs:
+      release_sha: ${{ steps.candidate.outputs.sha }}
+      backend_image: ${{ steps.release.outputs.backend_image }}
+      worker_video_image: ${{ steps.release.outputs.worker_video_image }}
+      frontend_image: ${{ steps.release.outputs.frontend_image }}
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION || 'eu-north-1' }}
+      AWS_ROLE_TO_ASSUME: ${{ vars.AWS_RELEASE_ROLE_ARN || 'arn:aws:iam::406260455536:role/brainrh-github-ecr-build' }}
+      BACKEND_REPOSITORY: ${{ vars.ECR_BACKEND_REPOSITORY || 'brainrh/backend' }}
+      WORKER_VIDEO_REPOSITORY: ${{ vars.ECR_WORKER_VIDEO_REPOSITORY || 'brainrh/worker-video' }}
+      FRONTEND_REPOSITORY: ${{ vars.ECR_FRONTEND_REPOSITORY || 'brainrh/frontend' }}
+    steps:
+      - name: Authorize exact caller and ref
+        env:
+          CALLER_WORKFLOW_REF: ${{ github.workflow_ref }}
+          CALLER_REPOSITORY: ${{ github.repository }}
+          CALLER_REPOSITORY_ID: ${{ github.repository_id }}
+          CALLER_REPOSITORY_OWNER_ID: ${{ github.repository_owner_id }}
+          CALLER_REF: ${{ github.ref }}
+        run: |
+          set -euo pipefail
+          expected_workflow_ref='SamAI10/brainrhaws/.github/workflows/release-publish.yml@refs/heads/main'
+          if [[ "$CALLER_REPOSITORY" != 'SamAI10/brainrhaws' ]]; then
+            echo "Unauthorized caller repository: $CALLER_REPOSITORY" >&2
+            exit 1
+          fi
+          if [[ "$CALLER_REPOSITORY_ID" != '1225162699' ]]; then
+            echo "Unauthorized caller repository ID: $CALLER_REPOSITORY_ID" >&2
+            exit 1
+          fi
+          if [[ "$CALLER_REPOSITORY_OWNER_ID" != '169595948' ]]; then
+            echo "Unauthorized caller repository owner ID: $CALLER_REPOSITORY_OWNER_ID" >&2
+            exit 1
+          fi
+          if [[ "$CALLER_REF" != 'refs/heads/main' ]]; then
+            echo "Unauthorized caller ref: $CALLER_REF" >&2
+            exit 1
+          fi
+          if [[ "$CALLER_WORKFLOW_REF" != "$expected_workflow_ref" ]]; then
+            echo "Unauthorized caller workflow: $CALLER_WORKFLOW_REF" >&2
+            exit 1
+          fi
+
+      - name: Checkout dispatch revision
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Refuse experimental inputs in release publication
+        run: |
+          set -euo pipefail
+          experimental_dockerfile='Dockerfile.worker-video.alpine''-experimental'
+          experimental_tag='experiment-worker-alpine''-'
+          bookworm_backend_dockerfile='Dockerfile.backend.bookworm''-experimental'
+          bookworm_worker_dockerfile='Dockerfile.worker-video.bookworm''-experimental'
+          bookworm_backend_tag='experiment-backend-bookworm''-'
+          bookworm_worker_tag='experiment-worker-video-bookworm''-'
+          ! grep -Fq "$experimental_dockerfile" docker-compose.prod.yml
+          ! grep -Fq -- "--file $experimental_dockerfile" .github/workflows/release-build.yml
+          ! grep -Fq "$experimental_tag" docker-compose.prod.yml
+          ! grep -Fq "$bookworm_backend_dockerfile" docker-compose.prod.yml
+          ! grep -Fq "$bookworm_worker_dockerfile" docker-compose.prod.yml
+          ! grep -Fq -- "--file $bookworm_backend_dockerfile" .github/workflows/release-build.yml
+          ! grep -Fq -- "--file $bookworm_worker_dockerfile" .github/workflows/release-build.yml
+          ! grep -Fq "$bookworm_backend_tag" docker-compose.prod.yml
+          ! grep -Fq "$bookworm_worker_tag" docker-compose.prod.yml
+
+      - name: Resolve and verify candidate
+        id: candidate
+        env:
+          REQUESTED_SHA: ${{ inputs.candidate_sha }}
+        run: |
+          set -euo pipefail
+          git fetch origin main:refs/remotes/origin/main --no-tags
+          candidate="${REQUESTED_SHA:-${GITHUB_SHA}}"
+          if [[ ! "$candidate" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "candidate_sha must be a full lowercase Git commit SHA." >&2
+            exit 1
+          fi
+          main_sha="$(git rev-parse origin/main)"
+          candidate_sha="$(git rev-parse "${candidate}^{commit}")"
+          if [[ "$candidate_sha" != "$main_sha" ]]; then
+            echo "Refusing publication: candidate $candidate_sha is not current origin/main $main_sha." >&2
+            exit 1
+          fi
+          git checkout --detach "$candidate_sha"
+          echo "sha=$candidate_sha" >> "$GITHUB_OUTPUT"
+          echo "tag=sha-$candidate_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Require successful validation gates for candidate
+        env:
+          CANDIDATE_SHA: ${{ steps.candidate.outputs.sha }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          deadline=$((SECONDS + 1800))
+          mkdir -p release-evidence
+
+          require_successful_push_run() {
+            local workflow="${1:?workflow file required}"
+            local label="${2:?workflow label required}"
+            local evidence_name="${3:?evidence name required}"
+            local run_state status conclusion url
+
+            while (( SECONDS < deadline )); do
+              run_state="$(
+                gh api --method GET \
+                  "repos/${GITHUB_REPOSITORY}/actions/workflows/${workflow}/runs" \
+                  -f event=push \
+                  -f per_page=100 \
+                  --jq "[.workflow_runs[] | select(.head_sha == \"${CANDIDATE_SHA}\" and .event == \"push\")] | sort_by(.run_number) | reverse | if length == 0 then empty else .[0] end"
+              )"
+
+              if [[ -z "$run_state" ]]; then
+                echo "$label: no push run for $CANDIDATE_SHA yet; waiting..."
+                sleep 15
+                continue
+              fi
+
+              status="$(jq -r '.status // ""' <<< "$run_state")"
+              conclusion="$(jq -r '.conclusion // ""' <<< "$run_state")"
+              url="$(jq -r '.html_url // ""' <<< "$run_state")"
+              if [[ "$status" == "completed" && "$conclusion" == "success" ]]; then
+                jq -cS --arg workflow_file "$workflow" '{
+                  conclusion: .conclusion,
+                  event: .event,
+                  head_sha: .head_sha,
+                  run_attempt: .run_attempt,
+                  run_id: .id,
+                  run_number: .run_number,
+                  status: .status,
+                  url: .html_url,
+                  workflow_file: $workflow_file
+                }' <<< "$run_state" > "release-evidence/${evidence_name}.json"
+                echo "$label: successful push run verified ($url)"
+                return 0
+              fi
+              if [[ "$status" == "completed" ]]; then
+                echo "$label: candidate run concluded $conclusion ($url)" >&2
+                return 1
+              fi
+              echo "$label: candidate run is $status; waiting..."
+              sleep 15
+            done
+
+            echo "$label: no successful push run found before timeout for $CANDIDATE_SHA." >&2
+            return 1
+          }
+
+          require_successful_push_run \
+            business-logic-guard.yml 'Business logic guard' business-logic-guard
+          require_successful_push_run \
+            security-baseline.yml 'Security baseline' security-baseline
+          require_successful_push_run \
+            migration-contract.yml 'Migration contract' migration-contract
+
+      - name: Validate release configuration
+        env:
+          PUBLIC_API_BASE_URL: ${{ inputs.public_api_base_url }}
+        run: |
+          set -euo pipefail
+          required=(AWS_REGION AWS_ROLE_TO_ASSUME BACKEND_REPOSITORY WORKER_VIDEO_REPOSITORY FRONTEND_REPOSITORY PUBLIC_API_BASE_URL)
+          for name in "${required[@]}"; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "Missing GitHub environment variable or workflow input: $name" >&2
+              exit 1
+            fi
+          done
+          if [[ ! "$PUBLIC_API_BASE_URL" =~ ^https://[^[:space:]]+$ ]]; then
+            echo "public_api_base_url must be an absolute HTTPS URL." >&2
+            exit 1
+          fi
+
+      - name: Configure short-lived AWS credentials
+        uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ env.AWS_REGION }}
+          role-session-name: brainrh-release-${{ github.run_id }}
+
+      - name: Authenticate to ECR
+        id: ecr
+        run: |
+          set -euo pipefail
+          account_id="$(aws sts get-caller-identity --query Account --output text)"
+          registry="${account_id}.dkr.ecr.${AWS_REGION}.amazonaws.com"
+          aws ecr get-login-password --region "$AWS_REGION" | docker login --username AWS --password-stdin "$registry"
+          echo "registry=$registry" >> "$GITHUB_OUTPUT"
+
+      - name: Set up cached Buildx
+        uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3
+
+      - name: Refuse mutable or existing tags
+        env:
+          RELEASE_TAG: ${{ steps.candidate.outputs.tag }}
+        run: |
+          set -euo pipefail
+          for repository in "$BACKEND_REPOSITORY" "$WORKER_VIDEO_REPOSITORY" "$FRONTEND_REPOSITORY"; do
+            mutability="$(aws ecr describe-repositories --repository-names "$repository" --query 'repositories[0].imageTagMutability' --output text)"
+            if [[ "$mutability" != "IMMUTABLE" ]]; then
+              echo "ECR repository $repository is not IMMUTABLE." >&2
+              exit 1
+            fi
+            lookup_error="$(mktemp)"
+            if aws ecr describe-images --repository-name "$repository" --image-ids imageTag="$RELEASE_TAG" >/dev/null 2>"$lookup_error"; then
+              echo "Release tag already exists in $repository: $RELEASE_TAG" >&2
+              exit 1
+            fi
+            if ! grep -q 'ImageNotFoundException' "$lookup_error"; then
+              cat "$lookup_error" >&2
+              echo "Unable to prove that $repository:$RELEASE_TAG is absent." >&2
+              exit 1
+            fi
+            rm -f "$lookup_error"
+          done
+
+      - name: Build and push release images in parallel
+        env:
+          REGISTRY: ${{ steps.ecr.outputs.registry }}
+          RELEASE_TAG: ${{ steps.candidate.outputs.tag }}
+          PUBLIC_API_BASE_URL: ${{ inputs.public_api_base_url }}
+        run: |
+          set -euo pipefail
+          docker buildx build --pull --push --file Dockerfile \
+            --cache-from type=gha,scope=brainrh-backend \
+            --cache-to type=gha,scope=brainrh-backend,mode=max \
+            --tag "$REGISTRY/$BACKEND_REPOSITORY:$RELEASE_TAG" . &
+          backend_pid=$!
+          docker buildx build --pull --push --file Dockerfile.worker-video \
+            --cache-from type=gha,scope=brainrh-worker-video \
+            --cache-to type=gha,scope=brainrh-worker-video,mode=max \
+            --tag "$REGISTRY/$WORKER_VIDEO_REPOSITORY:$RELEASE_TAG" . &
+          worker_pid=$!
+          docker buildx build --pull --push --file frontend/Dockerfile.prod \
+            --build-arg "VITE_API_BASE_URL=$PUBLIC_API_BASE_URL" \
+            --cache-from type=gha,scope=brainrh-frontend \
+            --cache-to type=gha,scope=brainrh-frontend,mode=max \
+            --tag "$REGISTRY/$FRONTEND_REPOSITORY:$RELEASE_TAG" . &
+          frontend_pid=$!
+          wait "$backend_pid"
+          wait "$worker_pid"
+          wait "$frontend_pid"
+
+      - name: Require clean completed ECR scans
+        env:
+          RELEASE_TAG: ${{ steps.candidate.outputs.tag }}
+        run: |
+          set -euo pipefail
+          repositories=("$BACKEND_REPOSITORY" "$WORKER_VIDEO_REPOSITORY" "$FRONTEND_REPOSITORY")
+          mkdir -p release-evidence/ecr-scans
+          wait_pids=()
+
+          wait_for_scan() {
+            local repository="${1:?repository required}"
+            local output="release-evidence/ecr-scans/${repository//\//-}.json"
+            local deadline=$((SECONDS + 900))
+            local error_file status
+            error_file="$(mktemp)"
+
+            while (( SECONDS < deadline )); do
+              if aws ecr describe-image-scan-findings \
+                --repository-name "$repository" \
+                --image-id imageTag="$RELEASE_TAG" \
+                --output json > "$output" 2> "$error_file"; then
+                status="$(jq -r '.imageScanStatus.status // "UNKNOWN"' "$output")"
+                case "$status" in
+                  COMPLETE)
+                    rm -f "$error_file"
+                    return 0
+                    ;;
+                  IN_PROGRESS|PENDING)
+                    echo "ECR scan for $repository is $status; waiting..."
+                    ;;
+                  *)
+                    echo "ECR scan for $repository entered terminal/unexpected status $status." >&2
+                    rm -f "$error_file"
+                    return 1
+                    ;;
+                esac
+              elif grep -q 'ScanNotFoundException' "$error_file"; then
+                echo "ECR scan for $repository is not initialized yet; waiting..."
+              else
+                cat "$error_file" >&2
+                echo "Unable to inspect ECR scan for $repository." >&2
+                rm -f "$error_file"
+                return 1
+              fi
+              sleep 10
+            done
+
+            echo "ECR scan did not reach COMPLETE within 900 seconds for $repository." >&2
+            rm -f "$error_file"
+            return 1
+          }
+
+          for repository in "${repositories[@]}"; do
+            wait_for_scan "$repository" &
+            wait_pids+=("$!")
+          done
+
+          wait_failed=false
+          for index in "${!wait_pids[@]}"; do
+            if ! wait "${wait_pids[$index]}"; then
+              echo "ECR scan did not complete for ${repositories[$index]}." >&2
+              wait_failed=true
+            fi
+          done
+          if [[ "$wait_failed" == "true" ]]; then
+            exit 1
+          fi
+
+          total_blocking=0
+          {
+            echo '### ECR candidate scan summary'
+            echo
+            echo '| Repository | Critical | High | Medium | Low |'
+            echo '|---|---:|---:|---:|---:|'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          for repository in "${repositories[@]}"; do
+            findings="$(<"release-evidence/ecr-scans/${repository//\//-}.json")"
+            scan_status="$(jq -r '.imageScanStatus.status // "UNKNOWN"' <<< "$findings")"
+            critical="$(jq -r '.imageScanFindings.findingSeverityCounts.CRITICAL // 0' <<< "$findings")"
+            high="$(jq -r '.imageScanFindings.findingSeverityCounts.HIGH // 0' <<< "$findings")"
+            medium="$(jq -r '.imageScanFindings.findingSeverityCounts.MEDIUM // 0' <<< "$findings")"
+            low="$(jq -r '.imageScanFindings.findingSeverityCounts.LOW // 0' <<< "$findings")"
+            if [[ "$scan_status" != "COMPLETE" ]]; then
+              echo "Unexpected ECR scan status for $repository: $scan_status" >&2
+              exit 1
+            fi
+            for count in "$critical" "$high" "$medium" "$low"; do
+              if [[ ! "$count" =~ ^[0-9]+$ ]]; then
+                echo "Invalid ECR severity count for $repository: $count" >&2
+                exit 1
+              fi
+            done
+            printf '| `%s` | %s | %s | %s | %s |\n' \
+              "$repository" "$critical" "$high" "$medium" "$low" >> "$GITHUB_STEP_SUMMARY"
+            total_blocking=$((total_blocking + critical + high))
+          done
+
+          if (( total_blocking > 0 )); then
+            echo "ECR scan gate rejected the candidate: $total_blocking HIGH/CRITICAL finding(s)." >&2
+            exit 1
+          fi
+
+      - name: Resolve immutable digests
+        id: release
+        env:
+          REGISTRY: ${{ steps.ecr.outputs.registry }}
+          RELEASE_TAG: ${{ steps.candidate.outputs.tag }}
+        run: |
+          set -euo pipefail
+          resolve_digest() {
+            aws ecr describe-images \
+              --repository-name "$1" \
+              --image-ids imageTag="$RELEASE_TAG" \
+              --query 'imageDetails[0].imageDigest' \
+              --output text
+          }
+          backend_digest="$(resolve_digest "$BACKEND_REPOSITORY")"
+          worker_digest="$(resolve_digest "$WORKER_VIDEO_REPOSITORY")"
+          frontend_digest="$(resolve_digest "$FRONTEND_REPOSITORY")"
+          for digest in "$backend_digest" "$worker_digest" "$frontend_digest"; do
+            if [[ ! "$digest" =~ ^sha256:[0-9a-f]{64}$ ]]; then
+              echo "ECR returned an invalid digest: $digest" >&2
+              exit 1
+            fi
+          done
+          echo "backend_image=$REGISTRY/$BACKEND_REPOSITORY@$backend_digest" >> "$GITHUB_OUTPUT"
+          echo "worker_video_image=$REGISTRY/$WORKER_VIDEO_REPOSITORY@$worker_digest" >> "$GITHUB_OUTPUT"
+          echo "frontend_image=$REGISTRY/$FRONTEND_REPOSITORY@$frontend_digest" >> "$GITHUB_OUTPUT"
+
+      - name: Create exact source snapshot
+        id: source
+        env:
+          RELEASE_SHA: ${{ steps.candidate.outputs.sha }}
+        run: |
+          set -euo pipefail
+          source_archive="brainrh-${RELEASE_SHA}.tar.gz"
+          git archive --format=tar --prefix="brainrh-${RELEASE_SHA}/" "$RELEASE_SHA" \
+            | gzip -n -9 > "$source_archive"
+          if git cat-file -e "${RELEASE_SHA}:alembic/versions" 2>/dev/null; then
+            migration_digest="$(
+              git ls-tree -rz --full-tree "$RELEASE_SHA" -- alembic/versions \
+                | sha256sum \
+                | awk '{print $1}'
+            )"
+            if [[ ! "$migration_digest" =~ ^[0-9a-f]{64}$ ]]; then
+              echo "Unable to calculate the migration tree fingerprint." >&2
+              exit 1
+            fi
+            migration_fingerprint="sha256:${migration_digest}"
+          else
+            migration_fingerprint=NONE
+          fi
+          echo "migration_tree_fingerprint=$migration_fingerprint" >> "$GITHUB_OUTPUT"
+
+      - name: Assemble unsigned candidate evidence bundle
+        env:
+          RELEASE_SHA: ${{ steps.candidate.outputs.sha }}
+          BACKEND_IMAGE: ${{ steps.release.outputs.backend_image }}
+          WORKER_VIDEO_IMAGE: ${{ steps.release.outputs.worker_video_image }}
+          FRONTEND_IMAGE: ${{ steps.release.outputs.frontend_image }}
+          MIGRATION_TREE_FINGERPRINT: ${{ steps.source.outputs.migration_tree_fingerprint }}
+        run: |
+          set -euo pipefail
+          bundle="unsigned-unpromotable-candidate-${RELEASE_SHA}"
+          python3 scripts/release/build_candidate_bundle.py \
+            --candidate-sha "$RELEASE_SHA" \
+            --repository "$GITHUB_REPOSITORY" \
+            --repository-id "$GITHUB_REPOSITORY_ID" \
+            --repository-owner-id "$GITHUB_REPOSITORY_OWNER_ID" \
+            --source-ref refs/heads/main \
+            --source-archive "brainrh-${RELEASE_SHA}.tar.gz" \
+            --migration-tree-fingerprint "$MIGRATION_TREE_FINGERPRINT" \
+            --business-gate release-evidence/business-logic-guard.json \
+            --migration-gate release-evidence/migration-contract.json \
+            --security-gate release-evidence/security-baseline.json \
+            --backend-image "$BACKEND_IMAGE" \
+            --backend-repository "$BACKEND_REPOSITORY" \
+            --backend-scan release-evidence/ecr-scans/brainrh-backend.json \
+            --worker-video-image "$WORKER_VIDEO_IMAGE" \
+            --worker-video-repository "$WORKER_VIDEO_REPOSITORY" \
+            --worker-video-scan release-evidence/ecr-scans/brainrh-worker-video.json \
+            --frontend-image "$FRONTEND_IMAGE" \
+            --frontend-repository "$FRONTEND_REPOSITORY" \
+            --frontend-scan release-evidence/ecr-scans/brainrh-frontend.json \
+            --producer-run-id "$GITHUB_RUN_ID" \
+            --producer-run-attempt "$GITHUB_RUN_ATTEMPT" \
+            --producer-workflow-ref "$GITHUB_WORKFLOW_REF" \
+            --output-dir "$bundle"
+          {
+            echo
+            echo '### Unsigned, non-promotable candidate evidence bundle'
+            echo
+            echo '> This build artifact is evidence only. It is not a signed promotion authorization.'
+            echo '```json'
+            jq . "$bundle/release-manifest.json"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload release manifest
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: unsigned-unpromotable-candidate-${{ steps.candidate.outputs.sha }}
+          path: unsigned-unpromotable-candidate-${{ steps.candidate.outputs.sha }}/
+          if-no-files-found: error
+          retention-days: 30

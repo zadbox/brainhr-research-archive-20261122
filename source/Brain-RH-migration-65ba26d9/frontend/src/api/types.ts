@@ -1,0 +1,198 @@
+// Types pour l'API Brain RH
+
+export interface Contact {
+  nom_complet: string;
+  poste?: string;
+  email: string;
+  telephone?: string;
+  canal_prefere?: 'email' | 'telephone' | 'slack' | 'autre';
+  notes?: string;
+}
+
+export interface Enterprise {
+  id: string;
+  nom: string;
+  site_web?: string;
+  secteur?: string;
+  notes?: string;
+  contacts: Contact[];
+  created_at?: string;
+  last_modified?: string;
+  projects_count: number;
+}
+
+export interface Project {
+  id: string;
+  nom: string;
+  enterprise_id?: string;
+  service_demandeur?: string;
+  responsable_offre?: string;
+  contact_responsable?: string;
+  notes?: string;
+  created_at: string;
+  last_modified: string;
+  status: 'actif' | 'archive';
+}
+
+export interface CV {
+  cv: string;
+  identite?: {
+    nom?: string;
+    email?: string;
+    telephone?: string;
+    adresse?: string;
+  };
+  titre?: string;
+  resume_professionnel?: string;
+  competences_techniques: string[];
+  competences_transversales: string[];
+  langues: string[];
+  experiences_professionnelles: any[];
+  formations: any[];
+  certifications: string[];
+  projets: string[];
+}
+
+export interface Offre {
+  sections: {
+    titre?: string;
+    description?: string;
+    competences_techniques: string[];
+    competences_transversales: string[];
+    langues: string[];
+    experiences_professionnelles: any[];
+    formations: any[];
+    certifications: string[];
+    projets: string[];
+  };
+  must_have: string[];
+  nice_have: string[];
+}
+
+export interface ResultatMatching {
+  cv: string;
+  score_final: number;
+  score_base: number;
+  bonus_nice_have_multiplicateur: number;
+  coefficient_qualite_experience: number;
+  nice_have_manquants: string[];
+  commentaire_scoring?: string;
+  appreciation_globale?: string;
+}
+
+export interface MatchingResponse {
+  results: ResultatMatching[];
+  metadata: {
+    total_cvs: number;
+    filtered_must_have: number;
+    top_reranked: number;
+    duree_totale_s: number;
+    timestamp?: string;
+  };
+}
+
+export interface CVParseResult {
+  success: boolean;
+  cv?: string;
+  data?: CV;
+  error?: string;
+}
+
+export interface CVParseResponse {
+  success_count: number;
+  failed_count: number;
+  total: number;
+  duree_totale_s: number;
+  results: CVParseResult[];
+}
+
+// SSE Events
+export interface SSEProgressEvent {
+  step: string;
+  current: number;
+  total: number;
+  progress: number;
+  message: string;
+}
+
+export interface SSEResultEvent {
+  success: boolean;
+  cv?: string;
+  data?: any;
+  error?: string;
+}
+
+export interface SSEDoneEvent {
+  summary: {
+    results?: any[];
+    metadata?: any;
+    success_count?: number;
+    failed_count?: number;
+    total?: number;
+  };
+}
+
+export interface SSEErrorEvent {
+  code: string;
+  message: string;
+  traceback?: string;
+}
+
+export interface APIError {
+  code: string;
+  message: string;
+  details?: any;
+}
+
+export interface ProjectHistory {
+  total: number;
+  items: {
+    matching_id: string;
+    timestamp: string;
+    candidats_count: number;
+  }[];
+}
+
+// Enrichissement d'offres
+export interface EnrichmentCompetence {
+  name: string;
+  type: 'must' | 'nice';
+  source: string;
+  rationale: string;
+}
+
+export interface EnrichmentItem {
+  name: string;
+  rationale: string;
+}
+
+export interface EnrichmentMission {
+  text: string;
+  rationale: string;
+}
+
+export interface EnrichmentPropositions {
+  competences: EnrichmentCompetence[];
+  outils: EnrichmentItem[];
+  langages: EnrichmentItem[];
+  certifications: EnrichmentItem[];
+  missions: EnrichmentMission[];
+  questions_clarification: string[];
+}
+
+export interface EnrichmentResult {
+  coverage_score: number;
+  propositions: EnrichmentPropositions;
+}
+
+export interface EnrichmentSelections {
+  competences: number[];
+  outils: number[];
+  langages: number[];
+  certifications: number[];
+  missions: number[];
+}
+
+export interface QuestionResponses {
+  [question: string]: string;
+}

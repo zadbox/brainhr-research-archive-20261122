@@ -1,0 +1,878 @@
+ANNOTATIONS A 292 FICHIERS SOURCES
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-00b1e63f8f56556fbbc3151c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-00b1e63f8f56556fbbc3151c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-016dd328c15c2e1d855f4b60.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-016dd328c15c2e1d855f4b60.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-032eb3c0c16c16cb34f8131a.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-032eb3c0c16c16cb34f8131a.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-03601f31b2df8c936880c5ee.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-03601f31b2df8c936880c5ee.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-037475026212fdc3fc4a28fc.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-037475026212fdc3fc4a28fc.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0546bfc499fd15ce4a7086c2.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0546bfc499fd15ce4a7086c2.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-057c7849fbcce683586e23c3.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-057c7849fbcce683586e23c3.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-067d5911be4afd22ad0f0f9e.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-067d5911be4afd22ad0f0f9e.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-07b165b3e6a0daa81d8209d0.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-07b165b3e6a0daa81d8209d0.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-07e5428c2c4c2f38efbaad51.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-07e5428c2c4c2f38efbaad51.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0887cdb054e135c4db25dba7.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0887cdb054e135c4db25dba7.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-095440c864371bcbd1be5ef0.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-095440c864371bcbd1be5ef0.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0a084fda4aa971dbfc4f4640.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0a084fda4aa971dbfc4f4640.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0aae051acf7ea0b42e9e897f.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0aae051acf7ea0b42e9e897f.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0b158f261b22bede820770ba.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0b158f261b22bede820770ba.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0b2ab2e396f770d77f2437cd.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0b2ab2e396f770d77f2437cd.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0bb357bc996182db2ff4f680.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0bb357bc996182db2ff4f680.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0cc363b941179da526ae1d7d.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0cc363b941179da526ae1d7d.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0ccbe09461f63c50f589259d.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0ccbe09461f63c50f589259d.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0d21b78121a1420a13d6f283.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0d21b78121a1420a13d6f283.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0dc9cafc8c454c01c90ab9d7.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0dc9cafc8c454c01c90ab9d7.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0e9ef614ca2da14fbb9dd4d9.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-0e9ef614ca2da14fbb9dd4d9.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-103e73d3aaefdbfb7df21471.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-103e73d3aaefdbfb7df21471.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-104e54d78c87fb6800d209ef.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-104e54d78c87fb6800d209ef.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1079aeb9340a74aef052a958.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1079aeb9340a74aef052a958.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1262e18f36b5f9b13ad8b8cb.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1262e18f36b5f9b13ad8b8cb.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-133bc754e413c8071773246d.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-133bc754e413c8071773246d.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-14af41db8d8d1a982d709ad1.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-14af41db8d8d1a982d709ad1.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1535ecc08968e453f3271034.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1535ecc08968e453f3271034.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-162421edb20cd36ca4270d46.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-162421edb20cd36ca4270d46.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-17e9d9fdce523803f7ffca04.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-17e9d9fdce523803f7ffca04.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1affe49926201832d0c54bc9.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1affe49926201832d0c54bc9.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1b1a29fba84e7c3724a12431.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1b1a29fba84e7c3724a12431.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1c1071d170a5a8e04572c471.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1c1071d170a5a8e04572c471.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1c3b9534ac0155186bef216a.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1c3b9534ac0155186bef216a.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1cd9d51c5cbcf4502a821731.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1cd9d51c5cbcf4502a821731.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1de3b07c668c953e4e4b6bda.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1de3b07c668c953e4e4b6bda.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1e65eec764d20af3632a1cfb.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-1e65eec764d20af3632a1cfb.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-207c3e7a3a67ca9c5816b935.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-207c3e7a3a67ca9c5816b935.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-218751108320f0b404615990.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-218751108320f0b404615990.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-227a7ef3fe96c9cb7e757c4c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-227a7ef3fe96c9cb7e757c4c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-236f7569d2f76454cb8dc801.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-236f7569d2f76454cb8dc801.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-23ad5ccfdeb912ce8c50a34b.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-23ad5ccfdeb912ce8c50a34b.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2625200a8dff097658b6df89.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2625200a8dff097658b6df89.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-265e7fc3d6da06a326390f92.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-265e7fc3d6da06a326390f92.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-27b8955ee4bdf2363b3b1796.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-27b8955ee4bdf2363b3b1796.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2aa3487ed5bb5e654def716b.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2aa3487ed5bb5e654def716b.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2ad64342afaa95a7b3e3f267.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2ad64342afaa95a7b3e3f267.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2c0a8db75a403813b121cb55.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2c0a8db75a403813b121cb55.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2c918a60bf74ddc77316a73f.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2c918a60bf74ddc77316a73f.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2cd419a013ce6d5ab33bcc8f.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2cd419a013ce6d5ab33bcc8f.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2cf0d0dfc4e50817dc9af37c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2cf0d0dfc4e50817dc9af37c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2d41e4b997111b7a659145f1.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2d41e4b997111b7a659145f1.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2f1e96a795d8f416d50b800e.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-2f1e96a795d8f416d50b800e.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3007b2ec6acc96cc90015de2.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3007b2ec6acc96cc90015de2.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-31bdffa39057526921e2588d.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-31bdffa39057526921e2588d.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3226f667e46164b07f8fde30.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3226f667e46164b07f8fde30.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-323419c742b2f5e05698c8ec.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-323419c742b2f5e05698c8ec.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-33062fa294dbf499ae008607.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-33062fa294dbf499ae008607.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-33bde5bfb74cb6541da69feb.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-33bde5bfb74cb6541da69feb.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-34ea403da061c1c519c054e0.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-34ea403da061c1c519c054e0.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3548f42c0b62a56a8c4b8fc8.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3548f42c0b62a56a8c4b8fc8.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-35a5c673aa5b553435c0639f.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-35a5c673aa5b553435c0639f.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-36a584f97d6d9435dc5a58f2.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-36a584f97d6d9435dc5a58f2.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-38fc232817cbebccbe6a8fe0.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-38fc232817cbebccbe6a8fe0.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3b42900d752c931e7a98ec55.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3b42900d752c931e7a98ec55.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3d83addc0f1809c4ebf0f7a8.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3d83addc0f1809c4ebf0f7a8.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3da0a4d8d64a67f7dec86b83.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3da0a4d8d64a67f7dec86b83.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3e8ef9fe8755bb5ff709d321.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3e8ef9fe8755bb5ff709d321.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3e9385663965bddded893a4c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3e9385663965bddded893a4c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3fbda895fdd8537d7cbecf34.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-3fbda895fdd8537d7cbecf34.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-41f13489c0114b3c83295453.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-41f13489c0114b3c83295453.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-42229d386131c87e144e4c3b.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-42229d386131c87e144e4c3b.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-426274722654583ace2c1fec.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-426274722654583ace2c1fec.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-4278b1202a0616d43f51b5b0.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-4278b1202a0616d43f51b5b0.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-42caed99af763ba463ea097a.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-42caed99af763ba463ea097a.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-43af4952172efce96408c3b8.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-43af4952172efce96408c3b8.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-441415bc899d257d2516be8d.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-441415bc899d257d2516be8d.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-448e6ade5e850c4a5e6f0a73.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-448e6ade5e850c4a5e6f0a73.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-44d42bc9b835e49ed04c644e.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-44d42bc9b835e49ed04c644e.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-45421378adf8c78848b1ac67.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-45421378adf8c78848b1ac67.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-45f7c979497a8f4dfdfff469.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-45f7c979497a8f4dfdfff469.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-466218a9a2c18b66e38debe8.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-466218a9a2c18b66e38debe8.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-470693250972326a2ddb90d3.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-470693250972326a2ddb90d3.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-475a4bf72284803d4615a059.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-475a4bf72284803d4615a059.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-49ad2e20db3b2ec3ef17a197.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-49ad2e20db3b2ec3ef17a197.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-49c2646501985613a775cee1.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-49c2646501985613a775cee1.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-4a2f9b2fac20af2fab870f45.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-4a2f9b2fac20af2fab870f45.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-4b005bcf1885b73c33f4c14e.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-4b005bcf1885b73c33f4c14e.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-4c4f5f9adfe15802b3f76452.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-4c4f5f9adfe15802b3f76452.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-4cd0a5116ef3cb206c9c5c2d.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-4cd0a5116ef3cb206c9c5c2d.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-4d947815f1fd4dfe6deb7990.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-4d947815f1fd4dfe6deb7990.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-53cfbaa1a39a532b41005031.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-53cfbaa1a39a532b41005031.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5427c7cb41f834f065ec13a2.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5427c7cb41f834f065ec13a2.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5533a023ebd8387e12e36ec6.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5533a023ebd8387e12e36ec6.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-57f9c7aebbe6ab6319c0497a.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-57f9c7aebbe6ab6319c0497a.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-585a68f51f9d5fb6b0a21a6e.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-585a68f51f9d5fb6b0a21a6e.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5928eeb864310980fcfcb454.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5928eeb864310980fcfcb454.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-597ea1d6397d42769c1ef1f5.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-597ea1d6397d42769c1ef1f5.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5a98f1a3ddbadff56a196180.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5a98f1a3ddbadff56a196180.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5b02d09baff697fd67557361.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5b02d09baff697fd67557361.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5b78167e2dbe4e2a78a7f5f2.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5b78167e2dbe4e2a78a7f5f2.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5e3612db743ff3086eac8a61.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5e3612db743ff3086eac8a61.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5e7bc374d711e24f31577872.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-5e7bc374d711e24f31577872.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-606337d46d91c79727352b2d.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-606337d46d91c79727352b2d.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-60bf0a1d1fbf9cdd05753b2e.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-60bf0a1d1fbf9cdd05753b2e.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-61520633b042cd138efb7320.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-61520633b042cd138efb7320.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-62eeca1d5e751799c75eeb8c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-62eeca1d5e751799c75eeb8c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-62f7ca6d865a85fd1dad34e6.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-62f7ca6d865a85fd1dad34e6.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-634be832b67c08b0458b1533.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-634be832b67c08b0458b1533.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6532833eece058107755722a.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6532833eece058107755722a.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-65a2ae528b10b8bef751f58a.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-65a2ae528b10b8bef751f58a.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-669171754d5b70464f73f339.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-669171754d5b70464f73f339.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-66a59c5d42ab855dc55e8f79.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-66a59c5d42ab855dc55e8f79.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-66e817210a5b199c2b318ecb.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-66e817210a5b199c2b318ecb.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6761c1c42296b6601c7fa406.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6761c1c42296b6601c7fa406.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6866111d23ee216b99bf541e.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6866111d23ee216b99bf541e.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-69a480a3bda5916eacdc202c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-69a480a3bda5916eacdc202c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-69c75e04faaaefbbaacfed66.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-69c75e04faaaefbbaacfed66.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6a52468de72d7828e7b947cb.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6a52468de72d7828e7b947cb.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6b0208a98de1aeb11ecb34b3.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6b0208a98de1aeb11ecb34b3.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6b69a02139258df2ab8af76d.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6b69a02139258df2ab8af76d.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6b819cc94a284ac89f4ff60a.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6b819cc94a284ac89f4ff60a.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6c10ec00c2ff4695a1ad64e3.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6c10ec00c2ff4695a1ad64e3.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6c333a2d2b98e3a66a37f041.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6c333a2d2b98e3a66a37f041.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6d3abc5a496184a9013762b3.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6d3abc5a496184a9013762b3.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6e1c9ca64229e16552c73ac1.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6e1c9ca64229e16552c73ac1.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6e496f43dfed213ca828c77e.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6e496f43dfed213ca828c77e.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6eb7372b9b04a12b428421e8.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6eb7372b9b04a12b428421e8.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6ec9a8076206fef9ed0738fd.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6ec9a8076206fef9ed0738fd.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6f2c67c9dc47f27976170d2f.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6f2c67c9dc47f27976170d2f.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6f7d7bb74bb4c03ad84d8229.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-6f7d7bb74bb4c03ad84d8229.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-700395fbb123477d23f2126d.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-700395fbb123477d23f2126d.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7026f15b88637962aea45e5c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7026f15b88637962aea45e5c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-71277312c959d39d97f86f8a.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-71277312c959d39d97f86f8a.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-71f72192e1263b3a0b47b137.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-71f72192e1263b3a0b47b137.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-72a00d2cccdcb8c5285686d2.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-72a00d2cccdcb8c5285686d2.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-74a2a6da1ed15ae181f6f05f.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-74a2a6da1ed15ae181f6f05f.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-74acd0a6128503c10f9eac00.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-74acd0a6128503c10f9eac00.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-787ece78bac8884135b8165b.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-787ece78bac8884135b8165b.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7884c430b7bcba46f551dc2a.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7884c430b7bcba46f551dc2a.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7961fcce3c18eb89cc9ea697.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7961fcce3c18eb89cc9ea697.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-79744694e368c3e44aaa936c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-79744694e368c3e44aaa936c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7a41149fdd614774e807f176.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7a41149fdd614774e807f176.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7a918e9084e508bd8ea96dba.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7a918e9084e508bd8ea96dba.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7b5c9e808de22fe75648d64c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7b5c9e808de22fe75648d64c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7c39129919362b187dcd3245.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7c39129919362b187dcd3245.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7c6f1b9d9da3207ebe4392fe.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7c6f1b9d9da3207ebe4392fe.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7c7c0294dfa815aed3fbb97c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7c7c0294dfa815aed3fbb97c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7cb36d3a74f0607ad4c0e184.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7cb36d3a74f0607ad4c0e184.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7d3b6d4685451752fadfcfb0.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7d3b6d4685451752fadfcfb0.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7d9f13f075f1accd931998f5.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7d9f13f075f1accd931998f5.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7db4a96c59b0de9452ada003.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7db4a96c59b0de9452ada003.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7df807ac93b6ff6b0fcd5615.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-7df807ac93b6ff6b0fcd5615.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-80879cf856456cb4c7c371ca.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-80879cf856456cb4c7c371ca.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-808bc99bf7f3f833e8284b94.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-808bc99bf7f3f833e8284b94.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-81bf001201ee6a28c082d5d4.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-81bf001201ee6a28c082d5d4.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8354d8cd8f9fcb6796372614.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8354d8cd8f9fcb6796372614.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-84f9bbb4799eebeb34fb0ec9.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-84f9bbb4799eebeb34fb0ec9.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-84fe0ecbfcc7439597116f88.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-84fe0ecbfcc7439597116f88.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8574db97d74f0b9e9bcb0530.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8574db97d74f0b9e9bcb0530.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-860896c04edc6fa05579b482.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-860896c04edc6fa05579b482.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8649d4835bfc5f2bc0ec8e5a.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8649d4835bfc5f2bc0ec8e5a.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-875acdcb97d1f42269753b09.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-875acdcb97d1f42269753b09.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-87e9d747d98833b0f62d2026.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-87e9d747d98833b0f62d2026.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-888ecbbc0a718013637511a3.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-888ecbbc0a718013637511a3.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-88de518e29da13a8bd2f0054.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-88de518e29da13a8bd2f0054.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-89cecd73ea89cdc76ba75dbb.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-89cecd73ea89cdc76ba75dbb.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-89e3146b9ec89d188f042f2d.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-89e3146b9ec89d188f042f2d.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-89f6965dce1c206281779b18.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-89f6965dce1c206281779b18.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8a88c7d67b1043e38d3127e6.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8a88c7d67b1043e38d3127e6.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8a99089ccdeabc288300c831.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8a99089ccdeabc288300c831.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8b04e7389dd939f781eaa8df.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8b04e7389dd939f781eaa8df.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8b0893414819df329b0d76b7.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8b0893414819df329b0d76b7.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8b74e3a3b9132ef7cbd20b76.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8b74e3a3b9132ef7cbd20b76.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8c15ee52323eb86f0be40371.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8c15ee52323eb86f0be40371.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8c9be5f14ad0db31f1705c9e.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8c9be5f14ad0db31f1705c9e.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8e092907f31770b928a00e84.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8e092907f31770b928a00e84.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8ec9ca872ab27b2549e1e8d0.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8ec9ca872ab27b2549e1e8d0.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8ed5c6826017fe4b4cd72cff.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-8ed5c6826017fe4b4cd72cff.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-90d661cc041e15e3d11da797.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-90d661cc041e15e3d11da797.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-91c1a0d652b903a003c4c41c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-91c1a0d652b903a003c4c41c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-92904071621bb37c8daa4a19.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-92904071621bb37c8daa4a19.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-932d146822b328c78a9c24a6.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-932d146822b328c78a9c24a6.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-93ddf7daf4f17fa3513fca53.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-93ddf7daf4f17fa3513fca53.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9548359ca4fb884296d64c22.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9548359ca4fb884296d64c22.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-96ba3c3cc2866fd000ec44ab.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-96ba3c3cc2866fd000ec44ab.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-97d4e30a548b0bfea2e65e00.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-97d4e30a548b0bfea2e65e00.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-97e06b26f1ab3cb1c11f1d56.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-97e06b26f1ab3cb1c11f1d56.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9832e0396583248f2fef4c75.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9832e0396583248f2fef4c75.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9869c31608b67201f77e9829.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9869c31608b67201f77e9829.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-98b3ec50c25dedf45b7fbe08.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-98b3ec50c25dedf45b7fbe08.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-997d4ba613c5e71fd5250fcc.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-997d4ba613c5e71fd5250fcc.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-99a442595fa511121545826c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-99a442595fa511121545826c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9ab2d8f4d5519531acbfdb79.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9ab2d8f4d5519531acbfdb79.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9ad29a43599c6c56cb29ff2d.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9ad29a43599c6c56cb29ff2d.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9c753fd7f621786c1368a5cc.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9c753fd7f621786c1368a5cc.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9c95b175101cc50169694736.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9c95b175101cc50169694736.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9d6a10b6ca088557e2467d68.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9d6a10b6ca088557e2467d68.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9f0fdb3f2e320591d5b84af4.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9f0fdb3f2e320591d5b84af4.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9f64db2dfcecb18e6c25ddc6.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-9f64db2dfcecb18e6c25ddc6.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a172065924e9f02a6520544c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a172065924e9f02a6520544c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a1ddd06f1577829eb1caaa95.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a1ddd06f1577829eb1caaa95.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a1e37ce53290a0390a2c6c71.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a1e37ce53290a0390a2c6c71.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a33fd3d702ceac35ea69b609.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a33fd3d702ceac35ea69b609.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a48ecc7ae94329e78a1df234.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a48ecc7ae94329e78a1df234.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a57f73a32a4e26fc679a15d8.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a57f73a32a4e26fc679a15d8.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a691d1bce961163df84c10d3.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a691d1bce961163df84c10d3.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a6b6dc6fad9a9467e9f92306.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a6b6dc6fad9a9467e9f92306.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a7392f9aee87009315c2304f.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a7392f9aee87009315c2304f.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a7c9d5c2010479d9f55d5d38.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a7c9d5c2010479d9f55d5d38.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a7e14fd7c0df6debd148aa46.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a7e14fd7c0df6debd148aa46.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a7eb2d2684013905a938a269.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a7eb2d2684013905a938a269.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a82aff558fc9960d73b6e219.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-a82aff558fc9960d73b6e219.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-aa5d968f3f16c1ac490dd6e2.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-aa5d968f3f16c1ac490dd6e2.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ab44387a55a156d27a336d1b.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ab44387a55a156d27a336d1b.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ac8ddb800f2457e998227555.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ac8ddb800f2457e998227555.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-aca33b4e3da6eceac51cac0b.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-aca33b4e3da6eceac51cac0b.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-aedeb6293f6f05def48e5cd9.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-aedeb6293f6f05def48e5cd9.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-afd2f46b094930000e6f6bb2.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-afd2f46b094930000e6f6bb2.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-b187e8b00ee03a0637c5228b.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-b187e8b00ee03a0637c5228b.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-b271c25b222bf99a4fbe2d7e.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-b271c25b222bf99a4fbe2d7e.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-b30259a70f05e11a9b619104.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-b30259a70f05e11a9b619104.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-b4a6c386fb304e201101aa96.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-b4a6c386fb304e201101aa96.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-b5ed7299f728c973b3e33e04.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-b5ed7299f728c973b3e33e04.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-b63ef635157d18b463734614.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-b63ef635157d18b463734614.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-b888e5739f9d987176d03139.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-b888e5739f9d987176d03139.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ba0c88c4d4919a8359f3b23f.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ba0c88c4d4919a8359f3b23f.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-bb7e7116ed983d9f72b71e78.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-bb7e7116ed983d9f72b71e78.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-bb9e395a75cd6a66c35d01cb.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-bb9e395a75cd6a66c35d01cb.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-bbb1d78968c72d222811a849.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-bbb1d78968c72d222811a849.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-bc8f8be8169946277d09979a.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-bc8f8be8169946277d09979a.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-bd62c45964e0dad8ae22dfd9.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-bd62c45964e0dad8ae22dfd9.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-be8972c450d8024505f23e2e.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-be8972c450d8024505f23e2e.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c103c0a3bada885a4d3bcc9a.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c103c0a3bada885a4d3bcc9a.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c15ffb49e4ed4789caf6a505.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c15ffb49e4ed4789caf6a505.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c29f7c76139403a08cac63ab.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c29f7c76139403a08cac63ab.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c3d7e60e3322186216eade7f.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c3d7e60e3322186216eade7f.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c3dd3b7435bb118070647234.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c3dd3b7435bb118070647234.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c639999ee00829025b46ee02.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c639999ee00829025b46ee02.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c65a54a23f454d553425c040.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c65a54a23f454d553425c040.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c70e9babbebdab49d546c42d.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c70e9babbebdab49d546c42d.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c7318a629e71c4ba9102ef3e.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c7318a629e71c4ba9102ef3e.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c828487f912c66fa64b31812.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c828487f912c66fa64b31812.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c849a4a728519379c12d67e2.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c849a4a728519379c12d67e2.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c9bfcbe243f60d992d255731.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-c9bfcbe243f60d992d255731.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-cb563cf6c7d09d210ba4780d.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-cb563cf6c7d09d210ba4780d.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-cbaa145609230e7a983414b4.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-cbaa145609230e7a983414b4.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-cbb1f3e96f4fe30ef53a7588.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-cbb1f3e96f4fe30ef53a7588.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ce11c7d7d3ed6c7d7aeddb39.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ce11c7d7d3ed6c7d7aeddb39.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ce8db7bea608e495e69446dc.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ce8db7bea608e495e69446dc.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-cfc0ff68c03f0e4cb0d70804.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-cfc0ff68c03f0e4cb0d70804.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d29cddd9f3684a0189625a21.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d29cddd9f3684a0189625a21.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d301cd46dc734c3e60bf8340.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d301cd46dc734c3e60bf8340.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d3f3765d7c614ee06df8adbb.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d3f3765d7c614ee06df8adbb.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d635800beb10fb02857aa1b0.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d635800beb10fb02857aa1b0.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d63eef0930f1cae5231dc8be.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d63eef0930f1cae5231dc8be.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d64e80060364d6d1b34082b3.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d64e80060364d6d1b34082b3.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d70b11eeeb8ba623633dde39.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d70b11eeeb8ba623633dde39.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d85b860ce35756fa2bcaa242.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d85b860ce35756fa2bcaa242.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d907fd67081406809597c1e8.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d907fd67081406809597c1e8.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d96b0fd6d27d7951f06910ab.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-d96b0fd6d27d7951f06910ab.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-da35b2bc5b8bcbe4ebcf80f1.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-da35b2bc5b8bcbe4ebcf80f1.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-da74a23be48069cb7e3d8cec.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-da74a23be48069cb7e3d8cec.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-db58ddaab4cea210e1af2ac5.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-db58ddaab4cea210e1af2ac5.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-dcf4bf1838473d04ffd2a8c0.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-dcf4bf1838473d04ffd2a8c0.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-de1c2bec02868c5c62260199.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-de1c2bec02868c5c62260199.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-dfd198ba58ff3928f44932c4.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-dfd198ba58ff3928f44932c4.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-dfe3d187964ce0c1fae14133.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-dfe3d187964ce0c1fae14133.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e0383cd05bc58bab00f3f6e6.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e0383cd05bc58bab00f3f6e6.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e117157a49fd0c4a71adb883.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e117157a49fd0c4a71adb883.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e2329be9d3d724a0f24d0ff1.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e2329be9d3d724a0f24d0ff1.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e23e52c54b4ec08842c3ef01.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e23e52c54b4ec08842c3ef01.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e3d7192d0e934bc38cbe55bd.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e3d7192d0e934bc38cbe55bd.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e4f4e109d5c5ffa0108e4ace.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e4f4e109d5c5ffa0108e4ace.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e59c8b726077028c7bd8742e.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e59c8b726077028c7bd8742e.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e6a0d49ea0975e96b8e6eb45.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e6a0d49ea0975e96b8e6eb45.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e6f3fecf150ee57f0f1047b7.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e6f3fecf150ee57f0f1047b7.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e924ea4762aea77cb0e3bd8b.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-e924ea4762aea77cb0e3bd8b.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ed5326a2e182e69fcd2bf4a4.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ed5326a2e182e69fcd2bf4a4.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ee4c8bae13a388fdd1212237.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ee4c8bae13a388fdd1212237.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ef2ec1513189023c8c8ca03c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ef2ec1513189023c8c8ca03c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-f2d2cb0069b576a735f3ff9c.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-f2d2cb0069b576a735f3ff9c.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-f541b53521a0dfabaffa7f36.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-f541b53521a0dfabaffa7f36.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-f6388b19dfc86aa4ea166de1.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-f6388b19dfc86aa4ea166de1.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-f79d5aaccc6cae7c7f790ee4.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-f79d5aaccc6cae7c7f790ee4.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-f8e455d9a1ca7a86eae20315.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-f8e455d9a1ca7a86eae20315.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-f949ad91c7fe25982ad8d7e2.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-f949ad91c7fe25982ad8d7e2.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-fa050c0fb212aeca9ffcbcfb.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-fa050c0fb212aeca9ffcbcfb.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-fca21fba7f4b304d02ccf73a.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-fca21fba7f4b304d02ccf73a.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-fe7ee9730482eba24f95bde9.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-fe7ee9730482eba24f95bde9.json
+
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ff0a21f5f64a8c254e4ff009.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results/A_pair-ff0a21f5f64a8c254e4ff009.json
+

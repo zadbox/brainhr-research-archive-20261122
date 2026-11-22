@@ -1,0 +1,216 @@
+{
+  "started_utc": "2026-11-22T11:44:19.998406+00:00",
+  "finished_utc": "2026-11-22T11:52:13.075009+00:00",
+  "output_root": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122",
+  "copy_root": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE",
+  "source_roots": [
+    "/Users/mac/BrainHR_confidentiel",
+    "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix",
+    "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy",
+    "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy 2",
+    "/Users/mac/Documents/ClaudeC/brainrhaws-zaddoug",
+    "/Users/mac/Documents/ClaudeC/Brain-rh-v2/brain-rh-v2",
+    "/Users/mac/Documents/ClaudeC/Brain-rh-v3/brain-rh-main",
+    "/Users/mac/Documents/ClaudeC/Brain-Rh/brain-rh",
+    "/Users/mac/Documents/ClaudeC/Brain-rh-m/Brain-RH-migration",
+    "/Users/mac/Documents/ClaudeC/Brain-rh-m-v2/Brain-RH-migration",
+    "/Users/mac/Documents/ClaudeC/Brainrhv04/braintrhv01",
+    "/Users/mac/Documents/ClaudeC/brainrhz-final",
+    "/Users/mac/.cache/huggingface/hub/datasets--mounimzad--brainhr-fusion-annotations-20261110",
+    "/Users/mac/.cache/huggingface/hub/datasets--mounimzad--brainhr-plus",
+    "/Users/mac/.cache/huggingface/hub/datasets--mounimzad--brainhr-synthetic-6000-reviewers",
+    "/Users/mac/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct",
+    "/Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit",
+    "/Users/mac/.cache/huggingface/hub/models--mounimzad--Llama-3-BrainHR-FT1200",
+    "/Users/mac/.cache/huggingface/hub/models--mounimzad--Llama-3-BrainHR-QLoRA-Fusion-20261110"
+  ],
+  "totals": {
+    "content_hashes_verified": 1317,
+    "files": 549718,
+    "bytes_regular_files": 97221524284,
+    "directories": 54748,
+    "symlinks": 433
+  },
+  "by_root": {
+    "/Users/mac/BrainHR_confidentiel": {
+      "files": 25545,
+      "bytes_regular_files": 51609105363,
+      "directories": 4280,
+      "symlinks": 7
+    },
+    "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix": {
+      "files": 75547,
+      "bytes_regular_files": 24606623677,
+      "directories": 6731,
+      "symlinks": 100
+    },
+    "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy": {
+      "files": 53244,
+      "bytes_regular_files": 3110318703,
+      "directories": 4880,
+      "symlinks": 23
+    },
+    "/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy 2": {
+      "files": 54919,
+      "bytes_regular_files": 3446854745,
+      "directories": 4912,
+      "symlinks": 23
+    },
+    "/Users/mac/Documents/ClaudeC/brainrhaws-zaddoug": {
+      "directories": 2066,
+      "files": 19789,
+      "bytes_regular_files": 350599151,
+      "symlinks": 30
+    },
+    "/Users/mac/Documents/ClaudeC/Brain-rh-v2/brain-rh-v2": {
+      "files": 42323,
+      "bytes_regular_files": 1295467595,
+      "directories": 4273,
+      "symlinks": 3
+    },
+    "/Users/mac/Documents/ClaudeC/Brain-rh-v3/brain-rh-main": {
+      "files": 42951,
+      "bytes_regular_files": 1354399183,
+      "directories": 4332,
+      "symlinks": 3
+    },
+    "/Users/mac/Documents/ClaudeC/Brain-Rh/brain-rh": {
+      "files": 42485,
+      "bytes_regular_files": 1200515908,
+      "directories": 4342,
+      "symlinks": 3
+    },
+    "/Users/mac/Documents/ClaudeC/Brain-rh-m/Brain-RH-migration": {
+      "files": 89582,
+      "bytes_regular_files": 2294599768,
+      "directories": 8922,
+      "symlinks": 26
+    },
+    "/Users/mac/Documents/ClaudeC/Brain-rh-m-v2/Brain-RH-migration": {
+      "files": 45784,
+      "bytes_regular_files": 1072654036,
+      "directories": 4453,
+      "symlinks": 23
+    },
+    "/Users/mac/Documents/ClaudeC/Brainrhv04/braintrhv01": {
+      "files": 46862,
+      "bytes_regular_files": 1095398750,
+      "directories": 4604,
+      "symlinks": 23
+    },
+    "/Users/mac/Documents/ClaudeC/brainrhz-final": {
+      "files": 10547,
+      "bytes_regular_files": 166413299,
+      "directories": 867,
+      "symlinks": 20
+    },
+    "/Users/mac/.cache/huggingface/hub/datasets--mounimzad--brainhr-fusion-annotations-20261110": {
+      "directories": 26,
+      "files": 69,
+      "bytes_regular_files": 258082019,
+      "symlinks": 71
+    },
+    "/Users/mac/.cache/huggingface/hub/datasets--mounimzad--brainhr-plus": {
+      "directories": 7,
+      "files": 6,
+      "bytes_regular_files": 61427,
+      "symlinks": 9
+    },
+    "/Users/mac/.cache/huggingface/hub/datasets--mounimzad--brainhr-synthetic-6000-reviewers": {
+      "directories": 15,
+      "files": 18,
+      "bytes_regular_files": 78302554,
+      "symlinks": 18
+    },
+    "/Users/mac/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct": {
+      "directories": 3,
+      "files": 1,
+      "bytes_regular_files": 7801,
+      "symlinks": 1
+    },
+    "/Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit": {
+      "directories": 5,
+      "files": 8,
+      "bytes_regular_files": 9203434,
+      "symlinks": 8
+    },
+    "/Users/mac/.cache/huggingface/hub/models--mounimzad--Llama-3-BrainHR-FT1200": {
+      "directories": 15,
+      "files": 21,
+      "bytes_regular_files": 45478,
+      "symlinks": 24
+    },
+    "/Users/mac/.cache/huggingface/hub/models--mounimzad--Llama-3-BrainHR-QLoRA-Fusion-20261110": {
+      "directories": 15,
+      "files": 16,
+      "bytes_regular_files": 211271,
+      "symlinks": 18
+    }
+  },
+  "by_category": {
+    "paper_reviewers": 4112,
+    "annotations": 7663,
+    "poids_modeles": 131,
+    "datasets": 1124,
+    "dependance_ou_git": 495654
+  },
+  "model_weight_entries": 131,
+  "binary_model_weight_entries": 131,
+  "lfs_pointer_entries": 0,
+  "internal_references_relocated": 6,
+  "files_repaired_after_initial_copy": 0,
+  "errors_count": 0,
+  "ordinary_files_and_links_verified": true,
+  "verification": "Presence and size verified for every ordinary file; symlink targets checked; model weights and source-audit files verified by source/copy SHA256. Additional shared Hugging Face model blob copied and verified; original copy errors resolved. Git administrative pointers and internal absolute symlinks relocated only in the copy.",
+  "external_downloads": 0,
+  "external_uploads": 0,
+  "source_files_modified": false,
+  "physical_free_bytes_after": 230589669376,
+  "additional_shared_model_blob": {
+    "source_path": "/Users/mac/.cache/huggingface/hub/blobs/45/45c9f87d60f115797a8afff56ceaa2c7617ad4b30a03aca0a87476ffab49bb00",
+    "copy_path": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/.cache/huggingface/hub/blobs/45/45c9f87d60f115797a8afff56ceaa2c7617ad4b30a03aca0a87476ffab49bb00",
+    "root": "/Users/mac/.cache/huggingface/hub/blobs/45",
+    "kind": "file",
+    "bytes": 5272660122,
+    "mtime_ns": 1793706925645376291,
+    "categories": [
+      "poids_modeles"
+    ],
+    "sha256": "df8dddecf504dcaea4c3c5adf44ca983ba65c03cce5b3417d97f414033060118",
+    "content_hash_verified": true,
+    "copy_verified": true,
+    "storage_kind": "binary_file",
+    "resolved_bytes": 5272660122,
+    "purpose": "Shared Hugging Face blob needed by the MLX model link"
+  },
+  "supplemental_remote_path_entries": 58062,
+  "final_inventory_checks": {
+    "master_and_category_indexes_consistent": true,
+    "unverified_entries": 0,
+    "entry_counts": {
+      "total_entries": 550151,
+      "file": 549718,
+      "annotations": 7663,
+      "poids_modeles": 131,
+      "datasets": 1124,
+      "symlink": 433
+    },
+    "exact_A_paths": 292,
+    "exact_B_paths": 292,
+    "all_model_indexes_complete": true
+  },
+  "copied_git_repository_checks": [
+    {
+      "copy_repository": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix",
+      "git_root_verified": true
+    },
+    {
+      "copy_repository": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainrhaws",
+      "git_root_verified": true
+    },
+    {
+      "copy_repository": "/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/huggingface_dataset",
+      "git_root_verified": true
+    }
+  ]
+}

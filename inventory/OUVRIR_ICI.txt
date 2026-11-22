@@ -1,0 +1,216 @@
+EXTRACT LOCAL INTÉGRAL BRAINHR
+
+Créé le 2026-11-22T11:44:19.998406+00:00
+Dossier : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122
+Copie des fichiers : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE
+Les racines sources sont conservées sous COPIE avec leur chemin absolu initial.
+Les fichiers cachés, répertoires Git, dépendances présentes, datasets, annotations et poids locaux sont inclus.
+Aucun nouveau téléchargement ni envoi externe. Les contenus scientifiques ne sont pas réécrits.
+Les liens absolus internes et pointeurs administratifs Git sont réadressés vers la copie ; leur liste figure dans RELOCALISATIONS.json.
+
+INDEX DES CHEMINS
+/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/TOUS_LES_CHEMINS_ORIGINAUX.txt
+/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/TOUS_LES_CHEMINS_COPIE.txt
+/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/CORRESPONDANCE_SOURCE_COPIE.txt
+/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/INDEX_TOUS_LES_FICHIERS.jsonl
+
+ANNOTATIONS ET DATASETS
+/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/INDEX_ANNOTATIONS.jsonl
+/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/INDEX_DATASETS.jsonl
+
+POIDS ET COMPLÉTUDE DES MODÈLES
+/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/INDEX_POIDS_MODELES.jsonl
+/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COMPLETUDE_MODELES.json
+
+FICHIERS PRINCIPAUX
+
+Paper V8
+SOURCE /Users/mac/BrainHR_confidentiel/revision_sources_reviewers_20261122/BRAINHR_Paper_V8_Sources_Verifiees.docx
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/revision_sources_reviewers_20261122/BRAINHR_Paper_V8_Sources_Verifiees.docx
+Présent : True
+
+Questions réponses et annexe statistique
+SOURCE /Users/mac/BrainHR_confidentiel/revision_sources_reviewers_20261122/BRAINHR_Reponses_Reviewers_Sources_Verifiees.docx
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/revision_sources_reviewers_20261122/BRAINHR_Reponses_Reviewers_Sources_Verifiees.docx
+Présent : True
+
+Export allégé des 292 paires
+SOURCE /Users/mac/BrainHR_confidentiel/export_annotations_allege_20261121/ANNOTATIONS_RESULTATS_KAPPA.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/export_annotations_allege_20261121/ANNOTATIONS_RESULTATS_KAPPA.json
+Présent : True
+
+Audit du raccord des votes A et B
+SOURCE /Users/mac/BrainHR_confidentiel/revision_sources_reviewers_20261122/AUDIT_SOURCES_AB.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/revision_sources_reviewers_20261122/AUDIT_SOURCES_AB.json
+Présent : True
+
+Entrées de la campagne A et B
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/inputs/main.jsonl
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/inputs/main.jsonl
+Présent : True
+
+Fin de campagne A et B
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/FIN.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/FIN.json
+Présent : True
+
+Registre des unités annotées
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/analysis/UNIT_REGISTER.jsonl
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/analysis/UNIT_REGISTER.jsonl
+Présent : True
+
+Registre des paires annotées
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/analysis/PAIR_REGISTER.jsonl
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/analysis/PAIR_REGISTER.jsonl
+Présent : True
+
+Résultats agrégés de la campagne
+SOURCE /Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/double_annotation_paires_v2/results_p3h2/RESULTS_AGGREGATED.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/studies/double_annotation_paires_v2/results_p3h2/RESULTS_AGGREGATED.json
+Présent : True
+
+Échantillon de 15 paires
+SOURCE /Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/huggingface_dataset/annotations.jsonl
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/huggingface_dataset/annotations.jsonl
+Présent : True
+
+Adaptateur MLX FT1200
+SOURCE /Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/artifacts/brainhr-ft-mlx/0001200_adapters.safetensors
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainhr_research/artifacts/brainhr-ft-mlx/0001200_adapters.safetensors
+Présent : True
+
+Adaptateur QLoRA checkpoint 1125
+SOURCE /Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-1125/adapter_model.safetensors
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/points/checkpoint-1125/adapter_model.safetensors
+Présent : True
+
+Adaptateur QLoRA final
+SOURCE /Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/adaptateur_final/adapter_model.safetensors
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/runs/pod_0ypw3b7wgl2zsk/sorties_entrainement/entrainement/entrainement/adaptateur_final/adapter_model.safetensors
+Présent : True
+
+DOSSIERS DES VOTES A ET B
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/results
+SOURCE /Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/attempts
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/double_annotation_paires_20261112/campagne_p3h2/main/attempts
+
+DÉPÔTS ET COPIES LOCALES
+https://github.com/SamAI10/brainrh-cv-parser-fix
+local_path : /Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix
+https://github.com/zadbox/BrainRhv0.1
+local_path : /Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix
+https://github.com/SamAI10/brainrhaws
+local_path : /Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainrhaws
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/brainrhaws
+https://huggingface.co/datasets/mounimzad/brainhr-plus
+local_path : /Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/huggingface_dataset
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix/huggingface_dataset
+https://github.com/SamAI10/brainrh-cv-parser-fix
+local_path : /Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy
+https://github.com/zadbox/BrainRhv0.1
+local_path : /Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy
+https://github.com/SamAI10/brainrh-cv-parser-fix
+local_path : /Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy 2
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy 2
+https://github.com/zadbox/BrainRhv0.1
+local_path : /Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy 2
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrh-cv-parser-fix copy 2
+https://github.com/SamAI10/brainrhaws
+local_path : /Users/mac/Documents/ClaudeC/brainrhaws-zaddoug
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrhaws-zaddoug
+https://github.com/SamAI10/brain-rh
+local_path : /Users/mac/Documents/ClaudeC/Brain-rh-v2/brain-rh-v2
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-rh-v2/brain-rh-v2
+https://github.com/SamAI10/brain-rh
+local_path : /Users/mac/Documents/ClaudeC/Brain-rh-v3/brain-rh-main
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-rh-v3/brain-rh-main
+https://github.com/SamAI10/brain-rh
+local_path : /Users/mac/Documents/ClaudeC/Brain-Rh/brain-rh
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-Rh/brain-rh
+https://github.com/SamAI10/Brain-RH-migration
+local_path : /Users/mac/Documents/ClaudeC/Brain-rh-m/Brain-RH-migration
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-rh-m/Brain-RH-migration
+https://github.com/SamAI10/Brain-RH-migration
+local_path : /Users/mac/Documents/ClaudeC/Brain-rh-m-v2/Brain-RH-migration
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brain-rh-m-v2/Brain-RH-migration
+https://github.com/SamAI10/braintrhv01
+local_path : /Users/mac/Documents/ClaudeC/Brainrhv04/braintrhv01
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/Brainrhv04/braintrhv01
+https://github.com/SamAI10/brainrhz-final
+local_path : /Users/mac/Documents/ClaudeC/brainrhz-final
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/Documents/ClaudeC/brainrhz-final
+https://github.com/SamAI10/brainrh-cv-parser-fix
+https://github.com/zadbox/BrainRhv0.1
+https://github.com/SamAI10/brainrhaws
+https://huggingface.co/datasets/mounimzad/brainhr-fusion-annotations-20261110
+local_snapshot : /Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-fusion-private
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-fusion-private
+https://huggingface.co/datasets/mounimzad/brainhr-synthetic-6000-reviewers
+local_snapshot : /Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-dataset
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-dataset
+https://huggingface.co/mounimzad/Llama-3-BrainHR-QLoRA-Fusion-20261110
+local_snapshot : /Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-model
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-model
+https://huggingface.co/mounimzad/Llama-3-BrainHR-FT1200
+local_snapshot : /Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-mlx-historical
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-mlx-historical
+https://huggingface.co/datasets/mounimzad/brainhr-plus
+local_snapshot : /Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-companion
+copy_path : /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/qwen38_tools_20261121/snapshots/brainhr-companion
+https://huggingface.co/mounimzad/BrainHR-Adapter-Research-Access
+https://huggingface.co/datasets/BrainResearchGroup/candidate-matching-synthetic
+
+PÉRIMÈTRE
+/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/PERIMETRE.json
+Les références distantes sont issues des configurations Git et des manifestes datés. Aucun nouveau miroir distant ni inventaire de toutes les branches distantes n’a été téléchargé.
+Les objets spéciaux actifs tels que sockets ne sont pas des fichiers ordinaires ; leur éventuel nombre est indiqué dans le reçu.
+Les liens vers des composants système extérieurs aux racines restent des liens ; cette copie des sources ne constitue pas une installation autonome sur une autre machine.
+
+CORPUS ORIGINAUX ET MODELES DE BASE
+
+Manuscrit soumis original PDF
+SOURCE /Users/mac/BrainHR_confidentiel/relecture_qwen4max_20261121/BRAINHR_Relecture_Qwen4Max_20261121/01_SOURCES/01_MANUSCRIT_SOUMIS_ARRAY-D-26-03875.pdf
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/relecture_qwen4max_20261121/BRAINHR_Relecture_Qwen4Max_20261121/01_SOURCES/01_MANUSCRIT_SOUMIS_ARRAY-D-26-03875.pdf
+
+Questions originales des reviewers PDF
+SOURCE /Users/mac/BrainHR_confidentiel/relecture_qwen4max_20261121/BRAINHR_Relecture_Qwen4Max_20261121/01_SOURCES/02_REVIEWERS_ORIGINAUX.pdf
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/relecture_qwen4max_20261121/BRAINHR_Relecture_Qwen4Max_20261121/01_SOURCES/02_REVIEWERS_ORIGINAUX.pdf
+
+Corpus entrainement final
+SOURCE /Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/retenu/train.jsonl
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/retenu/train.jsonl
+LIGNES 5994
+
+Corpus validation final
+SOURCE /Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/retenu/validation.jsonl
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/retenu/validation.jsonl
+LIGNES 692
+
+Corpus evaluation final
+SOURCE /Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/retenu/test.jsonl
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/retenu/test.jsonl
+LIGNES 388
+
+Manifeste du corpus retenu
+SOURCE /Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/retenu/manifest.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/annotation_fusion_20261110/cloture_v3/retenu/manifest.json
+
+Index du modele de base complet
+SOURCE /Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/model.safetensors.index.json
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/BrainHR_confidentiel/EVALUATION_REPRODUCTIBLE_20261119/PREFLIGHT_TABLEAU4_V2/CACHE_BASE_P1_53346005fb0e/model.safetensors.index.json
+
+Poids du modele MLX 4bit
+SOURCE /Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit/snapshots/c38b3b1f03cce0ce0ccd235e5c97b0d3d255e651/model.safetensors
+COPIE  /Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE/Users/mac/.cache/huggingface/hub/models--mlx-community--Meta-Llama-3-8B-Instruct-4bit/snapshots/c38b3b1f03cce0ce0ccd235e5c97b0d3d255e651/model.safetensors
+
+VOTES A ET B FICHIER PAR FICHIER
+/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/ANNOTATIONS_A_CHEMINS_EXACTS.txt
+/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/ANNOTATIONS_B_CHEMINS_EXACTS.txt
+
+FICHIERS DES DEPOTS DISTANTS REFERENCES DANS LES MANIFESTES DATES
+/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/INDEX_FICHIERS_DEPOTS_DISTANTS.jsonl

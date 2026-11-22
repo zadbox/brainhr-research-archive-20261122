@@ -1,0 +1,1886 @@
+[
+  {
+    "repository": "mounimzad/brainhr-fusion-annotations-20261110",
+    "type": "dataset",
+    "url": "https://huggingface.co/datasets/mounimzad/brainhr-fusion-annotations-20261110",
+    "checked_utc": "2026-11-22T12:16:57.424959+00:00",
+    "http_status": 200,
+    "private": true,
+    "gated": false,
+    "revision": "7ce2cda77a4acee4539449d22de88cadac6e239b",
+    "files": [
+      {
+        "path": ".gitattributes",
+        "size": 2759,
+        "lfs_sha256": null
+      },
+      {
+        "path": "MANIFEST.sha256.json",
+        "size": 11272,
+        "lfs_sha256": null
+      },
+      {
+        "path": "NOTICE.md",
+        "size": 1019,
+        "lfs_sha256": null
+      },
+      {
+        "path": "README.md",
+        "size": 4939,
+        "lfs_sha256": null
+      },
+      {
+        "path": "RELATED_REPOSITORIES.json",
+        "size": 2448,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/METHODE_DEUX_NOTATEURS.md",
+        "size": 2901,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/REGISTRE_NOTATEURS.json",
+        "size": 1717,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/human_annotation_blank.schema.json",
+        "size": 891,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/r11_605/MANIFESTE.json",
+        "size": 2204,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/r11_605/RAPPORT_605.txt",
+        "size": 1227832,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/r11_605/accord_kappa_20261111/ACCORD_KAPPA.json",
+        "size": 7686,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/r11_605/accord_kappa_20261111/DESACCORDS_TRACABLES.jsonl",
+        "size": 232823,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/r11_605/accord_kappa_20261111/MANIFESTE_ACCORD.json",
+        "size": 883,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/r11_605/accord_kappa_20261111/RAPPORT_ACCORD.txt",
+        "size": 2322,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/r11_605/accord_kappa_20261111/VERIFICATION.json",
+        "size": 504,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/r11_605/accord_kappa_20261111/calculer_accord.py",
+        "size": 13246,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/r11_605/catalogue_decisions.json",
+        "size": 187359,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/r11_605/evaluateur_IA_A.json",
+        "size": 1811513,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/r11_605/evaluateur_IA_B.json",
+        "size": 1801132,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/r11_605/sources_605.json",
+        "size": 1504346,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/CONTROLE_JUSTIFICATIONS_COORDINATEUR.json",
+        "size": 2074,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/FORMULAIRE_A_VIERGE.json",
+        "size": 4683,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/FORMULAIRE_B_VIERGE.json",
+        "size": 4683,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/MANIFESTE_SELECTION.json",
+        "size": 16511,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/PROTOCOLE.json",
+        "size": 5969,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/SCEAU_A_V1.json",
+        "size": 237,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/SCEAU_B_V1.json",
+        "size": 231,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/SORTIE_A_V1.json",
+        "size": 16466,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/SORTIE_B_V1.json",
+        "size": 14033,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/calculer_accord.py",
+        "size": 5175,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/cas_communs.jsonl",
+        "size": 154869,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/comparaison_v1/ACCORD_KAPPA.json",
+        "size": 98763,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/comparaison_v1/DESACCORDS_NON_ARBITRES.json",
+        "size": 25926,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/comparaison_v1/RAPPORT_ACCORD.md",
+        "size": 3745,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/comparaison_v1/SCEAUX_AVANT_COMPARAISON.json",
+        "size": 1190,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/echantillon_train_original.jsonl",
+        "size": 304122,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/triage/RAPPORT.md",
+        "size": 3811,
+        "lfs_sha256": null
+      },
+      {
+        "path": "data/audit_r11_605.jsonl",
+        "size": 309391,
+        "lfs_sha256": null
+      },
+      {
+        "path": "data/audit_train18.jsonl",
+        "size": 29334,
+        "lfs_sha256": null
+      },
+      {
+        "path": "data/test.jsonl",
+        "size": 5226021,
+        "lfs_sha256": null
+      },
+      {
+        "path": "data/train.jsonl",
+        "size": 81484197,
+        "lfs_sha256": "dbd1f4fe1bf7a3f1d795d723266a6dff48b8da2de543617c0de18bdc88082c71"
+      },
+      {
+        "path": "data/validation.jsonl",
+        "size": 9225454,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/main388/predictions_affine/manifeste.json",
+        "size": 9615,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/main388/predictions_affine/predictions.jsonl",
+        "size": 1426183,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/main388/predictions_base/manifeste.json",
+        "size": 8710,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/main388/predictions_base/predictions.jsonl",
+        "size": 1147902,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/prompt480/corrige/predictions.jsonl",
+        "size": 958024,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/prompt480/gold/corrige.jsonl",
+        "size": 3258997,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/prompt480/gold/original.jsonl",
+        "size": 2777057,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/prompt480/original/predictions.jsonl",
+        "size": 716428,
+        "lfs_sha256": null
+      },
+      {
+        "path": "historical_mlx_export/PROVENANCE.md",
+        "size": 200,
+        "lfs_sha256": null
+      },
+      {
+        "path": "historical_mlx_export/train.jsonl",
+        "size": 21592338,
+        "lfs_sha256": "c77683f2628c22c99a5b46b5b5acecc9b5d45aa0ec27756c9348196660965d76"
+      },
+      {
+        "path": "historical_mlx_export/valid.jsonl",
+        "size": 781468,
+        "lfs_sha256": null
+      },
+      {
+        "path": "metadata/LOCAL_LOAD_DATASET_VERIFIED.json",
+        "size": 919,
+        "lfs_sha256": null
+      },
+      {
+        "path": "metadata/REMOTE_LOAD_DATASET_VERIFIED.json",
+        "size": 395,
+        "lfs_sha256": null
+      },
+      {
+        "path": "metadata/cohort_manifest.json",
+        "size": 1561,
+        "lfs_sha256": null
+      },
+      {
+        "path": "metadata/composition.json",
+        "size": 1262,
+        "lfs_sha256": null
+      },
+      {
+        "path": "metadata/counts.json",
+        "size": 1092,
+        "lfs_sha256": null
+      },
+      {
+        "path": "metadata/row_index.json",
+        "size": 1650133,
+        "lfs_sha256": null
+      },
+      {
+        "path": "originals/scelle/audit.json",
+        "size": 5929,
+        "lfs_sha256": null
+      },
+      {
+        "path": "originals/scelle/empreintes_test.json",
+        "size": 24217880,
+        "lfs_sha256": "36ce6dd573f73926d93fd566f39c94af1a161e7608445172c453756cd6de3225"
+      },
+      {
+        "path": "originals/scelle/scellement.json",
+        "size": 6483,
+        "lfs_sha256": null
+      },
+      {
+        "path": "originals/test.jsonl",
+        "size": 5203901,
+        "lfs_sha256": null
+      },
+      {
+        "path": "originals/train.jsonl",
+        "size": 81266259,
+        "lfs_sha256": "2d12a1a2fdf7b06c9f52784505fbe8b1d5947e34c09843c26525894d8f65565e"
+      },
+      {
+        "path": "originals/validation.jsonl",
+        "size": 9286363,
+        "lfs_sha256": null
+      },
+      {
+        "path": "verifier_repo.py",
+        "size": 4355,
+        "lfs_sha256": null
+      }
+    ]
+  },
+  {
+    "repository": "mounimzad/brainhr-synthetic-6000-reviewers",
+    "type": "dataset",
+    "url": "https://huggingface.co/datasets/mounimzad/brainhr-synthetic-6000-reviewers",
+    "checked_utc": "2026-11-22T12:16:57.849035+00:00",
+    "http_status": 200,
+    "private": true,
+    "gated": false,
+    "revision": "cbe716e1072450c536137054b57dbda80aad1d2d",
+    "files": [
+      {
+        "path": ".gitattributes",
+        "size": 2557,
+        "lfs_sha256": null
+      },
+      {
+        "path": "MANIFEST.sha256.json",
+        "size": 19548,
+        "lfs_sha256": null
+      },
+      {
+        "path": "NOTICE.md",
+        "size": 903,
+        "lfs_sha256": null
+      },
+      {
+        "path": "README.md",
+        "size": 2309,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/METHODE_DEUX_NOTATEURS.md",
+        "size": 2933,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/REGISTRE_NOTATEURS.json",
+        "size": 1717,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/human_annotation_blank.schema.json",
+        "size": 891,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/r11_605/ACCORD_KAPPA.json",
+        "size": 7686,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation/train18/ACCORD_KAPPA.json",
+        "size": 98763,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol/README.md",
+        "size": 5592,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol/code/README.md",
+        "size": 5592,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol/code/double_annotation.py",
+        "size": 34219,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol/code/response_schema.json",
+        "size": 2353,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol/docs/COMMANDES_REPRODUCTIBLES.md",
+        "size": 5429,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol/docs/METHODE_ANNOTATION.md",
+        "size": 19351,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol/docs/SYNTHESE_PREPARATION.json",
+        "size": 924,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol/docs/VERIFICATION_LOGICIELLE.json",
+        "size": 1914,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol/preparation/preparer_cohorte_reelle.py",
+        "size": 7011,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol/tests/test_double_annotation.py",
+        "size": 10567,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol/verification/requirements.txt",
+        "size": 20,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol/verification/verifier_numerique.py",
+        "size": 2786,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/README.md",
+        "size": 3613,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/code/GUIDE_P3.txt",
+        "size": 5501,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/code/agreement_stats.py",
+        "size": 6308,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/code/analyze_campaign.py",
+        "size": 7301,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/code/analyze_campaign_p3h2.py",
+        "size": 8368,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/code/check_calibration.py",
+        "size": 2281,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/code/prepare_campaign.py",
+        "size": 4223,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/code/protocol.py",
+        "size": 8698,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/code/run_annotation.py",
+        "size": 11079,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/code/run_annotation_p2b.py",
+        "size": 20990,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/code/run_annotation_p3.py",
+        "size": 29296,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/code/run_annotation_p3h2.py",
+        "size": 13266,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/code/verify_agreement_stats_sklearn.py",
+        "size": 4898,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/criteria_review/calibration_fixtures.jsonl",
+        "size": 16738,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/criteria_review/criteria_audit.md",
+        "size": 6443,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/criteria_review/criteria_mapping.json",
+        "size": 24564,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/fixtures/H2_CONFIRMATION_FIXTURES.jsonl",
+        "size": 10860,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/fixtures/H2_EXPECTATIONS.json",
+        "size": 1229,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/fixtures/H2_MANIFEST.json",
+        "size": 500,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/fixtures/H2_PACKETS.jsonl",
+        "size": 7812,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/results/RESULTS_AGGREGATED.json",
+        "size": 162246,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/results_p3h2/AGREEMENT_SKLEARN_VERIFICATION.json",
+        "size": 575,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/results_p3h2/CALIBRATION_SUMMARY.json",
+        "size": 2367,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/results_p3h2/LECTURE_DESACCORDS.md",
+        "size": 3552,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/results_p3h2/METHOD_AMENDMENT_P3H2.md",
+        "size": 5028,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/results_p3h2/VERIFICATION_INDEPENDANTE.json",
+        "size": 871,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/tests/test_agreement_stats.py",
+        "size": 5914,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_protocol_p3h2/tests/test_protocol.py",
+        "size": 2498,
+        "lfs_sha256": null
+      },
+      {
+        "path": "data/audit_r11_605.jsonl",
+        "size": 221149,
+        "lfs_sha256": null
+      },
+      {
+        "path": "data/audit_train18.jsonl",
+        "size": 5408,
+        "lfs_sha256": null
+      },
+      {
+        "path": "data/test.jsonl",
+        "size": 4227739,
+        "lfs_sha256": null
+      },
+      {
+        "path": "data/train.jsonl",
+        "size": 66311418,
+        "lfs_sha256": "f4a6f106968df8fe0a0a9cbba2428f8676e4e76115cba9c96752014ad5b4544b"
+      },
+      {
+        "path": "data/validation.jsonl",
+        "size": 7481016,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/README_before_minimal_access_2026-11-22_6dff5d51.md",
+        "size": 3413,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/README_before_status_update_2026-11-21_780ac182.md",
+        "size": 7550,
+        "lfs_sha256": null
+      },
+      {
+        "path": "metadata/PERIMETRE_PUBLIC.json",
+        "size": 477,
+        "lfs_sha256": null
+      },
+      {
+        "path": "metadata/composition_publique.json",
+        "size": 1625,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/AUDIT_CONTRAT_ENTRAINEMENT.json",
+        "size": 993,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/LECTURE_CRITIQUE.md",
+        "size": 5354,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/METHODE_ET_HISTORIQUE.md",
+        "size": 9170,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/PLAN_EXPERIMENTAL.md",
+        "size": 5139,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/README.md",
+        "size": 1672,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/calibration_history/v1_adapter/FIN.json",
+        "size": 191,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/calibration_history/v1_adapter/predictions.jsonl",
+        "size": 13632,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/calibration_history/v2_adapter/FIN.json",
+        "size": 192,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/calibration_history/v2_adapter/predictions.jsonl",
+        "size": 13588,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/calibration_history/v2_base/FIN.json",
+        "size": 192,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/calibration_history/v2_base/predictions.jsonl",
+        "size": 20258,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/calibration_history/v3_adapter/FIN.json",
+        "size": 191,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/calibration_history/v3_adapter/predictions.jsonl",
+        "size": 14132,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/calibration_history/v3_base/FIN.json",
+        "size": 192,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/calibration_history/v3_base/predictions.jsonl",
+        "size": 20235,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/corpus/README.md",
+        "size": 3566,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/corpus/calibration.jsonl",
+        "size": 30631,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/corpus/evaluation.jsonl",
+        "size": 85262,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/corpus/generate_corpus.py",
+        "size": 51309,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/corpus/manifest.json",
+        "size": 1229,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/evaluate.py",
+        "size": 4760,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/execute.py",
+        "size": 4087,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/predictions/adapter.jsonl",
+        "size": 1772268,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/predictions/base.jsonl",
+        "size": 2501825,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v2/AMENDEMENT.md",
+        "size": 726,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v2/evaluate.py",
+        "size": 4760,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v2/execute.py",
+        "size": 3239,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v2/probe_base.py",
+        "size": 6643,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v2/protocol.py",
+        "size": 5806,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v2/run_gpu.py",
+        "size": 6513,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v3/AMENDEMENT.md",
+        "size": 1359,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v3/diagnostiquer_resultats.py",
+        "size": 4809,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v3/evaluate.py",
+        "size": 4760,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v3/evaluate_conditions.py",
+        "size": 5345,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v3/evaluate_v2.py",
+        "size": 4821,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v3/execute_pair.py",
+        "size": 2634,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v3/finaliser.py",
+        "size": 6052,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v3/protocol.py",
+        "size": 6171,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v3/run_gpu.py",
+        "size": 6734,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/prompt_v3/test_evaluation.py",
+        "size": 3701,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/protocol.py",
+        "size": 4758,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/protocol_evidence/COMPARISON_SPEC_V2.json",
+        "size": 339,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/protocol_evidence/COMPARISON_SPEC_V3.json",
+        "size": 1091,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/protocol_evidence/CONTINUE_EVALUATION.json",
+        "size": 880,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/protocol_evidence/PLAN.json",
+        "size": 3713,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/results/DIAGNOSTIC_ERREURS.json",
+        "size": 7625,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/results/RESULTATS.md",
+        "size": 1829,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/results/RESULTATS_COMPARAISON.json",
+        "size": 54207,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/results/adapter_derived_disposition_audit.jsonl",
+        "size": 564500,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/results/adapter_raw_audit.jsonl",
+        "size": 564500,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/results/base_derived_disposition_audit.jsonl",
+        "size": 613615,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/results/base_raw_audit.jsonl",
+        "size": 632720,
+        "lfs_sha256": null
+      },
+      {
+        "path": "table4_diagnostic_v3/run_gpu.py",
+        "size": 6513,
+        "lfs_sha256": null
+      }
+    ]
+  },
+  {
+    "repository": "mounimzad/Llama-3-BrainHR-QLoRA-Fusion-20261110",
+    "type": "model",
+    "url": "https://huggingface.co/mounimzad/Llama-3-BrainHR-QLoRA-Fusion-20261110",
+    "checked_utc": "2026-11-22T12:16:58.177927+00:00",
+    "http_status": 200,
+    "private": true,
+    "gated": "manual",
+    "revision": "bbdb4d8ff27b88c534d99cca53e47bb04dbf444b",
+    "files": [
+      {
+        "path": ".gitattributes",
+        "size": 1519,
+        "lfs_sha256": null
+      },
+      {
+        "path": "ACCES_PUBLIC.md",
+        "size": 842,
+        "lfs_sha256": null
+      },
+      {
+        "path": "EXPERIMENT_REGISTRY.json",
+        "size": 3613,
+        "lfs_sha256": null
+      },
+      {
+        "path": "LICENSE",
+        "size": 7801,
+        "lfs_sha256": null
+      },
+      {
+        "path": "MANIFEST.sha256.json",
+        "size": 26828,
+        "lfs_sha256": null
+      },
+      {
+        "path": "NOTICE",
+        "size": 178,
+        "lfs_sha256": null
+      },
+      {
+        "path": "README.md",
+        "size": 1795,
+        "lfs_sha256": null
+      },
+      {
+        "path": "RELATED_REPOSITORIES.json",
+        "size": 2702,
+        "lfs_sha256": null
+      },
+      {
+        "path": "RUNBOOK.md",
+        "size": 2644,
+        "lfs_sha256": null
+      },
+      {
+        "path": "adapter_config.json",
+        "size": 1231,
+        "lfs_sha256": null
+      },
+      {
+        "path": "adapter_model.safetensors",
+        "size": 671149168,
+        "lfs_sha256": "20cfe4592625d5a507d75ed50dd5fa40f0ff006bfb760d36caea78e72feca900"
+      },
+      {
+        "path": "charger_adaptateur.py",
+        "size": 1450,
+        "lfs_sha256": null
+      },
+      {
+        "path": "configs/ADAPTER_TENSORS.json",
+        "size": 607,
+        "lfs_sha256": null
+      },
+      {
+        "path": "configs/observed_command.json",
+        "size": 1208,
+        "lfs_sha256": null
+      },
+      {
+        "path": "configs/observed_training_run.json",
+        "size": 2914,
+        "lfs_sha256": null
+      },
+      {
+        "path": "configs/pip_freeze_observed.txt",
+        "size": 3231,
+        "lfs_sha256": null
+      },
+      {
+        "path": "configs/verrou_original.json",
+        "size": 262,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluation/extract_semantique_v1/comparer.py",
+        "size": 5851,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluation/extract_semantique_v1/consignes.py",
+        "size": 2722,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluation/extract_semantique_v1/normaliser.py",
+        "size": 5145,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluation/extract_semantique_v1/preparer.py",
+        "size": 5764,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluation/extract_semantique_v1/test_normaliser.py",
+        "size": 2388,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluation/finaliser_comparaison_archive.py",
+        "size": 6140,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/extract200_status.json",
+        "size": 269,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/main388/COMPARAISON_TERMINEE.json",
+        "size": 1176,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/main388/RESULTATS_COMPARAISON.md",
+        "size": 9887,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/main388/modeles/resultats_quatre_roles.json",
+        "size": 71615,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/main388/temoins_test.json",
+        "size": 24528,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/main388/temoins_validation.json",
+        "size": 19920,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/prompt480/BILAN_FINAL.md",
+        "size": 4082,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/prompt480/DIAGNOSTIC_SCHEMA.json",
+        "size": 1090,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/prompt480/PLAN_FIGE.json",
+        "size": 62564,
+        "lfs_sha256": null
+      },
+      {
+        "path": "evaluations/prompt480/resultats.json",
+        "size": 24063,
+        "lfs_sha256": null
+      },
+      {
+        "path": "followups/extract_semantique_200/RESULTATS.json",
+        "size": 94517,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/HISTORIQUE_RECHERCHE.md",
+        "size": 24736,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/README_before_minimal_access_2026-11-22_125f75dc.md",
+        "size": 3135,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/README_before_status_update_2026-11-21_73b658b2.md",
+        "size": 8996,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/REGISTRE_EXPERIENCES_V1_2.json",
+        "size": 5023,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/SOURCES_HISTORIQUES.json",
+        "size": 6229,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/evidence/EXTRACT_A_CONFIG_ET_EXECUTION.json",
+        "size": 1896,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/evidence/MLX_CONTROLE_GRADIENTS.json",
+        "size": 265,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/evidence/MLX_deadline.json",
+        "size": 960,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/evidence/MLX_normal_gpu.json",
+        "size": 1788,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/evidence/MLX_sigterm.json",
+        "size": 958,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/evidence/MLX_stopfile.json",
+        "size": 961,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/evidence/NF4_GARDE_G1.json",
+        "size": 675,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/evidence/NF4_GARDE_G2.json",
+        "size": 1957,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/evidence/NF4_LONG_ALLOCATEUR_DEFAUT.json",
+        "size": 3454,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/evidence/NF4_LONG_ALLOCATEUR_EXPANDABLE.json",
+        "size": 705,
+        "lfs_sha256": null
+      },
+      {
+        "path": "provenance/EVALUATOR_FREEZE_VERIFIED.json",
+        "size": 833,
+        "lfs_sha256": null
+      },
+      {
+        "path": "provenance/EXECUTED_CODE_VERIFIED.json",
+        "size": 417,
+        "lfs_sha256": null
+      },
+      {
+        "path": "provenance/PORTABLE_CONFIG_CHANGE.json",
+        "size": 306,
+        "lfs_sha256": null
+      },
+      {
+        "path": "provenance/adapter_config_original.json",
+        "size": 1172,
+        "lfs_sha256": null
+      },
+      {
+        "path": "provenance/paquet_code_gpu32_original.json",
+        "size": 6885,
+        "lfs_sha256": null
+      },
+      {
+        "path": "reviewers/DOSSIER_REVIEWERS_V1_1.docx",
+        "size": 64390,
+        "lfs_sha256": null
+      },
+      {
+        "path": "reviewers/DOSSIER_REVIEWERS_V1_2.docx",
+        "size": 74221,
+        "lfs_sha256": null
+      },
+      {
+        "path": "reviewers/DOSSIER_REVIEWERS_V1_3.docx",
+        "size": 83439,
+        "lfs_sha256": null
+      },
+      {
+        "path": "reviewers/DOSSIER_REVIEWERS_V1_4.docx",
+        "size": 85303,
+        "lfs_sha256": null
+      },
+      {
+        "path": "reviewers/NOTE_AVANCEMENT_V1.docx",
+        "size": 59020,
+        "lfs_sha256": null
+      },
+      {
+        "path": "reviewers/etat_54_demandes.json",
+        "size": 121007,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/brainhr_plus/__init__.py",
+        "size": 330,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/brainhr_plus/normalize.py",
+        "size": 2959,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/brainhr_plus/splits.py",
+        "size": 6695,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/campagne/entrainer_sur_pod.sh",
+        "size": 38219,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/campagne/executer_sur_pod.sh",
+        "size": 8248,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/campagne/rapatrier_depuis_pod.py",
+        "size": 25004,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/campagne/requirements_fusion.txt",
+        "size": 217,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/campagne/versions_reference_fusion.json",
+        "size": 342,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/extract_semantique_v1/comparer.py",
+        "size": 5851,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/extract_semantique_v1/consignes.py",
+        "size": 2722,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/extract_semantique_v1/normaliser.py",
+        "size": 5145,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/extract_semantique_v1/preparer.py",
+        "size": 5764,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/extract_semantique_v1/test_normaliser.py",
+        "size": 2388,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/extract_seul/donnees_fictives.py",
+        "size": 11807,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/extract_seul/evaluer_extract.py",
+        "size": 78563,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/extract_seul/mutations_evaluateur.py",
+        "size": 11822,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/extract_seul/test_evaluer_extract.py",
+        "size": 33491,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/fusion_reelle_ia/CORPUS_FIGE.json",
+        "size": 2981,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/fusion_reelle_ia/GEL_SHA256.txt",
+        "size": 774,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/fusion_reelle_ia/PLAN_EVALUATION_QUATRE_ROLES.md",
+        "size": 5644,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/fusion_reelle_ia/evaluer_campagne.py",
+        "size": 1423,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/fusion_reelle_ia/evaluer_quatre_roles.py",
+        "size": 51792,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/fusion_reelle_ia/temoins_quatre_roles.py",
+        "size": 22923,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/fusion_reelle_ia/test_evaluer_quatre_roles.py",
+        "size": 21439,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/fusion_reelle_ia/test_longueur_cv.py",
+        "size": 1923,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/fusion_reelle_ia/test_reel.py",
+        "size": 2285,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/fusion_reelle_ia/test_temoins_quatre_roles.py",
+        "size": 13254,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/unifie_6000/evaluer_campagne.py",
+        "size": 1366,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/unifie_6000/evaluer_quatre_roles.py",
+        "size": 43973,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/unifie_6000/temoins_quatre_roles.py",
+        "size": 16421,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/unifie_6000/test_contrat_campagne.py",
+        "size": 758,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/unifie_6000/test_evaluer_quatre_roles.py",
+        "size": 18821,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/unifie_6000/test_sources.py",
+        "size": 1204,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/unifie_6000/test_temoins_quatre_roles.py",
+        "size": 10521,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/validation_prompts_v1/contrats_sortie.py",
+        "size": 2246,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/validation_prompts_v1/evaluer_validation.py",
+        "size": 6440,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/validation_prompts_v1/garder.py",
+        "size": 2575,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/validation_prompts_v1/predire_validation.py",
+        "size": 5483,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/validation_prompts_v1/preparer.py",
+        "size": 6030,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/validation_prompts_v1/test_comparaison.py",
+        "size": 1906,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/evaluation/validation_prompts_v1/test_contrats.py",
+        "size": 2193,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/adaptateur_partiel.py",
+        "size": 5958,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/base_verifiee.py",
+        "size": 4722,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/jeu_scelle.py",
+        "size": 27603,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/lancer_qlora_nf4.py",
+        "size": 102542,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/predire.py",
+        "size": 15389,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/protocole.py",
+        "size": 33896,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/scellement_extract.py",
+        "size": 18741,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/scellement_fusion.py",
+        "size": 33630,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/scellement_mixte.py",
+        "size": 22562,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/scellement_quatre_roles.py",
+        "size": 34966,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/scellement_rjdb.py",
+        "size": 22591,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/scellement_unifie.py",
+        "size": 19257,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/sceller.py",
+        "size": 1716,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/test_adaptateur_partiel.py",
+        "size": 9767,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/test_base_verifiee.py",
+        "size": 4736,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/test_jeu_scelle.py",
+        "size": 16862,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/test_lanceur.py",
+        "size": 123667,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/test_predire.py",
+        "size": 24811,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/test_protocole.py",
+        "size": 29349,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/test_scellement_extract.py",
+        "size": 18763,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/test_scellement_fusion.py",
+        "size": 19941,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/test_scellement_mixte.py",
+        "size": 21015,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/test_scellement_rjdb.py",
+        "size": 23539,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/lanceur/test_scellement_unifie.py",
+        "size": 8606,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/paires/commun.py",
+        "size": 18730,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/paires/separation_contenus.py",
+        "size": 5907,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/paires/specification_fonctions.json",
+        "size": 77434,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/paires/valider_paires.py",
+        "size": 18676,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/corpus_unifie_20261110/outils/assembler_corpus.py",
+        "size": 27725,
+        "lfs_sha256": null
+      },
+      {
+        "path": "source/brainhr_research/studies/qlora_nf4_reproduction_20261106/runs/fusion_reelle_20261110/SPECIFICATION_REELLE_1_3.json",
+        "size": 84088,
+        "lfs_sha256": null
+      },
+      {
+        "path": "training/journal.jsonl",
+        "size": 169862,
+        "lfs_sha256": null
+      },
+      {
+        "path": "training/trainer_state_final.json",
+        "size": 214801,
+        "lfs_sha256": null
+      },
+      {
+        "path": "verifier_repo.py",
+        "size": 4355,
+        "lfs_sha256": null
+      }
+    ]
+  },
+  {
+    "repository": "mounimzad/Llama-3-BrainHR-FT1200",
+    "type": "model",
+    "url": "https://huggingface.co/mounimzad/Llama-3-BrainHR-FT1200",
+    "checked_utc": "2026-11-22T12:16:58.432577+00:00",
+    "http_status": 200,
+    "private": true,
+    "gated": false,
+    "revision": "0e0c07a0b63b1da8c74af98c8fdb469806807134",
+    "files": [
+      {
+        "path": ".gitattributes",
+        "size": 1519,
+        "lfs_sha256": null
+      },
+      {
+        "path": "ACCES_PUBLIC.md",
+        "size": 842,
+        "lfs_sha256": null
+      },
+      {
+        "path": "LICENSE",
+        "size": 7801,
+        "lfs_sha256": null
+      },
+      {
+        "path": "MANIFEST.sha256.json",
+        "size": 2101,
+        "lfs_sha256": null
+      },
+      {
+        "path": "NOTICE",
+        "size": 178,
+        "lfs_sha256": null
+      },
+      {
+        "path": "README.md",
+        "size": 1797,
+        "lfs_sha256": null
+      },
+      {
+        "path": "RELATED_REPOSITORIES.json",
+        "size": 2702,
+        "lfs_sha256": null
+      },
+      {
+        "path": "RUNBOOK.md",
+        "size": 1113,
+        "lfs_sha256": null
+      },
+      {
+        "path": "adapter_config.json",
+        "size": 1210,
+        "lfs_sha256": null
+      },
+      {
+        "path": "adapters.safetensors",
+        "size": 335569193,
+        "lfs_sha256": "65cc2e9a685c7092d11f70f2eaed09c9c6016b88a0e402b83481c67f18f1e8e8"
+      },
+      {
+        "path": "configs/ADAPTER_TENSORS.json",
+        "size": 537,
+        "lfs_sha256": null
+      },
+      {
+        "path": "configs/train_mlx.yaml",
+        "size": 617,
+        "lfs_sha256": null
+      },
+      {
+        "path": "historical/README_previous_local.md",
+        "size": 2187,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/README_before_minimal_access_2026-11-22_9277af08.md",
+        "size": 2739,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/README_before_status_update_2026-11-21_5583a8d9.md",
+        "size": 5814,
+        "lfs_sha256": null
+      },
+      {
+        "path": "metrics.json",
+        "size": 1107,
+        "lfs_sha256": null
+      },
+      {
+        "path": "verifier_repo.py",
+        "size": 4355,
+        "lfs_sha256": null
+      }
+    ]
+  },
+  {
+    "repository": "mounimzad/brainhr-plus",
+    "type": "dataset",
+    "url": "https://huggingface.co/datasets/mounimzad/brainhr-plus",
+    "checked_utc": "2026-11-22T12:16:58.702751+00:00",
+    "http_status": 200,
+    "private": false,
+    "gated": false,
+    "revision": "019589651551093249709c7d05d5262e67f0b601",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 1606,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_guidelines.md",
+        "size": 2232,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotation_schema.json",
+        "size": 4425,
+        "lfs_sha256": null
+      },
+      {
+        "path": "annotations.jsonl",
+        "size": 40127,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/README_before_minimal_access_2026-11-22_d8064325.md",
+        "size": 3027,
+        "lfs_sha256": null
+      },
+      {
+        "path": "history/README_before_status_update_2026-11-21_8ad498bc.md",
+        "size": 10010,
+        "lfs_sha256": null
+      }
+    ]
+  },
+  {
+    "repository": "mounimzad/BrainHR-Adapter-Research-Access",
+    "type": "model",
+    "url": "https://huggingface.co/mounimzad/BrainHR-Adapter-Research-Access",
+    "checked_utc": "2026-11-22T12:16:59.026112+00:00",
+    "http_status": 200,
+    "private": false,
+    "gated": "manual",
+    "revision": "d3701897aac21e552d6e113d1d258ce02ed04c64",
+    "files": [
+      {
+        "path": ".gitattributes",
+        "size": 1519,
+        "lfs_sha256": null
+      },
+      {
+        "path": "LICENSE",
+        "size": 7801,
+        "lfs_sha256": null
+      },
+      {
+        "path": "NOTICE",
+        "size": 178,
+        "lfs_sha256": null
+      },
+      {
+        "path": "README.md",
+        "size": 1269,
+        "lfs_sha256": null
+      },
+      {
+        "path": "adapter_config.json",
+        "size": 1231,
+        "lfs_sha256": null
+      },
+      {
+        "path": "adapter_model.safetensors",
+        "size": 671149168,
+        "lfs_sha256": "20cfe4592625d5a507d75ed50dd5fa40f0ff006bfb760d36caea78e72feca900"
+      }
+    ]
+  },
+  {
+    "repository": "BrainResearchGroup/candidate-matching-synthetic",
+    "type": "dataset",
+    "url": "https://huggingface.co/datasets/BrainResearchGroup/candidate-matching-synthetic",
+    "checked_utc": "2026-11-22T12:16:59.287652+00:00",
+    "http_status": 200,
+    "private": false,
+    "gated": false,
+    "revision": "45e73534de4d6e0d86a43855da4404239b4550d0",
+    "files": [
+      {
+        "path": ".gitattributes",
+        "size": 2461,
+        "lfs_sha256": null
+      },
+      {
+        "path": "Comparison- Seniority Supply vs Demand.png",
+        "size": 55105,
+        "lfs_sha256": "34327d8a8df5d08e5abd679dc1156d99870a912db63dd6cd8e4efa469a54b499"
+      },
+      {
+        "path": "Correlation Matrix- Resume Features .png",
+        "size": 44836,
+        "lfs_sha256": "a5fe642e82cd7080131d030e07794171968cc131f941d90f19d9e0af205b65e0"
+      },
+      {
+        "path": "EDA_noteook.ipynb",
+        "size": 2495026,
+        "lfs_sha256": null
+      },
+      {
+        "path": "README.md",
+        "size": 13204,
+        "lfs_sha256": null
+      },
+      {
+        "path": "Skills Overlap- Resumes vs Jobs.png",
+        "size": 32755,
+        "lfs_sha256": "a596241358aca21338f01c388c926b8264b463c76d4377734fd44225ac6afd46"
+      },
+      {
+        "path": "Synthetic_Data_Generation (1).ipynb",
+        "size": 2495026,
+        "lfs_sha256": null
+      },
+      {
+        "path": "Top 20 Most Common Skills.png",
+        "size": 77881,
+        "lfs_sha256": "a638616b09fd2e316b8573e9282fdf3199fe934b3f6914acf584129c27020b21"
+      },
+      {
+        "path": "Years of Experience by Seniority.png",
+        "size": 30028,
+        "lfs_sha256": "840c1dc24de9afbdba367e1545b325824cfbfd457278ba2f90a3673c893d6cf9"
+      },
+      {
+        "path": "data/resumes-00000-of-00001.parquet",
+        "size": 277342,
+        "lfs_sha256": "4a25add9c3a620c4c396e867063e390fc8084f9b53ed8135def049303a29d7a4"
+      },
+      {
+        "path": "embeddings/best_job_emb.npy",
+        "size": 7680128,
+        "lfs_sha256": "0cb31fda364430997e82fe4a31f1a5939bf36543badacac743af20fffb02cba9"
+      },
+      {
+        "path": "embeddings/best_resume_emb.npy",
+        "size": 30720128,
+        "lfs_sha256": "5edd199dad959a43db7677c6fcb4120e9d6c552a1966067e591b1699bec4bcf8"
+      },
+      {
+        "path": "embeddings/embedding_model_comparison.csv",
+        "size": 303,
+        "lfs_sha256": null
+      },
+      {
+        "path": "embeddings/job_ids.csv",
+        "size": 22507,
+        "lfs_sha256": null
+      },
+      {
+        "path": "embeddings/jobs_embeddings.parquet",
+        "size": 11981374,
+        "lfs_sha256": "8a1181145571f844f525c9e49cc9c2245634fc28a5056de6088508208db8a2d2"
+      },
+      {
+        "path": "embeddings/resume_ids.csv",
+        "size": 90010,
+        "lfs_sha256": null
+      },
+      {
+        "path": "embeddings/resumes_embeddings.parquet",
+        "size": 47624502,
+        "lfs_sha256": "d2446c4d53b7e26ea47ac3de93e13fedce696d0ba79bc9cc1748884ec7a5f09f"
+      },
+      {
+        "path": "jobs/train-00000-of-00001.parquet",
+        "size": 56026,
+        "lfs_sha256": "c13d7c7e0ab510e81117974027de1364f973a27b3cacc8fabfbd8851c352c871"
+      },
+      {
+        "path": "matches/train-00000-of-00001.parquet",
+        "size": 274261,
+        "lfs_sha256": "dab24e40948b2da348c6df7072b5b5fe3bb6ef8cab335f88eef5d5667ee79a92"
+      },
+      {
+        "path": "resumes/train-00000-of-00001.parquet",
+        "size": 277342,
+        "lfs_sha256": "4a25add9c3a620c4c396e867063e390fc8084f9b53ed8135def049303a29d7a4"
+      }
+    ]
+  }
+]

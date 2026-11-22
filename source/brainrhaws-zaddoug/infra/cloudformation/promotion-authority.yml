@@ -1,0 +1,3102 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  BrainRH external promotion authority foundation. Provides an append-only,
+  versioned evidence store, an externally managed Ed25519 trust anchor,
+  separated authority/runtime permissions, closed SSM automations, current
+  revocation checks, and retained deployment logs.
+
+Parameters:
+  EnableRuntimePromotion:
+    Type: String
+    Default: "false"
+    AllowedValues: ["false"]
+    Description: >-
+      Deliberately locked false until a separately reviewed Runtime adapter and
+      host bootstrap exist. Changing this allow-list is a promotion gate.
+  Environment:
+    Type: String
+    Default: prod
+    AllowedValues: [prod]
+  ExistingEc2RoleName:
+    Type: String
+    Description: Existing instance-profile role attached to the BrainRH EC2 host.
+    AllowedPattern: "^[A-Za-z0-9+=,.@_-]{1,64}$"
+  ProductionInstanceId:
+    Type: AWS::EC2::Instance::Id
+    Description: Sole EC2 instance that the closed promotion documents may target.
+  ProductionDbInstanceIdentifier:
+    Type: String
+    Default: brainrh-pilot-postgres
+    Description: RDS instance whose PITR evidence gates the fast release path.
+    AllowedPattern: "^[a-z][a-z0-9-]{0,62}$"
+  GithubReleaseRoleName:
+    Type: String
+    Default: brainrh-github-ecr-build
+    Description: Existing GitHub OIDC role used by the manual release workflow.
+    AllowedPattern: "^[A-Za-z0-9+=,.@_-]{1,64}$"
+  DataBucketName:
+    Type: String
+    Description: Existing S3 bucket that stores only BrainRH application data.
+    AllowedPattern: "^[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$"
+  AuthorityPrincipalArn:
+    Type: String
+    Description: >-
+      ARN of the external governance identity allowed to assume the evidence role.
+      Prefer a role federated only from a separate governance repository.
+    AllowedPattern: "^arn:(aws|aws-us-gov|aws-cn):iam::[0-9]{12}:role/[A-Za-z0-9+=,.@_/-]{1,512}$"
+  TrustKeyId:
+    Type: String
+    Description: Stable identifier of the externally managed Ed25519 verification key.
+    AllowedPattern: "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"
+  TrustPublicKeyBase64:
+    Type: String
+    Description: RFC 4648 base64 encoding of the exact 32-byte Ed25519 public key.
+    AllowedPattern: "^[A-Za-z0-9+/]{42}[AEIMQUYcgkosw048]=$"
+  VerifierSourceSha:
+    Type: String
+    Default: UNSET
+    Description: >-
+      Exact reviewed Git source SHA of the verifier. Both bootstrap object keys are
+      derived from this value; leave UNSET until the signed ceremony is ready.
+    AllowedPattern: "^(UNSET|[0-9a-f]{40})$"
+  VerifierArtifactVersionId:
+    Type: String
+    Default: UNSET
+    Description: Exact S3 VersionId of the verifier binary.
+    AllowedPattern: "^(UNSET|[A-Za-z0-9._~+/=-]{1,1024})$"
+  VerifierArtifactSha256:
+    Type: String
+    Default: UNSET
+    Description: Lower-case SHA-256 of the verifier binary.
+    AllowedPattern: "^(UNSET|[0-9a-f]{64})$"
+  VerifierSignatureVersionId:
+    Type: String
+    Default: UNSET
+    Description: Exact S3 VersionId of the verifier signature.
+    AllowedPattern: "^(UNSET|[A-Za-z0-9._~+/=-]{1,1024})$"
+  VerifierSignatureSha256:
+    Type: String
+    Default: UNSET
+    Description: Lower-case SHA-256 of the raw verifier signature.
+    AllowedPattern: "^(UNSET|[0-9a-f]{64})$"
+  RubyPackageVersion:
+    Type: String
+    Default: "1:3.2~ubuntu1"
+    Description: >-
+      Exact reviewed apt version of the Ruby meta-package installed by the
+      closed existing-host preparation Automation.
+    AllowedPattern: "^[0-9A-Za-z][0-9A-Za-z.+:~_-]{0,127}$"
+  EmergencyWorkerVideoSha:
+    Type: String
+    Default: UNSET
+    Description: >-
+      Exact reviewed origin/main SHA for the owner-approved worker-video security
+      rollout. All emergency rollout parameters must be set together.
+    AllowedPattern: "^(UNSET|[0-9a-f]{40})$"
+  EmergencyWorkerVideoDigest:
+    Type: String
+    Default: UNSET
+    Description: Exact immutable worker-video ECR digest accepted for this rollout.
+    AllowedPattern: "^(UNSET|sha256:[0-9a-f]{64})$"
+  EmergencyWorkerVideoCriticalCount:
+    Type: String
+    Default: UNSET
+    Description: Exact accepted ECR CRITICAL count; this is evidence, not a general bypass.
+    AllowedPattern: "^(UNSET|[0-9]{1,5})$"
+  EmergencyWorkerVideoHighCount:
+    Type: String
+    Default: UNSET
+    Description: Exact accepted ECR HIGH count; this is evidence, not a general bypass.
+    AllowedPattern: "^(UNSET|[0-9]{1,5})$"
+  EmergencyWorkerVideoRiskAcceptanceId:
+    Type: String
+    Default: UNSET
+    Description: Owner risk-acceptance identifier recorded in the immutable rollout receipt.
+    AllowedPattern: "^(UNSET|[A-Za-z0-9][A-Za-z0-9._-]{2,63})$"
+  EmergencyBackendSha:
+    Type: String
+    Default: UNSET
+    Description: >-
+      Exact reviewed origin/main SHA for the owner-approved backend-only RGPD
+      inventory rollout. All emergency backend parameters must be set together.
+    AllowedPattern: "^(UNSET|[0-9a-f]{40})$"
+  EmergencyBackendDigest:
+    Type: String
+    Default: UNSET
+    Description: Exact immutable backend ECR digest accepted for this rollout.
+    AllowedPattern: "^(UNSET|sha256:[0-9a-f]{64})$"
+  EmergencyBackendCriticalCount:
+    Type: String
+    Default: UNSET
+    Description: Exact accepted ECR CRITICAL count; this is evidence, not a general bypass.
+    AllowedPattern: "^(UNSET|[0-9]{1,5})$"
+  EmergencyBackendHighCount:
+    Type: String
+    Default: UNSET
+    Description: Exact accepted ECR HIGH count; this is evidence, not a general bypass.
+    AllowedPattern: "^(UNSET|[0-9]{1,5})$"
+  EmergencyBackendRiskAcceptanceId:
+    Type: String
+    Default: UNSET
+    Description: Owner risk-acceptance identifier recorded in the immutable rollout receipt.
+    AllowedPattern: "^(UNSET|[A-Za-z0-9][A-Za-z0-9._-]{2,63})$"
+  EmergencyFullReleaseSha:
+    Type: String
+    Default: UNSET
+    Description: Exact origin/main SHA for the owner-approved closed full release.
+    AllowedPattern: "^(UNSET|[0-9a-f]{40})$"
+  EmergencyFullReleaseBaseRevision:
+    Type: String
+    Default: UNSET
+    Description: Exact Alembic revision required before the closed release.
+    AllowedPattern: "^(UNSET|[0-9a-f]{12})$"
+  EmergencyFullReleaseHeadRevision:
+    Type: String
+    Default: UNSET
+    Description: Exact Alembic revision required after the closed release.
+    AllowedPattern: "^(UNSET|[0-9a-f]{12})$"
+  EmergencyFullReleaseBackendDigest:
+    Type: String
+    Default: UNSET
+    AllowedPattern: "^(UNSET|sha256:[0-9a-f]{64})$"
+  EmergencyFullReleaseBackendCriticalCount:
+    Type: String
+    Default: UNSET
+    AllowedPattern: "^(UNSET|[0-9]{1,5})$"
+  EmergencyFullReleaseBackendHighCount:
+    Type: String
+    Default: UNSET
+    AllowedPattern: "^(UNSET|[0-9]{1,5})$"
+  EmergencyFullReleaseFrontendDigest:
+    Type: String
+    Default: UNSET
+    AllowedPattern: "^(UNSET|sha256:[0-9a-f]{64})$"
+  EmergencyFullReleaseFrontendCriticalCount:
+    Type: String
+    Default: UNSET
+    AllowedPattern: "^(UNSET|[0-9]{1,5})$"
+  EmergencyFullReleaseFrontendHighCount:
+    Type: String
+    Default: UNSET
+    AllowedPattern: "^(UNSET|[0-9]{1,5})$"
+  EmergencyFullReleaseWorkerDigest:
+    Type: String
+    Default: UNSET
+    AllowedPattern: "^(UNSET|sha256:[0-9a-f]{64})$"
+  EmergencyFullReleaseWorkerCriticalCount:
+    Type: String
+    Default: UNSET
+    AllowedPattern: "^(UNSET|[0-9]{1,5})$"
+  EmergencyFullReleaseWorkerHighCount:
+    Type: String
+    Default: UNSET
+    AllowedPattern: "^(UNSET|[0-9]{1,5})$"
+  EmergencyFullReleaseComposeSha256:
+    Type: String
+    Default: UNSET
+    AllowedPattern: "^(UNSET|[0-9a-f]{64})$"
+  EmergencyFullReleaseSeccompSha256:
+    Type: String
+    Default: UNSET
+    AllowedPattern: "^(UNSET|[0-9a-f]{64})$"
+  EmergencyFullReleaseRiskAcceptanceId:
+    Type: String
+    Default: UNSET
+    Description: Owner acceptance bound to the exact ECR counts and digests.
+    AllowedPattern: "^(UNSET|[A-Za-z0-9][A-Za-z0-9._-]{2,63})$"
+  LogRetentionDays:
+    Type: Number
+    Default: 90
+    AllowedValues: [30, 60, 90, 120, 180, 365, 731, 1827, 3653]
+
+Rules:
+  BootstrapEvidenceCompleteness:
+    Assertions:
+      - Assert: !Or
+          - !And
+            - !Equals [!Ref VerifierSourceSha, UNSET]
+            - !Equals [!Ref VerifierArtifactVersionId, UNSET]
+            - !Equals [!Ref VerifierArtifactSha256, UNSET]
+            - !Equals [!Ref VerifierSignatureVersionId, UNSET]
+            - !Equals [!Ref VerifierSignatureSha256, UNSET]
+          - !And
+            - !Not [!Equals [!Ref VerifierSourceSha, UNSET]]
+            - !Not [!Equals [!Ref VerifierArtifactVersionId, UNSET]]
+            - !Not [!Equals [!Ref VerifierArtifactSha256, UNSET]]
+            - !Not [!Equals [!Ref VerifierSignatureVersionId, UNSET]]
+            - !Not [!Equals [!Ref VerifierSignatureSha256, UNSET]]
+        AssertDescription: >-
+          Bootstrap parameters must be either all UNSET or all exact reviewed values.
+  EmergencyWorkerVideoCompleteness:
+    Assertions:
+      - Assert: !Or
+          - !And
+            - !Equals [!Ref EmergencyWorkerVideoSha, UNSET]
+            - !Equals [!Ref EmergencyWorkerVideoDigest, UNSET]
+            - !Equals [!Ref EmergencyWorkerVideoCriticalCount, UNSET]
+            - !Equals [!Ref EmergencyWorkerVideoHighCount, UNSET]
+            - !Equals [!Ref EmergencyWorkerVideoRiskAcceptanceId, UNSET]
+          - !And
+            - !Not [!Equals [!Ref EmergencyWorkerVideoSha, UNSET]]
+            - !Not [!Equals [!Ref EmergencyWorkerVideoDigest, UNSET]]
+            - !Not [!Equals [!Ref EmergencyWorkerVideoCriticalCount, UNSET]]
+            - !Not [!Equals [!Ref EmergencyWorkerVideoHighCount, UNSET]]
+            - !Not [!Equals [!Ref EmergencyWorkerVideoRiskAcceptanceId, UNSET]]
+        AssertDescription: >-
+          Emergency worker-video parameters must be either all UNSET or all exact
+          owner-reviewed values.
+  EmergencyBackendCompleteness:
+    Assertions:
+      - Assert: !Or
+          - !And
+            - !Equals [!Ref EmergencyBackendSha, UNSET]
+            - !Equals [!Ref EmergencyBackendDigest, UNSET]
+            - !Equals [!Ref EmergencyBackendCriticalCount, UNSET]
+            - !Equals [!Ref EmergencyBackendHighCount, UNSET]
+            - !Equals [!Ref EmergencyBackendRiskAcceptanceId, UNSET]
+          - !And
+            - !Not [!Equals [!Ref EmergencyBackendSha, UNSET]]
+            - !Not [!Equals [!Ref EmergencyBackendDigest, UNSET]]
+            - !Not [!Equals [!Ref EmergencyBackendCriticalCount, UNSET]]
+            - !Not [!Equals [!Ref EmergencyBackendHighCount, UNSET]]
+            - !Not [!Equals [!Ref EmergencyBackendRiskAcceptanceId, UNSET]]
+        AssertDescription: >-
+          Emergency backend parameters must be either all UNSET or all exact
+          owner-reviewed values.
+  EmergencyFullReleaseCompleteness:
+    Assertions:
+      - Assert: !Or
+          - !And
+            - !And
+              - !Equals [!Ref EmergencyFullReleaseSha, UNSET]
+              - !Equals [!Ref EmergencyFullReleaseBaseRevision, UNSET]
+              - !Equals [!Ref EmergencyFullReleaseHeadRevision, UNSET]
+              - !Equals [!Ref EmergencyFullReleaseBackendDigest, UNSET]
+              - !Equals [!Ref EmergencyFullReleaseBackendCriticalCount, UNSET]
+              - !Equals [!Ref EmergencyFullReleaseBackendHighCount, UNSET]
+              - !Equals [!Ref EmergencyFullReleaseFrontendDigest, UNSET]
+              - !Equals [!Ref EmergencyFullReleaseFrontendCriticalCount, UNSET]
+            - !And
+              - !Equals [!Ref EmergencyFullReleaseFrontendHighCount, UNSET]
+              - !Equals [!Ref EmergencyFullReleaseWorkerDigest, UNSET]
+              - !Equals [!Ref EmergencyFullReleaseWorkerCriticalCount, UNSET]
+              - !Equals [!Ref EmergencyFullReleaseWorkerHighCount, UNSET]
+              - !Equals [!Ref EmergencyFullReleaseComposeSha256, UNSET]
+              - !Equals [!Ref EmergencyFullReleaseSeccompSha256, UNSET]
+              - !Equals [!Ref EmergencyFullReleaseRiskAcceptanceId, UNSET]
+          - !And
+            - !And
+              - !Not [!Equals [!Ref EmergencyFullReleaseSha, UNSET]]
+              - !Not [!Equals [!Ref EmergencyFullReleaseBaseRevision, UNSET]]
+              - !Not [!Equals [!Ref EmergencyFullReleaseHeadRevision, UNSET]]
+              - !Not [!Equals [!Ref EmergencyFullReleaseBackendDigest, UNSET]]
+              - !Not [!Equals [!Ref EmergencyFullReleaseBackendCriticalCount, UNSET]]
+              - !Not [!Equals [!Ref EmergencyFullReleaseBackendHighCount, UNSET]]
+              - !Not [!Equals [!Ref EmergencyFullReleaseFrontendDigest, UNSET]]
+              - !Not [!Equals [!Ref EmergencyFullReleaseFrontendCriticalCount, UNSET]]
+            - !And
+              - !Not [!Equals [!Ref EmergencyFullReleaseFrontendHighCount, UNSET]]
+              - !Not [!Equals [!Ref EmergencyFullReleaseWorkerDigest, UNSET]]
+              - !Not [!Equals [!Ref EmergencyFullReleaseWorkerCriticalCount, UNSET]]
+              - !Not [!Equals [!Ref EmergencyFullReleaseWorkerHighCount, UNSET]]
+              - !Not [!Equals [!Ref EmergencyFullReleaseComposeSha256, UNSET]]
+              - !Not [!Equals [!Ref EmergencyFullReleaseSeccompSha256, UNSET]]
+              - !Not [!Equals [!Ref EmergencyFullReleaseRiskAcceptanceId, UNSET]]
+        AssertDescription: >-
+          Closed full-release parameters must be either all UNSET or all exact
+          owner-reviewed values.
+
+Conditions:
+  RuntimePromotionEnabled: !Equals [!Ref EnableRuntimePromotion, "true"]
+  EmergencyWorkerVideoRolloutEnabled: !Not
+    - !Equals [!Ref EmergencyWorkerVideoSha, UNSET]
+  EmergencyBackendRolloutEnabled: !Not
+    - !Equals [!Ref EmergencyBackendSha, UNSET]
+  EmergencyFullReleaseEnabled: !Not
+    - !Equals [!Ref EmergencyFullReleaseSha, UNSET]
+  HasVerifierBootstrapEvidence: !And
+    - !Not [!Equals [!Ref VerifierSourceSha, UNSET]]
+    - !Not [!Equals [!Ref VerifierArtifactVersionId, UNSET]]
+    - !Not [!Equals [!Ref VerifierArtifactSha256, UNSET]]
+    - !Not [!Equals [!Ref VerifierSignatureVersionId, UNSET]]
+    - !Not [!Equals [!Ref VerifierSignatureSha256, UNSET]]
+
+Resources:
+  PromotionStateTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      DeletionProtectionEnabled: true
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      SSESpecification:
+        SSEEnabled: true
+      Tags:
+        - Key: Project
+          Value: BrainRH
+        - Key: Environment
+          Value: !Ref Environment
+        - Key: DataClass
+          Value: PromotionState
+        - Key: ManagedBy
+          Value: CloudFormation
+
+  AuthorityBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      VersioningConfiguration:
+        Status: Enabled
+      Tags:
+        - Key: Project
+          Value: BrainRH
+        - Key: Environment
+          Value: !Ref Environment
+        - Key: DataClass
+          Value: ReleaseAuthority
+        - Key: ManagedBy
+          Value: CloudFormation
+
+  TrustPublicKeyParameter:
+    Type: AWS::SSM::Parameter
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      Name: !Sub /brainrh/${Environment}/release-authority/trust/${TrustKeyId}/ed25519-public-key
+      Type: String
+      Tier: Standard
+      DataType: text
+      Description: BrainRH external release authority Ed25519 public key
+      Value: !Ref TrustPublicKeyBase64
+      Tags:
+        Project: BrainRH
+        Environment: !Ref Environment
+        ManagedBy: CloudFormation
+
+  SeedExecutionPrincipalParameter:
+    Type: AWS::SSM::Parameter
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      Name: !Sub /brainrh/${Environment}/release-authority/seed-execution-principal-arn
+      Type: String
+      Tier: Standard
+      DataType: text
+      Description: Exact assumed execution role allowed to run closed seed ceremonies
+      Value: !GetAtt PromotionAuthorityRole.Arn
+      Tags:
+        Project: BrainRH
+        Environment: !Ref Environment
+        ManagedBy: CloudFormation
+
+  PromotionAuthorityRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub brainrh-${Environment}-promotion-authority
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: ExternalAuthorityOnly
+            Effect: Allow
+            Principal:
+              AWS: !Ref AuthorityPrincipalArn
+            Action: sts:AssumeRole
+      Tags:
+        - Key: Project
+          Value: BrainRH
+        - Key: Environment
+          Value: !Ref Environment
+        - Key: ManagedBy
+          Value: CloudFormation
+
+  PromotionLogGroup:
+    Type: AWS::Logs::LogGroup
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      LogGroupName: !Sub /brainrh/${Environment}/promotion
+      RetentionInDays: !Ref LogRetentionDays
+      Tags:
+        - Key: Project
+          Value: BrainRH
+        - Key: Environment
+          Value: !Ref Environment
+        - Key: ManagedBy
+          Value: CloudFormation
+
+  AutomationExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub brainrh-${Environment}-promotion-automation
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ssm.amazonaws.com
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals:
+                aws:SourceAccount: !Ref AWS::AccountId
+              ArnLike:
+                aws:SourceArn: !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-execution/*
+      Tags:
+        - Key: Project
+          Value: BrainRH
+        - Key: Environment
+          Value: !Ref Environment
+        - Key: ManagedBy
+          Value: CloudFormation
+
+  BackendDataRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub brainrh-${Environment}-backend-data
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: ExactProductionHostRoleOnly
+            Effect: Allow
+            Principal:
+              AWS: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/${ExistingEc2RoleName}
+            Action: sts:AssumeRole
+            Condition:
+              ArnEquals:
+                aws:PrincipalArn: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/${ExistingEc2RoleName}
+      Policies:
+        - PolicyName: application-data-only
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: ListOnlyApplicationDataBucket
+                Effect: Allow
+                Action:
+                  - s3:ListBucket
+                  - s3:GetBucketVersioning
+                Resource: !Sub arn:${AWS::Partition}:s3:::${DataBucketName}
+              - Sid: ListOnlyCredentialSmokeVersions
+                Effect: Allow
+                Action: s3:ListBucketVersions
+                Resource: !Sub arn:${AWS::Partition}:s3:::${DataBucketName}
+                Condition:
+                  StringLike:
+                    s3:prefix: brainrh-security-smoke/credential-broker/*
+              - Sid: ReadWriteOnlyApplicationDataObjects
+                Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:DeleteObject
+                Resource: !Sub arn:${AWS::Partition}:s3:::${DataBucketName}/*
+              - Sid: DeleteOnlyCredentialSmokeObjectVersions
+                Effect: Allow
+                Action: s3:DeleteObjectVersion
+                Resource: !Sub arn:${AWS::Partition}:s3:::${DataBucketName}/brainrh-security-smoke/credential-broker/*
+              - Sid: ReadWriteOnlyTurnoverTenantTokens
+                Effect: Allow
+                Action:
+                  - ssm:GetParameter
+                  - ssm:PutParameter
+                Resource: !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/brainrh/${Environment}/integrations/turnover-it/*
+      Tags:
+        - Key: Project
+          Value: BrainRH
+        - Key: Environment
+          Value: !Ref Environment
+        - Key: ManagedBy
+          Value: CloudFormation
+
+  PromoteReleaseDocument:
+    Type: AWS::SSM::Document
+    Condition: RuntimePromotionEnabled
+    Properties:
+      Name: !Sub BrainRH-${Environment}-PromoteRelease
+      DocumentType: Automation
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      TargetType: /AWS::EC2::Instance
+      Content:
+        schemaVersion: "0.3"
+        description: >-
+          Closed runtime promotion entry point. This resource is impossible to
+          create while EnableRuntimePromotion remains locked false.
+        assumeRole: !GetAtt AutomationExecutionRole.Arn
+        parameters:
+          AuthorizationId:
+            type: String
+            description: Exact fresh v2 authorization identity.
+            allowedPattern: "^auth-[0-9a-f]{64}$"
+          CandidateSha:
+            type: String
+            description: Full Git commit SHA authorized for promotion.
+            allowedPattern: "^[0-9a-f]{40}$"
+          ExpectedBaseSha:
+            type: String
+            description: >-
+              Full base Git SHA whose ancestry relationship was verified externally.
+            allowedPattern: "^[0-9a-f]{40}$"
+          ManifestVersionId:
+            type: String
+            description: Exact S3 version of release-authority/authorizations/<id>/manifest.json.
+            allowedPattern: "^[A-Za-z0-9._~+/=-]{1,1024}$"
+          ManifestSha256:
+            type: String
+            description: Lower-case SHA-256 of the canonical manifest bytes.
+            allowedPattern: "^[0-9a-f]{64}$"
+          SignatureVersionId:
+            type: String
+            description: Exact S3 version of release-authority/authorizations/<id>/manifest.sig.
+            allowedPattern: "^[A-Za-z0-9._~+/=-]{1,1024}$"
+          SignatureSha256:
+            type: String
+            description: Lower-case SHA-256 of the raw 64-byte Ed25519 signature.
+            allowedPattern: "^[0-9a-f]{64}$"
+        mainSteps:
+          - name: VerifyExactSignedReleaseForPromotion
+            action: aws:runCommand
+            timeoutSeconds: 3600
+            inputs:
+              DocumentName: AWS-RunShellScript
+              InstanceIds:
+                - !Ref ProductionInstanceId
+              CloudWatchOutputConfig:
+                CloudWatchOutputEnabled: true
+                CloudWatchLogGroupName: !Ref PromotionLogGroup
+              Parameters:
+                commands:
+                  - set -eu
+                  - !Sub >-
+                    test "$(aws ec2 describe-instances --instance-ids '${ProductionInstanceId}'
+                    --region '${AWS::Region}' --query 'Reservations[0].Instances[0].MetadataOptions.[HttpTokens,HttpPutResponseHopLimit]'
+                    --output text)" = 'required	1'
+                  - test -x /usr/local/sbin/brainrh-release-authority
+                  - !Sub >-
+                    /usr/local/sbin/brainrh-release-authority verify
+                    --intent promotion
+                    --authorization-id '{{ AuthorizationId }}'
+                    --candidate-sha '{{ CandidateSha }}'
+                    --expected-base-sha '{{ ExpectedBaseSha }}'
+                    --authority-bucket '${AuthorityBucket}'
+                    --manifest-version-id '{{ ManifestVersionId }}'
+                    --manifest-sha256 '{{ ManifestSha256 }}'
+                    --signature-version-id '{{ SignatureVersionId }}'
+                    --signature-sha256 '{{ SignatureSha256 }}'
+                    --trust-key-id '${TrustKeyId}'
+                    --trust-public-key-parameter '${TrustPublicKeyParameter}'
+                    --revocation-prefix 'release-authority/revocations'
+                    --aws-region '${AWS::Region}'
+
+  RollbackReleaseDocument:
+    Type: AWS::SSM::Document
+    Condition: RuntimePromotionEnabled
+    Properties:
+      Name: !Sub BrainRH-${Environment}-RollbackRelease
+      DocumentType: Automation
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      TargetType: /AWS::EC2::Instance
+      Content:
+        schemaVersion: "0.3"
+        description: >-
+          Closed rollback entry point requiring a fresh v2 rollback authorization.
+          This resource is impossible to create while the runtime gate is locked false.
+        assumeRole: !GetAtt AutomationExecutionRole.Arn
+        parameters:
+          AuthorizationId:
+            type: String
+            description: Exact fresh v2 rollback authorization identity.
+            allowedPattern: "^auth-[0-9a-f]{64}$"
+          TargetSha:
+            type: String
+            description: Full Git commit SHA of the previously approved release.
+            allowedPattern: "^[0-9a-f]{40}$"
+          ExpectedBaseSha:
+            type: String
+            description: >-
+              Full base Git SHA whose ancestry relationship was verified externally.
+            allowedPattern: "^[0-9a-f]{40}$"
+          ManifestVersionId:
+            type: String
+            allowedPattern: "^[A-Za-z0-9._~+/=-]{1,1024}$"
+          ManifestSha256:
+            type: String
+            allowedPattern: "^[0-9a-f]{64}$"
+          SignatureVersionId:
+            type: String
+            allowedPattern: "^[A-Za-z0-9._~+/=-]{1,1024}$"
+          SignatureSha256:
+            type: String
+            allowedPattern: "^[0-9a-f]{64}$"
+        mainSteps:
+          - name: VerifyExactSignedReleaseForRollback
+            action: aws:runCommand
+            timeoutSeconds: 3600
+            inputs:
+              DocumentName: AWS-RunShellScript
+              InstanceIds:
+                - !Ref ProductionInstanceId
+              CloudWatchOutputConfig:
+                CloudWatchOutputEnabled: true
+                CloudWatchLogGroupName: !Ref PromotionLogGroup
+              Parameters:
+                commands:
+                  - set -eu
+                  - !Sub >-
+                    test "$(aws ec2 describe-instances --instance-ids '${ProductionInstanceId}'
+                    --region '${AWS::Region}' --query 'Reservations[0].Instances[0].MetadataOptions.[HttpTokens,HttpPutResponseHopLimit]'
+                    --output text)" = 'required	1'
+                  - test -x /usr/local/sbin/brainrh-release-authority
+                  - !Sub >-
+                    /usr/local/sbin/brainrh-release-authority verify
+                    --intent rollback
+                    --authorization-id '{{ AuthorizationId }}'
+                    --candidate-sha '{{ TargetSha }}'
+                    --expected-base-sha '{{ ExpectedBaseSha }}'
+                    --authority-bucket '${AuthorityBucket}'
+                    --manifest-version-id '{{ ManifestVersionId }}'
+                    --manifest-sha256 '{{ ManifestSha256 }}'
+                    --signature-version-id '{{ SignatureVersionId }}'
+                    --signature-sha256 '{{ SignatureSha256 }}'
+                    --trust-key-id '${TrustKeyId}'
+                    --trust-public-key-parameter '${TrustPublicKeyParameter}'
+                    --revocation-prefix 'release-authority/revocations'
+                    --aws-region '${AWS::Region}'
+
+  RecoverReleaseDocument:
+    Type: AWS::SSM::Document
+    Condition: RuntimePromotionEnabled
+    Properties:
+      Name: !Sub BrainRH-${Environment}-RecoverRelease
+      DocumentType: Automation
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      TargetType: /AWS::EC2::Instance
+      Content:
+        schemaVersion: "0.3"
+        description: >-
+          Resume only an already consumed authorization from the root-owned host
+          journal. No manifest, command, SHA or authorization input is exposed.
+        assumeRole: !GetAtt AutomationExecutionRole.Arn
+        mainSteps:
+          - name: RecoverConsumedRelease
+            action: aws:runCommand
+            timeoutSeconds: 3600
+            inputs:
+              DocumentName: AWS-RunShellScript
+              InstanceIds:
+                - !Ref ProductionInstanceId
+              CloudWatchOutputConfig:
+                CloudWatchOutputEnabled: true
+                CloudWatchLogGroupName: !Ref PromotionLogGroup
+              Parameters:
+                commands:
+                  - set -eu
+                  - !Sub >-
+                    test "$(aws ec2 describe-instances --instance-ids '${ProductionInstanceId}'
+                    --region '${AWS::Region}' --query 'Reservations[0].Instances[0].MetadataOptions.[HttpTokens,HttpPutResponseHopLimit]'
+                    --output text)" = 'required	1'
+                  - test -x /usr/local/sbin/brainrh-release-authority
+                  - !Sub >-
+                    /usr/local/sbin/brainrh-release-authority recover
+                    --authority-bucket '${AuthorityBucket}'
+                    --state-table '${PromotionStateTable}'
+                    --aws-region '${AWS::Region}'
+
+  InstallCredentialBrokerDocument:
+    Type: AWS::SSM::Document
+    Properties:
+      Name: !Sub BrainRH-${Environment}-InstallCredentialBroker
+      DocumentType: Automation
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      TargetType: /AWS::EC2::Instance
+      Content:
+        schemaVersion: "0.3"
+        description: >-
+          Closed, parameterless installation of the root-only backend credential
+          broker and credential_process helper. A temporary container based on
+          the exact running backend image proves role identity, synthetic S3 data
+          access and SSM/DynamoDB denial without changing the Compose runtime.
+        assumeRole: !GetAtt AutomationExecutionRole.Arn
+        mainSteps:
+          - name: InstallAndValidateCredentialBroker
+            action: aws:runCommand
+            timeoutSeconds: 900
+            onFailure: Abort
+            isEnd: true
+            inputs:
+              DocumentName: AWS-RunShellScript
+              InstanceIds:
+                - !Ref ProductionInstanceId
+              CloudWatchOutputConfig:
+                CloudWatchOutputEnabled: true
+                CloudWatchLogGroupName: !Ref PromotionLogGroup
+              Parameters:
+                commands:
+                  - set -eu
+                  - umask 077
+                  - !Sub |
+                      test "$(id -u)" -eq 0
+                      systemctl is-active --quiet docker
+                      command -v docker >/dev/null
+                      command -v jq >/dev/null
+                      command -v aws >/dev/null
+                      test -x /usr/bin/ruby
+                      test -x /usr/bin/python3
+
+                      runtime_fingerprint() {
+                        for service in backend worker-video frontend caddy; do
+                          ids="$(docker ps -q --no-trunc --filter 'label=com.docker.compose.project=brainrh' --filter "label=com.docker.compose.service=$service")"
+                          test -n "$ids"
+                          test "$(printf '%s\n' "$ids" | wc -l | tr -d ' ')" = 1
+                          docker inspect "$ids" | jq -e 'length == 1 and .[0].State.Status == "running"' >/dev/null
+                          image_id="$(docker inspect "$ids" | jq -er '.[0].Image | select(test("^sha256:[0-9a-f]{64}$"))')"
+                          printf '%s\000%s\000%s\n' "$service" "$ids" "$image_id"
+                        done | sha256sum | cut -d ' ' -f 1
+                      }
+
+                      before="$(runtime_fingerprint)"
+                      backend_id="$(docker ps -q --no-trunc --filter 'label=com.docker.compose.project=brainrh' --filter 'label=com.docker.compose.service=backend')"
+                      test -n "$backend_id"
+                      test "$(printf '%s\n' "$backend_id" | wc -l | tr -d ' ')" = 1
+                      backend_image="$(docker inspect "$backend_id" | jq -er '.[0].Image | select(test("^sha256:[0-9a-f]{64}$"))')"
+                      install_tmp="$(mktemp -d /root/.brainrh-credential-broker.XXXXXX)"
+                      smoke_uuid="$(tr -d '-' < /proc/sys/kernel/random/uuid)"
+                      printf '%s' "$smoke_uuid" | grep -Eq '^[0-9a-f]{32}$'
+                      smoke_name="brainrh-credential-broker-smoke-$smoke_uuid"
+                      smoke_key="brainrh-security-smoke/credential-broker/$smoke_uuid"
+                      smoke_cidfile="$install_tmp/smoke.cid"
+                      broker_path=/usr/local/libexec/brainrh-credential-broker.rb
+                      helper_path=/usr/local/libexec/brainrh-backend-credential-process
+                      unit_path=/etc/systemd/system/brainrh-credential-broker.service
+                      service_name=brainrh-credential-broker.service
+                      previous_dir="$install_tmp/previous"
+                      mkdir -m 0700 "$previous_dir"
+                      broker_was_present=false
+                      helper_was_present=false
+                      unit_was_present=false
+                      libexec_was_present=false
+                      test -d /usr/local/libexec && libexec_was_present=true
+                      if test -e "$broker_path" || test -L "$broker_path"; then
+                        test -f "$broker_path" && test ! -L "$broker_path"
+                        cp -a "$broker_path" "$previous_dir/broker"
+                        broker_was_present=true
+                      fi
+                      if test -e "$helper_path" || test -L "$helper_path"; then
+                        test -f "$helper_path" && test ! -L "$helper_path"
+                        cp -a "$helper_path" "$previous_dir/helper"
+                        helper_was_present=true
+                      fi
+                      if test -e "$unit_path" || test -L "$unit_path"; then
+                        test -f "$unit_path" && test ! -L "$unit_path"
+                        cp -a "$unit_path" "$previous_dir/unit"
+                        unit_was_present=true
+                      fi
+                      service_was_enabled=false
+                      service_was_active=false
+                      systemctl is-enabled --quiet "$service_name" && service_was_enabled=true
+                      systemctl is-active --quiet "$service_name" && service_was_active=true
+                      installation_started=false
+                      transaction_committed=false
+                      object_cleanup_required=false
+
+                      restore_installation() {
+                        restore_rc=0
+                        systemctl stop "$service_name" >/dev/null 2>&1 || true
+                        rm -f -- "$broker_path" "$helper_path" "$unit_path"
+                        if test "$broker_was_present" = true; then
+                          cp -a "$previous_dir/broker" "$broker_path" || restore_rc=1
+                        fi
+                        if test "$helper_was_present" = true; then
+                          cp -a "$previous_dir/helper" "$helper_path" || restore_rc=1
+                        fi
+                        if test "$unit_was_present" = true; then
+                          cp -a "$previous_dir/unit" "$unit_path" || restore_rc=1
+                        fi
+                        systemctl daemon-reload || restore_rc=1
+                        if test "$service_was_enabled" = true; then
+                          systemctl enable "$service_name" >/dev/null 2>&1 || restore_rc=1
+                        else
+                          systemctl disable "$service_name" >/dev/null 2>&1 || true
+                          systemctl is-enabled --quiet "$service_name" && restore_rc=1
+                        fi
+                        if test "$service_was_active" = true; then
+                          systemctl start "$service_name" || restore_rc=1
+                          systemctl is-active --quiet "$service_name" || restore_rc=1
+                        else
+                          systemctl stop "$service_name" >/dev/null 2>&1 || true
+                          systemctl is-active --quiet "$service_name" && restore_rc=1
+                        fi
+                        if test "$libexec_was_present" = false; then
+                          rmdir /usr/local/libexec >/dev/null 2>&1 || true
+                        fi
+                        return "$restore_rc"
+                      }
+
+                      broker_aws() {
+                        AWS_EC2_METADATA_DISABLED=true \
+                          AWS_SDK_LOAD_CONFIG=1 \
+                          AWS_PROFILE=brainrh-backend-data \
+                          AWS_CONFIG_FILE="$install_tmp/aws-config-host" \
+                          AWS_REGION=${AWS::Region} \
+                          AWS_DEFAULT_REGION=${AWS::Region} \
+                          aws --no-cli-pager "$@"
+                      }
+
+                      cleanup_s3_object_once() {
+                        if test -s "$install_tmp/smoke-result/version-id"; then
+                          captured_version_id="$(cat "$install_tmp/smoke-result/version-id")"
+                          if printf '%s' "$captured_version_id" | grep -Eq '^[A-Za-z0-9._~+/=-]{1,1024}$'; then
+                            broker_aws s3api delete-object \
+                              --bucket '${DataBucketName}' \
+                              --key "$smoke_key" \
+                              --version-id "$captured_version_id" >/dev/null || true
+                          fi
+                        fi
+                        versions_json="$(broker_aws s3api list-object-versions --bucket '${DataBucketName}' --prefix "$smoke_key" --output json)" || return 1
+                        test "$(printf '%s' "$versions_json" | jq -r '.IsTruncated // false')" = false || return 1
+                        printf '%s' "$versions_json" | jq -r --arg key "$smoke_key" '((.Versions // []) + (.DeleteMarkers // []))[] | select(.Key == $key) | .VersionId' > "$install_tmp/smoke-versions" || return 1
+                        while IFS= read -r version_id; do
+                          printf '%s' "$version_id" | grep -Eq '^[A-Za-z0-9._~+/=-]{1,1024}$' || return 1
+                          broker_aws s3api delete-object \
+                            --bucket '${DataBucketName}' \
+                            --key "$smoke_key" \
+                            --version-id "$version_id" >/dev/null || return 1
+                        done < "$install_tmp/smoke-versions"
+                        versions_json="$(broker_aws s3api list-object-versions --bucket '${DataBucketName}' --prefix "$smoke_key" --output json)" || return 1
+                        test "$(printf '%s' "$versions_json" | jq -r '.IsTruncated // false')" = false || return 1
+                        test "$(printf '%s' "$versions_json" | jq -r --arg key "$smoke_key" '[((.Versions // []) + (.DeleteMarkers // []))[] | select(.Key == $key)] | length')" = 0 || return 1
+                        if head_error="$(broker_aws s3api head-object --bucket '${DataBucketName}' --key "$smoke_key" 2>&1)"; then
+                          return 1
+                        fi
+                        printf '%s' "$head_error" | grep -Eq '(404|Not Found|NoSuchKey)' || return 1
+                      }
+
+                      cleanup_s3_object() {
+                        cleanup_attempt=1
+                        while test "$cleanup_attempt" -le 3; do
+                          if cleanup_s3_object_once; then
+                            return 0
+                          fi
+                          cleanup_attempt=$((cleanup_attempt + 1))
+                          sleep 2
+                        done
+                        return 1
+                      }
+
+                      finish() {
+                        original_rc=$?
+                        trap - EXIT
+                        trap '' HUP INT TERM
+                        if test -s "$smoke_cidfile"; then
+                          smoke_id="$(cat "$smoke_cidfile")"
+                          if printf '%s' "$smoke_id" | grep -Eq '^[0-9a-f]{64}$'; then
+                            docker rm -f "$smoke_id" >/dev/null 2>&1 || true
+                          fi
+                        fi
+                        cleanup_rc=0
+                        if test "$object_cleanup_required" = true; then
+                          cleanup_s3_object || {
+                            cleanup_rc=1
+                            printf 'credential-broker: cleanup_failed\n' >&2
+                          }
+                        fi
+                        rollback_rc=0
+                        if test "$installation_started" = true && { test "$transaction_committed" != true || test "$original_rc" -ne 0 || test "$cleanup_rc" -ne 0; }; then
+                          restore_installation || rollback_rc=1
+                        fi
+                        rm -rf -- "$install_tmp"
+                        if test "$rollback_rc" -ne 0; then
+                          printf 'credential-broker: rollback_failed\n' >&2
+                          exit 125
+                        fi
+                        if test "$cleanup_rc" -ne 0 && test "$original_rc" -eq 0; then
+                          exit 1
+                        fi
+                        exit "$original_rc"
+                      }
+                      trap finish EXIT
+                      trap 'exit 129' HUP
+                      trap 'exit 130' INT
+                      trap 'exit 143' TERM
+
+                      cat > "$install_tmp/brainrh-credential-broker.rb" <<'RUBY'
+                      #!/usr/bin/ruby --disable-gems
+                      require "json"
+                      require "open3"
+                      require "socket"
+                      require "time"
+
+                      SOCKET_PATH = "/run/brainrh-credential-broker/credentials.sock"
+                      ROLE_ARN = ENV.fetch("BACKEND_DATA_ROLE_ARN")
+                      REGION = ENV.fetch("AWS_REGION")
+                      SESSION_NAME = "brainrh-backend-data"
+                      CACHE_SAFETY_SECONDS = 120
+                      MAX_RESPONSE_BYTES = 16_384
+                      AWS_CLI_TIMEOUT_SECONDS = 30
+                      AWS_CLI_KILL_GRACE_SECONDS = 2
+                      AWS_CLI = ["/usr/local/bin/aws", "/usr/bin/aws"].find { |path| File.executable?(path) }
+                      abort "credential broker: aws cli unavailable" unless AWS_CLI
+
+                      class BrokerError < StandardError; end
+
+                      def drain_stream(stream, retained_limit)
+                        retained = +""
+                        loop do
+                          chunk = stream.readpartial(4096)
+                          remaining = retained_limit - retained.bytesize
+                          retained << chunk.byteslice(0, remaining) if remaining.positive?
+                        end
+                      rescue EOFError
+                        retained
+                      ensure
+                        stream.close
+                      end
+
+                      def run_aws_cli(*arguments)
+                        stdin, stdout, stderr, waiter = Open3.popen3(
+                          {"AWS_REGION" => REGION, "AWS_DEFAULT_REGION" => REGION},
+                          AWS_CLI,
+                          *arguments,
+                          pgroup: true
+                        )
+                        stdin.close
+                        stdout_reader = Thread.new { drain_stream(stdout, 65_536) }
+                        stderr_reader = Thread.new { drain_stream(stderr, 65_536) }
+                        unless waiter.join(AWS_CLI_TIMEOUT_SECONDS)
+                          Process.kill("TERM", -waiter.pid) rescue nil
+                          Kernel.sleep(AWS_CLI_KILL_GRACE_SECONDS)
+                          Process.kill("KILL", -waiter.pid) rescue nil
+                          waiter.join
+                          stdout_reader.join
+                          stderr_reader.join
+                          raise BrokerError, "aws cli timeout"
+                        end
+                        status = waiter.value
+                        output = stdout_reader.value
+                        stderr_reader.value
+                        raise BrokerError, "aws cli output too large" if output.bytesize >= 65_536
+                        raise BrokerError, "assume role failed" unless status.success?
+                        output
+                      rescue SystemCallError
+                        raise BrokerError, "aws cli unavailable"
+                      end
+
+                      def fetch_credentials
+                        stdout = run_aws_cli(
+                          "sts", "assume-role",
+                          "--role-arn", ROLE_ARN,
+                          "--role-session-name", SESSION_NAME,
+                          "--duration-seconds", "900",
+                          "--region", REGION,
+                          "--output", "json",
+                          "--no-cli-pager"
+                        )
+                        source = JSON.parse(stdout).fetch("Credentials")
+                        expiration = Time.iso8601(source.fetch("Expiration")).utc
+                        now = Time.now.utc
+                        raise BrokerError, "invalid credential lifetime" unless expiration > now + 300 && expiration <= now + 905
+                        result = {
+                          "Version" => 1,
+                          "AccessKeyId" => source.fetch("AccessKeyId"),
+                          "SecretAccessKey" => source.fetch("SecretAccessKey"),
+                          "SessionToken" => source.fetch("SessionToken"),
+                          "Expiration" => expiration.iso8601
+                        }
+                        result.each_value { |value| raise BrokerError, "invalid credential response" if value.to_s.empty? }
+                        result
+                      rescue JSON::ParserError, KeyError, ArgumentError
+                        raise BrokerError, "invalid assume role response"
+                      end
+
+                      cached = nil
+                      File.unlink(SOCKET_PATH) if File.socket?(SOCKET_PATH)
+                      server = UNIXServer.new(SOCKET_PATH)
+                      File.chown(0, 0, SOCKET_PATH)
+                      File.chmod(0o600, SOCKET_PATH)
+
+                      Signal.trap("TERM") { server.close; File.unlink(SOCKET_PATH) if File.exist?(SOCKET_PATH); exit 0 }
+                      Signal.trap("INT") { server.close; File.unlink(SOCKET_PATH) if File.exist?(SOCKET_PATH); exit 0 }
+
+                      loop do
+                        client = server.accept
+                        begin
+                          _pid, uid, _gid = client.getsockopt(Socket::SOL_SOCKET, Socket::SO_PEERCRED).unpack("i!i!i!")
+                          raise BrokerError, "peer rejected" unless uid == 0
+                          raise BrokerError, "request timeout" unless IO.select([client], nil, nil, 5)
+                          raise BrokerError, "request rejected" unless client.gets("\n", 16) == "GET\n"
+                          now = Time.now.utc
+                          if cached.nil? || Time.iso8601(cached.fetch("Expiration")) <= now + CACHE_SAFETY_SECONDS
+                            cached = fetch_credentials
+                          end
+                          response = JSON.generate(cached)
+                          raise BrokerError, "response too large" if response.bytesize > MAX_RESPONSE_BYTES
+                          client.write(response)
+                          client.write("\n")
+                        rescue BrokerError, JSON::ParserError, KeyError, ArgumentError
+                          warn "credential broker: request failed"
+                        ensure
+                          client.close
+                        end
+                      end
+                      RUBY
+
+                      cat > "$install_tmp/brainrh-backend-credential-process" <<'PYHELPER'
+                      #!/usr/bin/python3
+                      import datetime
+                      import json
+                      import os
+                      import re
+                      import socket
+                      import sys
+
+                      SOCKET_PATH = "/run/brainrh-credential-broker/credentials.sock"
+                      MAX_RESPONSE_BYTES = 16_384
+
+                      def fail() -> None:
+                          print("credential_process: broker response unavailable", file=sys.stderr)
+                          raise SystemExit(1)
+
+                      if os.geteuid() != 0:
+                          fail()
+                      try:
+                          with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as connection:
+                              connection.settimeout(5.0)
+                              connection.connect(SOCKET_PATH)
+                              connection.sendall(b"GET\n")
+                              chunks = []
+                              size = 0
+                              while True:
+                                  chunk = connection.recv(4096)
+                                  if not chunk:
+                                      break
+                                  size += len(chunk)
+                                  if size > MAX_RESPONSE_BYTES:
+                                      fail()
+                                  chunks.append(chunk)
+                          value = json.loads(b"".join(chunks))
+                          required = ("Version", "AccessKeyId", "SecretAccessKey", "SessionToken", "Expiration")
+                          if value.get("Version") != 1 or any(not value.get(key) for key in required[1:]):
+                              fail()
+                          expiration = datetime.datetime.fromisoformat(value["Expiration"].replace("Z", "+00:00"))
+                          if expiration <= datetime.datetime.now(datetime.timezone.utc):
+                              fail()
+                      except (OSError, ValueError, TypeError, KeyError, json.JSONDecodeError):
+                          fail()
+                      print(json.dumps({key: value[key] for key in required}, separators=(",", ":")))
+                      PYHELPER
+
+                      cat > "$install_tmp/brainrh-credential-broker.service" <<'UNIT'
+                      [Unit]
+                      Description=BrainRH root-only backend credential broker
+                      After=network-online.target
+                      Wants=network-online.target
+
+                      [Service]
+                      Type=simple
+                      User=root
+                      Group=root
+                      Environment=AWS_REGION=${AWS::Region}
+                      Environment=BACKEND_DATA_ROLE_ARN=${BackendDataRole.Arn}
+                      ExecStart=/usr/bin/ruby --disable-gems /usr/local/libexec/brainrh-credential-broker.rb
+                      Restart=on-failure
+                      RestartSec=5s
+                      RuntimeDirectory=brainrh-credential-broker
+                      RuntimeDirectoryMode=0700
+                      UMask=0077
+                      NoNewPrivileges=true
+                      PrivateDevices=true
+                      PrivateTmp=true
+                      ProtectControlGroups=true
+                      ProtectHome=true
+                      ProtectKernelModules=true
+                      ProtectKernelTunables=true
+                      ProtectSystem=strict
+                      ReadWritePaths=/run/brainrh-credential-broker
+                      RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+                      RestrictNamespaces=true
+                      RestrictSUIDSGID=true
+                      LockPersonality=true
+                      MemoryDenyWriteExecute=true
+                      SystemCallArchitectures=native
+                      CapabilityBoundingSet=
+                      StandardOutput=null
+                      StandardError=journal
+
+                      [Install]
+                      WantedBy=multi-user.target
+                      UNIT
+
+                      /usr/bin/ruby --disable-gems -c "$install_tmp/brainrh-credential-broker.rb" >/dev/null
+                      /usr/bin/python3 -m py_compile "$install_tmp/brainrh-backend-credential-process"
+                      installation_started=true
+                      install -d -o root -g root -m 0755 /usr/local/libexec
+                      install -o root -g root -m 0755 "$install_tmp/brainrh-credential-broker.rb" /usr/local/libexec/brainrh-credential-broker.rb
+                      install -o root -g root -m 0755 "$install_tmp/brainrh-backend-credential-process" /usr/local/libexec/brainrh-backend-credential-process
+                      install -o root -g root -m 0644 "$install_tmp/brainrh-credential-broker.service" /etc/systemd/system/brainrh-credential-broker.service
+                      sync -f /usr/local/libexec/brainrh-credential-broker.rb
+                      sync -f /usr/local/libexec/brainrh-backend-credential-process
+                      sync -f /etc/systemd/system/brainrh-credential-broker.service
+                      systemctl daemon-reload
+                      systemctl enable brainrh-credential-broker.service >/dev/null
+                      systemctl restart brainrh-credential-broker.service
+                      socket_ready=false
+                      for _ in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20; do
+                        if systemctl is-active --quiet brainrh-credential-broker.service \
+                          && test -S /run/brainrh-credential-broker/credentials.sock; then
+                          socket_ready=true
+                          break
+                        fi
+                        sleep 1
+                      done
+                      test "$socket_ready" = true
+                      test "$(stat -c '%U:%G:%a' /run/brainrh-credential-broker)" = root:root:700
+                      test "$(stat -c '%U:%G:%a' /run/brainrh-credential-broker/credentials.sock)" = root:root:600
+
+                      cat > "$install_tmp/aws-config" <<'CONFIG'
+                      [profile brainrh-backend-data]
+                      region = ${AWS::Region}
+                      credential_process = /usr/local/bin/python /broker/credential_process
+                      CONFIG
+
+                      cat > "$install_tmp/aws-config-host" <<'HOSTCONFIG'
+                      [profile brainrh-backend-data]
+                      region = ${AWS::Region}
+                      credential_process = /usr/local/libexec/brainrh-backend-credential-process
+                      HOSTCONFIG
+
+                      bucket_versioning="$(broker_aws s3api get-bucket-versioning --bucket '${DataBucketName}' --query Status --output text)"
+                      test "$bucket_versioning" = Enabled
+                      mkdir -m 0700 "$install_tmp/smoke-result"
+                      object_cleanup_required=true
+
+                      docker run --rm -i --name "$smoke_name" --cidfile "$smoke_cidfile" \
+                        --entrypoint python --user 0:0 --read-only \
+                        --cap-drop ALL --security-opt no-new-privileges \
+                        --pids-limit 128 --memory 256m --cpus 0.5 \
+                        --tmpfs /tmp:rw,noexec,nosuid,size=16m \
+                        --env AWS_EC2_METADATA_DISABLED=true \
+                        --env AWS_SDK_LOAD_CONFIG=1 \
+                        --env AWS_PROFILE=brainrh-backend-data \
+                        --env AWS_CONFIG_FILE=/broker/config \
+                        --env AWS_REGION=${AWS::Region} \
+                        --env AWS_DEFAULT_REGION=${AWS::Region} \
+                        --env PYTHONDONTWRITEBYTECODE=1 \
+                        --env BRAINRH_SMOKE_BUCKET=${DataBucketName} \
+                        --env BRAINRH_SMOKE_KEY="$smoke_key" \
+                        --env BRAINRH_EXPECTED_ROLE_ARN=${BackendDataRole.Arn} \
+                        --volume /run/brainrh-credential-broker:/run/brainrh-credential-broker:ro \
+                        --volume /usr/local/libexec/brainrh-backend-credential-process:/broker/credential_process:ro \
+                        --volume "$install_tmp/aws-config:/broker/config:ro" \
+                        --volume "$install_tmp/smoke-result:/broker-result:rw" \
+                        "$backend_image" - <<'PYSMOKE'
+                      import os
+                      import re
+                      import boto3
+                      from botocore.exceptions import ClientError
+
+                      for name in (
+                          "AWS_ACCESS_KEY_ID",
+                          "AWS_SECRET_ACCESS_KEY",
+                          "AWS_SESSION_TOKEN",
+                          "AWS_SECURITY_TOKEN",
+                          "AWS_CONTAINER_CREDENTIALS_FULL_URI",
+                          "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI",
+                      ):
+                          if os.environ.get(name):
+                              raise RuntimeError("credential environment variable present")
+                      if os.environ.get("AWS_EC2_METADATA_DISABLED") != "true":
+                          raise RuntimeError("IMDS was not disabled")
+
+                      session = boto3.Session(profile_name="brainrh-backend-data")
+                      identity = session.client("sts").get_caller_identity()
+                      role_arn = os.environ["BRAINRH_EXPECTED_ROLE_ARN"]
+                      arn_literal, partition, service, empty, account, resource = role_arn.split(":", 5)
+                      if arn_literal != "arn" or service != "iam" or empty != "":
+                          raise RuntimeError("invalid expected role ARN")
+                      role_name = resource.removeprefix("role/")
+                      expected = f"arn:{partition}:sts::{account}:assumed-role/{role_name}/brainrh-backend-data"
+                      if identity.get("Arn") != expected or identity.get("Account") != account:
+                          raise RuntimeError("unexpected broker role identity")
+
+                      bucket = os.environ["BRAINRH_SMOKE_BUCKET"]
+                      key = os.environ["BRAINRH_SMOKE_KEY"]
+                      if not key.startswith("brainrh-security-smoke/credential-broker/"):
+                          raise RuntimeError("invalid synthetic S3 key")
+                      payload = b"brainrh-credential-broker-smoke-v1"
+                      s3 = session.client("s3")
+                      put_response = s3.put_object(Bucket=bucket, Key=key, Body=payload)
+                      version_id = put_response.get("VersionId")
+                      if not isinstance(version_id, str) or not re.fullmatch(r"[A-Za-z0-9._~+/=-]{1,1024}", version_id):
+                          raise RuntimeError("versioned synthetic S3 write required")
+                      with open("/broker-result/version-id", "x", encoding="utf-8") as version_file:
+                          version_file.write(version_id)
+                          version_file.flush()
+                          os.fsync(version_file.fileno())
+                      body = s3.get_object(Bucket=bucket, Key=key)["Body"].read()
+                      if body != payload:
+                          raise RuntimeError("synthetic S3 payload mismatch")
+
+                      def require_denied(label, operation):
+                          try:
+                              operation()
+                          except ClientError as error:
+                              code = error.response.get("Error", {}).get("Code", "")
+                              if code in {"AccessDenied", "AccessDeniedException", "UnauthorizedOperation"}:
+                                  return
+                              raise RuntimeError(f"{label} returned an unexpected AWS error") from error
+                          raise RuntimeError(f"{label} was unexpectedly allowed")
+
+                      require_denied(
+                          "ssm:GetParameter",
+                          lambda: session.client("ssm").get_parameter(Name="/brainrh/prod/credential-broker-negative-control"),
+                      )
+                      require_denied(
+                          "dynamodb:ListTables",
+                          lambda: session.client("dynamodb").list_tables(Limit=1),
+                      )
+                      print("credential-broker-smoke: role_exact s3_put_get_delete negative_controls_denied imds_disabled")
+                      PYSMOKE
+
+                      cleanup_s3_object
+                      object_cleanup_required=false
+                      test "$(runtime_fingerprint)" = "$before"
+                      printf 'credential-broker: installed smoke_passed s3_versions_zero s3_head_404 bucket_versioning=%s docker_runtime_unchanged runtime_fingerprint=%s\n' "$bucket_versioning" "$before"
+                      transaction_committed=true
+
+  PrepareExistingHostDocument:
+    Type: AWS::SSM::Document
+    Properties:
+      Name: !Sub BrainRH-${Environment}-PrepareExistingHost
+      DocumentType: Automation
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      TargetType: /AWS::EC2::Instance
+      Content:
+        schemaVersion: "0.3"
+        description: >-
+          Closed, parameterless Ruby reconciliation for the existing production
+          host plus fixed worker-video data-directory ownership. It proves SSM,
+          Docker, controlled containers and the backend AWS identity remain
+          unchanged. It never modifies EC2 metadata options.
+        assumeRole: !GetAtt AutomationExecutionRole.Arn
+        mainSteps:
+          - name: InstallRubyWithoutRuntimeRegression
+            action: aws:runCommand
+            timeoutSeconds: 900
+            onFailure: Abort
+            inputs:
+              DocumentName: AWS-RunShellScript
+              InstanceIds:
+                - !Ref ProductionInstanceId
+              CloudWatchOutputConfig:
+                CloudWatchOutputEnabled: true
+                CloudWatchLogGroupName: !Ref PromotionLogGroup
+              Parameters:
+                commands:
+                  - set -eu
+                  - umask 077
+                  - !Sub |
+                      test "$(id -u)" -eq 0
+                      systemctl is-active --quiet docker
+                      if ! systemctl is-active --quiet amazon-ssm-agent; then
+                        systemctl is-active --quiet snap.amazon-ssm-agent.amazon-ssm-agent.service
+                      fi
+                      command -v docker >/dev/null
+                      runtime_fingerprint() {
+                        for service in backend worker-video frontend caddy; do
+                          ids="$(docker ps -q --no-trunc --filter 'label=com.docker.compose.project=brainrh' --filter "label=com.docker.compose.service=$service")"
+                          test -n "$ids"
+                          test "$(printf '%s\n' "$ids" | wc -l | tr -d ' ')" = 1
+                          docker inspect "$ids" | jq -e 'length == 1 and .[0].State.Status == "running"' >/dev/null
+                          image_id="$(docker inspect "$ids" | jq -er '.[0].Image | select(test("^sha256:[0-9a-f]{64}$"))')"
+                          printf '%s\000%s\000%s\n' "$service" "$ids" "$image_id"
+                        done | sha256sum | cut -d ' ' -f 1
+                      }
+                      aws_identity_fingerprint() {
+                        backend_id="$(docker ps -q --no-trunc --filter 'label=com.docker.compose.project=brainrh' --filter 'label=com.docker.compose.service=backend')"
+                        test -n "$backend_id"
+                        test "$(printf '%s\n' "$backend_id" | wc -l | tr -d ' ')" = 1
+                        docker exec "$backend_id" python -c 'import boto3,json; value=boto3.client("sts").get_caller_identity(); print(json.dumps({key:value[key] for key in ("Account","Arn","UserId")},sort_keys=True,separators=(",",":")))' | sha256sum | cut -d ' ' -f 1
+                      }
+                      before="$(runtime_fingerprint)"
+                      identity_before="$(aws_identity_fingerprint)"
+                      export DEBIAN_FRONTEND=noninteractive
+                      export NEEDRESTART_MODE=l
+                      apt-get -o Acquire::AllowInsecureRepositories=false update
+                      ruby_version='${RubyPackageVersion}'
+                      printf '%s' "$ruby_version" | grep -Eq '^[0-9A-Za-z][0-9A-Za-z.+:~_-]{0,127}$'
+                      apt-cache madison ruby | awk '{ print $3 }' | grep -Fxq "$ruby_version"
+                      apt-get install -y --no-install-recommends --no-allow-unauthenticated "ruby=$ruby_version"
+                      test "$(dpkg-query -W -f='${!Version}' ruby)" = "$ruby_version"
+                      test "$(readlink -f /usr/bin/ruby)" = "$(readlink -f "$(command -v ruby)")"
+                      /usr/bin/ruby --disable-gems -e 'abort unless RUBY_VERSION =~ /\A[0-9]+\.[0-9]+\.[0-9]+\z/'
+                      command -v apparmor_parser >/dev/null
+                      apparmor_profile_tmp="$(mktemp /etc/apparmor.d/.brainrh-worker-video.XXXXXX)"
+                      printf '%s' 'IyBCYXNlZCBvbiBnaXRodWIuY29tL21vYnkvcHJvZmlsZXMvYXBwYXJtb3IsIHdpdGggb25lIGV4cGxpY2l0IHVzZXJucyBncmFudC4KYWJpIDxhYmkvNC4wPiwKI2luY2x1ZGUgPHR1bmFibGVzL2dsb2JhbD4KCnByb2ZpbGUgImJyYWlucmgtd29ya2VyLXZpZGVvIiBmbGFncz0oYXR0YWNoX2Rpc2Nvbm5lY3RlZCxtZWRpYXRlX2RlbGV0ZWQpIHsKICAjIEFCSSA0IHNlcGFyYXRlcyBVbml4IHNvY2tldHMgZnJvbSB0aGUgZ2VuZXJpYyBuZXR3b3JrIHJ1bGUuCiAgbmV0d29yaywKICBuZXR3b3JrIHVuaXgsCiAgZGVueSBuZXR3b3JrIGFsZywKICBjYXBhYmlsaXR5LAogIGZpbGUsCiAgdW1vdW50LAogIHVzZXJucywKCiAgc2lnbmFsIChyZWNlaXZlKSBwZWVyPXVuY29uZmluZWQsCiAgc2lnbmFsIChyZWNlaXZlKSBwZWVyPXJ1bmMsCiAgc2lnbmFsIChyZWNlaXZlKSBwZWVyPWNydW4sCiAgc2lnbmFsIChyZWNlaXZlKSBwZWVyPWRvY2tlci1kZWZhdWx0LAogIHNpZ25hbCAoc2VuZCxyZWNlaXZlKSBwZWVyPSJicmFpbnJoLXdvcmtlci12aWRlbyIsCgogIGRlbnkgQHtQUk9DfS8qIHcsCiAgZGVueSBAe1BST0N9L3tbXjEtOS9dLFteMS05L11bXjAtOS9dLFteMS05cy9dW14wLTl5L11bXjAtOXMvXSxbXjEtOS9dW14wLTkvXVteMC05L11bXjAtOS9dKn0vKiogdywKICBkZW55IEB7UFJPQ30vc3lzL1tea10qKiB3LAogIGRlbnkgQHtQUk9DfS9zeXMva2VybmVsL3s/LD8/LFtec11bXmhdW15tXSoqfSB3LAogIGRlbnkgQHtQUk9DfS9zeXNycS10cmlnZ2VyIHJ3a2x4LAogIGRlbnkgQHtQUk9DfS9rY29yZSByd2tseCwKCiAgZGVueSBtb3VudCwKCiAgZGVueSAvc3lzL1teZl0qLyoqIHdrbHgsCiAgZGVueSAvc3lzL2ZbXnNdKi8qKiB3a2x4LAogIGRlbnkgL3N5cy9mcy9bXmNdKi8qKiB3a2x4LAogIGRlbnkgL3N5cy9mcy9jW15nXSovKiogd2tseCwKICBkZW55IC9zeXMvZnMvY2dbXnJdKi8qKiB3a2x4LAogIGRlbnkgL3N5cy9maXJtd2FyZS8qKiByd2tseCwKICBkZW55IC9zeXMvZGV2aWNlcy92aXJ0dWFsL3Bvd2VyY2FwLyoqIHJ3a2x4LAogIGRlbnkgL3N5cy9rZXJuZWwvc2VjdXJpdHkvKiogcndrbHgsCgogIHB0cmFjZSAodHJhY2UsdHJhY2VkYnkscmVhZCxyZWFkYnkpIHBlZXI9ImJyYWlucmgtd29ya2VyLXZpZGVvIiwKfQo=' | base64 --decode > "$apparmor_profile_tmp"
+                      test "$(sha256sum "$apparmor_profile_tmp" | cut -d ' ' -f 1)" = '82af1e28f1166529ba9f3e27cde6c63c1f55a1f52082a9a12517c772974dcb74'
+                      apparmor_parser --replace "$apparmor_profile_tmp"
+                      install -o root -g root -m 0644 "$apparmor_profile_tmp" /etc/apparmor.d/brainrh-worker-video
+                      rm -f "$apparmor_profile_tmp"
+                      grep -Fq 'brainrh-worker-video' /sys/kernel/security/apparmor/profiles
+                      install -d -o 10001 -g 10001 -m 0750 /srv/brainrh/logs/worker-video
+                      install -d -o 10001 -g 10001 -m 0750 /srv/brainrh/recordings
+                      test "$(stat -c '%u:%g:%a' /srv/brainrh/logs/worker-video)" = '10001:10001:750'
+                      test "$(stat -c '%u:%g:%a' /srv/brainrh/recordings)" = '10001:10001:750'
+                      test "$(runtime_fingerprint)" = "$before"
+                      test "$(aws_identity_fingerprint)" = "$identity_before"
+                      printf 'host-preparation: ruby_ready apparmor_loaded worker_uid=10001 worker_dirs_ready ssm=active docker_runtime_unchanged aws_identity_unchanged runtime_fingerprint=%s identity_fingerprint=%s\n' "$before" "$identity_before"
+          - name: ObserveMetadataIsolationWithoutMutation
+            action: aws:executeAwsApi
+            onFailure: Abort
+            isEnd: true
+            inputs:
+              Service: ec2
+              Api: DescribeInstances
+              InstanceIds:
+                - !Ref ProductionInstanceId
+            outputs:
+              - Name: HttpTokens
+                Selector: $.Reservations[0].Instances[0].MetadataOptions.HttpTokens
+                Type: String
+              - Name: HopLimit
+                Selector: $.Reservations[0].Instances[0].MetadataOptions.HttpPutResponseHopLimit
+                Type: Integer
+
+  SyntheticWorkerVideoSmokeDocument:
+    Type: AWS::SSM::Document
+    Properties:
+      Name: !Sub BrainRH-${Environment}-SyntheticWorkerVideoSmoke
+      DocumentType: Automation
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      TargetType: /AWS::EC2::Instance
+      Content:
+        schemaVersion: "0.3"
+        description: >-
+          Run one immutable worker-video candidate against one synthetic
+          appointment without replacing or stopping the active Compose worker.
+          The candidate receives only its worker event secret, OpenAI key and
+          non-secret media tuning. Runtime and test artifacts are cleaned on exit.
+        assumeRole: !GetAtt AutomationExecutionRole.Arn
+        parameters:
+          CandidateSha:
+            type: String
+            allowedPattern: "^[0-9a-f]{40}$"
+          WorkerVideoDigest:
+            type: String
+            allowedPattern: "^sha256:[0-9a-f]{64}$"
+          AppointmentId:
+            type: String
+            allowedPattern: "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        mainSteps:
+          - name: RunConfinedSyntheticInterview
+            action: aws:runCommand
+            timeoutSeconds: 2700
+            onFailure: Abort
+            isEnd: true
+            inputs:
+              DocumentName: AWS-RunShellScript
+              InstanceIds:
+                - !Ref ProductionInstanceId
+              CloudWatchOutputConfig:
+                CloudWatchOutputEnabled: true
+                CloudWatchLogGroupName: !Ref PromotionLogGroup
+              Parameters:
+                commands:
+                  - set -eu
+                  - umask 077
+                  - !Sub |
+                      test "$(id -u)" -eq 0
+                      candidate_sha='{{ CandidateSha }}'
+                      expected_digest='{{ WorkerVideoDigest }}'
+                      appointment_id='{{ AppointmentId }}'
+                      repository='brainrh/worker-video'
+                      registry='${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com'
+                      image_ref="$registry/$repository@$expected_digest"
+                      container_name="brainrh-worker-video-synthetic-${!candidate_sha}"
+                      tmp="$(mktemp -d /var/tmp/brainrh-worker-video-smoke.XXXXXX)"
+                      env_file="$tmp/worker.env"
+                      seccomp_file="$tmp/chromium-seccomp.json"
+                      log_file="$tmp/worker.log"
+                      extract_container=""
+                      runtime_fingerprint() {
+                        for service in backend worker-video frontend caddy; do
+                          ids="$(docker ps -q --no-trunc --filter 'label=com.docker.compose.project=brainrh' --filter "label=com.docker.compose.service=$service")"
+                          test -n "$ids"
+                          test "$(printf '%s\n' "$ids" | wc -l | tr -d ' ')" = 1
+                          docker inspect "$ids" | jq -e 'length == 1 and .[0].State.Status == "running"' >/dev/null
+                          image_id="$(docker inspect "$ids" | jq -er '.[0].Image | select(test("^sha256:[0-9a-f]{64}$"))')"
+                          printf '%s\000%s\000%s\n' "$service" "$ids" "$image_id"
+                        done | sha256sum | cut -d ' ' -f 1
+                      }
+                      cleanup() {
+                        docker rm -f "$container_name" >/dev/null 2>&1 || true
+                        if [ -n "$extract_container" ]; then
+                          docker rm -f "$extract_container" >/dev/null 2>&1 || true
+                        fi
+                        find /srv/brainrh/recordings -maxdepth 1 -type f -name "${!appointment_id}-*" -delete 2>/dev/null || true
+                        rm -rf -- "$tmp"
+                      }
+                      trap cleanup EXIT HUP INT TERM
+                      systemctl is-active --quiet docker
+                      command -v ruby >/dev/null
+                      command -v jq >/dev/null
+                      command -v timeout >/dev/null
+                      grep -Fq 'brainrh-worker-video' /sys/kernel/security/apparmor/profiles
+                      test "$(stat -c '%u:%g:%a' /srv/brainrh/logs/worker-video)" = '10001:10001:750'
+                      test "$(stat -c '%u:%g:%a' /srv/brainrh/recordings)" = '10001:10001:750'
+                      test "$(find /srv/brainrh/recordings -maxdepth 1 -type f -name "${!appointment_id}-*" -print -quit)" = ""
+                      before="$(runtime_fingerprint)"
+                      actual_digest="$(aws ecr describe-images --region '${AWS::Region}' --repository-name "$repository" --image-ids "imageTag=sha-$candidate_sha" --query 'imageDetails[0].imageDigest' --output text)"
+                      test "$actual_digest" = "$expected_digest"
+                      scan_counts="$(aws ecr describe-image-scan-findings --region '${AWS::Region}' --repository-name "$repository" --image-id "imageDigest=$expected_digest" --query '[imageScanStatus.status,imageScanFindings.findingSeverityCounts.CRITICAL || `0`,imageScanFindings.findingSeverityCounts.HIGH || `0`]' --output text)"
+                      scan_status="$(printf '%s\n' "$scan_counts" | awk '{print $1}')"
+                      scan_critical="$(printf '%s\n' "$scan_counts" | awk '{print $2}')"
+                      scan_high="$(printf '%s\n' "$scan_counts" | awk '{print $3}')"
+                      test "$scan_status" = COMPLETE
+                      aws ecr get-login-password --region '${AWS::Region}' | docker login --username AWS --password-stdin "$registry" >/dev/null
+                      docker pull "$image_ref" >/dev/null
+                      docker image inspect "$image_ref" | jq -e --arg ref "$image_ref" 'length == 1 and (.[0].RepoDigests | index($ref) != null)' >/dev/null
+                      docker network inspect brainrh_default >/dev/null
+                      extract_container="$(docker create "$image_ref" /bin/true)"
+                      docker cp "$extract_container:/app/deploy/docker/chromium-seccomp.json" "$seccomp_file"
+                      docker rm "$extract_container" >/dev/null
+                      extract_container=""
+                      test "$(sha256sum "$seccomp_file" | cut -d ' ' -f 1)" = 'e709ef14df51b7f75bba4d52d7a4c973a7ca9053543e8875137c62fdf8e1de0c'
+                      live_worker="$(docker ps -q --no-trunc --filter 'label=com.docker.compose.project=brainrh' --filter 'label=com.docker.compose.service=worker-video')"
+                      test -n "$live_worker"
+                      test "$(printf '%s\n' "$live_worker" | wc -l | tr -d ' ')" = 1
+                      docker inspect "$live_worker" > "$tmp/live-worker.json"
+                      ruby --disable-gems -rjson -e '
+                        allowed = %w[
+                          BRAINRH_WORKER_EVENT_SECRET OPENAI_API_KEY OPENAI_REALTIME_MODEL
+                          CAL_VIDEO_AI_DISPLAY_NAME CAL_VIDEO_WRAP_UP_SECONDS
+                          CAL_VIDEO_CANDIDATE_ABSENCE_GRACE_SECONDS CAL_VIDEO_POLL_INTERVAL_SECONDS
+                          CAL_VIDEO_CAPTURE_DEVICE CAL_VIDEO_MIC_DEVICE CAL_VIDEO_PULSE_SINK_NAME
+                          CAL_VIDEO_PULSE_SOURCE_NAME CAL_VIDEO_AUDIO_SAMPLE_RATE CAL_VIDEO_AUDIO_CHUNK_MS
+                          CAL_VIDEO_LOCAL_RECORDING_ENABLED CAL_VIDEO_LOCAL_RECORDING_CAPTURE_SIZE
+                          CAL_VIDEO_LOCAL_RECORDING_RESOLUTION CAL_VIDEO_LOCAL_RECORDING_VIDEO_SIZE
+                          CAL_VIDEO_LOCAL_RECORDING_FRAMERATE CAL_VIDEO_HEADLESS DISPLAY
+                        ]
+                        entries = JSON.parse(File.read(ARGV.fetch(0))).fetch(0).dig("Config", "Env") || []
+                        values = entries.to_h { |entry| entry.split("=", 2) }
+                        %w[BRAINRH_WORKER_EVENT_SECRET OPENAI_API_KEY].each do |key|
+                          abort("required worker secret missing") if values.fetch(key, "").empty?
+                        end
+                        File.open(ARGV.fetch(1), File::WRONLY | File::CREAT | File::EXCL, 0o600) do |file|
+                          allowed.each do |key|
+                            next unless values.key?(key)
+                            value = values.fetch(key)
+                            abort("unsafe environment value") if value.include?("\n") || value.include?("\r")
+                            file.puts("#{key}=#{value}")
+                          end
+                        end
+                      ' "$tmp/live-worker.json" "$env_file"
+                      {
+                        printf 'AWS_EC2_METADATA_DISABLED=true\n'
+                        printf 'BRAINRH_ENV=production\n'
+                        printf 'BRAINRH_BACKEND_URL=http://backend:8000\n'
+                        printf 'BRAINRH_APPOINTMENT_ID=%s\n' "$appointment_id"
+                        printf 'CAL_VIDEO_LOCAL_RECORDING_ENABLED=true\n'
+                        printf 'CAL_VIDEO_LOCAL_RECORDING_HOST_DIR=/srv/brainrh/recordings\n'
+                        printf 'CAL_VIDEO_LOCAL_RECORDING_DIR=/srv/brainrh/recordings\n'
+                        printf 'CAL_VIDEO_DEBUG_DIR=/tmp/cal_video_debug\n'
+                      } >> "$env_file"
+                      docker run -d \
+                        --name "$container_name" \
+                        --label brainrh.synthetic-worker-video-smoke=true \
+                        --network brainrh_default \
+                        --user 10001:10001 \
+                        --read-only \
+                        --init \
+                        --shm-size 1g \
+                        --cap-drop ALL \
+                        --cap-add SETGID \
+                        --cap-add SETUID \
+                        --cap-add SYS_CHROOT \
+                        --security-opt no-new-privileges:true \
+                        --security-opt "seccomp=$seccomp_file" \
+                        --security-opt apparmor=brainrh-worker-video \
+                        --pids-limit 512 \
+                        --memory 3g \
+                        --cpus 2 \
+                        --tmpfs /tmp:rw,nosuid,nodev,size=512m,mode=1777 \
+                        --mount type=bind,src=/srv/brainrh/logs/worker-video,dst=/app/logs \
+                        --mount type=bind,src=/srv/brainrh/recordings,dst=/srv/brainrh/recordings \
+                        --env-file "$env_file" \
+                        "$image_ref" \
+                        /bin/sh -c 'set -eu; mkdir -p "$HOME" "$XDG_RUNTIME_DIR" /tmp/.X11-unix; chmod 0700 "$HOME" "$XDG_RUNTIME_DIR"; chmod 1777 /tmp/.X11-unix; Xvfb "${!DISPLAY:-:99}" -screen 0 "${!CAL_VIDEO_XVFB_SCREEN:-1280x720x24}" -ac +extension RANDR -nolisten tcp & xvfb_pid=$!; cleanup_xvfb() { kill "$xvfb_pid" 2>/dev/null || true; wait "$xvfb_pid" 2>/dev/null || true; }; trap cleanup_xvfb EXIT HUP INT TERM; ready=0; for _ in 1 2 3 4 5 6 7 8 9 10; do if DISPLAY="${!DISPLAY:-:99}" xdpyinfo >/dev/null 2>&1; then ready=1; break; fi; sleep 1; done; test "$ready" = 1; python -m microservices.cal_video_ai_worker.main "$BRAINRH_APPOINTMENT_ID"' >/dev/null
+                      deadline=$(( $(date +%s) + 2400 ))
+                      while [ "$(docker inspect "$container_name" | jq -er '.[0].State.Running')" = true ]; do
+                        if [ "$(date +%s)" -ge "$deadline" ]; then
+                          printf 'synthetic-worker-video-smoke: timed_out\n' >&2
+                          exit 1
+                        fi
+                        sleep 5
+                      done
+                      exit_code="$(docker inspect "$container_name" | jq -er '.[0].State.ExitCode')"
+                      docker logs "$container_name" > "$log_file" 2>&1 || true
+                      test "$exit_code" = 0
+                      grep -Fq "[worker] appointment=$appointment_id status=completed" "$log_file"
+                      recording_count="$(find /srv/brainrh/recordings -maxdepth 1 -type f -name "${!appointment_id}-*.mp4" -size +0c | wc -l | tr -d ' ')"
+                      test "$recording_count" -ge 1
+                      container_id="$(docker inspect "$container_name" | jq -er '.[0].Id')"
+                      test "$(docker inspect "$container_name" | jq -er '.[0].Config.User')" = '10001:10001'
+                      test "$(docker inspect "$container_name" | jq -er '.[0].HostConfig.ReadonlyRootfs')" = true
+                      docker inspect "$container_name" | jq -e '.[0].HostConfig.SecurityOpt | any(startswith("no-new-privileges"))' >/dev/null
+                      docker rm "$container_name" >/dev/null
+                      test "$(runtime_fingerprint)" = "$before"
+                      find /srv/brainrh/recordings -maxdepth 1 -type f -name "${!appointment_id}-*" -delete
+                      printf 'synthetic-worker-video-smoke: completed recording_captured artifacts_deleted non_root read_only nnp apparmor seccomp caps_bounded secrets_minimal active_runtime_unchanged candidate_sha=%s digest=%s scan_critical=%s scan_high=%s container_id=%s runtime_fingerprint=%s\n' "$candidate_sha" "$expected_digest" "$scan_critical" "$scan_high" "$container_id" "$before"
+
+  EmergencyWorkerVideoRolloutDocument:
+    Type: AWS::SSM::Document
+    Condition: EmergencyWorkerVideoRolloutEnabled
+    Properties:
+      Name: !Sub BrainRH-${Environment}-PromoteWorkerVideoSecurityRollout
+      DocumentType: Automation
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      TargetType: /AWS::EC2::Instance
+      Content:
+        schemaVersion: "0.3"
+        description: >-
+          Replace only the active Compose worker-video with one exact immutable
+          owner-accepted image. The general release gate remains unchanged. The
+          command checks the exact ECR scan counts, preserves every other service,
+          enforces confinement and automatically restores the prior worker on any
+          failed post-start invariant.
+        assumeRole: !GetAtt AutomationExecutionRole.Arn
+        mainSteps:
+          - name: PromoteExactConfinedWorker
+            action: aws:runCommand
+            timeoutSeconds: 900
+            onFailure: Abort
+            isEnd: true
+            inputs:
+              DocumentName: AWS-RunShellScript
+              InstanceIds:
+                - !Ref ProductionInstanceId
+              CloudWatchOutputConfig:
+                CloudWatchOutputEnabled: true
+                CloudWatchLogGroupName: !Ref PromotionLogGroup
+              Parameters:
+                commands:
+                  - set -eu
+                  - umask 077
+                  - !Sub |
+                      test "$(id -u)" -eq 0
+                      candidate_sha='${EmergencyWorkerVideoSha}'
+                      expected_digest='${EmergencyWorkerVideoDigest}'
+                      expected_critical='${EmergencyWorkerVideoCriticalCount}'
+                      expected_high='${EmergencyWorkerVideoHighCount}'
+                      risk_acceptance_id='${EmergencyWorkerVideoRiskAcceptanceId}'
+                      repository='brainrh/worker-video'
+                      registry='${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com'
+                      image_ref="$registry/$repository@$expected_digest"
+                      active_dir='/opt/brainrh'
+                      release_root='/srv/brainrh/security-rollouts'
+                      release_dir="$release_root/$candidate_sha"
+                      docker_config="$(mktemp -d /var/tmp/brainrh-worker-rollout-docker.XXXXXX)"
+                      extract_container=''
+                      rollout_started='no'
+                      committed='no'
+                      old_worker_ref=''
+                      backend_before=''
+                      frontend_before=''
+                      caddy_before=''
+                      backend_image_ref=''
+                      frontend_image_ref=''
+
+                      service_identity() {
+                        service="$1"
+                        ids="$(docker ps -q --no-trunc --filter 'label=com.docker.compose.project=brainrh' --filter "label=com.docker.compose.service=$service")"
+                        test -n "$ids"
+                        test "$(printf '%s\n' "$ids" | wc -l | tr -d ' ')" = 1
+                        docker inspect "$ids" | jq -er '.[0] | select(.State.Status == "running") | [.Id,.Image,.Config.Image] | @tsv'
+                      }
+
+                      worker_container_id() {
+                        ids="$(docker ps -q --no-trunc --filter 'label=com.docker.compose.project=brainrh' --filter 'label=com.docker.compose.service=worker-video')"
+                        test -n "$ids"
+                        test "$(printf '%s\n' "$ids" | wc -l | tr -d ' ')" = 1
+                        printf '%s\n' "$ids"
+                      }
+
+                      cleanup() {
+                        rc=$?
+                        trap - EXIT HUP INT TERM
+                        set +e
+                        if [ -n "$extract_container" ]; then
+                          docker rm -f "$extract_container" >/dev/null 2>&1
+                        fi
+                        rm -rf -- "$docker_config"
+                        if [ "$rollout_started" = yes ] && [ "$committed" != yes ]; then
+                          printf 'worker-video-security-rollout: invariant failed; restoring prior image %s\n' "$old_worker_ref" >&2
+                          BRAINRH_BACKEND_IMAGE="$backend_image_ref" \
+                          BRAINRH_FRONTEND_IMAGE="$frontend_image_ref" \
+                          BRAINRH_WORKER_VIDEO_IMAGE="$old_worker_ref" docker compose \
+                            --project-name brainrh \
+                            --env-file "$active_dir/.env.prod" \
+                            -f "$active_dir/docker-compose.prod.yml" \
+                            up -d --no-build --no-deps worker-video >/dev/null 2>&1
+                          rollback_rc=$?
+                          if [ "$rollback_rc" -eq 0 ]; then
+                            sleep 20
+                            restored_id="$(worker_container_id)"
+                            restored_ref="$(docker inspect "$restored_id" | jq -er '.[0].Image')"
+                            test "$restored_ref" = "$old_worker_ref"
+                            rollback_rc=$?
+                          fi
+                          if [ "$rollback_rc" -ne 0 ]; then
+                            printf 'worker-video-security-rollout: AUTOMATIC_ROLLBACK_FAILED\n' >&2
+                          else
+                            printf 'worker-video-security-rollout: automatic_rollback_completed\n' >&2
+                          fi
+                          rc=1
+                        fi
+                        exit "$rc"
+                      }
+                      trap cleanup EXIT
+                      trap 'exit 1' HUP INT TERM
+
+                      printf 'worker-video-security-rollout: stage=preflight_started\n'
+                      systemctl is-active --quiet docker
+                      if ! systemctl is-active --quiet amazon-ssm-agent; then
+                        systemctl is-active --quiet snap.amazon-ssm-agent.amazon-ssm-agent.service
+                      fi
+                      command -v aws >/dev/null
+                      command -v docker >/dev/null
+                      command -v jq >/dev/null
+                      grep -Fq 'brainrh-worker-video' /sys/kernel/security/apparmor/profiles
+                      test "$(stat -c '%u:%g:%a' /srv/brainrh/logs/worker-video)" = '10001:10001:750'
+                      test "$(stat -c '%u:%g:%a' /srv/brainrh/recordings)" = '10001:10001:750'
+                      test -r "$active_dir/.env.prod"
+                      test -r "$active_dir/docker-compose.prod.yml"
+                      printf 'worker-video-security-rollout: stage=host_invariants_verified\n'
+
+                      backend_before="$(service_identity backend)"
+                      frontend_before="$(service_identity frontend)"
+                      caddy_before="$(service_identity caddy)"
+                      backend_image_ref="$(printf '%s\n' "$backend_before" | cut -f 3)"
+                      frontend_image_ref="$(printf '%s\n' "$frontend_before" | cut -f 3)"
+                      test -n "$backend_image_ref"
+                      test -n "$frontend_image_ref"
+                      old_worker_id="$(worker_container_id)"
+                      old_worker_ref="$(docker inspect "$old_worker_id" | jq -er '.[0].Image')"
+                      printf '%s\n' "$old_worker_ref" | grep -Eq '^sha256:[0-9a-f]{64}$'
+                      printf 'worker-video-security-rollout: stage=runtime_captured previous_image_id=%s\n' "$old_worker_ref"
+
+                      actual_digest="$(aws ecr describe-images --region '${AWS::Region}' --repository-name "$repository" --image-ids "imageTag=sha-$candidate_sha" --query 'imageDetails[0].imageDigest' --output text)"
+                      test "$actual_digest" = "$expected_digest"
+                      scan_counts="$(aws ecr describe-image-scan-findings --region '${AWS::Region}' --repository-name "$repository" --image-id "imageDigest=$expected_digest" --query '[imageScanStatus.status,imageScanFindings.findingSeverityCounts.CRITICAL || `0`,imageScanFindings.findingSeverityCounts.HIGH || `0`]' --output text)"
+                      scan_status="$(printf '%s\n' "$scan_counts" | awk '{print $1}')"
+                      scan_critical="$(printf '%s\n' "$scan_counts" | awk '{print $2}')"
+                      scan_high="$(printf '%s\n' "$scan_counts" | awk '{print $3}')"
+                      test "$scan_status" = COMPLETE
+                      test "$scan_critical" = "$expected_critical"
+                      test "$scan_high" = "$expected_high"
+                      printf 'worker-video-security-rollout: stage=ecr_evidence_verified scan_critical=%s scan_high=%s\n' "$scan_critical" "$scan_high"
+
+                      export DOCKER_CONFIG="$docker_config"
+                      aws ecr get-login-password --region '${AWS::Region}' | docker login --username AWS --password-stdin "$registry" >/dev/null
+                      docker pull "$image_ref" >/dev/null
+                      candidate_image_id="$(docker image inspect "$image_ref" | jq -er '.[0].Id')"
+                      printf '%s\n' "$candidate_image_id" | grep -Eq '^sha256:[0-9a-f]{64}$'
+                      test "$candidate_image_id" != "$old_worker_ref"
+                      rm -rf -- "$docker_config"
+                      unset DOCKER_CONFIG
+                      printf 'worker-video-security-rollout: stage=candidate_pulled candidate_image_id=%s\n' "$candidate_image_id"
+
+                      install -d -o root -g root -m 0700 "$release_root" "$release_dir"
+                      rm -f "$release_dir/receipt.json"
+                      extract_container="$(docker create "$image_ref")"
+                      docker cp "$extract_container:/app/docker-compose.prod.yml" "$release_dir/docker-compose.prod.yml"
+                      install -d -o root -g root -m 0700 "$release_dir/deploy/docker"
+                      docker cp "$extract_container:/app/deploy/docker/chromium-seccomp.json" "$release_dir/deploy/docker/chromium-seccomp.json"
+                      docker rm "$extract_container" >/dev/null
+                      extract_container=''
+                      chown -R root:root "$release_dir"
+                      chmod 0600 "$release_dir/docker-compose.prod.yml" "$release_dir/deploy/docker/chromium-seccomp.json"
+                      test "$(sha256sum "$release_dir/docker-compose.prod.yml" | cut -d ' ' -f 1)" = '08b4edffceb2b5b3be52cf31727840f863de08264b3423af4f0545f53d356708'
+                      test "$(sha256sum "$release_dir/deploy/docker/chromium-seccomp.json" | cut -d ' ' -f 1)" = 'e709ef14df51b7f75bba4d52d7a4c973a7ca9053543e8875137c62fdf8e1de0c'
+                      ln -sfn "$active_dir/.env.prod" "$release_dir/.env.prod"
+
+                      config_images="$(BRAINRH_BACKEND_IMAGE="$backend_image_ref" BRAINRH_FRONTEND_IMAGE="$frontend_image_ref" BRAINRH_WORKER_VIDEO_IMAGE="$image_ref" docker compose --project-name brainrh --env-file "$active_dir/.env.prod" -f "$release_dir/docker-compose.prod.yml" config --images)"
+                      test "$(printf '%s\n' "$config_images" | grep -Fxc "$image_ref")" = 1
+                      printf 'worker-video-security-rollout: stage=candidate_contract_verified\n'
+
+                      rollout_started='yes'
+                      BRAINRH_BACKEND_IMAGE="$backend_image_ref" \
+                      BRAINRH_FRONTEND_IMAGE="$frontend_image_ref" \
+                      BRAINRH_WORKER_VIDEO_IMAGE="$image_ref" docker compose \
+                        --project-name brainrh \
+                        --env-file "$active_dir/.env.prod" \
+                        -f "$release_dir/docker-compose.prod.yml" \
+                        up -d --no-build --no-deps worker-video >/dev/null
+                      sleep 45
+
+                      test "$(service_identity backend)" = "$backend_before"
+                      test "$(service_identity frontend)" = "$frontend_before"
+                      test "$(service_identity caddy)" = "$caddy_before"
+                      printf 'worker-video-security-rollout: stage=other_services_unchanged\n'
+                      worker_id="$(worker_container_id)"
+                      test "$worker_id" != "$old_worker_id"
+                      worker_json="$(docker inspect "$worker_id")"
+                      test "$(printf '%s' "$worker_json" | jq -er '.[0].Config.Image')" = "$image_ref"
+                      test "$(printf '%s' "$worker_json" | jq -er '.[0].Config.User')" = '10001:10001'
+                      test "$(printf '%s' "$worker_json" | jq -er '.[0].HostConfig.ReadonlyRootfs')" = true
+                      test "$(printf '%s' "$worker_json" | jq -er '.[0].RestartCount')" = 0
+                      test "$(printf '%s' "$worker_json" | jq -er '.[0].State.Status')" = running
+                      test "$(printf '%s' "$worker_json" | jq -er '.[0].AppArmorProfile')" = 'brainrh-worker-video'
+                      printf 'worker-video-security-rollout: stage=worker_base_invariants_verified\n'
+                      confinement_summary="$(printf '%s' "$worker_json" | jq -c '.[0] | {cap_drop:.HostConfig.CapDrop,cap_add:.HostConfig.CapAdd,no_new_privileges:(.HostConfig.SecurityOpt | any(startswith("no-new-privileges"))),seccomp:(.HostConfig.SecurityOpt | any(startswith("seccomp="))),apparmor:(.AppArmorProfile == "brainrh-worker-video"),metadata_disabled:(.Config.Env | any(. == "AWS_EC2_METADATA_DISABLED=true")),forbidden_secret_names:([.Config.Env[] | select(test("^(SECRET_KEY|CALCOM_API_KEY|CALCOM_WEBHOOK_SECRET|AWS_ACCESS_KEY_ID|AWS_SECRET_ACCESS_KEY|AWS_SESSION_TOKEN|MISTRAL_API_KEY|XAI_API_KEY)=")) | split("=")[0]])}')"
+                      printf 'worker-video-security-rollout: confinement_summary=%s\n' "$confinement_summary"
+                      printf '%s' "$worker_json" | jq -e '.[0].HostConfig.CapDrop == ["ALL"]' >/dev/null
+                      printf '%s' "$worker_json" | jq -e '.[0].HostConfig.CapAdd | sort == ["CAP_SETGID","CAP_SETUID","CAP_SYS_CHROOT"]' >/dev/null
+                      printf '%s' "$worker_json" | jq -e '.[0].HostConfig.SecurityOpt | any(startswith("no-new-privileges"))' >/dev/null
+                      printf '%s' "$worker_json" | jq -e '.[0].HostConfig.SecurityOpt | any(startswith("seccomp="))' >/dev/null
+                      printf '%s' "$worker_json" | jq -e '.[0].Config.Env | any(. == "AWS_EC2_METADATA_DISABLED=true")' >/dev/null
+                      for forbidden in SECRET_KEY CALCOM_API_KEY CALCOM_WEBHOOK_SECRET AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN MISTRAL_API_KEY XAI_API_KEY; do
+                        ! printf '%s' "$worker_json" | jq -e --arg prefix "$forbidden=" '.[0].Config.Env | any(startswith($prefix))' >/dev/null
+                      done
+                      printf 'worker-video-security-rollout: stage=worker_confinement_config_verified\n'
+                      docker exec "$worker_id" sh -c "grep -Eq '^Uid:[[:space:]]+10001[[:space:]]+10001[[:space:]]+10001[[:space:]]+10001$' /proc/1/status && grep -Eq '^NoNewPrivs:[[:space:]]+1$' /proc/1/status && grep -Eq '^CapEff:[[:space:]]+0+$' /proc/1/status"
+                      printf 'worker-video-security-rollout: stage=worker_kernel_invariants_verified\n'
+                      backend_id="$(printf '%s\n' "$backend_before" | cut -f 1)"
+                      docker exec "$backend_id" python -c "import urllib.request; response=urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=10); raise SystemExit(0 if response.status == 200 else 1)"
+                      printf 'worker-video-security-rollout: stage=backend_health_verified\n'
+
+                      receipt_tmp="$(mktemp "$release_dir/.receipt.XXXXXX")"
+                      jq -n \
+                        --arg source_sha "$candidate_sha" \
+                        --arg image_digest "$expected_digest" \
+                        --arg image_ref "$image_ref" \
+                        --arg previous_image_ref "$old_worker_ref" \
+                        --arg risk_acceptance_id "$risk_acceptance_id" \
+                        --arg critical "$scan_critical" \
+                        --arg high "$scan_high" \
+                        --arg worker_container_id "$worker_id" \
+                        --arg deployed_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+                        '{schema_version:1,source_sha:$source_sha,image_digest:$image_digest,image_ref:$image_ref,previous_image_ref:$previous_image_ref,risk_acceptance_id:$risk_acceptance_id,ecr_scan:{status:"COMPLETE",critical:($critical|tonumber),high:($high|tonumber)},worker_container_id:$worker_container_id,deployed_at:$deployed_at,scope:"worker-video-only",general_release_gate_bypassed:false}' > "$receipt_tmp"
+                      chmod 0600 "$receipt_tmp"
+                      mv -f "$receipt_tmp" "$release_dir/receipt.json"
+                      sync -f "$release_dir/receipt.json"
+                      committed='yes'
+                      printf 'worker-video-security-rollout: promoted exact_digest non_root read_only nnp apparmor seccomp caps_bounded secrets_minimal backend_healthy other_services_unchanged owner_risk_accepted candidate_sha=%s digest=%s scan_critical=%s scan_high=%s risk_acceptance_id=%s previous_image=%s worker_container_id=%s\n' "$candidate_sha" "$expected_digest" "$scan_critical" "$scan_high" "$risk_acceptance_id" "$old_worker_ref" "$worker_id"
+
+  EmergencyBackendRolloutDocument:
+    Type: AWS::SSM::Document
+    Condition: EmergencyBackendRolloutEnabled
+    Properties:
+      Name: !Sub BrainRH-${Environment}-PromoteBackendRgpdInventoryRollout
+      DocumentType: Automation
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      TargetType: /AWS::EC2::Instance
+      Content:
+        schemaVersion: "0.3"
+        description: >-
+          Replace only the active Compose backend with one exact immutable
+          owner-accepted image. The general release gate remains unchanged. The
+          command proves RGPD inventory mode is read-only, preserves every other
+          service and automatically restores the prior backend on any failed
+          post-start invariant.
+        assumeRole: !GetAtt AutomationExecutionRole.Arn
+        mainSteps:
+          - name: PromoteExactBackendInInventoryMode
+            action: aws:runCommand
+            timeoutSeconds: 900
+            onFailure: Abort
+            isEnd: true
+            inputs:
+              DocumentName: AWS-RunShellScript
+              InstanceIds:
+                - !Ref ProductionInstanceId
+              CloudWatchOutputConfig:
+                CloudWatchOutputEnabled: true
+                CloudWatchLogGroupName: !Ref PromotionLogGroup
+              Parameters:
+                commands:
+                  - set -eu
+                  - umask 077
+                  - !Sub |
+                      test "$(id -u)" -eq 0
+                      candidate_sha='${EmergencyBackendSha}'
+                      expected_digest='${EmergencyBackendDigest}'
+                      expected_critical='${EmergencyBackendCriticalCount}'
+                      expected_high='${EmergencyBackendHighCount}'
+                      risk_acceptance_id='${EmergencyBackendRiskAcceptanceId}'
+                      repository='brainrh/backend'
+                      registry='${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com'
+                      image_ref="$registry/$repository@$expected_digest"
+                      active_dir='/opt/brainrh'
+                      release_root='/srv/brainrh/security-rollouts/backend'
+                      release_dir="$release_root/$candidate_sha"
+                      override_file="$release_dir/backend-image.override.yml"
+                      docker_config="$(mktemp -d /var/tmp/brainrh-backend-rollout-docker.XXXXXX)"
+                      rollout_started='no'
+                      committed='no'
+                      old_backend_ref=''
+                      old_backend_image_id=''
+                      worker_image_ref=''
+                      frontend_image_ref=''
+
+                      service_identity() {
+                        service="$1"
+                        ids="$(docker ps -q --no-trunc --filter 'label=com.docker.compose.project=brainrh' --filter "label=com.docker.compose.service=$service")"
+                        test -n "$ids"
+                        test "$(printf '%s\n' "$ids" | wc -l | tr -d ' ')" = 1
+                        docker inspect "$ids" | jq -er '.[0] | select(.State.Status == "running") | [.Id,.Image,.Config.Image] | @tsv'
+                      }
+
+                      backend_container_id() {
+                        ids="$(docker ps -q --no-trunc --filter 'label=com.docker.compose.project=brainrh' --filter 'label=com.docker.compose.service=backend')"
+                        test -n "$ids"
+                        test "$(printf '%s\n' "$ids" | wc -l | tr -d ' ')" = 1
+                        printf '%s\n' "$ids"
+                      }
+
+                      verify_backend_health() {
+                        container_id="$1"
+                        docker exec "$container_id" python -c "import json,urllib.request; d=json.load(urllib.request.urlopen('http://127.0.0.1:8000/health/ready',timeout=15)); r=d['runtime']['checks']['rgpd_retention']; assert d['status']=='ok'; assert d['database']['status']=='ok'; assert d['runtime']['status']=='ok'; assert r['mode']=='inventory'; assert r['execution']=='read_only_inventory'; assert r['automatic_erasure_enabled'] is False; assert r['data_mutation_enabled'] is False; assert r['automatic_erasure_implemented'] is False; assert r['scope_complete'] is False"
+                      }
+
+                      cleanup() {
+                        rc=$?
+                        trap - EXIT HUP INT TERM
+                        set +e
+                        rm -rf -- "$docker_config"
+                        if [ "$rollout_started" = yes ] && [ "$committed" != yes ]; then
+                          printf 'backend-rgpd-rollout: invariant failed; restoring prior image %s\n' "$old_backend_ref" >&2
+                          printf 'services:\n  backend:\n    image: %s\n' "$old_backend_ref" > "$override_file"
+                          chmod 0600 "$override_file"
+                          docker compose \
+                            --project-name brainrh \
+                            --env-file "$active_dir/.env.prod" \
+                            -f "$active_dir/docker-compose.prod.yml" \
+                            -f "$override_file" \
+                            up -d --no-build --no-deps backend >/dev/null 2>&1
+                          rollback_rc=$?
+                          if [ "$rollback_rc" -eq 0 ]; then
+                            sleep 30
+                            restored_id="$(backend_container_id)"
+                            restored_image_id="$(docker inspect "$restored_id" | jq -er '.[0].Image')"
+                            test "$restored_image_id" = "$old_backend_image_id"
+                            rollback_rc=$?
+                          fi
+                          if [ "$rollback_rc" -eq 0 ]; then
+                            docker exec "$restored_id" python -c "import urllib.request; response=urllib.request.urlopen('http://127.0.0.1:8000/health/ready',timeout=15); raise SystemExit(0 if response.status == 200 else 1)"
+                            rollback_rc=$?
+                          fi
+                          if [ "$rollback_rc" -ne 0 ]; then
+                            printf 'backend-rgpd-rollout: AUTOMATIC_ROLLBACK_FAILED\n' >&2
+                          else
+                            printf 'backend-rgpd-rollout: automatic_rollback_completed\n' >&2
+                          fi
+                          rc=1
+                        fi
+                        exit "$rc"
+                      }
+                      trap cleanup EXIT
+                      trap 'exit 1' HUP INT TERM
+
+                      printf 'backend-rgpd-rollout: stage=preflight_started\n'
+                      systemctl is-active --quiet docker
+                      if ! systemctl is-active --quiet amazon-ssm-agent; then
+                        systemctl is-active --quiet snap.amazon-ssm-agent.amazon-ssm-agent.service
+                      fi
+                      command -v aws >/dev/null
+                      command -v docker >/dev/null
+                      command -v jq >/dev/null
+                      test -r "$active_dir/.env.prod"
+                      test -r "$active_dir/docker-compose.prod.yml"
+
+                      backend_before="$(service_identity backend)"
+                      worker_before="$(service_identity worker-video)"
+                      frontend_before="$(service_identity frontend)"
+                      caddy_before="$(service_identity caddy)"
+                      old_backend_id="$(printf '%s\n' "$backend_before" | cut -f 1)"
+                      old_backend_image_id="$(printf '%s\n' "$backend_before" | cut -f 2)"
+                      old_backend_ref="$(printf '%s\n' "$backend_before" | cut -f 3)"
+                      worker_image_ref="$(printf '%s\n' "$worker_before" | cut -f 3)"
+                      frontend_image_ref="$(printf '%s\n' "$frontend_before" | cut -f 3)"
+                      test -n "$old_backend_ref"
+                      test -n "$worker_image_ref"
+                      test -n "$frontend_image_ref"
+                      printf 'backend-rgpd-rollout: stage=runtime_captured previous_image_id=%s\n' "$old_backend_image_id"
+
+                      actual_digest="$(aws ecr describe-images --region '${AWS::Region}' --repository-name "$repository" --image-ids "imageTag=sha-$candidate_sha" --query 'imageDetails[0].imageDigest' --output text)"
+                      test "$actual_digest" = "$expected_digest"
+                      scan_counts="$(aws ecr describe-image-scan-findings --region '${AWS::Region}' --repository-name "$repository" --image-id "imageDigest=$expected_digest" --query '[imageScanStatus.status,imageScanFindings.findingSeverityCounts.CRITICAL || `0`,imageScanFindings.findingSeverityCounts.HIGH || `0`]' --output text)"
+                      scan_status="$(printf '%s\n' "$scan_counts" | awk '{print $1}')"
+                      scan_critical="$(printf '%s\n' "$scan_counts" | awk '{print $2}')"
+                      scan_high="$(printf '%s\n' "$scan_counts" | awk '{print $3}')"
+                      test "$scan_status" = COMPLETE
+                      test "$scan_critical" = "$expected_critical"
+                      test "$scan_high" = "$expected_high"
+                      printf 'backend-rgpd-rollout: stage=ecr_evidence_verified scan_critical=%s scan_high=%s\n' "$scan_critical" "$scan_high"
+
+                      export DOCKER_CONFIG="$docker_config"
+                      aws ecr get-login-password --region '${AWS::Region}' | docker login --username AWS --password-stdin "$registry" >/dev/null
+                      docker pull "$image_ref" >/dev/null
+                      candidate_image_id="$(docker image inspect "$image_ref" | jq -er '.[0].Id')"
+                      printf '%s\n' "$candidate_image_id" | grep -Eq '^sha256:[0-9a-f]{64}$'
+                      test "$candidate_image_id" != "$old_backend_image_id"
+                      rm -rf -- "$docker_config"
+                      unset DOCKER_CONFIG
+                      printf 'backend-rgpd-rollout: stage=candidate_pulled candidate_image_id=%s\n' "$candidate_image_id"
+
+                      install -d -o root -g root -m 0700 "$release_root" "$release_dir"
+                      printf 'services:\n  backend:\n    image: %s\n' "$image_ref" > "$override_file"
+                      chmod 0600 "$override_file"
+                      config_images="$(docker compose --project-name brainrh --env-file "$active_dir/.env.prod" -f "$active_dir/docker-compose.prod.yml" -f "$override_file" config --images)"
+                      test "$(printf '%s\n' "$config_images" | grep -Fxc "$image_ref")" = 1
+                      printf 'backend-rgpd-rollout: stage=candidate_contract_verified\n'
+
+                      rm -f "$release_dir/receipt.json"
+                      rollout_started='yes'
+                      docker compose \
+                        --project-name brainrh \
+                        --env-file "$active_dir/.env.prod" \
+                        -f "$active_dir/docker-compose.prod.yml" \
+                        -f "$override_file" \
+                        up -d --no-build --no-deps backend >/dev/null
+                      sleep 45
+
+                      test "$(service_identity worker-video)" = "$worker_before"
+                      test "$(service_identity frontend)" = "$frontend_before"
+                      test "$(service_identity caddy)" = "$caddy_before"
+                      printf 'backend-rgpd-rollout: stage=other_services_unchanged\n'
+                      backend_id="$(backend_container_id)"
+                      test "$backend_id" != "$old_backend_id"
+                      backend_json="$(docker inspect "$backend_id")"
+                      test "$(printf '%s' "$backend_json" | jq -er '.[0].Config.Image')" = "$image_ref"
+                      test "$(printf '%s' "$backend_json" | jq -er '.[0].Image')" = "$candidate_image_id"
+                      test "$(printf '%s' "$backend_json" | jq -er '.[0].RestartCount')" = 0
+                      test "$(printf '%s' "$backend_json" | jq -er '.[0].State.Status')" = running
+                      verify_backend_health "$backend_id"
+                      printf 'backend-rgpd-rollout: stage=backend_health_and_rgpd_inventory_verified\n'
+
+                      receipt_tmp="$(mktemp "$release_dir/.receipt.XXXXXX")"
+                      jq -n \
+                        --arg source_sha "$candidate_sha" \
+                        --arg image_digest "$expected_digest" \
+                        --arg image_ref "$image_ref" \
+                        --arg previous_image_ref "$old_backend_ref" \
+                        --arg previous_image_id "$old_backend_image_id" \
+                        --arg risk_acceptance_id "$risk_acceptance_id" \
+                        --arg critical "$scan_critical" \
+                        --arg high "$scan_high" \
+                        --arg backend_container_id "$backend_id" \
+                        --arg deployed_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+                        '{schema_version:1,source_sha:$source_sha,image_digest:$image_digest,image_ref:$image_ref,previous_image_ref:$previous_image_ref,previous_image_id:$previous_image_id,risk_acceptance_id:$risk_acceptance_id,ecr_scan:{status:"COMPLETE",critical:($critical|tonumber),high:($high|tonumber)},rgpd_retention:{mode:"inventory",execution:"read_only_inventory",automatic_erasure_enabled:false,data_mutation_enabled:false,automatic_erasure_implemented:false,scope_complete:false},backend_container_id:$backend_container_id,deployed_at:$deployed_at,scope:"backend-only",general_release_gate_modified:false}' > "$receipt_tmp"
+                      chmod 0600 "$receipt_tmp"
+                      mv -f "$receipt_tmp" "$release_dir/receipt.json"
+                      sync -f "$release_dir/receipt.json"
+                      committed='yes'
+                      printf 'backend-rgpd-rollout: promoted exact_digest rgpd_inventory no_automatic_erasure database_healthy other_services_unchanged owner_risk_accepted candidate_sha=%s digest=%s scan_critical=%s scan_high=%s risk_acceptance_id=%s previous_image=%s backend_container_id=%s\n' "$candidate_sha" "$expected_digest" "$scan_critical" "$scan_high" "$risk_acceptance_id" "$old_backend_image_id" "$backend_id"
+
+  EmergencyFullReleaseDocument:
+    Type: AWS::SSM::Document
+    Condition: EmergencyFullReleaseEnabled
+    Properties:
+      Name: !Sub BrainRH-${Environment}-PromoteExactFullRelease
+      DocumentType: Automation
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      TargetType: /AWS::EC2::Instance
+      Content:
+        schemaVersion: "0.3"
+        description: >-
+          Promote one exact three-image release after a fresh versioned backup and
+          one-shot migration. All values are fixed by CloudFormation and there are
+          no caller-controlled parameters.
+        assumeRole: !GetAtt AutomationExecutionRole.Arn
+        mainSteps:
+          - name: PromoteExactFullRelease
+            action: aws:runCommand
+            timeoutSeconds: 3600
+            inputs:
+              DocumentName: AWS-RunShellScript
+              InstanceIds:
+                - !Ref ProductionInstanceId
+              CloudWatchOutputConfig:
+                CloudWatchOutputEnabled: true
+                CloudWatchLogGroupName: !Ref PromotionLogGroup
+              Parameters:
+                commands:
+                  - set -eu
+                  - umask 077
+                  - !Sub |
+                      test "$(id -u)" -eq 0
+                      metadata_tokens="$(aws ec2 describe-instances --instance-ids '${ProductionInstanceId}' --region '${AWS::Region}' --query 'Reservations[0].Instances[0].MetadataOptions.[HttpTokens,HttpPutResponseHopLimit]' --output text)"
+                      test "$(printf '%s\n' "$metadata_tokens" | awk '{print $1}')" = required
+                      test "$(printf '%s\n' "$metadata_tokens" | awk '{print $2}')" = 1
+                      registry='${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com'
+                      image_ref="$registry/brainrh/backend@${EmergencyFullReleaseBackendDigest}"
+                      tmp="$(mktemp -d /var/tmp/brainrh-full-release.XXXXXX)"
+                      docker_config="$(mktemp -d /var/tmp/brainrh-full-release-docker.XXXXXX)"
+                      extract_container=''
+                      cleanup() {
+                        test -z "$extract_container" || docker rm -f "$extract_container" >/dev/null 2>&1 || true
+                        rm -rf -- "$tmp" "$docker_config"
+                      }
+                      trap cleanup EXIT HUP INT TERM
+                      actual_digest="$(aws ecr describe-images --region '${AWS::Region}' --repository-name brainrh/backend --image-ids 'imageTag=sha-${EmergencyFullReleaseSha}' --query 'imageDetails[0].imageDigest' --output text)"
+                      test "$actual_digest" = '${EmergencyFullReleaseBackendDigest}'
+                      export DOCKER_CONFIG="$docker_config"
+                      aws ecr get-login-password --region '${AWS::Region}' | docker login --username AWS --password-stdin "$registry" >/dev/null
+                      docker pull "$image_ref" >/dev/null
+                      extract_container="$(docker create "$image_ref")"
+                      docker cp "$extract_container:/app/scripts/prod/promote_exact_release.sh" "$tmp/promote_exact_release.sh"
+                      docker rm "$extract_container" >/dev/null
+                      extract_container=''
+                      chmod 0500 "$tmp/promote_exact_release.sh"
+                      env \
+                        CANDIDATE_SHA='${EmergencyFullReleaseSha}' \
+                        EXPECTED_BASE_REVISION='${EmergencyFullReleaseBaseRevision}' \
+                        EXPECTED_HEAD_REVISION='${EmergencyFullReleaseHeadRevision}' \
+                        BACKEND_DIGEST='${EmergencyFullReleaseBackendDigest}' \
+                        BACKEND_CRITICAL='${EmergencyFullReleaseBackendCriticalCount}' \
+                        BACKEND_HIGH='${EmergencyFullReleaseBackendHighCount}' \
+                        FRONTEND_DIGEST='${EmergencyFullReleaseFrontendDigest}' \
+                        FRONTEND_CRITICAL='${EmergencyFullReleaseFrontendCriticalCount}' \
+                        FRONTEND_HIGH='${EmergencyFullReleaseFrontendHighCount}' \
+                        WORKER_DIGEST='${EmergencyFullReleaseWorkerDigest}' \
+                        WORKER_CRITICAL='${EmergencyFullReleaseWorkerCriticalCount}' \
+                        WORKER_HIGH='${EmergencyFullReleaseWorkerHighCount}' \
+                        RISK_ACCEPTANCE_ID='${EmergencyFullReleaseRiskAcceptanceId}' \
+                        EXPECTED_COMPOSE_SHA256='${EmergencyFullReleaseComposeSha256}' \
+                        EXPECTED_SECCOMP_SHA256='${EmergencyFullReleaseSeccompSha256}' \
+                        AWS_REGION='${AWS::Region}' \
+                        AWS_ACCOUNT_ID='${AWS::AccountId}' \
+                        BRAINRH_PUBLIC_ORIGIN='https://brainhr.braingentech.com' \
+                        bash "$tmp/promote_exact_release.sh" promote
+
+  EmergencyFullReleaseRecoveryDocument:
+    Type: AWS::SSM::Document
+    Condition: EmergencyFullReleaseEnabled
+    Properties:
+      Name: !Sub BrainRH-${Environment}-RecoverExactFullRelease
+      DocumentType: Automation
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      TargetType: /AWS::EC2::Instance
+      Content:
+        schemaVersion: "0.3"
+        description: >-
+          Recover an interrupted exact release from its root-owned state. The
+          database is never downgraded and there are no caller parameters.
+        assumeRole: !GetAtt AutomationExecutionRole.Arn
+        mainSteps:
+          - name: RecoverExactFullRelease
+            action: aws:runCommand
+            timeoutSeconds: 1800
+            inputs:
+              DocumentName: AWS-RunShellScript
+              InstanceIds:
+                - !Ref ProductionInstanceId
+              CloudWatchOutputConfig:
+                CloudWatchOutputEnabled: true
+                CloudWatchLogGroupName: !Ref PromotionLogGroup
+              Parameters:
+                commands:
+                  - set -eu
+                  - umask 077
+                  - !Sub |
+                      registry='${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com'
+                      image_ref="$registry/brainrh/backend@${EmergencyFullReleaseBackendDigest}"
+                      tmp="$(mktemp -d /var/tmp/brainrh-full-recovery.XXXXXX)"
+                      docker_config="$(mktemp -d /var/tmp/brainrh-full-recovery-docker.XXXXXX)"
+                      extract_container=''
+                      cleanup() {
+                        test -z "$extract_container" || docker rm -f "$extract_container" >/dev/null 2>&1 || true
+                        rm -rf -- "$tmp" "$docker_config"
+                      }
+                      trap cleanup EXIT HUP INT TERM
+                      export DOCKER_CONFIG="$docker_config"
+                      aws ecr get-login-password --region '${AWS::Region}' | docker login --username AWS --password-stdin "$registry" >/dev/null
+                      docker pull "$image_ref" >/dev/null
+                      extract_container="$(docker create "$image_ref")"
+                      docker cp "$extract_container:/app/scripts/prod/promote_exact_release.sh" "$tmp/promote_exact_release.sh"
+                      docker rm "$extract_container" >/dev/null
+                      extract_container=''
+                      chmod 0500 "$tmp/promote_exact_release.sh"
+                      env \
+                        CANDIDATE_SHA='${EmergencyFullReleaseSha}' \
+                        EXPECTED_BASE_REVISION='${EmergencyFullReleaseBaseRevision}' \
+                        EXPECTED_HEAD_REVISION='${EmergencyFullReleaseHeadRevision}' \
+                        BACKEND_DIGEST='${EmergencyFullReleaseBackendDigest}' BACKEND_CRITICAL='${EmergencyFullReleaseBackendCriticalCount}' BACKEND_HIGH='${EmergencyFullReleaseBackendHighCount}' \
+                        FRONTEND_DIGEST='${EmergencyFullReleaseFrontendDigest}' FRONTEND_CRITICAL='${EmergencyFullReleaseFrontendCriticalCount}' FRONTEND_HIGH='${EmergencyFullReleaseFrontendHighCount}' \
+                        WORKER_DIGEST='${EmergencyFullReleaseWorkerDigest}' WORKER_CRITICAL='${EmergencyFullReleaseWorkerCriticalCount}' WORKER_HIGH='${EmergencyFullReleaseWorkerHighCount}' \
+                        RISK_ACCEPTANCE_ID='${EmergencyFullReleaseRiskAcceptanceId}' \
+                        EXPECTED_COMPOSE_SHA256='${EmergencyFullReleaseComposeSha256}' EXPECTED_SECCOMP_SHA256='${EmergencyFullReleaseSeccompSha256}' \
+                        AWS_REGION='${AWS::Region}' AWS_ACCOUNT_ID='${AWS::AccountId}' \
+                        BRAINRH_PUBLIC_ORIGIN='https://brainhr.braingentech.com' \
+                        bash "$tmp/promote_exact_release.sh" recover
+
+  EmergencyFullReleaseRollbackDocument:
+    Type: AWS::SSM::Document
+    Condition: EmergencyFullReleaseEnabled
+    Properties:
+      Name: !Sub BrainRH-${Environment}-RollbackExactFullRelease
+      DocumentType: Automation
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      TargetType: /AWS::EC2::Instance
+      Content:
+        schemaVersion: "0.3"
+        description: >-
+          Restore the exact pre-release application images from the immutable
+          state receipt. The expanded schema is retained for N-1 compatibility.
+        assumeRole: !GetAtt AutomationExecutionRole.Arn
+        mainSteps:
+          - name: RollbackExactFullRelease
+            action: aws:runCommand
+            timeoutSeconds: 1800
+            inputs:
+              DocumentName: AWS-RunShellScript
+              InstanceIds:
+                - !Ref ProductionInstanceId
+              CloudWatchOutputConfig:
+                CloudWatchOutputEnabled: true
+                CloudWatchLogGroupName: !Ref PromotionLogGroup
+              Parameters:
+                commands:
+                  - set -eu
+                  - umask 077
+                  - !Sub |
+                      registry='${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com'
+                      image_ref="$registry/brainrh/backend@${EmergencyFullReleaseBackendDigest}"
+                      tmp="$(mktemp -d /var/tmp/brainrh-full-rollback.XXXXXX)"
+                      docker_config="$(mktemp -d /var/tmp/brainrh-full-rollback-docker.XXXXXX)"
+                      extract_container=''
+                      cleanup() {
+                        test -z "$extract_container" || docker rm -f "$extract_container" >/dev/null 2>&1 || true
+                        rm -rf -- "$tmp" "$docker_config"
+                      }
+                      trap cleanup EXIT HUP INT TERM
+                      export DOCKER_CONFIG="$docker_config"
+                      aws ecr get-login-password --region '${AWS::Region}' | docker login --username AWS --password-stdin "$registry" >/dev/null
+                      docker pull "$image_ref" >/dev/null
+                      extract_container="$(docker create "$image_ref")"
+                      docker cp "$extract_container:/app/scripts/prod/promote_exact_release.sh" "$tmp/promote_exact_release.sh"
+                      docker rm "$extract_container" >/dev/null
+                      extract_container=''
+                      chmod 0500 "$tmp/promote_exact_release.sh"
+                      env \
+                        CANDIDATE_SHA='${EmergencyFullReleaseSha}' \
+                        EXPECTED_BASE_REVISION='${EmergencyFullReleaseBaseRevision}' \
+                        EXPECTED_HEAD_REVISION='${EmergencyFullReleaseHeadRevision}' \
+                        BACKEND_DIGEST='${EmergencyFullReleaseBackendDigest}' BACKEND_CRITICAL='${EmergencyFullReleaseBackendCriticalCount}' BACKEND_HIGH='${EmergencyFullReleaseBackendHighCount}' \
+                        FRONTEND_DIGEST='${EmergencyFullReleaseFrontendDigest}' FRONTEND_CRITICAL='${EmergencyFullReleaseFrontendCriticalCount}' FRONTEND_HIGH='${EmergencyFullReleaseFrontendHighCount}' \
+                        WORKER_DIGEST='${EmergencyFullReleaseWorkerDigest}' WORKER_CRITICAL='${EmergencyFullReleaseWorkerCriticalCount}' WORKER_HIGH='${EmergencyFullReleaseWorkerHighCount}' \
+                        RISK_ACCEPTANCE_ID='${EmergencyFullReleaseRiskAcceptanceId}' \
+                        EXPECTED_COMPOSE_SHA256='${EmergencyFullReleaseComposeSha256}' EXPECTED_SECCOMP_SHA256='${EmergencyFullReleaseSeccompSha256}' \
+                        AWS_REGION='${AWS::Region}' AWS_ACCOUNT_ID='${AWS::AccountId}' \
+                        BRAINRH_PUBLIC_ORIGIN='https://brainhr.braingentech.com' \
+                        bash "$tmp/promote_exact_release.sh" rollback
+
+  FastReleaseDocument:
+    Type: AWS::SSM::Document
+    Properties:
+      Name: !Sub BrainRH-${Environment}-PromoteFastRelease
+      DocumentType: Automation
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      TargetType: /AWS::EC2::Instance
+      Content:
+        schemaVersion: "0.3"
+        description: >-
+          Promote, recover or roll back one exact manifest-bound release. This
+          stable document is installed once; normal releases do not update the
+          CloudFormation stack.
+        assumeRole: !GetAtt AutomationExecutionRole.Arn
+        parameters:
+          ManifestKey:
+            type: String
+            description: Versioned compact release manifest key.
+            allowedPattern: "^release-authority/dev-releases/[0-9a-f]{40}/manifest\\.json$"
+          ManifestVersionId:
+            type: String
+            description: Exact S3 VersionId of the compact release manifest.
+            allowedPattern: "^[A-Za-z0-9._~+/=-]{1,1024}$"
+          ManifestSha256:
+            type: String
+            description: Lower-case SHA-256 of the canonical manifest bytes.
+            allowedPattern: "^[0-9a-f]{64}$"
+          Mode:
+            type: String
+            default: promote
+            allowedValues: [promote, recover, rollback]
+        mainSteps:
+          - name: RunFastRelease
+            action: aws:runCommand
+            timeoutSeconds: 3600
+            inputs:
+              DocumentName: AWS-RunShellScript
+              InstanceIds:
+                - !Ref ProductionInstanceId
+              CloudWatchOutputConfig:
+                CloudWatchOutputEnabled: true
+                CloudWatchLogGroupName: !Ref PromotionLogGroup
+              Parameters:
+                commands:
+                  - set -eu
+                  - umask 077
+                  - !Sub |
+                      test "$(id -u)" -eq 0
+                      manifest_key='{{ ManifestKey }}'
+                      manifest_version_id='{{ ManifestVersionId }}'
+                      manifest_sha256='{{ ManifestSha256 }}'
+                      mode='{{ Mode }}'
+                      tmp="$(mktemp -d /var/tmp/brainrh-fast-release.XXXXXX)"
+                      docker_config="$(mktemp -d /var/tmp/brainrh-fast-release-docker.XXXXXX)"
+                      extract_container=''
+                      cleanup() {
+                        test -z "$extract_container" || docker rm -f "$extract_container" >/dev/null 2>&1 || true
+                        rm -rf -- "$tmp" "$docker_config"
+                      }
+                      trap cleanup EXIT HUP INT TERM
+                      downloaded_version="$(aws s3api get-object --bucket '${AuthorityBucket}' --key "$manifest_key" --version-id "$manifest_version_id" --query VersionId --output text "$tmp/manifest.json")"
+                      test "$downloaded_version" = "$manifest_version_id"
+                      printf '%s  %s\n' "$manifest_sha256" "$tmp/manifest.json" | sha256sum --check --strict -
+                      jq -e '
+                        .schema_version == 1 and
+                        (.candidate_sha | test("^[0-9a-f]{40}$")) and
+                        .images.backend.repository == "brainrh/backend" and
+                        .images.frontend.repository == "brainrh/frontend" and
+                        .images.worker.repository == "brainrh/worker-video" and
+                        ([.images.backend.digest,.images.frontend.digest,.images.worker.digest] | all(test("^sha256:[0-9a-f]{64}$"))) and
+                        ([.images.backend.source_sha,.images.frontend.source_sha,.images.worker.source_sha] | all(test("^[0-9a-f]{40}$"))) and
+                        ([.scans.backend,.scans.frontend,.scans.worker] | all(.status == "COMPLETE" and (.critical | type == "number") and (.high | type == "number"))) and
+                        (.migration.tree_fingerprint | test("^(NONE|sha256:[0-9a-f]{64})$")) and
+                        (.migration.target_revision | test("^[0-9a-f]{12}$")) and
+                        .migration.strategy == "if_tree_changed" and
+                        (.artifacts.compose_sha256 | test("^[0-9a-f]{64}$")) and
+                        (.artifacts.seccomp_sha256 | test("^[0-9a-f]{64}$"))
+                      ' "$tmp/manifest.json" >/dev/null
+                      candidate_sha="$(jq -er .candidate_sha "$tmp/manifest.json")"
+                      test "$manifest_key" = "release-authority/dev-releases/$candidate_sha/manifest.json"
+                      risk_id="$(jq -er .risk_acceptance.id "$tmp/manifest.json")"
+                      risk_expires="$(jq -er .risk_acceptance.expires_at "$tmp/manifest.json")"
+                      total_blocking="$(jq '[.scans.backend,.scans.frontend,.scans.worker] | map(.critical + .high) | add' "$tmp/manifest.json")"
+                      if test "$total_blocking" -gt 0; then
+                        printf '%s' "$risk_id" | grep -Eq '^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$'
+                        test "$risk_id" != NONE
+                        if test "$mode" = promote; then
+                          test "$(date -u -d "$risk_expires" +%s)" -gt "$(date -u +%s)"
+                        fi
+                      else
+                        risk_id=NO-WAIVER
+                        risk_expires=NONE
+                      fi
+                      backend_digest="$(jq -er .images.backend.digest "$tmp/manifest.json")"
+                      registry='${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com'
+                      backend_ref="$registry/brainrh/backend@$backend_digest"
+                      worker_ref="$registry/brainrh/worker-video@$(jq -er .images.worker.digest "$tmp/manifest.json")"
+                      backend_id="$(docker ps -q --filter 'label=com.docker.compose.project=brainrh' --filter 'label=com.docker.compose.service=backend')"
+                      worker_id="$(docker ps -q --filter 'label=com.docker.compose.project=brainrh' --filter 'label=com.docker.compose.service=worker-video')"
+                      test -n "$backend_id"; test -n "$worker_id"
+                      test "$(printf '%s\n' "$backend_id" | wc -l | tr -d ' ')" = 1
+                      test "$(printf '%s\n' "$worker_id" | wc -l | tr -d ' ')" = 1
+                      test "$(docker inspect "$backend_id" | jq -er '.[0].Config.Image')" = "$backend_ref"
+                      test "$(docker inspect "$worker_id" | jq -er '.[0].Config.Image')" = "$worker_ref"
+                      backend_source_sha="$(jq -er .images.backend.source_sha "$tmp/manifest.json")"
+                      actual_digest="$(aws ecr describe-images --region '${AWS::Region}' --repository-name brainrh/backend --image-ids "imageTag=sha-$backend_source_sha" --query 'imageDetails[0].imageDigest' --output text)"
+                      test "$actual_digest" = "$backend_digest"
+                      export DOCKER_CONFIG="$docker_config"
+                      aws ecr get-login-password --region '${AWS::Region}' | docker login --username AWS --password-stdin "$registry" >/dev/null
+                      docker pull "$backend_ref" >/dev/null
+                      extract_container="$(docker create "$backend_ref")"
+                      docker cp "$extract_container:/app/scripts/prod/promote_exact_release.sh" "$tmp/promote_exact_release.sh"
+                      docker rm "$extract_container" >/dev/null
+                      extract_container=''
+                      chmod 0500 "$tmp/promote_exact_release.sh"
+                      env \
+                        CANDIDATE_SHA="$candidate_sha" \
+                        EXPECTED_BASE_REVISION=AUTO \
+                        EXPECTED_HEAD_REVISION="$(jq -er .migration.target_revision "$tmp/manifest.json")" \
+                        MIGRATION_TREE_FINGERPRINT="$(jq -er .migration.tree_fingerprint "$tmp/manifest.json")" \
+                        RELEASE_SCOPE="$(jq -er .scope "$tmp/manifest.json")" \
+                        BACKEND_DIGEST="$backend_digest" \
+                        BACKEND_SOURCE_SHA="$(jq -er .images.backend.source_sha "$tmp/manifest.json")" \
+                        BACKEND_CRITICAL="$(jq -er .scans.backend.critical "$tmp/manifest.json")" \
+                        BACKEND_HIGH="$(jq -er .scans.backend.high "$tmp/manifest.json")" \
+                        FRONTEND_DIGEST="$(jq -er .images.frontend.digest "$tmp/manifest.json")" \
+                        FRONTEND_SOURCE_SHA="$(jq -er .images.frontend.source_sha "$tmp/manifest.json")" \
+                        FRONTEND_CRITICAL="$(jq -er .scans.frontend.critical "$tmp/manifest.json")" \
+                        FRONTEND_HIGH="$(jq -er .scans.frontend.high "$tmp/manifest.json")" \
+                        WORKER_DIGEST="$(jq -er .images.worker.digest "$tmp/manifest.json")" \
+                        WORKER_SOURCE_SHA="$(jq -er .images.worker.source_sha "$tmp/manifest.json")" \
+                        WORKER_CRITICAL="$(jq -er .scans.worker.critical "$tmp/manifest.json")" \
+                        WORKER_HIGH="$(jq -er .scans.worker.high "$tmp/manifest.json")" \
+                        RISK_ACCEPTANCE_ID="$risk_id" \
+                        RISK_ACCEPTANCE_EXPIRES_AT="$risk_expires" \
+                        EXPECTED_COMPOSE_SHA256="$(jq -er .artifacts.compose_sha256 "$tmp/manifest.json")" \
+                        EXPECTED_SECCOMP_SHA256="$(jq -er .artifacts.seccomp_sha256 "$tmp/manifest.json")" \
+                        RDS_INSTANCE_ID='${ProductionDbInstanceIdentifier}' \
+                        AUTHORITY_BUCKET='${AuthorityBucket}' \
+                        AWS_REGION='${AWS::Region}' \
+                        AWS_ACCOUNT_ID='${AWS::AccountId}' \
+                        BRAINRH_PUBLIC_ORIGIN='https://brainhr.braingentech.com' \
+                        bash "$tmp/promote_exact_release.sh" "$mode"
+
+  BootstrapVerifierDocument:
+    Type: AWS::SSM::Document
+    Condition: HasVerifierBootstrapEvidence
+    Properties:
+      Name: !Sub BrainRH-${Environment}-BootstrapReleaseAuthority
+      DocumentType: Automation
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      TargetType: /AWS::EC2::Instance
+      Content:
+        schemaVersion: "0.3"
+        description: >-
+          Install one externally signed verifier artifact. The artifact identity,
+          hashes, signature and S3 versions are fixed CloudFormation parameters;
+          this document exposes no caller-controlled command or artifact parameter.
+        assumeRole: !GetAtt AutomationExecutionRole.Arn
+        mainSteps:
+          - name: InstallExactSignedVerifier
+            action: aws:runCommand
+            timeoutSeconds: 600
+            inputs:
+              DocumentName: AWS-RunShellScript
+              InstanceIds:
+                - !Ref ProductionInstanceId
+              CloudWatchOutputConfig:
+                CloudWatchOutputEnabled: true
+                CloudWatchLogGroupName: !Ref PromotionLogGroup
+              Parameters:
+                commands:
+                  - set -eu
+                  - umask 077
+                  - !Sub |
+                      tmp="$(mktemp -d /usr/local/sbin/.brainrh-release-authority.bootstrap.XXXXXX)"
+                      cleanup() { rm -rf -- "$tmp"; }
+                      trap cleanup EXIT HUP INT TERM
+                      test "$(id -u)" -eq 0
+                      test -x /usr/bin/ruby
+                      openssl version | grep -Eq '^OpenSSL 3\.'
+                      artifact_key='release-authority/bootstrap/${VerifierSourceSha}/brainrh-release-authority'
+                      signature_key='release-authority/bootstrap/${VerifierSourceSha}/brainrh-release-authority.sig'
+                      artifact_version="$(aws s3api get-object --bucket '${AuthorityBucket}' --key "$artifact_key" --version-id '${VerifierArtifactVersionId}' --query VersionId --output text "$tmp/verifier")"
+                      signature_version="$(aws s3api get-object --bucket '${AuthorityBucket}' --key "$signature_key" --version-id '${VerifierSignatureVersionId}' --query VersionId --output text "$tmp/verifier.sig")"
+                      test "$artifact_version" = '${VerifierArtifactVersionId}'
+                      test "$signature_version" = '${VerifierSignatureVersionId}'
+                      test "$(wc -c < "$tmp/verifier.sig" | tr -d ' ')" = 64
+                      printf '%s  %s\n' '${VerifierArtifactSha256}' "$tmp/verifier" | sha256sum --check --strict -
+                      printf '%s  %s\n' '${VerifierSignatureSha256}' "$tmp/verifier.sig" | sha256sum --check --strict -
+                      printf '\060\052\060\005\006\003\053\145\160\003\041\000' > "$tmp/public-key.der"
+                      printf '%s' '${TrustPublicKeyBase64}' | base64 --decode >> "$tmp/public-key.der"
+                      test "$(wc -c < "$tmp/public-key.der" | tr -d ' ')" = 44
+                      openssl pkeyutl -verify -pubin -inkey "$tmp/public-key.der" -keyform DER -rawin -in "$tmp/verifier" -sigfile "$tmp/verifier.sig"
+                      chown root:root "$tmp/verifier"
+                      chmod 0755 "$tmp/verifier"
+                      sync -f "$tmp/verifier"
+                      mv -fT "$tmp/verifier" /usr/local/sbin/brainrh-release-authority
+                      sync -f /usr/local/sbin
+                      printf '%s  %s\n' '${VerifierArtifactSha256}' /usr/local/sbin/brainrh-release-authority | sha256sum --check --strict -
+                      test "$(/usr/local/sbin/brainrh-release-authority version)" = '${VerifierSourceSha}'
+
+  AutomationExecutionPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-promotion-automation
+      Roles:
+        - !Ref AutomationExecutionRole
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: RunOnlyClosedCommandsOnProduction
+            Effect: Allow
+            Action: ssm:SendCommand
+            Resource:
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}::document/AWS-RunShellScript
+              - !Sub arn:${AWS::Partition}:ec2:${AWS::Region}:${AWS::AccountId}:instance/${ProductionInstanceId}
+          - Sid: ObserveCommandCompletion
+            Effect: Allow
+            Action:
+              - ssm:GetCommandInvocation
+              - ssm:ListCommands
+              - ssm:ListCommandInvocations
+            Resource: "*"
+          - Sid: VerifyManagedInstanceAvailability
+            Effect: Allow
+            Action: ssm:DescribeInstanceInformation
+            Resource: "*"
+          - Sid: PublishPromotionCommandLogs
+            Effect: Allow
+            Action:
+              - logs:CreateLogStream
+              - logs:DescribeLogStreams
+              - logs:PutLogEvents
+            Resource: !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:${PromotionLogGroup}:*
+          - Sid: ObserveProductionMetadataOptions
+            Effect: Allow
+            Action: ec2:DescribeInstances
+            Resource: "*"
+
+  AuthorityEvidencePolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-promotion-authority
+      Roles:
+        - !Ref PromotionAuthorityRole
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: AppendExternallySignedAuthorityEvidence
+            Effect: Allow
+            Action:
+              - s3:GetObjectVersion
+              - s3:PutObject
+            Resource:
+              - !Sub ${AuthorityBucket.Arn}/release-authority/releases/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/authorizations/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/revocations/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/sources/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/bootstrap/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/seeds/*
+          - Sid: ReadAuthorityBucketVersioning
+            Effect: Allow
+            Action:
+              - s3:GetBucketLocation
+              - s3:GetBucketVersioning
+            Resource: !GetAtt AuthorityBucket.Arn
+          - Sid: ListSignedEvidenceVersions
+            Effect: Allow
+            Action: s3:ListBucketVersions
+            Resource: !GetAtt AuthorityBucket.Arn
+            Condition:
+              StringLike:
+                s3:prefix:
+                  - release-authority/releases/*
+                  - release-authority/authorizations/*
+                  - release-authority/revocations/*
+                  - release-authority/sources/*
+                  - release-authority/bootstrap/*
+                  - release-authority/seeds/*
+          - Sid: VerifyEvidenceBeforeClosedSeed
+            Effect: Allow
+            Action:
+              - ssm:GetParameter
+              - ecr:DescribeImages
+              - ecr:DescribeImageScanFindings
+            Resource:
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter${TrustPublicKeyParameter}
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter${SeedExecutionPrincipalParameter}
+              - !Sub arn:${AWS::Partition}:ecr:${AWS::Region}:${AWS::AccountId}:repository/brainrh/*
+          - Sid: SeedOnlyExactPromotionStateItems
+            Effect: Allow
+            Action:
+              - dynamodb:ConditionCheckItem
+              - dynamodb:PutItem
+            Resource: !GetAtt PromotionStateTable.Arn
+            Condition:
+              StringEquals:
+                dynamodb:EnclosingOperation: TransactWriteItems
+          - Sid: ObserveOwnPromotionAutomations
+            Effect: Allow
+            Action: ssm:GetAutomationExecution
+            Resource: !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-execution/*
+          - Sid: PassOnlyPromotionAutomationRole
+            Effect: Allow
+            Action: iam:PassRole
+            Resource: !GetAtt AutomationExecutionRole.Arn
+            Condition:
+              StringEquals:
+                iam:PassedToService: ssm.amazonaws.com
+
+  RuntimeAutomationStartPolicy:
+    Type: AWS::IAM::Policy
+    Condition: RuntimePromotionEnabled
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-start-runtime-promotion
+      Roles:
+        - !Ref PromotionAuthorityRole
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: StartOnlyClosedRuntimeAutomations
+            Effect: Allow
+            Action: ssm:StartAutomationExecution
+            Resource:
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${PromoteReleaseDocument}
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${PromoteReleaseDocument}:*
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${RollbackReleaseDocument}
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${RollbackReleaseDocument}:*
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${RecoverReleaseDocument}
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${RecoverReleaseDocument}:*
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-execution/*
+
+  BootstrapAutomationStartPolicy:
+    Type: AWS::IAM::Policy
+    Condition: HasVerifierBootstrapEvidence
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-start-verifier-bootstrap
+      Roles:
+        - !Ref PromotionAuthorityRole
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: StartOnlyClosedVerifierBootstrap
+            Effect: Allow
+            Action: ssm:StartAutomationExecution
+            Resource:
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${BootstrapVerifierDocument}
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${BootstrapVerifierDocument}:*
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-execution/*
+
+  HostPreparationAutomationStartPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-start-host-preparation
+      Roles:
+        - !Ref PromotionAuthorityRole
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: StartOnlyClosedHostPreparation
+            Effect: Allow
+            Action: ssm:StartAutomationExecution
+            Resource:
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${PrepareExistingHostDocument}
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${PrepareExistingHostDocument}:*
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-execution/*
+
+  SyntheticWorkerVideoSmokeStartPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-start-synthetic-worker-video-smoke
+      Roles:
+        - !Ref PromotionAuthorityRole
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: StartOnlyClosedSyntheticWorkerVideoSmoke
+            Effect: Allow
+            Action: ssm:StartAutomationExecution
+            Resource:
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${SyntheticWorkerVideoSmokeDocument}
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${SyntheticWorkerVideoSmokeDocument}:*
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-execution/*
+
+  EmergencyWorkerVideoRolloutStartPolicy:
+    Type: AWS::IAM::Policy
+    Condition: EmergencyWorkerVideoRolloutEnabled
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-start-worker-video-security-rollout
+      Roles:
+        - !Ref PromotionAuthorityRole
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: StartOnlyClosedWorkerVideoSecurityRollout
+            Effect: Allow
+            Action: ssm:StartAutomationExecution
+            Resource:
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${EmergencyWorkerVideoRolloutDocument}
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${EmergencyWorkerVideoRolloutDocument}:*
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-execution/*
+
+  EmergencyBackendRolloutStartPolicy:
+    Type: AWS::IAM::Policy
+    Condition: EmergencyBackendRolloutEnabled
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-start-backend-rgpd-inventory-rollout
+      Roles:
+        - !Ref PromotionAuthorityRole
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: StartOnlyClosedBackendRgpdInventoryRollout
+            Effect: Allow
+            Action: ssm:StartAutomationExecution
+            Resource:
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${EmergencyBackendRolloutDocument}
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${EmergencyBackendRolloutDocument}:*
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-execution/*
+
+  EmergencyFullReleaseStartPolicy:
+    Type: AWS::IAM::Policy
+    Condition: EmergencyFullReleaseEnabled
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-start-exact-full-release
+      Roles:
+        - !Ref PromotionAuthorityRole
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: StartOnlyClosedExactFullReleaseAutomations
+            Effect: Allow
+            Action: ssm:StartAutomationExecution
+            Resource:
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${EmergencyFullReleaseDocument}
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${EmergencyFullReleaseDocument}:*
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${EmergencyFullReleaseRecoveryDocument}
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${EmergencyFullReleaseRecoveryDocument}:*
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${EmergencyFullReleaseRollbackDocument}
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${EmergencyFullReleaseRollbackDocument}:*
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-execution/*
+
+  GithubFastReleasePolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-fast-release
+      Roles:
+        - !Ref GithubReleaseRoleName
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: AppendExactFastReleaseManifest
+            Effect: Allow
+            Action: s3:PutObject
+            Resource: !Sub ${AuthorityBucket.Arn}/release-authority/dev-releases/*
+          - Sid: DiscoverFastReleaseBucket
+            Effect: Allow
+            Action: cloudformation:DescribeStacks
+            Resource: !Sub arn:${AWS::Partition}:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${AWS::StackName}/*
+          - Sid: StartOnlyStableManifestBoundRelease
+            Effect: Allow
+            Action: ssm:StartAutomationExecution
+            Resource:
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${FastReleaseDocument}
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${FastReleaseDocument}:*
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-execution/*
+          - Sid: ObserveFastRelease
+            Effect: Allow
+            Action: ssm:GetAutomationExecution
+            Resource: !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-execution/*
+          - Sid: PassOnlyFastReleaseAutomationRole
+            Effect: Allow
+            Action: iam:PassRole
+            Resource: !GetAtt AutomationExecutionRole.Arn
+            Condition:
+              StringEquals:
+                iam:PassedToService: ssm.amazonaws.com
+
+  CredentialBrokerAutomationStartPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-start-credential-broker
+      Roles:
+        - !Ref PromotionAuthorityRole
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: StartOnlyClosedCredentialBrokerInstallation
+            Effect: Allow
+            Action: ssm:StartAutomationExecution
+            Resource:
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${InstallCredentialBrokerDocument}
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-definition/${InstallCredentialBrokerDocument}:*
+              - !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:automation-execution/*
+
+  ProductionVerificationPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-release-verification
+      Roles:
+        - !Ref ExistingEc2RoleName
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: ReadExactAuthorityObjectVersions
+            Effect: Allow
+            Action: s3:GetObjectVersion
+            Resource:
+              - !Sub ${AuthorityBucket.Arn}/release-authority/releases/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/authorizations/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/revocations/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/sources/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/dev-releases/*
+              - !If
+                - HasVerifierBootstrapEvidence
+                - !Sub ${AuthorityBucket.Arn}/release-authority/bootstrap/${VerifierSourceSha}/brainrh-release-authority
+                - !Ref AWS::NoValue
+              - !If
+                - HasVerifierBootstrapEvidence
+                - !Sub ${AuthorityBucket.Arn}/release-authority/bootstrap/${VerifierSourceSha}/brainrh-release-authority.sig
+                - !Ref AWS::NoValue
+          - Sid: DiscoverCurrentRevocations
+            Effect: Allow
+            Action: s3:ListBucketVersions
+            Resource: !GetAtt AuthorityBucket.Arn
+            Condition:
+              StringLike:
+                s3:prefix: release-authority/revocations/*
+          - Sid: ReadExternalTrustAnchor
+            Effect: Allow
+            Action: ssm:GetParameter
+            Resource: !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter${TrustPublicKeyParameter}
+          - Sid: VerifyImmutableEcrEvidence
+            Effect: Allow
+            Action:
+              - ecr:DescribeImages
+              - ecr:DescribeImageScanFindings
+            Resource: !Sub arn:${AWS::Partition}:ecr:${AWS::Region}:${AWS::AccountId}:repository/brainrh/*
+          - Sid: VerifyRdsPointInTimeRecovery
+            Effect: Allow
+            Action: rds:DescribeDBInstances
+            Resource: "*"
+          - Sid: AppendFastReleaseReceipt
+            Effect: Allow
+            Action: s3:PutObject
+            Resource: !Sub ${AuthorityBucket.Arn}/release-authority/receipts/fast/*
+          - Sid: RuntimeMayNeverWriteSignedAuthorityEvidence
+            Effect: Deny
+            Action:
+              - s3:DeleteObject
+              - s3:DeleteObjectVersion
+              - s3:PutObject
+            Resource:
+              - !Sub ${AuthorityBucket.Arn}/release-authority/releases/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/authorizations/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/revocations/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/sources/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/bootstrap/*
+          - Sid: RuntimeMayNeverReadAuthorityEvidenceWithoutVersion
+            Effect: Deny
+            Action: s3:GetObject
+            Resource: !Sub ${AuthorityBucket.Arn}/release-authority/*
+          - Sid: RuntimeMayNeverModifyTrustAnchor
+            Effect: Deny
+            Action:
+              - ssm:DeleteParameter
+              - ssm:PutParameter
+            Resource: !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter${TrustPublicKeyParameter}
+
+  HostPreparationLogsPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-host-preparation-logs
+      Roles:
+        - !Ref ExistingEc2RoleName
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: PublishOnlyHostPreparationCommandOutput
+            Effect: Allow
+            Action:
+              - logs:CreateLogStream
+              - logs:DescribeLogStreams
+              - logs:PutLogEvents
+            Resource: !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:${PromotionLogGroup}:*
+
+  EmergencyFullReleaseHostPreflightPolicy:
+    Type: AWS::IAM::Policy
+    Condition: EmergencyFullReleaseEnabled
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-exact-release-host-preflight
+      Roles:
+        - !Ref ExistingEc2RoleName
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: VerifyExactReleaseHostMetadataIsolation
+            Effect: Allow
+            Action: ec2:DescribeInstances
+            Resource: "*"
+
+  EmergencyFullReleaseBackupPreflightPolicy:
+    Type: AWS::IAM::Policy
+    Condition: EmergencyFullReleaseEnabled
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-exact-release-backup-preflight
+      Roles:
+        - !Ref ExistingEc2RoleName
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: VerifyVersionedProductionBackupBucket
+            Effect: Allow
+            Action:
+              - s3:GetBucketVersioning
+            Resource: !Sub arn:${AWS::Partition}:s3:::brainrh-${Environment}-backups-${AWS::AccountId}-${AWS::Region}
+          - Sid: VerifyExactProductionBackupObjectVersions
+            Effect: Allow
+            Action: s3:GetObjectVersion
+            Resource:
+              - !Sub arn:${AWS::Partition}:s3:::brainrh-${Environment}-backups-${AWS::AccountId}-${AWS::Region}/postgres/daily/*
+              - !Sub arn:${AWS::Partition}:s3:::brainrh-${Environment}-backups-${AWS::AccountId}-${AWS::Region}/postgres/weekly/*
+
+  HostAssumeBackendDataRolePolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-assume-backend-data
+      Roles:
+        - !Ref ExistingEc2RoleName
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: AssumeOnlyBackendDataRole
+            Effect: Allow
+            Action: sts:AssumeRole
+            Resource: !GetAtt BackendDataRole.Arn
+
+  RuntimeMutationPolicy:
+    Type: AWS::IAM::Policy
+    Condition: RuntimePromotionEnabled
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-runtime-promotion-mutation
+      Roles:
+        - !Ref ExistingEc2RoleName
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: ReadExactPromotionReceiptsForRecovery
+            Effect: Allow
+            Action: s3:GetObjectVersion
+            Resource: !Sub ${AuthorityBucket.Arn}/release-authority/receipts/*
+          - Sid: DiscoverExactPromotionReceipts
+            Effect: Allow
+            Action: s3:ListBucketVersions
+            Resource: !GetAtt AuthorityBucket.Arn
+            Condition:
+              StringLike:
+                s3:prefix: release-authority/receipts/*
+          - Sid: VerifyProductionInstanceMetadataIsolation
+            Effect: Allow
+            Action: ec2:DescribeInstances
+            Resource: "*"
+          - Sid: AtomicallyTransitionPromotionState
+            Effect: Allow
+            Action: dynamodb:UpdateItem
+            Resource: !GetAtt PromotionStateTable.Arn
+            Condition:
+              StringEquals:
+                dynamodb:EnclosingOperation: TransactWriteItems
+          - Sid: ReadConsumedAuthorizationForRecovery
+            Effect: Allow
+            Action: dynamodb:GetItem
+            Resource: !GetAtt PromotionStateTable.Arn
+          - Sid: AppendPromotionReceipts
+            Effect: Allow
+            Action: s3:PutObject
+            Resource: !Sub ${AuthorityBucket.Arn}/release-authority/receipts/*
+          - Sid: PublishRuntimeCommandOutput
+            Effect: Allow
+            Action:
+              - logs:CreateLogStream
+              - logs:DescribeLogStreams
+              - logs:PutLogEvents
+            Resource: !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:${PromotionLogGroup}:*
+
+  BootstrapVerificationLogsPolicy:
+    Type: AWS::IAM::Policy
+    Condition: HasVerifierBootstrapEvidence
+    Properties:
+      PolicyName: !Sub brainrh-${Environment}-bootstrap-verifier-logs
+      Roles:
+        - !Ref ExistingEc2RoleName
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: PublishBootstrapVerificationOutput
+            Effect: Allow
+            Action:
+              - logs:CreateLogStream
+              - logs:DescribeLogStreams
+              - logs:PutLogEvents
+            Resource: !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:${PromotionLogGroup}:*
+
+  AuthorityBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      Bucket: !Ref AuthorityBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: RequireTransportSecurity
+            Effect: Deny
+            Principal: "*"
+            Action: s3:*
+            Resource:
+              - !GetAtt AuthorityBucket.Arn
+              - !Sub ${AuthorityBucket.Arn}/*
+            Condition:
+              Bool:
+                aws:SecureTransport: false
+          - Sid: OnlyExternalAuthorityMayAppendSignedEvidence
+            Effect: Deny
+            Principal: "*"
+            Action:
+              - s3:AbortMultipartUpload
+              - s3:PutObject
+              - s3:PutObjectAcl
+              - s3:PutObjectTagging
+            Resource:
+              - !Sub ${AuthorityBucket.Arn}/release-authority/releases/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/authorizations/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/revocations/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/sources/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/bootstrap/*
+            Condition:
+              ArnNotEquals:
+                aws:PrincipalArn: !GetAtt PromotionAuthorityRole.Arn
+          - Sid: OnlyProductionRuntimeMayAppendReceipts
+            Effect: Deny
+            Principal: "*"
+            Action:
+              - s3:AbortMultipartUpload
+              - s3:PutObject
+              - s3:PutObjectAcl
+              - s3:PutObjectTagging
+            Resource: !Sub ${AuthorityBucket.Arn}/release-authority/receipts/*
+            Condition:
+              ArnNotEquals:
+                aws:PrincipalArn: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/${ExistingEc2RoleName}
+          - Sid: AuthorizationAndSourceWritesMustBeCreateOnly
+            Effect: Deny
+            Principal: "*"
+            Action: s3:PutObject
+            Resource:
+              - !Sub ${AuthorityBucket.Arn}/release-authority/authorizations/*
+              - !Sub ${AuthorityBucket.Arn}/release-authority/sources/*
+            Condition:
+              StringNotEquals:
+                s3:if-none-match: "*"
+          - Sid: FastReleaseManifestWritesMustBeCreateOnly
+            Effect: Deny
+            Principal: "*"
+            Action: s3:PutObject
+            Resource: !Sub ${AuthorityBucket.Arn}/release-authority/dev-releases/*
+            Condition:
+              StringNotEquals:
+                s3:if-none-match: "*"
+          - Sid: OnlyExternalAuthorityMayAppendSeedJournal
+            Effect: Deny
+            Principal: "*"
+            Action:
+              - s3:AbortMultipartUpload
+              - s3:PutObject
+              - s3:PutObjectAcl
+              - s3:PutObjectTagging
+            Resource: !Sub ${AuthorityBucket.Arn}/release-authority/seeds/*
+            Condition:
+              ArnNotEquals:
+                aws:PrincipalArn: !GetAtt PromotionAuthorityRole.Arn
+          - Sid: ReceiptWritesMustBeCreateOnly
+            Effect: Deny
+            Principal: "*"
+            Action: s3:PutObject
+            Resource: !Sub ${AuthorityBucket.Arn}/release-authority/receipts/*
+            Condition:
+              StringNotEquals:
+                s3:if-none-match: "*"
+          - Sid: SeedJournalWritesMustBeCreateOnly
+            Effect: Deny
+            Principal: "*"
+            Action: s3:PutObject
+            Resource: !Sub ${AuthorityBucket.Arn}/release-authority/seeds/*
+            Condition:
+              StringNotEquals:
+                s3:if-none-match: "*"
+          - Sid: AuthorityEvidenceIsAppendOnly
+            Effect: Deny
+            Principal: "*"
+            Action:
+              - s3:DeleteObject
+              - s3:DeleteObjectVersion
+            Resource: !Sub ${AuthorityBucket.Arn}/release-authority/*
+          - Sid: UnversionedAuthorityReadsAreForbidden
+            Effect: Deny
+            Principal: "*"
+            Action: s3:GetObject
+            Resource: !Sub ${AuthorityBucket.Arn}/release-authority/*
+
+Outputs:
+  AuthorityBucketName:
+    Description: Versioned bucket that stores release manifests and signatures.
+    Value: !Ref AuthorityBucket
+  AuthorityPrefix:
+    Value: release-authority/
+  FastReleaseDocumentName:
+    Description: Stable manifest-bound release Automation installed once.
+    Value: !Ref FastReleaseDocument
+  TrustKeyId:
+    Value: !Ref TrustKeyId
+  TrustPublicKeyParameterName:
+    Value: !Ref TrustPublicKeyParameter
+  SeedExecutionPrincipalParameterName:
+    Value: !Ref SeedExecutionPrincipalParameter
+  PromotionAuthorityRoleArn:
+    Value: !GetAtt PromotionAuthorityRole.Arn
+  PromoteReleaseDocumentName:
+    Condition: RuntimePromotionEnabled
+    Value: !Ref PromoteReleaseDocument
+  RollbackReleaseDocumentName:
+    Condition: RuntimePromotionEnabled
+    Value: !Ref RollbackReleaseDocument
+  RecoverReleaseDocumentName:
+    Condition: RuntimePromotionEnabled
+    Value: !Ref RecoverReleaseDocument
+  BootstrapVerifierDocumentName:
+    Condition: HasVerifierBootstrapEvidence
+    Value: !Ref BootstrapVerifierDocument
+  PrepareExistingHostDocumentName:
+    Value: !Ref PrepareExistingHostDocument
+  SyntheticWorkerVideoSmokeDocumentName:
+    Value: !Ref SyntheticWorkerVideoSmokeDocument
+  EmergencyWorkerVideoRolloutDocumentName:
+    Condition: EmergencyWorkerVideoRolloutEnabled
+    Value: !Ref EmergencyWorkerVideoRolloutDocument
+  EmergencyBackendRolloutDocumentName:
+    Condition: EmergencyBackendRolloutEnabled
+    Value: !Ref EmergencyBackendRolloutDocument
+  EmergencyFullReleaseDocumentName:
+    Condition: EmergencyFullReleaseEnabled
+    Value: !Ref EmergencyFullReleaseDocument
+  EmergencyFullReleaseRecoveryDocumentName:
+    Condition: EmergencyFullReleaseEnabled
+    Value: !Ref EmergencyFullReleaseRecoveryDocument
+  EmergencyFullReleaseRollbackDocumentName:
+    Condition: EmergencyFullReleaseEnabled
+    Value: !Ref EmergencyFullReleaseRollbackDocument
+  InstallCredentialBrokerDocumentName:
+    Value: !Ref InstallCredentialBrokerDocument
+  BackendDataRoleArn:
+    Value: !GetAtt BackendDataRole.Arn
+  BackendDataRoleName:
+    Value: !Ref BackendDataRole
+  PromotionLogGroupName:
+    Value: !Ref PromotionLogGroup
+  PromotionStateTableName:
+    Value: !Ref PromotionStateTable
+  RuntimePromotionEnabled:
+    Value: !Ref EnableRuntimePromotion

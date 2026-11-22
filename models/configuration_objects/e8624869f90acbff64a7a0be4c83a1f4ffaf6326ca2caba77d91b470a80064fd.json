@@ -1,0 +1,51 @@
+{
+    "adapter_path": "artifacts/brainhr-ft-mlx",
+    "batch_size": 1,
+    "clear_cache_threshold": 0,
+    "config": "scripts/train_mlx.yaml",
+    "data": "data/synthetic/mlx",
+    "fine_tune_type": "lora",
+    "grad_accumulation_steps": 1,
+    "grad_checkpoint": true,
+    "iters": 1200,
+    "learning_rate": 0.0001,
+    "lora_parameters": {
+        "rank": 64,
+        "scale": 2.0,
+        "dropout": 0.05
+    },
+    "lr_schedule": {
+        "name": "cosine_decay",
+        "warmup": 60,
+        "warmup_init": 1e-06,
+        "arguments": [
+            0.0001,
+            1140,
+            1e-06
+        ]
+    },
+    "mask_prompt": false,
+    "max_seq_length": 2048,
+    "model": "mlx-community/Meta-Llama-3-8B-Instruct-4bit",
+    "num_layers": 16,
+    "optimizer": "adamw",
+    "optimizer_config": {
+        "adam": {},
+        "adamw": {},
+        "muon": {},
+        "sgd": {},
+        "adafactor": {}
+    },
+    "project_name": null,
+    "report_to": null,
+    "resume_adapter_file": null,
+    "save_every": 200,
+    "seed": 42,
+    "steps_per_eval": 200,
+    "steps_per_report": 50,
+    "test": false,
+    "test_batches": 500,
+    "train": true,
+    "trust_remote_code": false,
+    "val_batches": 25
+}

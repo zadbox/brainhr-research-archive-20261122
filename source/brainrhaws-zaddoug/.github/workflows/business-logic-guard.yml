@@ -1,0 +1,72 @@
+name: Business logic guard
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: business-logic-guard-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  guard:
+    name: Protected behavior and synthetic fixture checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout candidate with history
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.11"
+
+      - name: Resolve comparison base
+        id: refs
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PUSH_BASE: ${{ github.event.before }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            base_ref="$PR_BASE"
+          elif [ "$EVENT_NAME" = "push" ]; then
+            base_ref="$PUSH_BASE"
+          else
+            echo "Unsupported event: $EVENT_NAME" >&2
+            exit 2
+          fi
+          if ! printf '%s' "$base_ref" | grep -Eq '^[0-9a-f]{40}$'; then
+            echo "Missing or invalid immutable comparison SHA" >&2
+            exit 2
+          fi
+          if [ "$base_ref" = "0000000000000000000000000000000000000000" ]; then
+            echo "A zero comparison SHA is not accepted" >&2
+            exit 2
+          fi
+          resolved_base="$(git rev-parse --verify --end-of-options "$base_ref^{commit}")"
+          printf 'base_ref=%s\n' "$resolved_base" >> "$GITHUB_OUTPUT"
+
+      - name: Run governance unit checks
+        run: |
+          python tests/governance/test_business_change_authorization.py
+          python tests/governance/test_business_logic_guard.py
+          python tests/governance/test_synthetic_characterization_fixtures.py
+          python tests/characterization/test_parallel_contract.py
+
+      - name: Reject protected behavior changes
+        run: |
+          python scripts/ci/business_logic_guard.py \
+            --registry governance/protected-business-logic.json \
+            --base-ref "${{ steps.refs.outputs.base_ref }}" \
+            --head-ref "$GITHUB_SHA"

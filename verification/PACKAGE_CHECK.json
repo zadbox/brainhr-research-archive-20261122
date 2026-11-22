@@ -1,0 +1,10 @@
+{
+  "checked_utc": "2026-11-22T12:27:47.142819+00:00",
+  "prepared_files": 1390,
+  "prepared_bytes": 87607180,
+  "credential_pattern_findings": [],
+  "synthetic_rows_verified": 6000,
+  "real_derived_rows_not_transferred": 1074,
+  "independent_scope_review": "Completed; nine additional credential/configuration candidates excluded, plus six initially excluded. Lexical and structural scope checks, not a universal security certification.",
+  "model_inference_tests": 0
+}

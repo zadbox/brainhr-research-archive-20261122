@@ -1,0 +1,101 @@
+name: Frontend contributor gate
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: frontend-contributor-gate-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  frontend-contributor-gate:
+    name: frontend-contributor-gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout candidate with history
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Enforce contributor branch and frontend boundary
+        id: scope
+        env:
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          HEAD_BRANCH: ${{ github.head_ref }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          mapfile -d '' changed_files < <(git diff --name-only -z "$BASE_SHA" "$HEAD_SHA")
+          ((${#changed_files[@]} > 0)) || {
+            echo "The pull request has no changed files." >&2
+            exit 1
+          }
+
+          run_frontend=false
+          invalid=()
+          for path in "${changed_files[@]}"; do
+            printf 'changed: %q\n' "$path"
+            if [[ "$path" == frontend/* ]]; then
+              run_frontend=true
+            elif [[ "$PR_AUTHOR" == zadbox ]]; then
+              invalid+=("$path")
+            fi
+          done
+
+          if [[ "$PR_AUTHOR" == zadbox ]]; then
+            [[ "$HEAD_BRANCH" == contrib/zaddoug/* ]] || {
+              echo "zadbox must use a contrib/zaddoug/* branch." >&2
+              exit 1
+            }
+            ((${#invalid[@]} == 0)) || {
+              echo "zadbox pull requests may change only frontend/**:" >&2
+              printf ' - %q\n' "${invalid[@]}" >&2
+              exit 1
+            }
+            [[ "$run_frontend" == true ]] || {
+              echo "A zadbox pull request must contain a frontend/** change." >&2
+              exit 1
+            }
+          fi
+
+          echo "run_frontend=$run_frontend" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Node
+        if: steps.scope.outputs.run_frontend == 'true'
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "20.20.2"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install frontend dependencies
+        if: steps.scope.outputs.run_frontend == 'true'
+        working-directory: frontend
+        run: npm ci
+
+      - name: Run frontend checks
+        if: steps.scope.outputs.run_frontend == 'true'
+        working-directory: frontend
+        run: npm run check
+
+      - name: Audit frontend conventions
+        if: steps.scope.outputs.run_frontend == 'true'
+        run: python3 skills/brainrh-frontend/scripts/audit_frontend.py
+
+      - name: Reject protected business behavior changes
+        if: steps.scope.outputs.run_frontend == 'true'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python3 scripts/ci/business_logic_guard.py \
+            --registry governance/protected-business-logic.json \
+            --base-ref "$BASE_SHA" \
+            --head-ref "$HEAD_SHA"

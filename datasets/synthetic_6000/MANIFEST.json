@@ -1,0 +1,32 @@
+{
+  "source": "Retained mixed corpus; filtering only fictif=true AND source_kind=synthetic.",
+  "splits": {
+    "train.jsonl": 5101,
+    "validation.jsonl": 574,
+    "test.jsonl": 325
+  },
+  "total_task_rows": 6000,
+  "real_derived_task_rows_excluded": 1074,
+  "source_mixed_corpus_not_uploaded": true,
+  "independent_human_ground_truth": false,
+  "files": {
+    "train.jsonl": {
+      "stored_as": "train.jsonl.gz",
+      "uncompressed_bytes": 63426089,
+      "uncompressed_sha256": "0acba55a5b228510c353c44d98b9bb3a5af9adb9b81940aad92e9073cd4da6cb",
+      "compressed_sha256": "0156aa90cfc605479f5a05490787fcff5d0a3d113486a3d9821ea2b2dd3ce76c"
+    },
+    "validation.jsonl": {
+      "stored_as": "validation.jsonl.gz",
+      "uncompressed_bytes": 7147511,
+      "uncompressed_sha256": "e0d5bb1bb03331f73974cac410b589badd7d21c1197f82a7d8f24ee8acaaa7cd",
+      "compressed_sha256": "b9b24e0bb99dc77365995350adaf05b01e101f3953e0809f479d991940161d1f"
+    },
+    "test.jsonl": {
+      "stored_as": "test.jsonl.gz",
+      "uncompressed_bytes": 4051269,
+      "uncompressed_sha256": "3cb01af43ddd04d10baba4cfc163d50f5891ab42c219017c192c38211f361ac9",
+      "compressed_sha256": "9a12218d21e7b32df16fd70ff1bb9ff1e8ffc915107408e58ab81bb85b74f023"
+    }
+  }
+}

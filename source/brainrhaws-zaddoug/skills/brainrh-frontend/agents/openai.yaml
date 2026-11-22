@@ -1,0 +1,4 @@
+interface:
+  display_name: "BrainRH Frontend"
+  short_description: "Qualité UI/UX obligatoire pour BrainRH"
+  default_prompt: "Use $brainrh-frontend to implement or review this BrainRH frontend change with the mandatory product-quality workflow."

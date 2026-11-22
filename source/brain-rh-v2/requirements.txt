@@ -1,0 +1,29 @@
+# Dépendances système de matching CV/RH - Version 2.6.0
+# Date: 4 octobre 2025
+
+# Interface utilisateur
+streamlit==1.45.1
+
+# IA et LLM
+openai==1.63.2
+sentence-transformers==5.1.1
+
+# Validation et structure
+jsonschema==4.23.0
+pyyaml>=6.0
+
+# Extraction de documents
+PyPDF2==3.0.1
+PyMuPDF>=1.26.0
+python-docx==1.1.0
+docx2txt>=0.8
+
+# Manipulation de données
+pandas==2.3.3
+
+# Configuration
+python-dotenv==1.0.0
+
+# Optionnel (pour tests)
+pytest>=7.0
+pytest-asyncio>=0.21.0
