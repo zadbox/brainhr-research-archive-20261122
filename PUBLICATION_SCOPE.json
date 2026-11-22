@@ -8,7 +8,7 @@
     "6000 synthetic task rows",
     "15 public companion pairs",
     "All A/B labels without text or quotations",
-    "Distinct local model weights in the associated private release",
+    "Distinct local model weights in the associated public release",
     "Model configuration files",
     "Tracked source-code snapshots from eleven copied repositories, with data and sensitive candidates excluded"
   ],

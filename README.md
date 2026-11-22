@@ -8,6 +8,8 @@ L’extract local contient **549 718 fichiers ordinaires et 433 liens**, soit **
 
 ## Documents à utiliser
 
+Les Word V8 ci-dessous conservent l’état documentaire antérieur à cette publication. L’état d’accès actuel figure dans ce README. Les Word V9 seront ajoutés après vérification et publication de la release complète.
+
 - [Manuscrit V8 en Word](documents/BRAINHR_Paper_V8_Sources_Verifiees.docx)
 - [Questions réponses aux reviewers et annexe statistique en Word](documents/BRAINHR_Reponses_Reviewers_Sources_Verifiees.docx)
 - [Périmètre exact des contenus transférés](PUBLICATION_SCOPE.json)

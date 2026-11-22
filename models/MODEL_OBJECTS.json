@@ -1362,6 +1362,6 @@
   "configuration_root": "models/configuration_objects",
   "principal_adapter_sha256": "20cfe4592625d5a507d75ed50dd5fa40f0ff006bfb760d36caea78e72feca900",
   "corrective_adapter_sha256": "171f4c920535",
-  "publication_status": "prepared_not_uploaded",
+  "publication_status": "upload_in_progress_release_draft",
   "configuration_mapping": "models/CONFIGURATION_OBJECTS.json"
 }
