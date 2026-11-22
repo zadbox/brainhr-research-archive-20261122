@@ -50,13 +50,13 @@ Les fichiers de tâches synthétiques sont compressés avec gzip. Ils contiennen
 
 ## Modèles et checkpoints
 
-Les **131 références locales de poids** correspondent à **47 objets distincts**, soit **35 058 746 271 octets** après déduplication. Le [manifeste des objets](models/MODEL_OBJECTS.json) relie chaque objet à tous ses chemins locaux d’origine. Les fichiers volumineux sont découpés en parties d’au plus un Gio, chacune avec une empreinte SHA256. Leur emplacement est la [release associée](https://github.com/zadbox/brainhr-research-archive-20261122/releases/tag/archive-20261122).
+Les **131 références locales de poids** correspondent à **47 objets distincts**, soit **35 058 746 271 octets** après déduplication. Le [manifeste des objets](models/MODEL_OBJECTS.json) relie chaque objet à tous ses chemins locaux d’origine. Les fichiers volumineux sont découpés en parties d’au plus un Gio, chacune avec une empreinte SHA256. Le transfert des poids est en cours ; la release reste en brouillon jusqu’à vérification de toutes les parties. Leur emplacement final est la [release associée](https://github.com/zadbox/brainhr-research-archive-20261122/releases/tag/archive-20261122).
 
 L’adaptateur QLoRA principal commence par `20cfe4592625`, le checkpoint 700 par `f9bbaad0c956`, et l’adaptateur correctif distinct par `171f4c920535`. Le manifeste conserve également les checkpoints intermédiaires, les essais de qualification, les poids de base en quatre fragments et le modèle de base MLX en un fichier. Ces artefacts ne sont pas tous des modèles validés et ne sont pas interchangeables.
 
 Les [configurations et tokenizers](models/CONFIGURATION_OBJECTS.json) sont dédupliqués séparément ; leur table d’alias conserve leurs noms et chemins d’origine. La [licence fournie avec le modèle de base](licenses/META_LLAMA3_LICENSE.txt) est conservée.
 
-Avec un compte GitHub autorisé à lire ce dépôt, restaurer l’adaptateur principal :
+Après publication de la release, restaurer l’adaptateur principal sans compte GitHub :
 
 ```sh
 python3 tools/restore_models.py --principal --out restored_models
@@ -68,7 +68,7 @@ Ou restaurer tous les objets distincts :
 python3 tools/restore_models.py --all --out restored_models
 ```
 
-Le script utilise le CLI `gh`, vérifie chaque partie, assemble les objets et contrôle leur SHA256 complet. Les objets sont nommés par leur empreinte ; les noms de chargement d’origine et les configurations correspondantes sont fournis dans les manifestes. Cette restauration de fichiers n’est pas une nouvelle évaluation du modèle.
+Le script télécharge les assets publics, vérifie chaque partie, assemble les objets et contrôle leur SHA256 complet. Les objets sont nommés par leur empreinte ; les noms de chargement d’origine et les configurations correspondantes sont fournis dans les manifestes. Cette restauration de fichiers n’est pas une nouvelle évaluation du modèle.
 
 ## Chemins exacts de tous les fichiers
 

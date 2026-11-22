@@ -1,10 +1,11 @@
-"""Download and verify model objects from the private GitHub release."""
+"""Download and verify model objects from the public GitHub release."""
 from pathlib import Path
 from hashlib import sha256
 import argparse
 import json
 import re
-import subprocess
+from urllib.parse import quote
+from urllib.request import Request, urlopen
 import tempfile
 
 
@@ -25,6 +26,9 @@ def main():
     args=parser.parse_args()
     if sum((bool(args.object_id),args.principal,args.all))!=1:parser.error('Choose exactly one of --object, --principal or --all')
     manifest=json.loads(args.manifest.read_text())
+    repository=manifest['repository']
+    if not re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+',repository):raise ValueError('Invalid repository')
+    release_url='https://github.com/'+repository+'/releases/download/'+quote(manifest['release_tag'],safe='')
     wanted=manifest['principal_adapter_sha256'] if args.principal else args.object_id
     objects=[o for o in manifest['objects'] if args.all or o['sha256']==wanted]
     if not objects:parser.error('Unknown model object')
@@ -42,9 +46,10 @@ def main():
             for part in obj['parts']:
                 name=part['name']
                 if Path(name).name!=name or not re.fullmatch(r'w-[a-f0-9]{64}(?:-p[0-9]+of[0-9]+)?\.bin',name):raise ValueError('Invalid asset name')
-                subprocess.run(['gh','release','download',manifest['release_tag'],'--repo',manifest['repository'],
-                                '--pattern',name,'--dir',str(folder)],check=True)
                 downloaded=folder/name
+                request=Request(release_url+'/'+quote(name,safe=''),headers={'User-Agent':'BrainHR-Archive-Restore/1.0'})
+                with urlopen(request,timeout=120) as response,downloaded.open('wb') as out:
+                    for block in iter(lambda:response.read(8*1024*1024),b''):out.write(block)
                 if downloaded.stat().st_size!=part['bytes'] or digest(downloaded)!=part['sha256']:raise ValueError('Asset integrity failure: '+name)
             assembled=folder/'assembled.bin'
             with assembled.open('wb') as out:
