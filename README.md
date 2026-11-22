@@ -2,16 +2,14 @@
 
 **Built with Meta Llama 3**
 
-État au **22 novembre 2026**. Ce dépôt centralise les documents de travail des auteurs, les données explicitement synthétiques, les jugements A/B sans texte de CV, les inventaires et les liens GitHub et Hugging Face. Sa publication publique a été explicitement demandée le 22 novembre 2026. Les réglages des dépôts externes restent inchangés. Les documents d’accès sont actualisés pour tenir compte de cette nouvelle archive publique.
+État au **22 novembre 2026**. Ce dépôt centralise les documents de travail des auteurs, les données explicitement synthétiques, les jugements A/B sans texte de CV, les inventaires et les liens GitHub et Hugging Face. Ce dépôt est public depuis le 22 novembre 2026. Les réglages des dépôts externes restent inchangés. Les documents V9 décrivent cet accès public et les limites du périmètre partagé.
 
 L’extract local contient **549 718 fichiers ordinaires et 433 liens**, soit **97 221 524 284 octets de fichiers**. Tous leurs chemins d’origine et de copie sont indexés ici. Les contenus de CV réels, les 1 074 exemples qui en sont dérivés, les citations des annotations et les secrets ne sont pas transférés. Les dépendances installées et les bases d’objets Git restent dans la copie locale ; leurs chemins figurent dans l’inventaire.
 
 ## Documents à utiliser
 
-Les Word V8 ci-dessous conservent l’état documentaire antérieur à cette publication. L’état d’accès actuel figure dans ce README. Les Word V9 seront ajoutés après vérification et publication de la release complète.
-
-- [Manuscrit V8 en Word](documents/BRAINHR_Paper_V8_Sources_Verifiees.docx)
-- [Questions réponses aux reviewers et annexe statistique en Word](documents/BRAINHR_Reponses_Reviewers_Sources_Verifiees.docx)
+- [Manuscrit V9 en Word](documents/BRAINHR_Paper_V9.docx)
+- [Questions réponses V9 aux reviewers et annexe statistique en Word](documents/BRAINHR_Reponses_Reviewers_V9.docx)
 - [Périmètre exact des contenus transférés](PUBLICATION_SCOPE.json)
 
 ## Dépôts et liens
@@ -52,13 +50,13 @@ Les fichiers de tâches synthétiques sont compressés avec gzip. Ils contiennen
 
 ## Modèles et checkpoints
 
-Les **131 références locales de poids** correspondent à **47 objets distincts**, soit **35 058 746 271 octets** après déduplication. Le [manifeste des objets](models/MODEL_OBJECTS.json) relie chaque objet à tous ses chemins locaux d’origine. Les fichiers volumineux sont découpés en parties d’au plus un Gio, chacune avec une empreinte SHA256. Le transfert des poids est en cours ; la release reste en brouillon jusqu’à vérification de toutes les parties. Leur emplacement final est la [release associée](https://github.com/zadbox/brainhr-research-archive-20261122/releases/tag/archive-20261122).
+Les **131 références locales de poids** correspondent à **47 objets distincts**, soit **35 058 746 271 octets** après déduplication. Le [manifeste des objets](models/MODEL_OBJECTS.json) relie chaque objet à tous ses chemins locaux d’origine. Les fichiers volumineux sont découpés en parties d’au plus un Gio, chacune avec une empreinte SHA256. Les 64 parties de poids sont publiées et leurs tailles et SHA256 vérifiés côté GitHub. La licence et la notice les accompagnent. Le [reçu de vérification](verification/MODEL_RELEASE_VERIFICATION.json) détaille chaque partie. Leur emplacement est la [release associée](https://github.com/zadbox/brainhr-research-archive-20261122/releases/tag/archive-20261122).
 
 L’adaptateur QLoRA principal commence par `20cfe4592625`, le checkpoint 700 par `f9bbaad0c956`, et l’adaptateur correctif distinct par `171f4c920535`. Le manifeste conserve également les checkpoints intermédiaires, les essais de qualification, les poids de base en quatre fragments et le modèle de base MLX en un fichier. Ces artefacts ne sont pas tous des modèles validés et ne sont pas interchangeables.
 
 Les [configurations et tokenizers](models/CONFIGURATION_OBJECTS.json) sont dédupliqués séparément ; leur table d’alias conserve leurs noms et chemins d’origine. La [licence fournie avec le modèle de base](licenses/META_LLAMA3_LICENSE.txt) est conservée.
 
-Après publication de la release, restaurer l’adaptateur principal sans compte GitHub :
+Restaurer l’adaptateur principal sans compte GitHub :
 
 ```sh
 python3 tools/restore_models.py --principal --out restored_models
@@ -89,3 +87,7 @@ Le script télécharge les assets publics, vérifie chaque partie, assemble les 
 La copie intégrale demeure à `/Users/mac/BrainHR_EXTRACT_INTEGRAL_20261122/COPIE`. Un chemin local dans un inventaire n’est pas un lien de téléchargement distant. Le [reçu de copie](inventory/VERIFICATION_COPIE.json) et le [périmètre des sources](inventory/PERIMETRE.json) distinguent les fichiers effectivement copiés, les liens et les références distantes.
 
 Les limites de stockage Git ordinaires motivent l’utilisation d’assets de release pour les poids : [documentation GitHub sur les gros fichiers](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github).
+
+## Historique
+
+Les versions V8 conservent l’état documentaire antérieur à l’ouverture de cette archive : [manuscrit V8](documents/BRAINHR_Paper_V8_Sources_Verifiees.docx) et [réponses V8](documents/BRAINHR_Reponses_Reviewers_Sources_Verifiees.docx). Pour l’accès actuel aux artefacts, utiliser les documents V9 ci-dessus.

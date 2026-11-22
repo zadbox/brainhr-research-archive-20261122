@@ -1,0 +1,9 @@
+{
+  "verified_utc": "2026-11-22T13:28:45.594213+00:00",
+  "command": "python3 tools/restore_models.py --principal --out <local output directory>",
+  "transport": "Anonymous HTTPS; no GitHub or Hugging Face token",
+  "object_sha256": "20cfe4592625d5a507d75ed50dd5fa40f0ff006bfb760d36caea78e72feca900",
+  "bytes": 671149168,
+  "full_object_sha256_verified": true,
+  "inference_performed": false
+}

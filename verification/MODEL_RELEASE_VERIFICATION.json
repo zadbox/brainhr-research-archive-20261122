@@ -1,0 +1,528 @@
+{
+  "repository": "zadbox/brainhr-research-archive-20261122",
+  "release_tag": "archive-20261122",
+  "release_id": 454433675,
+  "is_draft": false,
+  "public_url": "https://github.com/zadbox/brainhr-research-archive-20261122/releases/tag/archive-20261122",
+  "verified_utc": "2026-11-22T13:26:58.854200+00:00",
+  "expected_weight_parts": 64,
+  "expected_weight_bytes": 35058746271,
+  "remote_assets": 66,
+  "all_assets_verified": true,
+  "server_digests_available": true,
+  "license_and_notice_verified": true,
+  "assets": [
+    {
+      "name": "w-d8cf9c4d0dd972e1a2131bfe656235ee98221679711a3beef6d46dadf0f20b5c-p001of005.bin",
+      "bytes": 1073741824,
+      "sha256": "83a64a2dcba5894a654c5e51511a5a7ee3e6d336c8b13129c9720d580f5761b8",
+      "remote_digest": "sha256:83a64a2dcba5894a654c5e51511a5a7ee3e6d336c8b13129c9720d580f5761b8",
+      "remote_id": 779069724,
+      "verified": true
+    },
+    {
+      "name": "w-d8cf9c4d0dd972e1a2131bfe656235ee98221679711a3beef6d46dadf0f20b5c-p002of005.bin",
+      "bytes": 1073741824,
+      "sha256": "886a2d0d0d2a5ba1142d297b6f75a6c1ed53e76dc5bda50fbdc90d9f1064c2b5",
+      "remote_digest": "sha256:886a2d0d0d2a5ba1142d297b6f75a6c1ed53e76dc5bda50fbdc90d9f1064c2b5",
+      "remote_id": 779071406,
+      "verified": true
+    },
+    {
+      "name": "w-d8cf9c4d0dd972e1a2131bfe656235ee98221679711a3beef6d46dadf0f20b5c-p003of005.bin",
+      "bytes": 1073741824,
+      "sha256": "09a6360251e54c799f6a2c10381972d0d1bd5738b5b22898ab6cd159a8bf6394",
+      "remote_digest": "sha256:09a6360251e54c799f6a2c10381972d0d1bd5738b5b22898ab6cd159a8bf6394",
+      "remote_id": 779072818,
+      "verified": true
+    },
+    {
+      "name": "w-d8cf9c4d0dd972e1a2131bfe656235ee98221679711a3beef6d46dadf0f20b5c-p004of005.bin",
+      "bytes": 1073741824,
+      "sha256": "3f5b41f8621e5c1aa684763067632e7493d6bd77e039fbcc1d690cf7b5530bc5",
+      "remote_digest": "sha256:3f5b41f8621e5c1aa684763067632e7493d6bd77e039fbcc1d690cf7b5530bc5",
+      "remote_id": 779074373,
+      "verified": true
+    },
+    {
+      "name": "w-d8cf9c4d0dd972e1a2131bfe656235ee98221679711a3beef6d46dadf0f20b5c-p005of005.bin",
+      "bytes": 681731376,
+      "sha256": "6fe20c9f56cd91ce65f8c7f692535d5520c5a49d52a4a1f289defa000088e6b8",
+      "remote_digest": "sha256:6fe20c9f56cd91ce65f8c7f692535d5520c5a49d52a4a1f289defa000088e6b8",
+      "remote_id": 779075575,
+      "verified": true
+    },
+    {
+      "name": "w-8d4782b4a69ef03845159ce1a15e272aadaaf134dc138d68f616098e8531729c-p001of005.bin",
+      "bytes": 1073741824,
+      "sha256": "1d7b6f3e6d40efe1a237b6b3c8ce23ef33731d45a9ac2605425e167e2a2ccb7c",
+      "remote_digest": "sha256:1d7b6f3e6d40efe1a237b6b3c8ce23ef33731d45a9ac2605425e167e2a2ccb7c",
+      "remote_id": 779068558,
+      "verified": true
+    },
+    {
+      "name": "w-8d4782b4a69ef03845159ce1a15e272aadaaf134dc138d68f616098e8531729c-p002of005.bin",
+      "bytes": 1073741824,
+      "sha256": "47a661a2564b9e0faa8c23118afa2e2e4ceff680b72925d73a3c7e88333b03d6",
+      "remote_digest": "sha256:47a661a2564b9e0faa8c23118afa2e2e4ceff680b72925d73a3c7e88333b03d6",
+      "remote_id": 779069932,
+      "verified": true
+    },
+    {
+      "name": "w-8d4782b4a69ef03845159ce1a15e272aadaaf134dc138d68f616098e8531729c-p003of005.bin",
+      "bytes": 1073741824,
+      "sha256": "0750bd076bbf58d165f41d65258d5ca1bd6fcb3b89f5e00977f95db109716aba",
+      "remote_digest": "sha256:0750bd076bbf58d165f41d65258d5ca1bd6fcb3b89f5e00977f95db109716aba",
+      "remote_id": 779070974,
+      "verified": true
+    },
+    {
+      "name": "w-8d4782b4a69ef03845159ce1a15e272aadaaf134dc138d68f616098e8531729c-p004of005.bin",
+      "bytes": 1073741824,
+      "sha256": "e784474c9ecb0c81ecddc06bd7a7e55bdc3d10c78d39a0b7ece5361a28445505",
+      "remote_digest": "sha256:e784474c9ecb0c81ecddc06bd7a7e55bdc3d10c78d39a0b7ece5361a28445505",
+      "remote_id": 779072681,
+      "verified": true
+    },
+    {
+      "name": "w-8d4782b4a69ef03845159ce1a15e272aadaaf134dc138d68f616098e8531729c-p005of005.bin",
+      "bytes": 704835424,
+      "sha256": "2103c4f5617f99fcd4e3cc5c3d36c36078e39f24051f86bcdd58598befce9bd2",
+      "remote_digest": "sha256:2103c4f5617f99fcd4e3cc5c3d36c36078e39f24051f86bcdd58598befce9bd2",
+      "remote_id": 779073773,
+      "verified": true
+    },
+    {
+      "name": "w-3acdd690e65c24f42a24581b8467af98bd3ca357444580f8012aacd2bd607921-p001of005.bin",
+      "bytes": 1073741824,
+      "sha256": "7b2234d886a2ba9e4e0742f47c1e2915eedd958e58d09e4097c049f3548546ba",
+      "remote_digest": "sha256:7b2234d886a2ba9e4e0742f47c1e2915eedd958e58d09e4097c049f3548546ba",
+      "remote_id": 779076251,
+      "verified": true
+    },
+    {
+      "name": "w-3acdd690e65c24f42a24581b8467af98bd3ca357444580f8012aacd2bd607921-p002of005.bin",
+      "bytes": 1073741824,
+      "sha256": "97fc6c7e7c626e34d33b00af9ab646174681ed3cdff16b63d742884dde89d962",
+      "remote_digest": "sha256:97fc6c7e7c626e34d33b00af9ab646174681ed3cdff16b63d742884dde89d962",
+      "remote_id": 779077547,
+      "verified": true
+    },
+    {
+      "name": "w-3acdd690e65c24f42a24581b8467af98bd3ca357444580f8012aacd2bd607921-p003of005.bin",
+      "bytes": 1073741824,
+      "sha256": "fc00f5d680fba4493414f90f5364f21a932e5027fa1e8383af24caa4270a4434",
+      "remote_digest": "sha256:fc00f5d680fba4493414f90f5364f21a932e5027fa1e8383af24caa4270a4434",
+      "remote_id": 779078981,
+      "verified": true
+    },
+    {
+      "name": "w-3acdd690e65c24f42a24581b8467af98bd3ca357444580f8012aacd2bd607921-p004of005.bin",
+      "bytes": 1073741824,
+      "sha256": "37f12fb462e3fe1f1d8eb5a029b50ac29edd46923d41ab2b393cd49fd6819491",
+      "remote_digest": "sha256:37f12fb462e3fe1f1d8eb5a029b50ac29edd46923d41ab2b393cd49fd6819491",
+      "remote_id": 779080272,
+      "verified": true
+    },
+    {
+      "name": "w-3acdd690e65c24f42a24581b8467af98bd3ca357444580f8012aacd2bd607921-p005of005.bin",
+      "bytes": 620948880,
+      "sha256": "563b8033d327902f9f6e0aa8ea08a1a1c132df8f9257a1a60ff052cac0212bc3",
+      "remote_digest": "sha256:563b8033d327902f9f6e0aa8ea08a1a1c132df8f9257a1a60ff052cac0212bc3",
+      "remote_id": 779032788,
+      "verified": true
+    },
+    {
+      "name": "w-67e9ad31c8c32abf3a55ee7fc7217b3ecb35fd3c74d98a5bd233e0e4d6964f46-p001of002.bin",
+      "bytes": 1073741824,
+      "sha256": "856e536c6a31cc428db8d0c13fd456f57c2276624e217f804faef03ab52428fa",
+      "remote_digest": "sha256:856e536c6a31cc428db8d0c13fd456f57c2276624e217f804faef03ab52428fa",
+      "remote_id": 779078102,
+      "verified": true
+    },
+    {
+      "name": "w-67e9ad31c8c32abf3a55ee7fc7217b3ecb35fd3c74d98a5bd233e0e4d6964f46-p002of002.bin",
+      "bytes": 94396984,
+      "sha256": "27862a2ed30ef65ad9398f2ab069177f8ac4d0a5a2b3dccda4959c54c3514848",
+      "remote_digest": "sha256:27862a2ed30ef65ad9398f2ab069177f8ac4d0a5a2b3dccda4959c54c3514848",
+      "remote_id": 779011195,
+      "verified": true
+    },
+    {
+      "name": "w-bb60100787660a676c3143e8f5a15a24c55330529940baf0b3fa41aa19ce21f7.bin",
+      "bytes": 32834200,
+      "sha256": "bb60100787660a676c3143e8f5a15a24c55330529940baf0b3fa41aa19ce21f7",
+      "remote_digest": "sha256:bb60100787660a676c3143e8f5a15a24c55330529940baf0b3fa41aa19ce21f7",
+      "remote_id": 779009451,
+      "verified": true
+    },
+    {
+      "name": "w-20cfe4592625d5a507d75ed50dd5fa40f0ff006bfb760d36caea78e72feca900.bin",
+      "bytes": 671149168,
+      "sha256": "20cfe4592625d5a507d75ed50dd5fa40f0ff006bfb760d36caea78e72feca900",
+      "remote_digest": "sha256:20cfe4592625d5a507d75ed50dd5fa40f0ff006bfb760d36caea78e72feca900",
+      "remote_id": 779006156,
+      "verified": true
+    },
+    {
+      "name": "w-3afd1275d2f034d50e7079d36ee1991568fba10abf3d212005d3a6d58961353f.bin",
+      "bytes": 671149168,
+      "sha256": "3afd1275d2f034d50e7079d36ee1991568fba10abf3d212005d3a6d58961353f",
+      "remote_digest": "sha256:3afd1275d2f034d50e7079d36ee1991568fba10abf3d212005d3a6d58961353f",
+      "remote_id": 779095596,
+      "verified": true
+    },
+    {
+      "name": "w-a620aa78e55bc140d7143706523683e2ac58d4ee57dea5c34af4bb11f730bb9b.bin",
+      "bytes": 671149168,
+      "sha256": "a620aa78e55bc140d7143706523683e2ac58d4ee57dea5c34af4bb11f730bb9b",
+      "remote_digest": "sha256:a620aa78e55bc140d7143706523683e2ac58d4ee57dea5c34af4bb11f730bb9b",
+      "remote_id": 779113693,
+      "verified": true
+    },
+    {
+      "name": "w-2611e82c161f5c49f8e07a0de4bcbd0dd92479a7e913253c00fe3147a3612131.bin",
+      "bytes": 671149168,
+      "sha256": "2611e82c161f5c49f8e07a0de4bcbd0dd92479a7e913253c00fe3147a3612131",
+      "remote_digest": "sha256:2611e82c161f5c49f8e07a0de4bcbd0dd92479a7e913253c00fe3147a3612131",
+      "remote_id": 779068029,
+      "verified": true
+    },
+    {
+      "name": "w-a7fc64e14d87f70852e30825b0bd85f5df3f6061ef3dd066b8545839009f814e.bin",
+      "bytes": 671149168,
+      "sha256": "a7fc64e14d87f70852e30825b0bd85f5df3f6061ef3dd066b8545839009f814e",
+      "remote_digest": "sha256:a7fc64e14d87f70852e30825b0bd85f5df3f6061ef3dd066b8545839009f814e",
+      "remote_id": 779116391,
+      "verified": true
+    },
+    {
+      "name": "w-8972e6d0130040d4584c12327a4b054881e7bcb9d4f2d203e81aada3f8602f0d.bin",
+      "bytes": 671149168,
+      "sha256": "8972e6d0130040d4584c12327a4b054881e7bcb9d4f2d203e81aada3f8602f0d",
+      "remote_digest": "sha256:8972e6d0130040d4584c12327a4b054881e7bcb9d4f2d203e81aada3f8602f0d",
+      "remote_id": 779113526,
+      "verified": true
+    },
+    {
+      "name": "w-95cb7d92eab87de151ba95f10318d76da561be2d9e99d8605b4b4e555bc066c3.bin",
+      "bytes": 671149168,
+      "sha256": "95cb7d92eab87de151ba95f10318d76da561be2d9e99d8605b4b4e555bc066c3",
+      "remote_digest": "sha256:95cb7d92eab87de151ba95f10318d76da561be2d9e99d8605b4b4e555bc066c3",
+      "remote_id": 779113527,
+      "verified": true
+    },
+    {
+      "name": "w-0075edc8b80aac8aae2eefd326a034137848fc1c4aa0f2eeb3021180fc2536e6.bin",
+      "bytes": 671149168,
+      "sha256": "0075edc8b80aac8aae2eefd326a034137848fc1c4aa0f2eeb3021180fc2536e6",
+      "remote_digest": "sha256:0075edc8b80aac8aae2eefd326a034137848fc1c4aa0f2eeb3021180fc2536e6",
+      "remote_id": 779037866,
+      "verified": true
+    },
+    {
+      "name": "w-53eceef9662172e8c055ed4f94a81b6b4aa7f8b9a6da2f92a53119f2bedd9790.bin",
+      "bytes": 671149168,
+      "sha256": "53eceef9662172e8c055ed4f94a81b6b4aa7f8b9a6da2f92a53119f2bedd9790",
+      "remote_digest": "sha256:53eceef9662172e8c055ed4f94a81b6b4aa7f8b9a6da2f92a53119f2bedd9790",
+      "remote_id": 779083242,
+      "verified": true
+    },
+    {
+      "name": "w-f9bbaad0c956c44ea0751165beb66ca3cf52e427224683247d09b73dcd40a866.bin",
+      "bytes": 671149168,
+      "sha256": "f9bbaad0c956c44ea0751165beb66ca3cf52e427224683247d09b73dcd40a866",
+      "remote_digest": "sha256:f9bbaad0c956c44ea0751165beb66ca3cf52e427224683247d09b73dcd40a866",
+      "remote_id": 779138068,
+      "verified": true
+    },
+    {
+      "name": "w-88830edf168c85919f61b67b5f5fe6c4b718a817772778760b288931f2c3eaac.bin",
+      "bytes": 671149168,
+      "sha256": "88830edf168c85919f61b67b5f5fe6c4b718a817772778760b288931f2c3eaac",
+      "remote_digest": "sha256:88830edf168c85919f61b67b5f5fe6c4b718a817772778760b288931f2c3eaac",
+      "remote_id": 779083224,
+      "verified": true
+    },
+    {
+      "name": "w-a95e83a83d9b662451a108b5e7bc92c98278927aa86b2a4946c4831bbc673cfd.bin",
+      "bytes": 671149168,
+      "sha256": "a95e83a83d9b662451a108b5e7bc92c98278927aa86b2a4946c4831bbc673cfd",
+      "remote_digest": "sha256:a95e83a83d9b662451a108b5e7bc92c98278927aa86b2a4946c4831bbc673cfd",
+      "remote_id": 779135442,
+      "verified": true
+    },
+    {
+      "name": "w-d6741a02a955a1b824adebde3560b8192a59f8db8e593419cda5772d7e14fea9.bin",
+      "bytes": 32834200,
+      "sha256": "d6741a02a955a1b824adebde3560b8192a59f8db8e593419cda5772d7e14fea9",
+      "remote_digest": "sha256:d6741a02a955a1b824adebde3560b8192a59f8db8e593419cda5772d7e14fea9",
+      "remote_id": 779010288,
+      "verified": true
+    },
+    {
+      "name": "w-8558c640be0185f2d04262e3eb15b788a2c09873dac63cfb6fd4151144b06dcb.bin",
+      "bytes": 671149168,
+      "sha256": "8558c640be0185f2d04262e3eb15b788a2c09873dac63cfb6fd4151144b06dcb",
+      "remote_digest": "sha256:8558c640be0185f2d04262e3eb15b788a2c09873dac63cfb6fd4151144b06dcb",
+      "remote_id": 779083231,
+      "verified": true
+    },
+    {
+      "name": "w-65cc2e9a685c7092d11f70f2eaed09c9c6016b88a0e402b83481c67f18f1e8e8.bin",
+      "bytes": 335569193,
+      "sha256": "65cc2e9a685c7092d11f70f2eaed09c9c6016b88a0e402b83481c67f18f1e8e8",
+      "remote_digest": "sha256:65cc2e9a685c7092d11f70f2eaed09c9c6016b88a0e402b83481c67f18f1e8e8",
+      "remote_id": 779020044,
+      "verified": true
+    },
+    {
+      "name": "w-171f4c9205356c9834ba5717dc4d73da52b776a67789772281cfea36297fe392.bin",
+      "bytes": 671149168,
+      "sha256": "171f4c9205356c9834ba5717dc4d73da52b776a67789772281cfea36297fe392",
+      "remote_digest": "sha256:171f4c9205356c9834ba5717dc4d73da52b776a67789772281cfea36297fe392",
+      "remote_id": 779068037,
+      "verified": true
+    },
+    {
+      "name": "w-ad9742c91d1d2c8ae2a8b33c1772f544610d319265131e48f7585568e15107d7.bin",
+      "bytes": 335569193,
+      "sha256": "ad9742c91d1d2c8ae2a8b33c1772f544610d319265131e48f7585568e15107d7",
+      "remote_digest": "sha256:ad9742c91d1d2c8ae2a8b33c1772f544610d319265131e48f7585568e15107d7",
+      "remote_id": 779025445,
+      "verified": true
+    },
+    {
+      "name": "w-66ca69f7777fdc89b68e0e6ff2c06857617b0df16de3bd7cb5c89d78d3ea3be0.bin",
+      "bytes": 335569193,
+      "sha256": "66ca69f7777fdc89b68e0e6ff2c06857617b0df16de3bd7cb5c89d78d3ea3be0",
+      "remote_digest": "sha256:66ca69f7777fdc89b68e0e6ff2c06857617b0df16de3bd7cb5c89d78d3ea3be0",
+      "remote_id": 779021560,
+      "verified": true
+    },
+    {
+      "name": "w-18b545076194114e7268102579be9fc9cfb85214e9c765f50ad7ca6c02acbdf3.bin",
+      "bytes": 335569193,
+      "sha256": "18b545076194114e7268102579be9fc9cfb85214e9c765f50ad7ca6c02acbdf3",
+      "remote_digest": "sha256:18b545076194114e7268102579be9fc9cfb85214e9c765f50ad7ca6c02acbdf3",
+      "remote_id": 779012869,
+      "verified": true
+    },
+    {
+      "name": "w-dfdb3d766df174589da477bd45bb4f9d4a43882c81d840ea408573f6f21281eb.bin",
+      "bytes": 335569193,
+      "sha256": "dfdb3d766df174589da477bd45bb4f9d4a43882c81d840ea408573f6f21281eb",
+      "remote_digest": "sha256:dfdb3d766df174589da477bd45bb4f9d4a43882c81d840ea408573f6f21281eb",
+      "remote_id": 779028057,
+      "verified": true
+    },
+    {
+      "name": "w-f4b0f21146e10e249082fef14d0d8dca6d15909a895ffb181e220f5aad0b5854.bin",
+      "bytes": 335569193,
+      "sha256": "f4b0f21146e10e249082fef14d0d8dca6d15909a895ffb181e220f5aad0b5854",
+      "remote_digest": "sha256:f4b0f21146e10e249082fef14d0d8dca6d15909a895ffb181e220f5aad0b5854",
+      "remote_id": 779030670,
+      "verified": true
+    },
+    {
+      "name": "w-bea542dd002001f6857ef6cf70ede84e8435a8e621af20a2f50e6ca5facc9aa5.bin",
+      "bytes": 213424,
+      "sha256": "bea542dd002001f6857ef6cf70ede84e8435a8e621af20a2f50e6ca5facc9aa5",
+      "remote_digest": "sha256:bea542dd002001f6857ef6cf70ede84e8435a8e621af20a2f50e6ca5facc9aa5",
+      "remote_id": 779006741,
+      "verified": true
+    },
+    {
+      "name": "w-a38421772349b5fa2902e4bd2bd09afc17522b4bc5294540d2133be2d2544c1c.bin",
+      "bytes": 68347,
+      "sha256": "a38421772349b5fa2902e4bd2bd09afc17522b4bc5294540d2133be2d2544c1c",
+      "remote_digest": "sha256:a38421772349b5fa2902e4bd2bd09afc17522b4bc5294540d2133be2d2544c1c",
+      "remote_id": 779006527,
+      "verified": true
+    },
+    {
+      "name": "w-09641c759ae644a79efc886b6e219d047500ea8497fe2c4ea03ba1317225c098.bin",
+      "bytes": 68347,
+      "sha256": "09641c759ae644a79efc886b6e219d047500ea8497fe2c4ea03ba1317225c098",
+      "remote_digest": "sha256:09641c759ae644a79efc886b6e219d047500ea8497fe2c4ea03ba1317225c098",
+      "remote_id": 779006166,
+      "verified": true
+    },
+    {
+      "name": "w-f4c528ef5f06203c386e573aa0fa08dda07a38c3391cbd9f1ce5238ee0b09e22.bin",
+      "bytes": 68347,
+      "sha256": "f4c528ef5f06203c386e573aa0fa08dda07a38c3391cbd9f1ce5238ee0b09e22",
+      "remote_digest": "sha256:f4c528ef5f06203c386e573aa0fa08dda07a38c3391cbd9f1ce5238ee0b09e22",
+      "remote_id": 779006615,
+      "verified": true
+    },
+    {
+      "name": "w-0b771c31b211384a21732d4240863f1925fc7c4257f3fb92300f6e22a12a8d26.bin",
+      "bytes": 213424,
+      "sha256": "0b771c31b211384a21732d4240863f1925fc7c4257f3fb92300f6e22a12a8d26",
+      "remote_digest": "sha256:0b771c31b211384a21732d4240863f1925fc7c4257f3fb92300f6e22a12a8d26",
+      "remote_id": 779006658,
+      "verified": true
+    },
+    {
+      "name": "w-2aa8a72a3d0e2b081c89bf377430154a5f078c42c931a6c7f4878e10b88f2033.bin",
+      "bytes": 68347,
+      "sha256": "2aa8a72a3d0e2b081c89bf377430154a5f078c42c931a6c7f4878e10b88f2033",
+      "remote_digest": "sha256:2aa8a72a3d0e2b081c89bf377430154a5f078c42c931a6c7f4878e10b88f2033",
+      "remote_id": 779006304,
+      "verified": true
+    },
+    {
+      "name": "w-750ec2c9adb23cda4fa79ee043521ca61d0bb33cebc2aaedc80abbcd384825d8.bin",
+      "bytes": 68347,
+      "sha256": "750ec2c9adb23cda4fa79ee043521ca61d0bb33cebc2aaedc80abbcd384825d8",
+      "remote_digest": "sha256:750ec2c9adb23cda4fa79ee043521ca61d0bb33cebc2aaedc80abbcd384825d8",
+      "remote_id": 779006434,
+      "verified": true
+    },
+    {
+      "name": "w-bf2b4932a98c3b508c2e6791d1542d59e1e0de234d0585b8635aff19bd43c583.bin",
+      "bytes": 32834200,
+      "sha256": "bf2b4932a98c3b508c2e6791d1542d59e1e0de234d0585b8635aff19bd43c583",
+      "remote_digest": "sha256:bf2b4932a98c3b508c2e6791d1542d59e1e0de234d0585b8635aff19bd43c583",
+      "remote_id": 779009933,
+      "verified": true
+    },
+    {
+      "name": "w-b707024b0a4cb64c85d86336e04ad401d70c550e33db0e8dd60fb4a3cef3706e.bin",
+      "bytes": 32834200,
+      "sha256": "b707024b0a4cb64c85d86336e04ad401d70c550e33db0e8dd60fb4a3cef3706e",
+      "remote_digest": "sha256:b707024b0a4cb64c85d86336e04ad401d70c550e33db0e8dd60fb4a3cef3706e",
+      "remote_id": 779009044,
+      "verified": true
+    },
+    {
+      "name": "w-1fd40feaed548d5d2c043239786ff0c3135d7f371d42df423a9504da935421e9.bin",
+      "bytes": 2100792,
+      "sha256": "1fd40feaed548d5d2c043239786ff0c3135d7f371d42df423a9504da935421e9",
+      "remote_digest": "sha256:1fd40feaed548d5d2c043239786ff0c3135d7f371d42df423a9504da935421e9",
+      "remote_id": 779006809,
+      "verified": true
+    },
+    {
+      "name": "w-89b254c37170a0309e89b1fa4316e9d9c9cbd172c891e0cb8b9e3a66d623e2b8.bin",
+      "bytes": 32834200,
+      "sha256": "89b254c37170a0309e89b1fa4316e9d9c9cbd172c891e0cb8b9e3a66d623e2b8",
+      "remote_digest": "sha256:89b254c37170a0309e89b1fa4316e9d9c9cbd172c891e0cb8b9e3a66d623e2b8",
+      "remote_id": 779008318,
+      "verified": true
+    },
+    {
+      "name": "w-d5b5d6dafe4e4bc1cca6e78ed2e124c9cadd9e746c1e4736b1ecdbd217db1bda.bin",
+      "bytes": 2100792,
+      "sha256": "d5b5d6dafe4e4bc1cca6e78ed2e124c9cadd9e746c1e4736b1ecdbd217db1bda",
+      "remote_digest": "sha256:d5b5d6dafe4e4bc1cca6e78ed2e124c9cadd9e746c1e4736b1ecdbd217db1bda",
+      "remote_id": 779007018,
+      "verified": true
+    },
+    {
+      "name": "w-20ed601be7715313c23b42e51436c04c81570098b172075f1bbda241b1a4a1ee.bin",
+      "bytes": 2100792,
+      "sha256": "20ed601be7715313c23b42e51436c04c81570098b172075f1bbda241b1a4a1ee",
+      "remote_digest": "sha256:20ed601be7715313c23b42e51436c04c81570098b172075f1bbda241b1a4a1ee",
+      "remote_id": 779006903,
+      "verified": true
+    },
+    {
+      "name": "w-03b87ee4f04493bb1bbe4ca898dc2ea0a209ebefb89f75b020fcff5ade6a5eb8.bin",
+      "bytes": 32834200,
+      "sha256": "03b87ee4f04493bb1bbe4ca898dc2ea0a209ebefb89f75b020fcff5ade6a5eb8",
+      "remote_digest": "sha256:03b87ee4f04493bb1bbe4ca898dc2ea0a209ebefb89f75b020fcff5ade6a5eb8",
+      "remote_id": 779007149,
+      "verified": true
+    },
+    {
+      "name": "w-2b96dbc7d9ff3c7c29cbc4bf094101ff15cbc54a8bc7dcd9dbe34bfe069019c3.bin",
+      "bytes": 671149168,
+      "sha256": "2b96dbc7d9ff3c7c29cbc4bf094101ff15cbc54a8bc7dcd9dbe34bfe069019c3",
+      "remote_digest": "sha256:2b96dbc7d9ff3c7c29cbc4bf094101ff15cbc54a8bc7dcd9dbe34bfe069019c3",
+      "remote_id": 779095598,
+      "verified": true
+    },
+    {
+      "name": "w-4b7197489afb9cf8246a69cbb25a35b21d907d2d3ea42e392d7aea39a4271293.bin",
+      "bytes": 671149168,
+      "sha256": "4b7197489afb9cf8246a69cbb25a35b21d907d2d3ea42e392d7aea39a4271293",
+      "remote_digest": "sha256:4b7197489afb9cf8246a69cbb25a35b21d907d2d3ea42e392d7aea39a4271293",
+      "remote_id": 779083243,
+      "verified": true
+    },
+    {
+      "name": "w-4eded45792fb11145374724ee5e7eae3f5746163d490d846b4abab450d1a3406.bin",
+      "bytes": 32834200,
+      "sha256": "4eded45792fb11145374724ee5e7eae3f5746163d490d846b4abab450d1a3406",
+      "remote_digest": "sha256:4eded45792fb11145374724ee5e7eae3f5746163d490d846b4abab450d1a3406",
+      "remote_id": 779007490,
+      "verified": true
+    },
+    {
+      "name": "w-f35e38851faa7d2306aa49dc4ffcdda6fa6a8ef6f1b2974eaa423f2e7de498fc.bin",
+      "bytes": 32834200,
+      "sha256": "f35e38851faa7d2306aa49dc4ffcdda6fa6a8ef6f1b2974eaa423f2e7de498fc",
+      "remote_digest": "sha256:f35e38851faa7d2306aa49dc4ffcdda6fa6a8ef6f1b2974eaa423f2e7de498fc",
+      "remote_id": 779010734,
+      "verified": true
+    },
+    {
+      "name": "w-6315e9210766a33ee6cf0fd4871e02bc437514db03cf12daf906e5d69c8aee91.bin",
+      "bytes": 32834200,
+      "sha256": "6315e9210766a33ee6cf0fd4871e02bc437514db03cf12daf906e5d69c8aee91",
+      "remote_digest": "sha256:6315e9210766a33ee6cf0fd4871e02bc437514db03cf12daf906e5d69c8aee91",
+      "remote_id": 779007885,
+      "verified": true
+    },
+    {
+      "name": "w-d651a1369c81bc2808c0c8cb646afcd47c2106ef10bef37bc5f6e50ba3020050.bin",
+      "bytes": 671149168,
+      "sha256": "d651a1369c81bc2808c0c8cb646afcd47c2106ef10bef37bc5f6e50ba3020050",
+      "remote_digest": "sha256:d651a1369c81bc2808c0c8cb646afcd47c2106ef10bef37bc5f6e50ba3020050",
+      "remote_id": 779136275,
+      "verified": true
+    },
+    {
+      "name": "w-df8dddecf504dcaea4c3c5adf44ca983ba65c03cce5b3417d97f414033060118-p001of005.bin",
+      "bytes": 1073741824,
+      "sha256": "fe480aadc0637e2136c8122b9e463d8e88407398b23542289e0216957f545c30",
+      "remote_digest": "sha256:fe480aadc0637e2136c8122b9e463d8e88407398b23542289e0216957f545c30",
+      "remote_id": 779082246,
+      "verified": true
+    },
+    {
+      "name": "w-df8dddecf504dcaea4c3c5adf44ca983ba65c03cce5b3417d97f414033060118-p002of005.bin",
+      "bytes": 1073741824,
+      "sha256": "0d321fbceca9313bd2b5080d7b872cc9d02ea80b9a839253670d18947aaa460c",
+      "remote_digest": "sha256:0d321fbceca9313bd2b5080d7b872cc9d02ea80b9a839253670d18947aaa460c",
+      "remote_id": 779083721,
+      "verified": true
+    },
+    {
+      "name": "w-df8dddecf504dcaea4c3c5adf44ca983ba65c03cce5b3417d97f414033060118-p003of005.bin",
+      "bytes": 1073741824,
+      "sha256": "17a239ca9c0be41c7c44846091a8c850c2539a0da3eb78376ccdea3f79c6418c",
+      "remote_digest": "sha256:17a239ca9c0be41c7c44846091a8c850c2539a0da3eb78376ccdea3f79c6418c",
+      "remote_id": 779085739,
+      "verified": true
+    },
+    {
+      "name": "w-df8dddecf504dcaea4c3c5adf44ca983ba65c03cce5b3417d97f414033060118-p004of005.bin",
+      "bytes": 1073741824,
+      "sha256": "533d8f438a5eaf73423cb58860fc6a5033f596ceda4b7f576c1ee939df215fe2",
+      "remote_digest": "sha256:533d8f438a5eaf73423cb58860fc6a5033f596ceda4b7f576c1ee939df215fe2",
+      "remote_id": 779087649,
+      "verified": true
+    },
+    {
+      "name": "w-df8dddecf504dcaea4c3c5adf44ca983ba65c03cce5b3417d97f414033060118-p005of005.bin",
+      "bytes": 977692826,
+      "sha256": "c81da7920e9bb66a5dd99c78c6336ff010555977a84f4d72b7cb556afaa37ec6",
+      "remote_digest": "sha256:c81da7920e9bb66a5dd99c78c6336ff010555977a84f4d72b7cb556afaa37ec6",
+      "remote_id": 779089474,
+      "verified": true
+    }
+  ]
+}

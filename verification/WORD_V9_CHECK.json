@@ -1,0 +1,20 @@
+{
+  "scope": "Availability paragraphs and version references updated; no new experiment claimed",
+  "paper_tables_identical_to_v8_xml": true,
+  "paper_figure_identical_to_v8": true,
+  "reviewer_questions": 54,
+  "reviewer_notes": 5,
+  "visual_qa": "Every rendered page inspected by the document worker; no clipping or overlap observed",
+  "documents": [
+    {
+      "name": "BRAINHR_Paper_V9.docx",
+      "sha256": "5a9f70d9b2375f3f17247209a45c2870db790525ffc76952a733414b65db0916",
+      "rendered_pages": 22
+    },
+    {
+      "name": "BRAINHR_Reponses_Reviewers_V9.docx",
+      "sha256": "cecfbe007a104c5a300032f40bddd874bc62e1ccf89c6c29ca416935eefd63b2",
+      "rendered_pages": 20
+    }
+  ]
+}
