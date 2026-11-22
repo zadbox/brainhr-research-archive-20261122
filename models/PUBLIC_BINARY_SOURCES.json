@@ -1,0 +1,42 @@
+[
+  {
+    "repository": "NousResearch/Meta-Llama-3-8B-Instruct",
+    "revision": "53346005fb0ef11d3b6a83b12c895cca40156b6c",
+    "path": "model-00001-of-00004.safetensors",
+    "sha256": "d8cf9c4d0dd972e1a2131bfe656235ee98221679711a3beef6d46dadf0f20b5c",
+    "bytes": 4976698672,
+    "url": "https://huggingface.co/NousResearch/Meta-Llama-3-8B-Instruct/resolve/53346005fb0ef11d3b6a83b12c895cca40156b6c/model-00001-of-00004.safetensors?download=true"
+  },
+  {
+    "repository": "NousResearch/Meta-Llama-3-8B-Instruct",
+    "revision": "53346005fb0ef11d3b6a83b12c895cca40156b6c",
+    "path": "model-00002-of-00004.safetensors",
+    "sha256": "8d4782b4a69ef03845159ce1a15e272aadaaf134dc138d68f616098e8531729c",
+    "bytes": 4999802720,
+    "url": "https://huggingface.co/NousResearch/Meta-Llama-3-8B-Instruct/resolve/53346005fb0ef11d3b6a83b12c895cca40156b6c/model-00002-of-00004.safetensors?download=true"
+  },
+  {
+    "repository": "NousResearch/Meta-Llama-3-8B-Instruct",
+    "revision": "53346005fb0ef11d3b6a83b12c895cca40156b6c",
+    "path": "model-00003-of-00004.safetensors",
+    "sha256": "3acdd690e65c24f42a24581b8467af98bd3ca357444580f8012aacd2bd607921",
+    "bytes": 4915916176,
+    "url": "https://huggingface.co/NousResearch/Meta-Llama-3-8B-Instruct/resolve/53346005fb0ef11d3b6a83b12c895cca40156b6c/model-00003-of-00004.safetensors?download=true"
+  },
+  {
+    "repository": "NousResearch/Meta-Llama-3-8B-Instruct",
+    "revision": "53346005fb0ef11d3b6a83b12c895cca40156b6c",
+    "path": "model-00004-of-00004.safetensors",
+    "sha256": "67e9ad31c8c32abf3a55ee7fc7217b3ecb35fd3c74d98a5bd233e0e4d6964f46",
+    "bytes": 1168138808,
+    "url": "https://huggingface.co/NousResearch/Meta-Llama-3-8B-Instruct/resolve/53346005fb0ef11d3b6a83b12c895cca40156b6c/model-00004-of-00004.safetensors?download=true"
+  },
+  {
+    "repository": "mlx-community/Meta-Llama-3-8B-Instruct-4bit",
+    "revision": "c38b3b1f03cce0ce0ccd235e5c97b0d3d255e651",
+    "path": "model.safetensors",
+    "sha256": "df8dddecf504dcaea4c3c5adf44ca983ba65c03cce5b3417d97f414033060118",
+    "bytes": 5272660122,
+    "url": "https://huggingface.co/mlx-community/Meta-Llama-3-8B-Instruct-4bit/resolve/c38b3b1f03cce0ce0ccd235e5c97b0d3d255e651/model.safetensors?download=true"
+  }
+]

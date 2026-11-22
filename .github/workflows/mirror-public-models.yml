@@ -1,0 +1,27 @@
+name: Mirror identical public model objects
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        object:
+          - d8cf9c4d0dd972e1a2131bfe656235ee98221679711a3beef6d46dadf0f20b5c
+          - 8d4782b4a69ef03845159ce1a15e272aadaaf134dc138d68f616098e8531729c
+          - 3acdd690e65c24f42a24581b8467af98bd3ca357444580f8012aacd2bd607921
+          - 67e9ad31c8c32abf3a55ee7fc7217b3ecb35fd3c74d98a5bd233e0e4d6964f46
+          - df8dddecf504dcaea4c3c5adf44ca983ba65c03cce5b3417d97f414033060118
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify and mirror the public binary
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/mirror_public_models.py --object "${{ matrix.object }}" --release-id 454433675
